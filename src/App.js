@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 
 // Components
@@ -9,7 +9,7 @@ import NameGenerator from './components/NameGenerator';
 
 const App = () => {
     return (
-        <Router basename={process.env.PUBLIC_URL}>
+        <Router>
             <Layout>
                 <Switch>
                     <Route exact path='/' component={Home}/>
