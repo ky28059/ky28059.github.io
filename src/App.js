@@ -9,7 +9,7 @@ import NameGenerator from './components/NameGenerator';
 
 const App = () => {
     return (
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
             <Layout>
                 <Switch>
                     <Route exact path='/' component={Home}/>
