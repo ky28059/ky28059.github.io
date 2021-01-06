@@ -5,7 +5,7 @@ import {combinations, MarkovObj, generate, words} from '../utils/MarkovUtils';
 const combolength = 3; // Number of chars it reads to decide the next letter
 
 
-const NameGenerator = (props) => {
+const WordGenerator = (props) => {
     const [markov] = useState(new Map()); // Markov model
     const [content, setContent] = useState(null); // Displayed output
 
@@ -66,4 +66,4 @@ const NameGenerator = (props) => {
     )
 }
 
-export default NameGenerator;
+export default WordGenerator;

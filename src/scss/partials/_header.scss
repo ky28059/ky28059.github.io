@@ -1,0 +1,46 @@
+header {
+  height: 75px;
+  padding: 0 10px;
+  background-color: #23272a;
+  display: flex;
+  align-items: center;
+  transition: height 300ms;
+
+  &.hidden {
+    height: 25px;
+
+    img, .item {
+      display: none;
+    }
+    .toggler {
+      display: block;
+    }
+  }
+
+  // Pfp
+  img {
+    $size: 50px;
+    height: $size;
+    width: $size;
+    border-radius: 50%;
+  }
+
+  // Links
+  .item {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem;
+    margin-left: 1rem;
+    transition: background-color 200ms;
+
+    &:hover {
+      background-color: #2c2f33;
+    }
+  }
+
+  // Toggler
+  .toggler {
+    margin-left: auto;
+  }
+}
