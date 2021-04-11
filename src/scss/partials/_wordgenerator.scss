@@ -1,0 +1,27 @@
+.inputs {
+  display: flex;
+  justify-content: center;
+
+  input {
+    margin: 0 2rem;
+  }
+}
+
+.word-gen-results {
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
+  list-style: none;
+  padding: 0;
+
+  .word {
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: background-color 200ms ease;
+    cursor: pointer;
+    overflow-wrap: break-word;
+
+    &:hover {
+      background-color: rgba(white, 0.1);
+    }
+  }
+}

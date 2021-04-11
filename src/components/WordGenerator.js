@@ -1,5 +1,8 @@
 import React, {useState, useEffect} from 'react';
 
+// Components
+import Word from './wordgenerator/Word';
+
 // Word generation tools
 import {combinations, MarkovObj, generate, words} from '../utils/MarkovUtils';
 const combolength = 3; // Number of chars it reads to decide the next letter
@@ -41,10 +44,10 @@ const WordGenerator = (props) => {
 
     // Display generated words
     const parseGenerated = (result) => {
-        let content = [...result].map(word => <li>{word}</li>)
+        let content = [...result].map(word => <Word name={word}/>)
 
         return (
-            <ul>
+            <ul className="word-gen-results">
                 {content}
             </ul>
         )
@@ -56,8 +59,21 @@ const WordGenerator = (props) => {
             <h1>Roger Fan Markov Chain word generation</h1>
 
             {/* User Input */}
-            <input type="text" placeholder="Prefix" onChange={e => setPrefix(e.target.value)}/>
-            <input type="text" placeholder="Generated words" onChange={e => setGenerateNum(e.target.value)}/>
+            <div className="inputs">
+                <input
+                    type="text"
+                    id="prefix"
+                    placeholder="Prefix"
+                    onChange={e => setPrefix(e.target.value)}
+                />
+                <input
+                    type="text"
+                    id="word-count"
+                    placeholder="Number of words"
+                    onChange={e => setGenerateNum(e.target.value)}
+                />
+            </div>
+
             <button onClick={generateWords}>Generate</button>
 
             {/* Displayed content */}

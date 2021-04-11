@@ -12,6 +12,19 @@ a {
   text-decoration: none;
 }
 
+input {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  transition: background-color 300ms ease;
+}
+input[type=text] {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+input[type=text]:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
 header {
   height: 75px;
   padding: 0 10px;
@@ -47,6 +60,31 @@ header .item:hover {
 }
 header .toggler {
   margin-left: auto;
+}
+
+.inputs {
+  display: flex;
+  justify-content: center;
+}
+.inputs input {
+  margin: 0 2rem;
+}
+
+.word-gen-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  list-style: none;
+  padding: 0;
+}
+.word-gen-results .word {
+  padding: 0.5rem;
+  border-radius: 5px;
+  transition: background-color 200ms ease;
+  cursor: pointer;
+  overflow-wrap: break-word;
+}
+.word-gen-results .word:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 /*# sourceMappingURL=index.css.map */
