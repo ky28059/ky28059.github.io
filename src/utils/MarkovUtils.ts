@@ -9,23 +9,23 @@ const validchars = alphabet + endchar;
 // Find valid words, end them with the endchar
 export const words = raw
     .split('\n')
-    .map(word => word.toLowerCase())
-    .filter(word => [...word].every(char => alphabet.includes(char)))
-    .map(word => word + endchar);
+    .map((word: string) => word.toLowerCase())
+    .filter((word: string) => [...word].every(char => alphabet.includes(char)))
+    .map((word: string) => word + endchar);
 
 /**
  * @param {number} num
  * @returns {Set<string>}
  * @description Generate all combinations of num length, e.g. for num=2 it'd be "aa","ab", ..etc
  */
-export function combinations(num) {
-    if (num === 0 ) {
-        let empty = new Set();
+export function combinations(num: number) {
+    if (num === 0) {
+        let empty = new Set<string>();
         empty.add("");
         return empty;
     }
 
-    let combos = new Set();
+    let combos = new Set<string>();
 
     let possible = num === 1 ? validchars : alphabet;
     for (const char of possible) {
@@ -41,6 +41,9 @@ export function combinations(num) {
  * @classdesc A class for what comes after a combo. For example, after "abc", this class would keep track of how many times "a","b","c"...etc. occur after "abc"
  */
 export class MarkovObj {
+    chars: Map<string, number>;
+    alphabet;
+
     constructor() {
         /**
          * @type {Map<string,number>}
@@ -53,16 +56,16 @@ export class MarkovObj {
         }
     }
 
-    add(a) {
+    add(a: string) {
         if (this.chars.has(a)) {
-            this.chars.set(a, this.chars.get(a) + 1);
+            this.chars.set(a, this.chars.get(a)! + 1);
             return true;
         }
         return false;
     }
 
     total() {
-        return [0, ...this.chars].reduce((init,curr) => init + curr[1]);
+        return [...this.chars].reduce((a, b) => a + b[1], 0);
     }
 
     random() {
@@ -91,8 +94,8 @@ export class MarkovObj {
     }
 }
 
-export function generate(prefix, combolength, generateNum, brain) {
-    let output = new Set();
+export function generate(prefix: string, combolength: number, generateNum: number, brain: Map<string, MarkovObj>) {
+    let output = new Set<string>();
 
     for (let i = 0; i < generateNum; i++) {
         // We don't like words < 5 chars in length
@@ -103,7 +106,7 @@ export function generate(prefix, combolength, generateNum, brain) {
 
             while (!newword.includes(endchar)) {
                 const combo = newword.slice(-combolength);
-                const nextchar = brain.get(combo).random();
+                const nextchar = brain.get(combo)?.random();
 
                 newword += nextchar;
             }

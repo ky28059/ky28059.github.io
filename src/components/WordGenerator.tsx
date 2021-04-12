@@ -8,18 +8,19 @@ import {combinations, MarkovObj, generate, words} from '../utils/MarkovUtils';
 const combolength = 3; // Number of chars it reads to decide the next letter
 
 
-const WordGenerator = (props) => {
-    const [markov] = useState(new Map()); // Markov model
-    const [content, setContent] = useState(null); // Displayed output
+const WordGenerator = () => {
+    const [markov] = useState<Map<string, MarkovObj>>(new Map()); // Markov model
+    const [content, setContent] = useState<null | React.ReactNode>(null); // Displayed output
 
     // User input
-    const [prefix, setPrefix] = useState(null);
+    const [prefix, setPrefix] = useState<null | string>(null);
     const [generateNum, setGenerateNum] = useState(0);
 
 
     // Initialize markov model
     useEffect(() => {
         // For each combo, initialize the markov model and the start map
+        // @ts-ignore
         for (const combo of combinations(combolength)) {
             markov.set(combo, new MarkovObj());
         }
@@ -28,7 +29,7 @@ const WordGenerator = (props) => {
         for (const word of words) {
             for (let i = 0; i < word.length - combolength; i++) {
                 let prevcombo = word.slice(i, i + combolength);
-                markov.get(prevcombo).add(word.charAt(i + combolength));
+                markov.get(prevcombo)?.add(word.charAt(i + combolength));
             }
         }
     }, []);
@@ -43,7 +44,7 @@ const WordGenerator = (props) => {
     }
 
     // Display generated words
-    const parseGenerated = (result) => {
+    const parseGenerated = (result: Set<string>) => {
         let content = [...result].map(word => <Word name={word}/>)
 
         return (
@@ -70,7 +71,7 @@ const WordGenerator = (props) => {
                     type="text"
                     id="word-count"
                     placeholder="Number of words"
-                    onChange={e => setGenerateNum(e.target.value)}
+                    onChange={e => setGenerateNum(Number(e.target.value))}
                 />
             </div>
 
