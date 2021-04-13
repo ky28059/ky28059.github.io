@@ -108,15 +108,36 @@ header .toggler {
 .projects .project .heading {
   display: flex;
   align-items: center;
+  margin-bottom: 1rem;
 }
 .projects .project .heading img {
-  border-radius: 50%;
   width: 2.5rem;
   height: 2.5rem;
+  border-radius: 50%;
   margin: 0 1rem 0 0;
 }
 .projects .project .heading h3 {
   margin: 0;
+}
+.projects .project .tags {
+  display: flex;
+}
+.projects .project .tags div {
+  margin-right: 0.5rem;
+}
+.projects .project .links {
+  margin-top: auto;
+}
+.projects .project .links img {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-right: 0.3rem;
+}
+
+.tag {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
 }
 
 .about {

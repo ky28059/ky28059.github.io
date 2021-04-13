@@ -1,13 +1,14 @@
 import React from 'react';
 
 // Components
-import Project from './layout/Project';
+import Project from './home/Project';
 
 // Project Icons
 import RBot from '../assets/RBot.png';
 import WATT from '../assets/watt-white.png';
 import Geckobot from '../assets/Geckobot.png';
 import Test from '../assets/pfp.png';
+import ProjectTag from "./home/ProjectTag";
 
 
 const Home = () => {
@@ -25,25 +26,32 @@ const Home = () => {
                 <Project
                     name="RBot"
                     desc="Discord mod bot using djs and sequelize."
-                    link="https://github.com/ky28059/RBot"
                     img={RBot}
+                    tags={['js']}
+                    gh="https://github.com/ky28059/RBot"
+                    discord="https://discord.com/oauth2/authorize?client_id=684587440777986090&scope=bot&permissions=8"
                 />
                 <Project
                     name="WATT"
                     desc="Gunn schedule app and UGWA successor."
-                    link="https://github.com/GunnWATT/watt"
                     img={WATT}
+                    tags={['ts', 'js', 'html', 'scss']}
+                    gh="https://github.com/GunnWATT/watt"
+                    web="https://gunnwatt.web.app/"
                 />
                 <Project
                     name="Word Generator"
                     desc="A web port of Roger Fan's markov chain random word generator."
-                    link="https://github.com/ky28059/RBot"
+                    tags={['ts', 'html', 'scss']}
+                    web="https://ky28059.github.io/#/word-gen"
                 />
                 <Project
                     name="Geckobot"
                     desc="Discord.net bot with Drive API and quantum computing."
-                    link="https://github.com/croissantderp/geckobot"
                     img={Geckobot}
+                    tags={['c#', 'q#']}
+                    gh="https://github.com/croissantderp/geckobot"
+                    discord="https://discord.com/oauth2/authorize?client_id=766064505079726140&scope=bot&permissions=379968"
                 />
                 {/*
                 <Project name="test" desc="yes" link="https://github.com/ky28059/RBot" img={Test}/>
