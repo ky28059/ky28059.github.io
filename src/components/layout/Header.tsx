@@ -14,6 +14,7 @@ const Header = () => {
             <a href="https://github.com/ky28059">
                 <img src={pfp} alt="Profile"/>
             </a>
+            <h1>ky28059</h1>
             <HeaderItem to="/" name="Home" exact />
             <HeaderItem to="/word-gen" name="Word Generator" />
 

@@ -1,5 +1,5 @@
 body {
-  background-color: #15181a;
+  background-color: $primary;
   color: white;
 }
 
@@ -25,4 +25,8 @@ input {
       background-color: rgba(white, 0.5);
     }
   }
+}
+
+.center {
+  text-align: center;
 }

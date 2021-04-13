@@ -1,0 +1,30 @@
+.projects {
+  display: grid;
+  grid-template-columns: repeat( auto-fill, minmax(250px, 1fr) );
+  grid-auto-flow: row;
+
+  .project {
+    margin: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: $secondary;
+
+    .heading {
+      display: flex;
+      align-items: center;
+
+      img {
+        border-radius: 50%;
+        $size: 2.5rem;
+        width: $size;
+        height: $size;
+        margin: 0 1rem 0 0;
+      }
+
+      h3 {
+        margin: 0;
+      }
+    }
+  }
+}

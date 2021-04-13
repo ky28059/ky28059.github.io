@@ -1,7 +1,7 @@
 header {
   height: 75px;
   padding: 0 10px;
-  background-color: #23272a;
+  background-color: $secondary;
   display: flex;
   align-items: center;
   transition: height 300ms;
@@ -17,6 +17,10 @@ header {
     }
   }
 
+  * {
+    padding: 0 0.5rem;
+  }
+
   // Pfp
   img {
     $size: 50px;
@@ -30,7 +34,6 @@ header {
     height: 100%;
     display: flex;
     align-items: center;
-    padding: 0 0.5rem;
     margin-left: 1rem;
     transition: background-color 200ms;
 
