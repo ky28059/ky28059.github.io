@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.9c6b4d8e.chunk.css",
-    "main.js": "/static/js/main.b93d2c6d.chunk.js",
-    "main.js.map": "/static/js/main.b93d2c6d.chunk.js.map",
+    "main.css": "/static/css/main.b12b4ac5.chunk.css",
+    "main.js": "/static/js/main.55a88efa.chunk.js",
+    "main.js.map": "/static/js/main.55a88efa.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.6f0b9af2.js",
     "runtime-main.js.map": "/static/js/runtime-main.6f0b9af2.js.map",
-    "static/js/2.c4bdbc6e.chunk.js": "/static/js/2.c4bdbc6e.chunk.js",
-    "static/js/2.c4bdbc6e.chunk.js.map": "/static/js/2.c4bdbc6e.chunk.js.map",
+    "static/js/2.3675b239.chunk.js": "/static/js/2.3675b239.chunk.js",
+    "static/js/2.3675b239.chunk.js.map": "/static/js/2.3675b239.chunk.js.map",
     "static/js/3.f8a33554.chunk.js": "/static/js/3.f8a33554.chunk.js",
     "static/js/3.f8a33554.chunk.js.map": "/static/js/3.f8a33554.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.9c6b4d8e.chunk.css.map": "/static/css/main.9c6b4d8e.chunk.css.map",
-    "static/js/2.c4bdbc6e.chunk.js.LICENSE.txt": "/static/js/2.c4bdbc6e.chunk.js.LICENSE.txt",
+    "static/css/main.b12b4ac5.chunk.css.map": "/static/css/main.b12b4ac5.chunk.css.map",
+    "static/js/2.3675b239.chunk.js.LICENSE.txt": "/static/js/2.3675b239.chunk.js.LICENSE.txt",
     "static/media/Discord-Logo-White.f09ba73b.svg": "/static/media/Discord-Logo-White.f09ba73b.svg",
     "static/media/Geckobot.459d2330.png": "/static/media/Geckobot.459d2330.png",
     "static/media/RBot.84e5cea1.png": "/static/media/RBot.84e5cea1.png",
@@ -21,8 +21,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.6f0b9af2.js",
-    "static/js/2.c4bdbc6e.chunk.js",
-    "static/css/main.9c6b4d8e.chunk.css",
-    "static/js/main.b93d2c6d.chunk.js"
+    "static/js/2.3675b239.chunk.js",
+    "static/css/main.b12b4ac5.chunk.css",
+    "static/js/main.55a88efa.chunk.js"
   ]
 }
