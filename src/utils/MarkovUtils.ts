@@ -1,7 +1,7 @@
 import raw from './dictionary';
 
 // Alphabets, some other things
-const alphabet = "abcdefghijklmnopqrstuvwxyz"
+export const alphabet = "abcdefghijklmnopqrstuvwxyz"
 const endchar = "#"
 const validchars = alphabet + endchar;
 

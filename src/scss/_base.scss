@@ -14,15 +14,17 @@ a {
 
 input {
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 0.1rem;
   padding: 0.5rem;
-  transition: background-color 300ms ease;
+  transition: background-color 100ms ease;
 
   &[type='text'] {
-    background-color: rgba(white, 0.7);
-
     &:hover {
-      background-color: rgba(white, 0.5);
+      background-color: rgba(white, 0.7);
+    }
+
+    &:focus {
+      outline: none;
     }
   }
 }

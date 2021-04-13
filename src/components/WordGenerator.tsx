@@ -4,7 +4,7 @@ import React, {useState, useEffect} from 'react';
 import Word from './wordgenerator/Word';
 
 // Word generation tools
-import {combinations, MarkovObj, generate, words} from '../utils/MarkovUtils';
+import {combinations, MarkovObj, generate, words, alphabet} from '../utils/MarkovUtils';
 const combolength = 3; // Number of chars it reads to decide the next letter
 
 
@@ -37,10 +37,20 @@ const WordGenerator = () => {
 
     // Generate words from prefix
     const generateWords = () => {
-        if (!prefix || prefix.length < combolength) return setContent(<span>Prefix must be a set of chars greater than or equal to {combolength}</span>);
-        if (generateNum < 1) return setContent(<span>You must choose a positive number of words to generate!</span>)
+        // If prefix is lower than the combo length
+        if (!prefix || prefix.length < combolength)
+            return setContent(<p className="center">Prefix must be a string longer than or equal to {combolength} characters.</p>);
+        // If prefix contains illegal characters
+        if ([...prefix].some(char => !alphabet.includes(char)))
+            return setContent(<p className="center">Prefix must only contain letters.</p>)
+        // If generateNum is not a valid integer
+        if (isNaN(generateNum) || generateNum % 1 !== 0)
+            return setContent(<p className="center">Word count must be a valid integer.</p>);
+        // If generateNum is negative
+        if (generateNum < 1)
+            return setContent(<p className="center">Word count must be positive.</p>);
 
-        setContent(parseGenerated(generate(prefix, combolength, generateNum, markov)))
+        setContent(parseGenerated(generate(prefix, combolength, generateNum, markov)));
     }
 
     // Display generated words
@@ -57,7 +67,7 @@ const WordGenerator = () => {
 
     return (
         <div>
-            <h1>Roger Fan Markov Chain word generation</h1>
+            <h1 className="center">Roger Fan Markov Chain word generation</h1>
 
             {/* User Input */}
             <div className="inputs">
@@ -73,9 +83,8 @@ const WordGenerator = () => {
                     placeholder="Number of words"
                     onChange={e => setGenerateNum(Number(e.target.value))}
                 />
+                <button onClick={generateWords}>Generate</button>
             </div>
-
-            <button onClick={generateWords}>Generate</button>
 
             {/* Displayed content */}
             {content}
