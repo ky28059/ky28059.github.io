@@ -1,0 +1,22 @@
+.drought {
+  text-align: center;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+  }
+
+  h1 {
+    font-size: 120pt;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 40pt;
+    margin: 0;
+  }
+}

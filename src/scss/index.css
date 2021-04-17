@@ -148,4 +148,24 @@ header .toggler {
   margin-bottom: 3rem;
 }
 
+.drought {
+  text-align: center;
+}
+.drought img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+.drought h1 {
+  font-size: 120pt;
+  margin-bottom: 1rem;
+}
+.drought h2 {
+  font-size: 40pt;
+  margin: 0;
+}
+
 /*# sourceMappingURL=index.css.map */

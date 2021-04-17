@@ -7,6 +7,7 @@ import Layout from './components/Layout';
 import Home from './components/Home';
 import WordGenerator from './components/WordGenerator';
 import Particles from './components/Particles';
+import DroughtCounter from './components/DroughtCounter';
 
 
 const App = () => {
@@ -16,7 +17,7 @@ const App = () => {
                 <Switch>
                     <Route exact path='/' component={Home}/>
                     <Route path='/word-gen' component={WordGenerator}/>
-                    <Route path='/particles' component={Particles}/>
+                    <Route path='/drought' component={DroughtCounter}/>
                 </Switch>
             </Layout>
         </Router>
