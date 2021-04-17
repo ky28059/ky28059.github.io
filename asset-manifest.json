@@ -1,28 +1,29 @@
 {
   "files": {
-    "main.css": "/static/css/main.b12b4ac5.chunk.css",
-    "main.js": "/static/js/main.55a88efa.chunk.js",
-    "main.js.map": "/static/js/main.55a88efa.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.6f0b9af2.js",
-    "runtime-main.js.map": "/static/js/runtime-main.6f0b9af2.js.map",
-    "static/js/2.3675b239.chunk.js": "/static/js/2.3675b239.chunk.js",
-    "static/js/2.3675b239.chunk.js.map": "/static/js/2.3675b239.chunk.js.map",
-    "static/js/3.f8a33554.chunk.js": "/static/js/3.f8a33554.chunk.js",
-    "static/js/3.f8a33554.chunk.js.map": "/static/js/3.f8a33554.chunk.js.map",
+    "main.css": "/static/css/main.a4517dbb.chunk.css",
+    "main.js": "/static/js/main.e7e9fe0b.chunk.js",
+    "main.js.map": "/static/js/main.e7e9fe0b.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.189fd316.js",
+    "runtime-main.js.map": "/static/js/runtime-main.189fd316.js.map",
+    "static/js/2.95eb0290.chunk.js": "/static/js/2.95eb0290.chunk.js",
+    "static/js/2.95eb0290.chunk.js.map": "/static/js/2.95eb0290.chunk.js.map",
+    "static/js/3.9aad4225.chunk.js": "/static/js/3.9aad4225.chunk.js",
+    "static/js/3.9aad4225.chunk.js.map": "/static/js/3.9aad4225.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.b12b4ac5.chunk.css.map": "/static/css/main.b12b4ac5.chunk.css.map",
-    "static/js/2.3675b239.chunk.js.LICENSE.txt": "/static/js/2.3675b239.chunk.js.LICENSE.txt",
+    "static/css/main.a4517dbb.chunk.css.map": "/static/css/main.a4517dbb.chunk.css.map",
+    "static/js/2.95eb0290.chunk.js.LICENSE.txt": "/static/js/2.95eb0290.chunk.js.LICENSE.txt",
     "static/media/Discord-Logo-White.f09ba73b.svg": "/static/media/Discord-Logo-White.f09ba73b.svg",
     "static/media/Geckobot.459d2330.png": "/static/media/Geckobot.459d2330.png",
     "static/media/RBot.84e5cea1.png": "/static/media/RBot.84e5cea1.png",
+    "static/media/desert.e41db1d5.png": "/static/media/desert.e41db1d5.png",
     "static/media/link.75fbe056.svg": "/static/media/link.75fbe056.svg",
     "static/media/pfp.d9a2e916.png": "/static/media/pfp.d9a2e916.png",
     "static/media/watt-white.a84474b7.png": "/static/media/watt-white.a84474b7.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.6f0b9af2.js",
-    "static/js/2.3675b239.chunk.js",
-    "static/css/main.b12b4ac5.chunk.css",
-    "static/js/main.55a88efa.chunk.js"
+    "static/js/runtime-main.189fd316.js",
+    "static/js/2.95eb0290.chunk.js",
+    "static/css/main.a4517dbb.chunk.css",
+    "static/js/main.e7e9fe0b.chunk.js"
   ]
 }
