@@ -9,7 +9,7 @@ header {
   &.hidden {
     height: 25px;
 
-    img, .item {
+    img, h1, .item {
       display: none;
     }
     .toggler {

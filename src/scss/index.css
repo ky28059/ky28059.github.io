@@ -40,7 +40,7 @@ header {
 header.hidden {
   height: 25px;
 }
-header.hidden img, header.hidden .item {
+header.hidden img, header.hidden h1, header.hidden .item {
   display: none;
 }
 header.hidden .toggler {

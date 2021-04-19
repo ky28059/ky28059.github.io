@@ -22,12 +22,13 @@ const DroughtCounter = () => {
 
     // Spaghetti function to render time since last commit
     const parseTime = () => {
+        const lastCommitTimestamp = '2021-02-06T21:11:19Z';
         const parseSingular = (x: number) => String(x).length === 1 ? `0${x}` : x;
 
-        const seconds = time.diff('2/6/2021', 'seconds') % 60;
-        const minutes = time.diff('2/6/2021', 'minutes') % 60;
-        const hours = time.diff('2/6/2021', 'hours') % 24;
-        const days = time.diff('2/6/2021', 'days');
+        const seconds = time.diff(lastCommitTimestamp, 'seconds') % 60;
+        const minutes = time.diff(lastCommitTimestamp, 'minutes') % 60;
+        const hours = time.diff(lastCommitTimestamp, 'hours') % 24;
+        const days = time.diff(lastCommitTimestamp, 'days');
 
         return `${days}:${parseSingular(hours)}:${parseSingular(minutes)}:${parseSingular(seconds)}`;
     }
