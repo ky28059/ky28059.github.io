@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.a4517dbb.chunk.css",
-    "main.js": "/static/js/main.e7e9fe0b.chunk.js",
-    "main.js.map": "/static/js/main.e7e9fe0b.chunk.js.map",
+    "main.css": "/static/css/main.1dfa4db8.chunk.css",
+    "main.js": "/static/js/main.810a69e3.chunk.js",
+    "main.js.map": "/static/js/main.810a69e3.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.189fd316.js",
     "runtime-main.js.map": "/static/js/runtime-main.189fd316.js.map",
     "static/js/2.95eb0290.chunk.js": "/static/js/2.95eb0290.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.9aad4225.chunk.js": "/static/js/3.9aad4225.chunk.js",
     "static/js/3.9aad4225.chunk.js.map": "/static/js/3.9aad4225.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.a4517dbb.chunk.css.map": "/static/css/main.a4517dbb.chunk.css.map",
+    "static/css/main.1dfa4db8.chunk.css.map": "/static/css/main.1dfa4db8.chunk.css.map",
     "static/js/2.95eb0290.chunk.js.LICENSE.txt": "/static/js/2.95eb0290.chunk.js.LICENSE.txt",
     "static/media/Discord-Logo-White.f09ba73b.svg": "/static/media/Discord-Logo-White.f09ba73b.svg",
     "static/media/Geckobot.459d2330.png": "/static/media/Geckobot.459d2330.png",
@@ -23,7 +23,7 @@
   "entrypoints": [
     "static/js/runtime-main.189fd316.js",
     "static/js/2.95eb0290.chunk.js",
-    "static/css/main.a4517dbb.chunk.css",
-    "static/js/main.e7e9fe0b.chunk.js"
+    "static/css/main.1dfa4db8.chunk.css",
+    "static/js/main.810a69e3.chunk.js"
   ]
 }
