@@ -53,6 +53,13 @@ const Home = () => {
                     gh="https://github.com/croissantderp/geckobot"
                     discord="https://discord.com/oauth2/authorize?client_id=766064505079726140&scope=bot&permissions=379968"
                 />
+                <Project
+                    name="PortalBot"
+                    desc="Typescript djs bot for real time cross server communication."
+                    tags={['ts']}
+                    gh="https://github.com/ky28059/PortalBot"
+                    discord="https://discord.com/oauth2/authorize?client_id=827738852902043698&scope=bot&permissions=8"
+                />
                 {/*
                 <Project name="test" desc="yes" link="https://github.com/ky28059/RBot" img={Test}/>
                 <Project name="test" desc="yes" link="https://github.com/ky28059/RBot" img={Test}/>

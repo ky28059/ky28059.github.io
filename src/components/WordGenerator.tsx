@@ -20,7 +20,6 @@ const WordGenerator = () => {
     // Initialize markov model
     useEffect(() => {
         // For each combo, initialize the markov model and the start map
-        // @ts-ignore
         for (const combo of combinations(combolength)) {
             markov.set(combo, new MarkovObj());
         }
