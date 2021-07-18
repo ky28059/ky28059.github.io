@@ -5,10 +5,10 @@ import ProjectTag from "./ProjectTag";
 import ProjectIconLink from "./ProjectIconLink";
 
 // Icons
-import Github from '../../assets/GitHub-Mark-Light-120px-plus.png';
-import Discord from '../../assets/Discord-Logo-White.svg';
+import Github from '../../public/GitHub-Mark-Light-120px-plus.png';
+import Discord from '../../public/Discord-Logo-White.svg';
 //import Web from '../../assets/website.png';
-import Web from '../../assets/link.svg';
+import Web from '../../public/link.svg';
 
 
 type ProjectProps = {

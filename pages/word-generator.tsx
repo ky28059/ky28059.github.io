@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
 // Components
-import Word from './wordgenerator/Word';
+import Word from '../components/Word';
 
 // Word generation tools
 import {combinations, MarkovObj, generate, words, alphabet} from '../utils/MarkovUtils';

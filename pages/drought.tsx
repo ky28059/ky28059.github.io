@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import moment from 'moment';
-import desert from '../assets/desert.png';
+import desert from '../../public/desert.png';
 
 
-const DroughtCounter = () => {
+export default function Drought() {
     const [time, setTime] = useState(moment());
 
     // Set interval on mount to update datetime every second
@@ -41,5 +41,3 @@ const DroughtCounter = () => {
         </div>
     )
 }
-
-export default DroughtCounter;

@@ -1,17 +1,17 @@
 import React from 'react';
 
 // Components
-import Project from './home/Project';
+import Project from '../components/Project';
 
 // Project Icons
-import RBot from '../assets/RBot.png';
-import WATT from '../assets/watt-white.png';
-import Geckobot from '../assets/Geckobot.png';
-import Test from '../assets/pfp.png';
-import ProjectTag from "./home/ProjectTag";
+import RBot from '../../public/RBot.png';
+import WATT from '../../public/watt-white.png';
+import Geckobot from '../../public/Geckobot.png';
+import Test from '../../public/pfp.png';
+import ProjectTag from "../components/ProjectTag";
 
 
-const Home = () => {
+export default function Home() {
     return (
         <div className="home">
             <h1>Home</h1>
@@ -72,5 +72,3 @@ const Home = () => {
         </div>
     )
 }
-
-export default Home;

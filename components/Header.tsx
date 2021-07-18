@@ -3,7 +3,7 @@ import HeaderItem from './HeaderItem';
 
 // Icons
 import { MdExpandLess, MdExpandMore } from 'react-icons/md';
-import pfp from '../../assets/pfp.png';
+import pfp from '../../public/pfp.png';
 
 
 const Header = () => {
