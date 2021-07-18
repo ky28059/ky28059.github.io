@@ -1,10 +1,6 @@
 body {
-  background-color: #15181a;
+  background-color: black;
   color: white;
-}
-
-.content {
-  padding: 0 24px;
 }
 
 a {
@@ -46,9 +42,6 @@ header.hidden img, header.hidden h1, header.hidden .item {
 header.hidden .toggler {
   display: block;
 }
-header * {
-  padding: 0 0.5rem;
-}
 header img {
   height: 50px;
   width: 50px;
@@ -58,14 +51,7 @@ header .item {
   height: 100%;
   display: flex;
   align-items: center;
-  margin-left: 1rem;
   transition: background-color 200ms;
-}
-header .item:hover {
-  background-color: #2c2f33;
-}
-header .toggler {
-  margin-left: auto;
 }
 
 .inputs {
@@ -104,30 +90,10 @@ header .toggler {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  background-color: #23272a;
 }
 .projects .project .heading {
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
-}
-.projects .project .heading img {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  margin: 0 1rem 0 0;
-}
-.projects .project .heading h3 {
-  margin: 0;
-}
-.projects .project .tags {
-  display: flex;
-}
-.projects .project .tags div {
-  margin-right: 0.5rem;
-}
-.projects .project .links {
-  margin-top: auto;
 }
 .projects .project .links img {
   height: 1.5rem;
@@ -135,17 +101,9 @@ header .toggler {
   margin-right: 0.3rem;
 }
 
-.tag {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-}
-
 .about {
   padding: 12px 0;
-  background-color: #23272a;
   text-align: center;
-  margin-bottom: 3rem;
 }
 
 .drought {
@@ -167,5 +125,9 @@ header .toggler {
   font-size: 40pt;
   margin: 0;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /*# sourceMappingURL=index.css.map */

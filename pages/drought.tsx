@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
+import Head from 'next/head';
 import moment from 'moment';
-import desert from '../../public/desert.png';
+//import desert from '../public/desert.png';
 
 
 export default function Drought() {
@@ -34,8 +35,13 @@ export default function Drought() {
     }
 
     return (
-        <div className="drought">
-            <img src={desert} alt="desert" />
+        <div className="drought font-bold m-auto">
+            <Head>
+                <title>Drought | ky28059.github.io</title>
+                <meta name="description" content="Countdown of days since Obi Wan's last commit to WATT." />
+            </Head>
+
+            <img src="/desert.png" alt="desert" />
             <h1>{parseTime()}</h1>
             <h2>Since Obi-Wan's last commit to WATT</h2>
         </div>

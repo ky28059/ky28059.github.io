@@ -1,23 +1,16 @@
 import React from 'react';
-import {Link, Route} from "react-router-dom";
+import Link from 'next/link';
 
 
 type HeaderItemProps = {to: string, name: string, exact?: boolean};
-const HeaderItem = (props: HeaderItemProps) => {
+export default function HeaderItem(props: HeaderItemProps) {
     let {to, name, exact} = props;
 
     return (
-        <Route exact={exact} path={to}>
-            {({match}) => (
-                // If current path matches what the Route points towards, give it the "active" class
-                <span className={`item ${match ? "active" : ""}`}>
-                    <Link to={to}>
-                        {name}
-                    </Link>
-                </span>
-            )}
-        </Route>
+        <span className="item p-4">
+            <Link href={to}>
+                <a>{name}</a>
+            </Link>
+        </span>
     )
 }
-
-export default HeaderItem;

@@ -1,5 +1,3 @@
-@import '../mixins/circle';
-
 .projects {
   display: grid;
   grid-template-columns: repeat( auto-fill, minmax(250px, 1fr) );
@@ -10,34 +8,13 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    background-color: $secondary;
 
     .heading {
       display: flex;
       align-items: center;
-      margin-bottom: 1rem;
-
-      img {
-        @include circle(2.5rem);
-        margin: 0 1rem 0 0;
-      }
-
-      h3 {
-        margin: 0;
-      }
-    }
-
-    .tags {
-      display: flex;
-
-      div {
-        margin-right: 0.5rem;
-      }
     }
 
     .links {
-      margin-top: auto;
-
       img {
         $size: 1.5rem;
         height: $size;
@@ -46,8 +23,4 @@
       }
     }
   }
-}
-
-.tag {
-  @include circle(12px)
 }

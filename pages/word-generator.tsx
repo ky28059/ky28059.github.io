@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import Head from 'next/head';
 
 // Components
 import Word from '../components/Word';
@@ -66,24 +67,31 @@ const WordGenerator = () => {
 
     return (
         <div>
-            <h1 className="center">Roger Fan Markov Chain word generation</h1>
+            <Head>
+                <title>Word Generator | ky28059.github.io</title>
+                <meta name="description" content="A web port of Roger Fan's Markov-Chain based word generator." />
+            </Head>
 
-            {/* User Input */}
-            <div className="inputs">
-                <input
-                    type="text"
-                    id="prefix"
-                    placeholder="Prefix"
-                    onChange={e => setPrefix(e.target.value)}
-                />
-                <input
-                    type="text"
-                    id="word-count"
-                    placeholder="Number of words"
-                    onChange={e => setGenerateNum(Number(e.target.value))}
-                />
-                <button onClick={generateWords}>Generate</button>
-            </div>
+            <section className="bg-white rounded-2xl p-8 shadow-lg w-max mx-auto my-8 text-gray-900">
+                <h1 className="center text-5xl font-bold mb-4">Roger Fan Markov Chain word generation</h1>
+
+                {/* User Input */}
+                <div className="inputs">
+                    <input
+                        type="text"
+                        id="prefix"
+                        placeholder="Prefix"
+                        onChange={e => setPrefix(e.target.value)}
+                    />
+                    <input
+                        type="text"
+                        id="word-count"
+                        placeholder="Number of words"
+                        onChange={e => setGenerateNum(Number(e.target.value))}
+                    />
+                    <button onClick={generateWords}>Generate</button>
+                </div>
+            </section>
 
             {/* Displayed content */}
             {content}

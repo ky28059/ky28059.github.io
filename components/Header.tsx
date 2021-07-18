@@ -1,31 +1,31 @@
 import React, {useState} from 'react';
+//import Image from 'next/image';
 import HeaderItem from './HeaderItem';
 
 // Icons
 import { MdExpandLess, MdExpandMore } from 'react-icons/md';
-import pfp from '../../public/pfp.png';
+//import pfp from '../public/pfp.png';
+const pfp = '/pfp.png';
 
 
-const Header = () => {
+export default function Header() {
     const [open, setOpen] = useState(true);
 
     return (
-        <header className={open ? "" : "hidden"}>
+        <header className={`bg-gray-800 ${!open && "hidden"}`}>
             <a href="https://github.com/ky28059">
-                <img src={pfp} alt="Profile"/>
+                <img src={pfp} alt="Profile" height={50} width={50}/>
             </a>
-            <h1>ky28059</h1>
+            <h1 className="text-3xl font-bold ml-4 mr-8">ky28059</h1>
 
             <HeaderItem to="/" name="Home" exact />
-            <HeaderItem to="/word-gen" name="Word Generator" />
+            <HeaderItem to="/word-generator" name="Word Generator" />
 
             {
                 open
-                ? <MdExpandLess className="item toggler" onClick={() => setOpen(x => !x)}/>
-                : <MdExpandMore className="item toggler" onClick={() => setOpen(x => !x)}/>
+                ? <MdExpandLess className="item ml-auto" onClick={() => setOpen(x => !x)}/>
+                : <MdExpandMore className="item ml-auto" onClick={() => setOpen(x => !x)}/>
             }
         </header>
     )
 }
-
-export default Header;

@@ -17,10 +17,6 @@ header {
     }
   }
 
-  * {
-    padding: 0 0.5rem;
-  }
-
   // Pfp
   img {
     $size: 50px;
@@ -34,16 +30,6 @@ header {
     height: 100%;
     display: flex;
     align-items: center;
-    margin-left: 1rem;
     transition: background-color 200ms;
-
-    &:hover {
-      background-color: #2c2f33;
-    }
-  }
-
-  // Toggler
-  .toggler {
-    margin-left: auto;
   }
 }

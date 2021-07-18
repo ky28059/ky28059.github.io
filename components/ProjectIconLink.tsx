@@ -1,7 +1,8 @@
 import React from 'react';
+//import Image from 'next/image';
 
 
-type ProjectIconLinkProps = {url: string, icon: string, alt: string};
+type ProjectIconLinkProps = {url: string, icon: string /* StaticImageData */, alt: string};
 const ProjectIconLink = (props: ProjectIconLinkProps) => {
     const {url, icon, alt} = props;
 

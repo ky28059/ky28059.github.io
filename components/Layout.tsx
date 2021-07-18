@@ -3,7 +3,7 @@ import Header from './Header';
 
 
 type LayoutProps = {children: React.ReactNode};
-const Layout = (props: LayoutProps) => {
+export default function Layout(props: LayoutProps) {
     return (
         <div>
             <Header />
@@ -13,5 +13,3 @@ const Layout = (props: LayoutProps) => {
         </div>
     )
 }
-
-export default Layout;
