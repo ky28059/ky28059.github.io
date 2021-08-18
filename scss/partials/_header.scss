@@ -1,35 +1,5 @@
 header {
-  height: 75px;
   padding: 0 10px;
-  background-color: $secondary;
-  display: flex;
-  align-items: center;
+
   transition: height 300ms;
-
-  &.hidden {
-    height: 25px;
-
-    img, h1, .item {
-      display: none;
-    }
-    .toggler {
-      display: block;
-    }
-  }
-
-  // Pfp
-  img {
-    $size: 50px;
-    height: $size;
-    width: $size;
-    border-radius: 50%;
-  }
-
-  // Links
-  .item {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    transition: background-color 200ms;
-  }
 }

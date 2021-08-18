@@ -17,7 +17,7 @@ import Test from '../public/pfp.png';
 
 export default function Home() {
     return (
-        <div className="home">
+        <div className="home bg-gradient-to-r from-black to-gray-900">
             <Head>
                 <title>Home | ky28059.github.io</title>
                 <meta name="description" content="Personal portfolio website and testing chamber." />
@@ -25,9 +25,9 @@ export default function Home() {
 
             <section className="bg-gray-900 pt-14 pb-2 mb-10">
                 <div className="about">
-                    <div className="w-screen mx-auto h-56 -z-10 bg-gradient-to-r from-green-400 to-blue-500 transform -skew-y-3 flex flex-row">
+                    <div className="w-full mx-auto h-56 -z-10 bg-gradient-to-r from-green-400 to-blue-500 transform -skew-y-3 flex flex-row">
                         <div className="transform skew-y-3 m-auto bg-white rounded-2xl p-8 shadow-lg text-gray-900">
-                            <span className="text-5xl font-bold">About</span>
+                            <h1>About</h1>
                             <p>I am a teenager that goes to Gunn High School.</p>
                         </div>
                     </div>
@@ -36,7 +36,7 @@ export default function Home() {
             </section>
 
             <section>
-                <h2 className="center text-5xl font-bold mb-4">Projects</h2>
+                <h1 className="text-center mb-4">Projects</h1>
                 <div className="projects">
                     <Project
                         name="RBot"
@@ -76,14 +76,29 @@ export default function Home() {
                         discord="https://discord.com/oauth2/authorize?client_id=827738852902043698&scope=bot&permissions=8"
                     />
                     {/*
-                <Project name="test" desc="yes" link="https://github.com/ky28059/RBot" img={Test}/>
-                <Project name="test" desc="yes" link="https://github.com/ky28059/RBot" img={Test}/>
-                <Project name="test" desc="yes" link="https://github.com/ky28059/RBot" img={Test}/>
-                <Project name="test" desc="yes" link="https://github.com/ky28059/RBot" img={Test}/>
-                <Project name="test" desc="yes" link="https://github.com/ky28059/RBot" img={Test}/>
-                <Project name="test" desc="yes" link="https://github.com/ky28059/RBot" img={Test}/>
-                */}
+                    <Project name="test" desc="yes" link="https://github.com/ky28059/RBot" img={Test}/>
+                    <Project name="test" desc="yes" link="https://github.com/ky28059/RBot" img={Test}/>
+                    <Project name="test" desc="yes" link="https://github.com/ky28059/RBot" img={Test}/>
+                    <Project name="test" desc="yes" link="https://github.com/ky28059/RBot" img={Test}/>
+                    <Project name="test" desc="yes" link="https://github.com/ky28059/RBot" img={Test}/>
+                    <Project name="test" desc="yes" link="https://github.com/ky28059/RBot" img={Test}/>
+                    */}
                 </div>
+            </section>
+
+            <section>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
             </section>
         </div>
     )

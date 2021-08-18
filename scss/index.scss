@@ -1,6 +1,5 @@
 // Core
 @import 'variables';
-@import 'base';
 
 // Partials
 @import 'partials/header';
@@ -8,8 +7,3 @@
 @import 'partials/projects';
 @import 'partials/about';
 @import 'partials/drought';
-
-// Tailwind
-@tailwind base;
-@tailwind components;
-@tailwind utilities;

@@ -12,20 +12,19 @@ export default function Header() {
     const [open, setOpen] = useState(true);
 
     return (
-        <header className={`bg-gray-800 ${!open && "hidden"}`}>
-            <a href="https://github.com/ky28059">
-                <img src={pfp} alt="Profile" height={50} width={50}/>
-            </a>
-            <h1 className="text-3xl font-bold ml-4 mr-8">ky28059</h1>
+        <header className={`sticky top-0 bg-gray-800 bg-opacity-90 shadow-md backdrop-blur-sm z-50 h-20 ${!open ? 'h-10' : ''} flex`}>
+            <div className={`flex flex-grow items-center h-full ${!open ? 'hidden' : ''}`}>
+                <a href="https://github.com/ky28059">
+                    <img src={pfp} alt="Profile" className="rounded-full" height={50} width={50}/>
+                </a>
+                <h1 className="text-3xl font-bold ml-4 mr-8">ky28059</h1>
 
-            <HeaderItem to="/" name="Home" exact />
-            <HeaderItem to="/word-generator" name="Word Generator" />
-
-            {
-                open
-                ? <MdExpandLess className="item ml-auto" onClick={() => setOpen(x => !x)}/>
-                : <MdExpandMore className="item ml-auto" onClick={() => setOpen(x => !x)}/>
-            }
+                <HeaderItem to="/" name="Home" exact />
+                <HeaderItem to="/word-generator" name="Word Generator" />
+            </div>
+            {open
+                ? <MdExpandLess className="my-auto ml-auto" onClick={() => setOpen(x => !x)}/>
+                : <MdExpandMore className="my-auto ml-auto" onClick={() => setOpen(x => !x)}/>}
         </header>
     )
 }
