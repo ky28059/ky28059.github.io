@@ -4,8 +4,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next export",
-    "deploy": "rimraf node_modules/.cache && next build && next export && gh-pages -d out"
+    "export": "next export"
   },
   "dependencies": {
     "gh-pages": "^3.2.3",

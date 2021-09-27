@@ -1,7 +1,4 @@
-import React from 'react';
 import Head from 'next/head';
-
-// Components
 import Project from '../components/Project';
 
 // Icons
@@ -24,7 +21,7 @@ export default function Home() {
             </Head>
 
             <section className="bg-gray-900 pt-14 pb-2 mb-10">
-                <div className="about">
+                <div className="text-center py-4">
                     <div className="w-full mx-auto h-56 -z-10 bg-gradient-to-r from-green-400 to-blue-500 transform -skew-y-3 flex flex-row">
                         <div className="transform skew-y-3 m-auto bg-white rounded-2xl p-8 shadow-lg text-gray-900">
                             <h1>About</h1>

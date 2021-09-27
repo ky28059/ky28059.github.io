@@ -1,6 +1,3 @@
-import React from 'react';
-
-
 type ProjectTagProps = {color: string};
 const ProjectTag = (props: ProjectTagProps) => {
     const {color} = props;

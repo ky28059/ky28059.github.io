@@ -1,15 +1,13 @@
-import React from 'react';
+import {ReactNode} from 'react';
 import Header from './Header';
 
 
-type LayoutProps = {children: React.ReactNode};
+type LayoutProps = {children: ReactNode};
 export default function Layout(props: LayoutProps) {
     return (
         <div>
             <Header />
-            <div className="content">
-                {props.children}
-            </div>
+            {props.children}
         </div>
     )
 }

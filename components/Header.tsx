@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 //import Image from 'next/image';
 import HeaderItem from './HeaderItem';
 
@@ -20,7 +20,6 @@ export default function Header() {
                 <h1 className="text-3xl font-bold ml-4 mr-8">ky28059</h1>
 
                 <HeaderItem to="/" name="Home" exact />
-                <HeaderItem to="/word-generator" name="Word Generator" />
             </div>
             {open
                 ? <MdExpandLess className="my-auto ml-auto" onClick={() => setOpen(x => !x)}/>
