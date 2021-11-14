@@ -41,7 +41,7 @@ export default function Drought() {
                 <meta name="description" content="Countdown of days since Obi Wan's last commit to WATT." />
             </Head>
 
-            <img src="/desert.png" alt="desert" className="fixed top-0 left-0 w-full h-full -z-10" />
+            <img src="/desert.png" alt="desert" className="fixed top-0 left-0 w-full h-full object-cover object-center -z-10" />
 
             <section className="m-auto">
                 <h1 className="text-9xl mb-4">{parseTime()}</h1>

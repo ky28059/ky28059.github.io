@@ -37,9 +37,9 @@ export default function Home() {
                 <div className="projects">
                     <Project
                         name="RBot"
-                        desc="Discord mod bot using djs and sequelize."
+                        desc="Discord mod bot using djs 13 and sequelize."
                         img={RBot}
-                        tags={['js']}
+                        tags={['ts']}
                         gh="https://github.com/ky28059/RBot"
                         discord="https://discord.com/oauth2/authorize?client_id=684587440777986090&scope=bot&permissions=8"
                     />
@@ -51,12 +51,14 @@ export default function Home() {
                         gh="https://github.com/GunnWATT/watt"
                         web="https://gunnwatt.web.app/"
                     />
+                    {/*
                     <Project
                         name="Word Generator"
                         desc="A web port of Roger Fan's markov chain random word generator."
                         tags={['ts', 'html', 'scss']}
                         web="https://ky28059.github.io/#/word-gen"
                     />
+                    */}
                     <Project
                         name="Geckobot"
                         desc="Discord.net bot with Drive API and quantum computing."
