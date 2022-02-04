@@ -1,17 +1,10 @@
-//import Image from 'next/image';
-
-// Components
 import ProjectTag from './ProjectTag';
 import ProjectIconLink from './ProjectIconLink';
 
 // Icons
-//import Github from '../public/GitHub-Mark-Light-120px-plus.png';
-const Github = '/GitHub-Mark-Light-120px-plus.png';
-//import Discord from '../public/Discord-Logo-White.svg';
-const Discord = '/Discord-Logo-White.svg';
-//import Web from '../../assets/website.png';
-//import Web from '../public/link.svg';
-const Web = '/link.svg';
+import {GoMarkGithub} from 'react-icons/go';
+import {BsDiscord} from 'react-icons/bs';
+import {FiLink2} from 'react-icons/fi';
 
 
 type ProjectProps = {
@@ -41,10 +34,10 @@ export default function Project(props: ProjectProps) {
                 </span>
             )}
             <p>{desc}</p>
-            <span className="links space-x-2 mt-auto flex">
-                {discord && <ProjectIconLink url={discord} icon={Discord} alt="Discord Invite Link" />}
-                {web && <ProjectIconLink url={web} icon={Web} alt="Website Link" />}
-                {gh && <ProjectIconLink url={gh} icon={Github} alt="Github Link" />}
+            <span className="links space-x-2 mt-auto flex text-xl">
+                {discord && <ProjectIconLink url={discord} icon={<BsDiscord />} />}
+                {web && <ProjectIconLink url={web} icon={<FiLink2 />} />}
+                {gh && <ProjectIconLink url={gh} icon={<GoMarkGithub />} />}
             </span>
         </div>
     );

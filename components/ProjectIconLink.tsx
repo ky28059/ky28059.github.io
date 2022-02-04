@@ -1,15 +1,14 @@
 //import Image from 'next/image';
 
 
-type ProjectIconLinkProps = {url: string, icon: string /* StaticImageData */, alt: string};
-const ProjectIconLink = (props: ProjectIconLinkProps) => {
-    const {url, icon, alt} = props;
+// TODO: is this necessary?
+type ProjectIconLinkProps = {url: string, icon: JSX.Element};
+export default function ProjectIconLink(props: ProjectIconLinkProps) {
+    const {url, icon} = props;
 
     return (
         <a href={url} rel="noopener noreferrer" target="_blank">
-            <img src={icon} alt={alt} className="w-6 h-6" />
+            {icon}
         </a>
     );
 }
-
-export default ProjectIconLink;
