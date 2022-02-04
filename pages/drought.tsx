@@ -1,7 +1,6 @@
 import {useState, useEffect} from 'react';
 import Head from 'next/head';
 import moment from 'moment';
-//import desert from '../public/desert.png';
 
 
 export default function Drought() {
@@ -21,7 +20,7 @@ export default function Drought() {
         }
     }, [])
 
-    // Spaghetti function to render time since last commit
+    // TODO: clean this up
     const parseTime = () => {
         const lastCommitTimestamp = '2021-02-06T21:11:19Z';
         const parseSingular = (x: number) => String(x).length === 1 ? `0${x}` : x;
@@ -43,10 +42,10 @@ export default function Drought() {
 
             <img src="/desert.png" alt="desert" className="fixed top-0 left-0 w-full h-full object-cover object-center -z-10" />
 
-            <section className="m-auto">
+            <main className="m-auto">
                 <h1 className="text-9xl mb-4">{parseTime()}</h1>
                 <h2 className="text-5xl">Since Obi-Wan's last commit to WATT</h2>
-            </section>
+            </main>
         </div>
     )
 }

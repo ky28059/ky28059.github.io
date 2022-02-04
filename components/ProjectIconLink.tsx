@@ -7,7 +7,7 @@ const ProjectIconLink = (props: ProjectIconLinkProps) => {
 
     return (
         <a href={url} rel="noopener noreferrer" target="_blank">
-            <img src={icon} alt={alt} />
+            <img src={icon} alt={alt} className="w-6 h-6" />
         </a>
     );
 }

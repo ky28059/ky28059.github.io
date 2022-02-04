@@ -1,30 +1,35 @@
 import Head from 'next/head';
+import Link from 'next/link';
+
+// Components
+import Header from '../components/Header';
 import Project from '../components/Project';
 
 // Icons
 import {BsChevronCompactDown} from 'react-icons/bs';
-//import RBot from '../public/RBot.png';
+import {FiArrowRight} from 'react-icons/fi';
+
+// Images
 const RBot = '/RBot.png';
-//import WATT from '../public/watt-white.png';
 const WATT = '/watt-white.png';
-//import Geckobot from '../public/Geckobot.png';
 const Geckobot = '/Geckobot.png';
-import Test from '../public/pfp.png';
 
 
 export default function Home() {
     return (
-        <div className="home bg-gradient-to-r from-black to-gray-900">
+        <div className="bg-gray-100 dark:bg-gradient-to-r dark:from-black dark:to-gray-900">
             <Head>
                 <title>Home | ky28059.github.io</title>
                 <meta name="description" content="Personal portfolio website and testing chamber." />
             </Head>
 
-            <section className="bg-gray-900 pt-14 pb-2 mb-10">
+            <Header />
+
+            <section className="bg-white dark:bg-gray-900 pt-14 pb-2 mb-10">
                 <div className="text-center py-4">
                     <div className="w-full mx-auto h-56 -z-10 bg-gradient-to-r from-green-400 to-blue-500 transform -skew-y-3 flex flex-row">
                         <div className="transform skew-y-3 m-auto bg-white rounded-2xl p-8 shadow-lg text-gray-900">
-                            <h1>About</h1>
+                            <h1 className="text-5xl font-bold">About</h1>
                             <p>I am a teenager that goes to Gunn High School.</p>
                         </div>
                     </div>
@@ -33,8 +38,8 @@ export default function Home() {
             </section>
 
             <section>
-                <h1 className="text-center mb-4">Projects</h1>
-                <div className="projects">
+                <h1 className="text-5xl font-bold text-center mb-4">Projects</h1>
+                <div className="grid grid-flow-row grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] mx-4">
                     <Project
                         name="RBot"
                         desc="Discord mod bot using djs 13 and sequelize."
@@ -83,6 +88,9 @@ export default function Home() {
                     <Project name="test" desc="yes" link="https://github.com/ky28059/RBot" img={Test}/>
                     */}
                 </div>
+                {/*
+                <Link href="/all"><a className="text-2xl mx-auto">More <FiArrowRight /></a></Link>
+                */}
             </section>
 
             <section>

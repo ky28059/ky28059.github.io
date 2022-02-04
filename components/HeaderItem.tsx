@@ -1,12 +1,13 @@
 import Link from 'next/link';
 
 
-type HeaderItemProps = {to: string, name: string, exact?: boolean};
+// TODO: Is this component really needed?
+type HeaderItemProps = {to: string, name: string};
 export default function HeaderItem(props: HeaderItemProps) {
-    let {to, name, exact} = props;
+    const {to, name} = props;
 
     return (
-        <span className="item p-4">
+        <span className="p-4">
             <Link href={to}>
                 <a>{name}</a>
             </Link>
