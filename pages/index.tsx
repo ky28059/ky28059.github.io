@@ -37,20 +37,22 @@ export default function Home() {
                 <div className="container mx-auto flex justify-center flex-wrap gap-6">
                     <Project
                         name="RBot"
-                        desc="Discord mod bot using djs 13 and sequelize."
                         img="/projects/RBot.png"
-                        tags={['ts']}
+                        langs={['ts']}
                         gh="https://github.com/ky28059/RBot"
                         discord="https://discord.com/oauth2/authorize?client_id=684587440777986090&scope=bot&permissions=8"
-                    />
+                    >
+                        Discord mod bot using djs 13 and sequelize.
+                    </Project>
                     <Project
                         name="WATT"
-                        desc="Gunn schedule app and UGWA successor."
                         img="/projects/watt-white.png"
-                        tags={['ts', 'html', 'scss']}
+                        langs={['ts', 'html', 'scss']}
                         gh="https://github.com/GunnWATT/watt"
                         web="https://gunnwatt.web.app/"
-                    />
+                    >
+                        Gunn schedule app and UGWA successor.
+                    </Project>
                     {/*
                     <Project
                         name="Word Generator"
@@ -61,42 +63,70 @@ export default function Home() {
                     */}
                     <Project
                         name="Geckobot"
-                        desc="Discord.net bot with Drive API and quantum computing."
                         img="/projects/GeckoBot.png"
-                        tags={['c#', 'q#']}
+                        langs={['c#', 'q#']}
                         gh="https://github.com/croissantderp/geckobot"
                         discord="https://discord.com/oauth2/authorize?client_id=766064505079726140&scope=bot&permissions=379968"
-                    />
+                    >
+                        Discord.net bot with Drive API and quantum computing.
+                    </Project>
                     <Project
                         name="PortalBot"
-                        desc="TypeScript djs bot for real time cross server communication."
                         img="/projects/PortalBot.jpg"
-                        tags={['ts']}
+                        langs={['ts']}
                         gh="https://github.com/ky28059/PortalBot"
                         discord="https://discord.com/oauth2/authorize?client_id=827738852902043698&scope=bot&permissions=8"
-                    />
+                    >
+                        TypeScript djs bot for real time cross server communication.
+                    </Project>
+                    <Project
+                        name="GunnHacks 7.0"
+                        img="/projects/gunnhacks.png"
+                        langs={['js', 'html', 'scss']}
+                        gh="https://github.com/GunnHacks/GunnHacks7.0"
+                        web="https://7.0.gunnhacks.com"
+                    >
+                        Website for GunnHacks 7.0 (2020-2021).
+                    </Project>
+                    <Project
+                        name="GunnHacks 8.0"
+                        img="/projects/gunnhacks.png"
+                        langs={['svelte', 'html', 'css']}
+                        gh="https://github.com/GunnHacks/GunnHacks8.0"
+                        web="https://gunnhacks.com"
+                    >
+                        SvelteKit website for GunnHacks 8.0.
+                    </Project>
                     <Project
                         name="Guava Bot"
-                        desc="!whois bot for an elusive discord server."
                         img="/projects/Guava.png"
-                        tags={['ts']}
+                        langs={['ts']}
                         gh="https://github.com/ky28059/guava-bot"
-                    />
+                    >
+                        <code>!whois</code> bot for an elusive discord server.
+                    </Project>
                     <Project
                         name="Guava Bot Slack"
-                        desc="Slack bot for an elusive slack workspace."
                         img="/projects/Guava.png"
-                        tags={['ts']}
+                        langs={['ts']}
                         gh="https://github.com/ky28059/guava-bot-slack"
-                    />
-                    {/*
-                    <Project name="test" desc="yes" link="https://github.com/ky28059/RBot" img={Test}/>
-                    <Project name="test" desc="yes" link="https://github.com/ky28059/RBot" img={Test}/>
-                    <Project name="test" desc="yes" link="https://github.com/ky28059/RBot" img={Test}/>
-                    <Project name="test" desc="yes" link="https://github.com/ky28059/RBot" img={Test}/>
-                    <Project name="test" desc="yes" link="https://github.com/ky28059/RBot" img={Test}/>
-                    <Project name="test" desc="yes" link="https://github.com/ky28059/RBot" img={Test}/>
-                    */}
+                    >
+                        Slack bot for an elusive slack workspace.
+                    </Project>
+                    <Project
+                        name="hoco-radio-2021"
+                        langs={['py']}
+                        gh="https://github.com/ky28059/hoco-radio-2021"
+                    >
+                        Python script for the Raspberry Pi radio in the Junior float.
+                    </Project>
+                    <Project
+                        name="AP CSA"
+                        langs={['rkt']}
+                        gh="https://github.com/ky28059/AP-CSA"
+                    >
+                        Repository of assignments from the first (scheme) semester of Gunn's AP CSA.
+                    </Project>
                 </div>
                 {/*
                 <Link href="/all"><a className="text-2xl mx-auto">More <FiArrowRight /></a></Link>
