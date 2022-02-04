@@ -20,7 +20,7 @@ export default function Home() {
         <div className="bg-gray-100 dark:bg-gradient-to-r dark:from-black dark:to-gray-900">
             <Head>
                 <title>Home | ky28059.github.io</title>
-                <meta name="description" content="Personal portfolio website and testing chamber." />
+                <meta name="description" content="Personal portfolio website and technology testing chamber." />
             </Head>
 
             <Header />
