@@ -39,7 +39,7 @@ export default function Landing() {
 
             <section className="flex flex-wrap gap-8 mx-16 mb-16">
                 <div className="flex basis-[48rem] flex-grow gap-8">
-                    <img src="/cover-page.png" alt="GAtM Cover" className="h-80 outline outline-1 outline-gray-400" />
+                    <img src="/concepts/gatm/cover-page.png" alt="GAtM Cover" className="h-80 outline outline-1 outline-gray-400" />
                     <div className="space-y-4">
                         <h2 className="text-3xl font-bold mb-4">A Geometric Approach to Matrices</h2>
                         <p>
@@ -66,7 +66,7 @@ export default function Landing() {
                 </div>
 
                 <div className="flex basis-[48rem] flex-grow gap-8">
-                    <img src="/cover-page-answers.png" alt="GAtM Cover" className="h-80 outline outline-1 outline-gray-400" />
+                    <img src="/concepts/gatm/cover-page-answers.png" alt="GAtM Cover" className="h-80 outline outline-1 outline-gray-400" />
                     <div className="space-y-4">
                         <h2 className="text-3xl font-bold mb-4">A Geometric Approach to Matrices (Answer Key)</h2>
                         <p>

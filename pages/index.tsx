@@ -9,11 +9,6 @@ import Project from '../components/Project';
 import {BsChevronCompactDown} from 'react-icons/bs';
 import {FiArrowRight} from 'react-icons/fi';
 
-// Images
-const RBot = '/RBot.png';
-const WATT = '/watt-white.png';
-const Geckobot = '/Geckobot.png';
-
 
 export default function Home() {
     return (
@@ -38,12 +33,12 @@ export default function Home() {
             </section>
 
             <section>
-                <h1 className="text-5xl font-bold text-center mb-4">Projects</h1>
-                <div className="grid grid-flow-row grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] mx-4">
+                <h1 className="text-5xl font-bold text-center mb-8">Projects</h1>
+                <div className="container mx-auto flex justify-center flex-wrap gap-6">
                     <Project
                         name="RBot"
                         desc="Discord mod bot using djs 13 and sequelize."
-                        img={RBot}
+                        img="/projects/RBot.png"
                         tags={['ts']}
                         gh="https://github.com/ky28059/RBot"
                         discord="https://discord.com/oauth2/authorize?client_id=684587440777986090&scope=bot&permissions=8"
@@ -51,8 +46,8 @@ export default function Home() {
                     <Project
                         name="WATT"
                         desc="Gunn schedule app and UGWA successor."
-                        img={WATT}
-                        tags={['ts', 'js', 'html', 'scss']}
+                        img="/projects/watt-white.png"
+                        tags={['ts', 'html', 'scss']}
                         gh="https://github.com/GunnWATT/watt"
                         web="https://gunnwatt.web.app/"
                     />
@@ -67,17 +62,32 @@ export default function Home() {
                     <Project
                         name="Geckobot"
                         desc="Discord.net bot with Drive API and quantum computing."
-                        img={Geckobot}
+                        img="/projects/GeckoBot.png"
                         tags={['c#', 'q#']}
                         gh="https://github.com/croissantderp/geckobot"
                         discord="https://discord.com/oauth2/authorize?client_id=766064505079726140&scope=bot&permissions=379968"
                     />
                     <Project
                         name="PortalBot"
-                        desc="Typescript djs bot for real time cross server communication."
+                        desc="TypeScript djs bot for real time cross server communication."
+                        img="/projects/PortalBot.jpg"
                         tags={['ts']}
                         gh="https://github.com/ky28059/PortalBot"
                         discord="https://discord.com/oauth2/authorize?client_id=827738852902043698&scope=bot&permissions=8"
+                    />
+                    <Project
+                        name="Guava Bot"
+                        desc="!whois bot for an elusive discord server."
+                        img="/projects/Guava.png"
+                        tags={['ts']}
+                        gh="https://github.com/ky28059/guava-bot"
+                    />
+                    <Project
+                        name="Guava Bot Slack"
+                        desc="Slack bot for an elusive slack workspace."
+                        img="/projects/Guava.png"
+                        tags={['ts']}
+                        gh="https://github.com/ky28059/guava-bot-slack"
                     />
                     {/*
                     <Project name="test" desc="yes" link="https://github.com/ky28059/RBot" img={Test}/>

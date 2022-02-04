@@ -28,7 +28,7 @@ export default function Home() {
                         <div className="transform skew-y-3 mx-auto -my-4 flex flex-row space-x-12">
                             <div className="bg-white rounded-2xl p-8 shadow-xl text-gray-900 max-w-sm text-center">
                                 <h2 className="text-3xl font-bold mb-4">Unlimited Free Templates</h2>
-                                <img src="/person.svg" alt="person" className="mx-auto w-16 mb-4"/>
+                                <img src="/concepts/rabbitsign/person.svg" alt="person" className="mx-auto w-16 mb-4"/>
                                 <p>
                                     Quickly send the same document for signature over and over.
                                     There is no limit on how many templates you can create and use.
@@ -36,7 +36,7 @@ export default function Home() {
                             </div>
                             <div className="bg-white rounded-2xl p-8 shadow-xl text-gray-900 max-w-sm text-center">
                                 <h2 className="text-3xl font-bold mb-4">Strong Privacy Protection</h2>
-                                <img src="/shield-lock.svg" alt="shield" className="mx-auto w-16 mb-4"/>
+                                <img src="/concepts/rabbitsign/shield-lock.svg" alt="shield" className="mx-auto w-16 mb-4"/>
                                 <p>
                                     Documents are removed from the server after 60 days.
                                     Only you and your signers can access them, via an email sent out with the signed copy.
@@ -44,7 +44,7 @@ export default function Home() {
                             </div>
                             <div className="bg-white rounded-2xl p-8 shadow-xl text-gray-900 max-w-sm text-center">
                                 <h2 className="text-3xl font-bold mb-12">Backed by Blockchain</h2>
-                                <img src="/signing.svg" alt="signing" className="mx-auto w-16 mb-4"/>
+                                <img src="/concepts/rabbitsign/signing.svg" alt="signing" className="mx-auto w-16 mb-4"/>
                                 <p>
                                     All signed documents create a record on a blockchain,
                                     which proves their validity. [Learn more](faq)
