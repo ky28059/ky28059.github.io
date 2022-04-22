@@ -13,9 +13,9 @@ class KDocument extends Document {
                 <Head>
                     <meta charSet="utf-8" />
                 </Head>
-                <body className="dark:bg-gray-900 text-black dark:text-white">
-                <Main />
-                <NextScript />
+                <body>
+                    <Main />
+                    <NextScript />
                 </body>
             </Html>
         )

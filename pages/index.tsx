@@ -8,31 +8,43 @@ import Project from '../components/Project';
 // Icons
 import {BsChevronCompactDown} from 'react-icons/bs';
 import {FiArrowRight} from 'react-icons/fi';
+import {BiArrowToRight, BiSun} from "react-icons/bi";
 
 
 export default function Home() {
+    const toggleTheme = () => document.documentElement.classList.toggle('dark');
+
     return (
-        <div className="bg-gray-100 dark:bg-gradient-to-r dark:from-black dark:to-gray-900">
+        <div className="text-dark dark:text-white">
             <Head>
                 <title>Home | ky28059.github.io</title>
                 <meta name="description" content="Personal portfolio website and technology testing chamber." />
             </Head>
 
-            <Header />
-
-            <section className="bg-white dark:bg-gray-900 pt-14 pb-2 mb-10">
-                <div className="text-center py-4">
-                    <div className="w-full mx-auto h-56 -z-10 bg-gradient-to-r from-green-400 to-blue-500 transform -skew-y-3 flex flex-row">
-                        <div className="transform skew-y-3 m-auto bg-white rounded-2xl p-8 shadow-lg text-gray-900">
-                            <h1 className="text-5xl font-bold">About</h1>
-                            <p>I am a teenager that goes to Gunn High School.</p>
-                        </div>
+            <section className="bg-white dark:bg-midnight">
+                <div className="container relative pl-44 pt-24 pb-12">
+                    <BiSun className="absolute top-8 right-8 cursor-pointer text-xl" onClick={toggleTheme}/>
+                    <div className="relative">
+                        <img src="pfp.png" alt="Profile picture" className="absolute -left-32 -top-10 h-24 w-24 rounded-full" />
+                        <h1 className="font-bold text-7xl mb-4 underline decoration-grapefruit">kevin yu.</h1>
+                        <p className="text-lg">
+                            Teenager that goes to Gunn High School. Interested in art, web development, and robotics.
+                        </p>
                     </div>
-                    <BsChevronCompactDown className="mx-auto mt-10 text-4xl animate-bounce" />
                 </div>
             </section>
 
-            <section>
+            <section className="bg-light dark:bg-dark py-8">
+                <div className="container text-center">
+                    <h1 className="text-5xl font-bold mb-4">Concepts</h1>
+                    <p className="mb-4">Concepts I've made for other websites. ___.</p>
+                    <Link href="/concepts">
+                        <a className="text-lg hover:underline">Explore concepts <BiArrowToRight /></a>
+                    </Link>
+                </div>
+            </section>
+
+            <section className="bg-white dark:bg-midnight py-8">
                 <h1 className="text-5xl font-bold text-center mb-8">Projects</h1>
                 <div className="container mx-auto flex justify-center flex-wrap gap-6">
                     <Project
@@ -133,13 +145,8 @@ export default function Home() {
                 */}
             </section>
 
-            <section>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
+            <section className="bg-light dark:bg-dark py-8">
+                <h1 className="text-5xl font-bold text-center mb-8">Gists</h1>
                 <br/>
                 <br/>
                 <br/>

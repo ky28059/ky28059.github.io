@@ -18,7 +18,7 @@ export default function Project(props: ProjectProps) {
     const {name, children: desc, img, langs, gh, discord, web} = props;
 
     return (
-        <div className="flex flex-col p-4 gap-3 shadow-lg bg-white dark:bg-gray-800 rounded-md transform hover:scale-110 transition transition-transform duration-150 w-64">
+        <div className="flex flex-col p-4 gap-3 shadow-lg bg-white dark:bg-dark rounded-md transform hover:scale-110 transition transition-transform duration-150 w-64">
             <span className="flex items-center space-x-3 mb-1.5">
                 {img && (
                     <img
