@@ -8,13 +8,7 @@ export default function Drought() {
 
     // Set interval on mount to update datetime every second
     useEffect(() => {
-        const update = () => setTime(moment());
-        const timerID = setInterval(
-            () => update(),
-            1000
-        );
-
-        // Clear interval on unmount
+        const timerID = setInterval(() => setTime(moment()), 1000);
         return function cleanup() {
             clearInterval(timerID);
         }
@@ -34,17 +28,22 @@ export default function Drought() {
     }
 
     return (
-        <div className="fixed top-0 w-full h-full flex text-center font-bold">
+        <div className="fixed top-0 w-full h-full flex">
             <Head>
                 <title>Drought | ky28059.github.io</title>
                 <meta name="description" content="Countdown of days since Obi Wan's last commit to WATT." />
             </Head>
 
-            <img src="/desert.png" alt="desert" className="fixed top-0 left-0 w-full h-full object-cover object-center -z-10" />
+            <img
+                src="/desert.png"
+                alt="desert"
+                className="fixed top-0 left-0 w-full h-full object-cover object-center -z-10"
+            />
 
-            <main className="m-auto">
-                <h1 className="text-9xl mb-4">{parseTime()}</h1>
-                <h2 className="text-5xl">Since Obi-Wan's last commit to WATT</h2>
+            <div className="fixed inset-0 bg-black/20" />
+            <main className="m-auto relative text-white text-center">
+                <h1 className="text-9xl mb-4 font-mono font-semibold">{parseTime()}</h1>
+                <h2 className="text-5xl font-medium">since Obi-Wan's last commit to WATT.</h2>
             </main>
         </div>
     )

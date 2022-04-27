@@ -2,13 +2,11 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 // Components
-import Header from '../components/Header';
 import Project from '../components/Project';
 
 // Icons
-import {BsChevronCompactDown} from 'react-icons/bs';
-import {FiArrowRight} from 'react-icons/fi';
-import {BiArrowToRight, BiSun} from "react-icons/bi";
+import {BiArrowToRight, BiSun} from 'react-icons/bi';
+import Section, {SectionHeader} from "../components/Section";
 
 
 export default function Home() {
@@ -21,7 +19,7 @@ export default function Home() {
                 <meta name="description" content="Personal portfolio website and technology testing chamber." />
             </Head>
 
-            <section className="bg-white dark:bg-midnight">
+            <header className="bg-white dark:bg-midnight">
                 <div className="container relative pl-44 pt-24 pb-12">
                     <BiSun className="absolute top-8 right-8 cursor-pointer text-xl" onClick={toggleTheme}/>
                     <div className="relative">
@@ -32,21 +30,30 @@ export default function Home() {
                         </p>
                     </div>
                 </div>
-            </section>
+            </header>
 
-            <section className="bg-light dark:bg-dark py-8">
-                <div className="container text-center">
-                    <h1 className="text-5xl font-bold mb-4">Concepts</h1>
-                    <p className="mb-4">Concepts I've made for other websites. ___.</p>
-                    <Link href="/concepts">
-                        <a className="text-lg hover:underline">Explore concepts <BiArrowToRight /></a>
-                    </Link>
+            <Section secondary>
+                <div className="flex gap-8 justify-center">
+                    <div className="flex flex-col gap-3 basis-60">
+                        <ConceptsCard />
+                        <ConceptsCard />
+                        <ConceptsCard />
+                    </div>
+                    <div>
+                        <SectionHeader className="mb-4">Concepts</SectionHeader>
+                        <p className="mb-4">Design concepts I've made for other websites. ___.</p>
+                        <Link href="/concepts">
+                            <a className="text-lg font-medium hover:underline w-max mx-auto">
+                                Explore concepts →
+                            </a>
+                        </Link>
+                    </div>
                 </div>
-            </section>
+            </Section>
 
-            <section className="bg-white dark:bg-midnight py-8">
-                <h1 className="text-5xl font-bold text-center mb-8">Projects</h1>
-                <div className="container mx-auto flex justify-center flex-wrap gap-6">
+            <Section>
+                <SectionHeader className="text-center mb-8">Projects</SectionHeader>
+                <div className="flex justify-center flex-wrap gap-6">
                     <Project
                         name="RBot"
                         img="/projects/RBot.png"
@@ -143,17 +150,35 @@ export default function Home() {
                 {/*
                 <Link href="/all"><a className="text-2xl mx-auto">More <FiArrowRight /></a></Link>
                 */}
-            </section>
+            </Section>
 
-            <section className="bg-light dark:bg-dark py-8">
-                <h1 className="text-5xl font-bold text-center mb-8">Gists</h1>
+            <Section secondary>
+                <SectionHeader className="text-center mb-8">Gists</SectionHeader>
                 <br/>
                 <br/>
                 <br/>
-                <br/>
-                <br/>
-                <br/>
-            </section>
+            </Section>
         </div>
+    )
+}
+
+// TODO: maybe move this and FillerText to their own component file
+function ConceptsCard() {
+    return (
+        <div className="flex flex-col gap-2 p-4 bg-white dark:bg-midnight rounded-lg shadow-lg">
+            <FillerText />
+            <FillerText width={60} />
+        </div>
+    )
+}
+
+function FillerText(props: {width?: number}) {
+    const {width = 100} = props;
+
+    return (
+        <span
+            className="block h-4 bg-gray-300/40 dark:bg-gray-300/10 rounded-full animate-pulse"
+            style={{width: `${width}%`}}
+        />
     )
 }
