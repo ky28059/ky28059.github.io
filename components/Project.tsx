@@ -1,7 +1,6 @@
 import {ReactNode} from 'react';
 
 // Components
-import ProjectTag from './ProjectTag';
 import ProjectIconLink from './ProjectIconLink';
 
 // Icons
@@ -32,8 +31,8 @@ export default function Project(props: ProjectProps) {
                 <h3 className="text-xl font-bold">{name}</h3>
             </span>
             {langs && (
-                <span className="tags space-x-2 ml-1 flex">
-                    {langs.map(lang => <ProjectTag color={langToColor(lang)} key={lang} />)}
+                <span className="space-x-2 ml-1 flex">
+                    {langs.map(lang => <ProjectTag lang={lang} key={lang} />)}
                 </span>
             )}
             <p>{desc}</p>
@@ -44,6 +43,16 @@ export default function Project(props: ProjectProps) {
             </span>
         </div>
     );
+}
+
+export function ProjectTag(props: {lang: string}) {
+    const color = langToColor(props.lang);
+    return (
+        <div
+            className="rounded-full w-3 h-3 ring-2 ring-black ring-opacity-75 dark:ring-opacity-50"
+            style={{backgroundColor: color}}
+        />
+    )
 }
 
 // Map tag name to github language color

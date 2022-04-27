@@ -2,11 +2,11 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 // Components
-import Project from '../components/Project';
+import Section, {SectionHeader} from '../components/Section';
+import Project, {ProjectTag} from '../components/Project';
 
 // Icons
 import {BiArrowToRight, BiSun} from 'react-icons/bi';
-import Section, {SectionHeader} from "../components/Section";
 
 
 export default function Home() {
@@ -52,111 +52,138 @@ export default function Home() {
             </Section>
 
             <Section>
-                <SectionHeader className="text-center mb-8">Projects</SectionHeader>
-                <div className="flex justify-center flex-wrap gap-6">
-                    <Project
-                        name="RBot"
-                        img="/projects/RBot.png"
-                        langs={['ts']}
-                        gh="https://github.com/ky28059/RBot"
-                        discord="https://discord.com/oauth2/authorize?client_id=684587440777986090&scope=bot&permissions=8"
-                    >
-                        Discord mod bot using djs 13 and sequelize.
-                    </Project>
-                    <Project
-                        name="WATT"
-                        img="/projects/watt-white.png"
-                        langs={['ts', 'html', 'scss']}
-                        gh="https://github.com/GunnWATT/watt"
-                        web="https://gunnwatt.web.app/"
-                    >
-                        Gunn schedule app and UGWA successor.
-                    </Project>
-                    {/*
-                    <Project
-                        name="Word Generator"
-                        desc="A web port of Roger Fan's markov chain random word generator."
-                        tags={['ts', 'html', 'scss']}
-                        web="https://ky28059.github.io/#/word-gen"
-                    />
-                    */}
-                    <Project
-                        name="Geckobot"
-                        img="/projects/GeckoBot.png"
-                        langs={['c#', 'q#']}
-                        gh="https://github.com/croissantderp/geckobot"
-                        discord="https://discord.com/oauth2/authorize?client_id=766064505079726140&scope=bot&permissions=379968"
-                    >
-                        Discord.net bot with Drive API and quantum computing.
-                    </Project>
-                    <Project
-                        name="PortalBot"
-                        img="/projects/PortalBot.jpg"
-                        langs={['ts']}
-                        gh="https://github.com/ky28059/PortalBot"
-                        discord="https://discord.com/oauth2/authorize?client_id=827738852902043698&scope=bot&permissions=8"
-                    >
-                        TypeScript djs bot for real time cross server communication.
-                    </Project>
-                    <Project
-                        name="GunnHacks 7.0"
-                        img="/projects/gunnhacks.png"
-                        langs={['js', 'html', 'scss']}
-                        gh="https://github.com/GunnHacks/GunnHacks7.0"
-                        web="https://7.0.gunnhacks.com"
-                    >
-                        Website for GunnHacks 7.0 (2020-2021).
-                    </Project>
-                    <Project
-                        name="GunnHacks 8.0"
-                        img="/projects/gunnhacks.png"
-                        langs={['svelte', 'html', 'css']}
-                        gh="https://github.com/GunnHacks/GunnHacks8.0"
-                        web="https://gunnhacks.com"
-                    >
-                        SvelteKit website for GunnHacks 8.0.
-                    </Project>
-                    <Project
-                        name="Guava Bot"
-                        img="/projects/Guava.png"
-                        langs={['ts']}
-                        gh="https://github.com/ky28059/guava-bot"
-                    >
-                        <code>!whois</code> bot for an elusive discord server.
-                    </Project>
-                    <Project
-                        name="Guava Bot Slack"
-                        img="/projects/Guava.png"
-                        langs={['ts']}
-                        gh="https://github.com/ky28059/guava-bot-slack"
-                    >
-                        Slack bot for an elusive slack workspace.
-                    </Project>
-                    <Project
-                        name="hoco-radio-2021"
-                        langs={['py']}
-                        gh="https://github.com/ky28059/hoco-radio-2021"
-                    >
-                        Python script for the Raspberry Pi radio in the Junior float.
-                    </Project>
-                    <Project
-                        name="AP CSA"
-                        langs={['rkt']}
-                        gh="https://github.com/ky28059/AP-CSA"
-                    >
-                        Repository of assignments from the first (scheme) semester of Gunn's AP CSA.
-                    </Project>
+                <div className="flex gap-8">
+                    <div className="flex-none w-64">
+                        <SectionHeader className="mb-6">Projects</SectionHeader>
+
+                        {/*
+                        <div className="flex gap-2 mb-4">
+                            {['html', 'js', 'ts', 'css', 'scss', 'svelte', 'c#', 'py', 'rkt'].map(lang => (
+                                <ProjectTag lang={lang} />
+                            ))}
+                        </div>
+                        */}
+                        <p>
+                            Various programming projects for organizations like GunnHacks, as well as personal projects
+                            like WATT.
+                        </p>
+                    </div>
+                    <div className="flex flex-wrap gap-6">
+                        <Project
+                            name="RBot"
+                            img="/projects/RBot.png"
+                            langs={['ts']}
+                            gh="https://github.com/ky28059/RBot"
+                            discord="https://discord.com/oauth2/authorize?client_id=684587440777986090&scope=bot&permissions=8"
+                        >
+                            Discord mod bot using djs 13 and sequelize.
+                        </Project>
+                        <Project
+                            name="WATT"
+                            img="/projects/watt-white.png"
+                            langs={['ts', 'html', 'scss']}
+                            gh="https://github.com/GunnWATT/watt"
+                            web="https://gunnwatt.web.app/"
+                        >
+                            Gunn schedule app and UGWA successor.
+                        </Project>
+                        {/*
+                        <Project
+                            name="Word Generator"
+                            desc="A web port of Roger Fan's markov chain random word generator."
+                            tags={['ts', 'html', 'scss']}
+                            web="https://ky28059.github.io/#/word-gen"
+                        />
+                        */}
+                        <Project
+                            name="Geckobot"
+                            img="/projects/GeckoBot.png"
+                            langs={['c#', 'q#']}
+                            gh="https://github.com/croissantderp/geckobot"
+                            discord="https://discord.com/oauth2/authorize?client_id=766064505079726140&scope=bot&permissions=379968"
+                        >
+                            Discord.net bot with Drive API and quantum computing.
+                        </Project>
+                        <Project
+                            name="PortalBot"
+                            img="/projects/PortalBot.jpg"
+                            langs={['ts']}
+                            gh="https://github.com/ky28059/PortalBot"
+                            discord="https://discord.com/oauth2/authorize?client_id=827738852902043698&scope=bot&permissions=8"
+                        >
+                            TypeScript djs bot for real time cross server communication.
+                        </Project>
+                        <Project
+                            name="GunnHacks 7.0"
+                            img="/projects/gunnhacks.png"
+                            langs={['js', 'html', 'scss']}
+                            gh="https://github.com/GunnHacks/GunnHacks7.0"
+                            web="https://7.0.gunnhacks.com"
+                        >
+                            Website for GunnHacks 7.0 (2020-2021).
+                        </Project>
+                        <Project
+                            name="GunnHacks 8.0"
+                            img="/projects/gunnhacks.png"
+                            langs={['svelte', 'html', 'css']}
+                            gh="https://github.com/GunnHacks/GunnHacks8.0"
+                            web="https://gunnhacks.com"
+                        >
+                            SvelteKit website for GunnHacks 8.0.
+                        </Project>
+                        <Project
+                            name="Guava Bot"
+                            img="/projects/Guava.png"
+                            langs={['ts']}
+                            gh="https://github.com/ky28059/guava-bot"
+                        >
+                            <code>!whois</code> bot for an elusive discord server.
+                        </Project>
+                        <Project
+                            name="Guava Bot Slack"
+                            img="/projects/Guava.png"
+                            langs={['ts']}
+                            gh="https://github.com/ky28059/guava-bot-slack"
+                        >
+                            Slack bot for an elusive slack workspace.
+                        </Project>
+                        <Project
+                            name="hoco-radio-2021"
+                            langs={['py']}
+                            gh="https://github.com/ky28059/hoco-radio-2021"
+                        >
+                            Python script for the Raspberry Pi radio in the Junior float.
+                        </Project>
+                        <Project
+                            name="AP CSA"
+                            langs={['rkt']}
+                            gh="https://github.com/ky28059/AP-CSA"
+                        >
+                            Repository of assignments from the first (scheme) semester of Gunn's AP CSA.
+                        </Project>
+                    </div>
                 </div>
                 {/*
                 <Link href="/all"><a className="text-2xl mx-auto">More <FiArrowRight /></a></Link>
                 */}
             </Section>
 
-            <Section secondary>
-                <SectionHeader className="text-center mb-8">Gists</SectionHeader>
-                <br/>
-                <br/>
-                <br/>
+            <Section>
+                <div className="flex gap-8">
+                    <div className="flex-none w-64">
+                        <SectionHeader className="mb-8">Gists</SectionHeader>
+                        <p>
+                            Educational gists to teach about specific programming concepts and cool programming languages
+                            and technologies.
+                        </p>
+                    </div>
+                    <div>
+                        {/* TODO */}
+                        <br/>
+                        <br/>
+                        <br/>
+                    </div>
+                </div>
             </Section>
         </div>
     )
