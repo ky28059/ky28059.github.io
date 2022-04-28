@@ -13,7 +13,7 @@ class KDocument extends Document {
                 <Head>
                     <meta charSet="utf-8" />
                 </Head>
-                <body>
+                <body className="text-dark dark:text-white dark:bg-midnight">
                     <Main />
                     <NextScript />
                 </body>

@@ -20,7 +20,7 @@ export default function Header() {
     }, []);
 
     return (
-        <header className={`flex sticky top-0 p-4 bg-white dark:bg-gray-800 text-black dark:text-white bg-opacity-90 ${scroll > 0 ? 'shadow-md' : 'hover:shadow-md'} backdrop-blur-sm z-50 h-20 transition-shadow duration-300 ease-in-out ${!open ? 'h-10' : ''}`}>
+        <header className={`flex sticky top-0 p-4 bg-white dark:bg-dark text-black dark:text-white bg-opacity-90 ${scroll > 0 ? 'shadow-md' : 'hover:shadow-md'} backdrop-blur-sm z-50 h-20 transition-shadow duration-300 ease-in-out ${!open ? 'h-10' : ''}`}>
             <div className={`flex flex-grow items-center h-full ${!open ? 'hidden' : ''}`}>
                 <a href="https://github.com/ky28059">
                     <img src="/pfp.png" alt="Profile" className="rounded-full" height={50} width={50}/>
