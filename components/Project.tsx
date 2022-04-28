@@ -1,7 +1,7 @@
 import {ReactNode} from 'react';
 
 // Components
-import ProjectIconLink from './ProjectIconLink';
+import HoverCard from './HoverCard';
 
 // Icons
 import {GoMarkGithub} from 'react-icons/go';
@@ -17,7 +17,7 @@ export default function Project(props: ProjectProps) {
     const {name, children: desc, img, langs, gh, discord, web} = props;
 
     return (
-        <div className="flex flex-col p-4 gap-3 shadow-lg bg-white dark:bg-dark rounded-md transform hover:scale-110 transition transition-transform duration-150 w-64">
+        <HoverCard>
             <span className="flex items-center space-x-3 mb-1.5">
                 {img && (
                     <img
@@ -36,12 +36,24 @@ export default function Project(props: ProjectProps) {
                 </span>
             )}
             <p>{desc}</p>
-            <span className="links space-x-2 mt-auto flex text-xl">
-                {gh && <ProjectIconLink url={gh} icon={<GoMarkGithub />} />}
-                {discord && <ProjectIconLink url={discord} icon={<BsDiscord />} />}
-                {web && <ProjectIconLink url={web} icon={<FiLink2 />} />}
+            <span className="flex gap-2 mt-auto text-xl">
+                {gh && (
+                    <a href={gh} rel="noopener noreferrer" target="_blank">
+                        <GoMarkGithub />
+                    </a>
+                )}
+                {discord && (
+                    <a href={discord} rel="noopener noreferrer" target="_blank">
+                        <BsDiscord />
+                    </a>
+                )}
+                {web && (
+                    <a href={web} rel="noopener noreferrer" target="_blank">
+                        <FiLink2 />
+                    </a>
+                )}
             </span>
-        </div>
+        </HoverCard>
     );
 }
 

@@ -7,6 +7,7 @@ import Project, {ProjectTag} from '../components/Project';
 
 // Icons
 import {BiArrowToRight, BiSun} from 'react-icons/bi';
+import Gist from "../components/Gist";
 
 
 export default function Home() {
@@ -177,11 +178,14 @@ export default function Home() {
                             and technologies.
                         </p>
                     </div>
-                    <div>
-                        {/* TODO */}
-                        <br/>
-                        <br/>
-                        <br/>
+                    <div className="flex flex-wrap gap-6">
+                        <Gist name="Short circuit evaluation" url="https://gist.github.com/ky28059/84f33cee7cec0066390f79ee3629021e">
+                            An explanation of short circuit lazy evaluation in boolean expressions, and its relevance in
+                            weakly typed languages.
+                        </Gist>
+                        <Gist name="Lambdas in Java" url="https://gist.github.com/ky28059/566596eb93ac863332783182ec356e82">
+                            A guide to lambda expressions in Java 17.
+                        </Gist>
                     </div>
                 </div>
             </Section>
