@@ -24,7 +24,7 @@ export default function Home() {
 
             {/* TODO: responsive design */}
             <header className="bg-white dark:bg-midnight">
-                <div className="container relative pl-44 pt-24 pb-12">
+                <div className="container relative pl-44 pt-24 pb-12 pr-4">
                     <BiSun className="absolute top-8 right-8 cursor-pointer text-xl" onClick={toggleTheme}/>
                     <div className="relative">
                         <img src="pfp.png" alt="Profile picture" className="absolute -left-32 -top-10 h-24 w-24 rounded-full" />
@@ -38,8 +38,7 @@ export default function Home() {
 
             <Section secondary>
                 <div className="flex gap-8 justify-center">
-                    {/* TODO: responsive design */}
-                    <div className="flex flex-col gap-3 basis-60">
+                    <div className="hidden sm:flex flex-col gap-3 basis-60">
                         <ConceptsCard />
                         <ConceptsCard />
                         <ConceptsCard />
@@ -188,7 +187,7 @@ export default function Home() {
 
 function ProjectsLayout(props: {children: ReactNode}) {
     return (
-        <div className="flex justify-center flex-wrap md:flex-nowrap gap-8">
+        <div className="flex flex-wrap md:flex-nowrap gap-8">
             {props.children}
         </div>
     )
@@ -196,7 +195,7 @@ function ProjectsLayout(props: {children: ReactNode}) {
 
 function ProjectsHeaderSection(props: {children: ReactNode}) {
     return (
-        <div className="flex-none w-64">
+        <div className="md:flex-none md:w-64">
             {props.children}
         </div>
     )
