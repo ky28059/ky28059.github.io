@@ -1,13 +1,15 @@
+import {ReactNode} from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 
 // Components
 import Section, {SectionHeader} from '../components/Section';
 import Project, {ProjectTag} from '../components/Project';
+import Gist from '../components/Gist';
+import ConceptsCard from '../components/ConceptsCard';
 
 // Icons
 import {BiArrowToRight, BiSun} from 'react-icons/bi';
-import Gist from "../components/Gist";
 
 
 export default function Home() {
@@ -20,6 +22,7 @@ export default function Home() {
                 <meta name="description" content="Personal portfolio website and technology testing chamber." />
             </Head>
 
+            {/* TODO: responsive design */}
             <header className="bg-white dark:bg-midnight">
                 <div className="container relative pl-44 pt-24 pb-12">
                     <BiSun className="absolute top-8 right-8 cursor-pointer text-xl" onClick={toggleTheme}/>
@@ -35,6 +38,7 @@ export default function Home() {
 
             <Section secondary>
                 <div className="flex gap-8 justify-center">
+                    {/* TODO: responsive design */}
                     <div className="flex flex-col gap-3 basis-60">
                         <ConceptsCard />
                         <ConceptsCard />
@@ -53,23 +57,15 @@ export default function Home() {
             </Section>
 
             <Section>
-                <div className="flex gap-8">
-                    <div className="flex-none w-64">
+                <ProjectsLayout>
+                    <ProjectsHeaderSection>
                         <SectionHeader className="mb-6">Projects</SectionHeader>
-
-                        {/*
-                        <div className="flex gap-2 mb-4">
-                            {['html', 'js', 'ts', 'css', 'scss', 'svelte', 'c#', 'py', 'rkt'].map(lang => (
-                                <ProjectTag lang={lang} />
-                            ))}
-                        </div>
-                        */}
                         <p>
                             Various programming projects for organizations like GunnHacks, as well as personal projects
                             like WATT.
                         </p>
-                    </div>
-                    <div className="flex flex-wrap gap-6">
+                    </ProjectsHeaderSection>
+                    <ProjectsCardGrid>
                         <Project
                             name="RBot"
                             img="/projects/RBot.png"
@@ -162,23 +158,20 @@ export default function Home() {
                         >
                             Repository of assignments from the first (scheme) semester of Gunn's AP CSA.
                         </Project>
-                    </div>
-                </div>
-                {/*
-                <Link href="/all"><a className="text-2xl mx-auto">More <FiArrowRight /></a></Link>
-                */}
+                    </ProjectsCardGrid>
+                </ProjectsLayout>
             </Section>
 
             <Section>
-                <div className="flex gap-8">
-                    <div className="flex-none w-64">
-                        <SectionHeader className="mb-8">Gists</SectionHeader>
+                <ProjectsLayout>
+                    <ProjectsHeaderSection>
+                        <SectionHeader className="mb-6">Gists</SectionHeader>
                         <p>
                             Educational gists to teach about specific programming concepts and cool programming languages
                             and technologies.
                         </p>
-                    </div>
-                    <div className="flex flex-wrap gap-6">
+                    </ProjectsHeaderSection>
+                    <ProjectsCardGrid>
                         <Gist name="Short circuit evaluation" url="https://gist.github.com/ky28059/84f33cee7cec0066390f79ee3629021e">
                             An explanation of short circuit lazy evaluation in boolean expressions, and its relevance in
                             weakly typed languages.
@@ -186,30 +179,33 @@ export default function Home() {
                         <Gist name="Lambdas in Java" url="https://gist.github.com/ky28059/566596eb93ac863332783182ec356e82">
                             A guide to lambda expressions in Java 17.
                         </Gist>
-                    </div>
-                </div>
+                    </ProjectsCardGrid>
+                </ProjectsLayout>
             </Section>
         </div>
     )
 }
 
-// TODO: maybe move this and FillerText to their own component file
-function ConceptsCard() {
+function ProjectsLayout(props: {children: ReactNode}) {
     return (
-        <div className="flex flex-col gap-2 p-4 bg-white dark:bg-midnight rounded-lg shadow-lg">
-            <FillerText />
-            <FillerText width={60} />
+        <div className="flex justify-center flex-wrap md:flex-nowrap gap-8">
+            {props.children}
         </div>
     )
 }
 
-function FillerText(props: {width?: number}) {
-    const {width = 100} = props;
-
+function ProjectsHeaderSection(props: {children: ReactNode}) {
     return (
-        <span
-            className="block h-4 bg-gray-300/40 dark:bg-gray-300/10 rounded-full animate-pulse"
-            style={{width: `${width}%`}}
-        />
+        <div className="flex-none w-64">
+            {props.children}
+        </div>
+    )
+}
+
+function ProjectsCardGrid(props: {children: ReactNode}) {
+    return (
+        <div className="flex flex-wrap justify-center md:justify-start gap-6 w-full">
+            {props.children}
+        </div>
     )
 }
