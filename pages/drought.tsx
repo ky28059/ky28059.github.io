@@ -18,7 +18,7 @@ export default function Drought() {
     }
 
     return (
-        <div className="fixed top-0 w-full h-full flex">
+        <div className="h-screen flex items-center justify-center">
             <Head>
                 <title>Drought | ky28059.github.io</title>
                 <meta name="description" content="Countdown of days since Obi Wan's last commit to WATT." />
@@ -27,13 +27,13 @@ export default function Drought() {
             <img
                 src="/desert.png"
                 alt="desert"
-                className="fixed top-0 left-0 w-full h-full object-cover object-center -z-10"
+                className="fixed inset-0 w-full h-full object-cover object-center"
             />
 
             <div className="fixed inset-0 bg-black/20" />
-            <main className="m-auto relative text-white text-center">
-                <h1 className="text-9xl mb-4 font-mono font-semibold">{parseTime()}</h1>
-                <h2 className="text-5xl font-medium">since Obi-Wan's last commit to WATT.</h2>
+            <main className="relative text-white text-center">
+                <h1 className="text-5xl md:text-8xl lg:text-9xl mb-2 md:mb-4 font-mono font-semibold">{parseTime()}</h1>
+                <h2 className="text-xl md:text-4xl lg:text-5xl font-medium">since Obi-Wan's last commit to WATT.</h2>
             </main>
         </div>
     )
