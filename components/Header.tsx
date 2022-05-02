@@ -1,11 +1,9 @@
 import {useEffect, useState} from 'react';
-
-// Components
-import HeaderItem from './HeaderItem';
+import Link from 'next/link';
 
 // Icons
 import { MdExpandLess, MdExpandMore } from 'react-icons/md';
-import {BiSun} from "react-icons/bi";
+import {BiSun} from 'react-icons/bi';
 
 
 export default function Header() {
@@ -19,24 +17,22 @@ export default function Header() {
         document.onscroll = () => setScroll(window.scrollY);
     }, []);
 
-    return (
-        <header className={`flex sticky top-0 p-4 bg-white dark:bg-dark text-black dark:text-white bg-opacity-90 ${scroll > 0 ? 'shadow-md' : 'hover:shadow-md'} backdrop-blur-sm z-50 h-20 transition-shadow duration-300 ease-in-out ${!open ? 'h-10' : ''}`}>
-            <div className={`flex flex-grow items-center h-full ${!open ? 'hidden' : ''}`}>
-                <a href="https://github.com/ky28059">
-                    <img src="/pfp.png" alt="Profile" className="rounded-full" height={50} width={50}/>
-                </a>
-                <h1 className="text-3xl font-bold ml-4 mr-8">ky28059</h1>
+    const ExpandIcon = open ? MdExpandLess : MdExpandMore;
 
-                <HeaderItem to="/" name="Home" />
-                <HeaderItem to="/concepts" name="Concepts" />
+    return (
+        <header className={`flex sticky top-0 p-4 bg-white dark:bg-dark text-black dark:text-white bg-opacity-90 ${scroll > 0 ? 'shadow-md' : 'hover:shadow-md'} backdrop-blur-sm z-50 h-20 transition-[box-shadow,_height] duration-300 ease-in-out ${!open ? 'h-10' : ''}`}>
+            <div className={`flex items-center gap-4 h-full ${!open ? 'hidden' : ''}`}>
+                <a href="https://github.com/ky28059" className="flex gap-4 items-center mr-6">
+                    <img src="/pfp.png" alt="Profile" className="rounded-full" height={50} width={50}/>
+                    <h1 className="text-3xl font-bold">ky28059</h1>
+                </a>
+
+                <Link href="/"><a className="p-2">Home</a></Link>
+                <Link href="/concepts"><a className="p-2">Concepts</a></Link>
             </div>
-            <div className="flex items-center text-xl gap-4">
-                <BiSun onClick={toggleTheme}/>
-                {open ? (
-                    <MdExpandLess onClick={() => setOpen(x => !x)}/>
-                ) : (
-                    <MdExpandMore onClick={() => setOpen(x => !x)}/>
-                )}
+            <div className="flex items-center gap-4 ml-auto text-xl">
+                <BiSun className="cursor-pointer" onClick={toggleTheme}/>
+                <ExpandIcon className="cursor-pointer" onClick={() => setOpen(x => !x)} />
             </div>
         </header>
     )

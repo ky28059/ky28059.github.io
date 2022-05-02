@@ -70,7 +70,7 @@ export function ProjectTag(props: {lang: string}) {
 // Map tag name to github language color
 // Sad, but there are no libraries with TypeScript typings that accomplish this
 // https://github.com/ozh/github-colors/blob/master/colors.json
-function langToColor(lang: string) {
+export function langToColor(lang: string) {
     switch (lang) {
         case 'html': return '#e44b23';
         case 'js': return '#f1e05a';
