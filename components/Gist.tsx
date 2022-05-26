@@ -9,7 +9,7 @@ export default function Gist(props: GistProps) {
     return (
         <a href={url} target="_blank" rel="noopener noreferrer" className="flex">
             <HoverCard>
-                <h3 className="text-xl font-bold">{name}</h3>
+                <h3 className="text-xl font-bold mb-2">{name}</h3>
                 <p>{children}</p>
             </HoverCard>
         </a>
