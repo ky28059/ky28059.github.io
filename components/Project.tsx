@@ -10,15 +10,16 @@ import {FiLink2} from 'react-icons/fi';
 
 
 type ProjectProps = {
-    name: string, children: ReactNode, img?: string /* StaticImageData */, langs?: string[],
+    name: string, children: ReactNode, img?: string /* StaticImageData */,
+    langs?: string[], tags?: string[],
     gh?: string, discord?: string, web?: string
 };
 export default function Project(props: ProjectProps) {
-    const {name, children: desc, img, langs, gh, discord, web} = props;
+    const {name, children: desc, img, langs, tags, gh, discord, web} = props;
 
     return (
         <HoverCard>
-            <span className="flex items-center space-x-3 mb-1.5">
+            <section className="flex gap-3 items-center mb-3">
                 {img && (
                     <img
                         src={img}
@@ -29,14 +30,21 @@ export default function Project(props: ProjectProps) {
                     />
                 )}
                 <h3 className="text-xl font-bold">{name}</h3>
-            </span>
-            {langs && (
-                <span className="space-x-2 ml-1 flex">
-                    {langs.map(lang => <ProjectTag lang={lang} key={lang} />)}
-                </span>
+            </section>
+
+            {(langs || tags) && (
+                <section className="flex flex-wrap items-center gap-1.5 mb-2">
+                    {langs?.map(lang => <ProjectTag lang={lang} key={lang} />)}
+                    {tags?.map(tag => (
+                        <span className="rounded-full bg-blue-500/20 text-blue-400 px-2.5 pt-0.5 pb-1 text-xs">
+                            {tag}
+                        </span>
+                    ))}
+                </section>
             )}
-            <p>{desc}</p>
-            <span className="flex gap-2 mt-auto text-xl">
+
+            <p className="mb-3">{desc}</p>
+            <section className="flex gap-2 mt-auto text-xl">
                 {gh && (
                     <a href={gh} rel="noopener noreferrer" target="_blank">
                         <GoMarkGithub />
@@ -52,7 +60,7 @@ export default function Project(props: ProjectProps) {
                         <FiLink2 />
                     </a>
                 )}
-            </span>
+            </section>
         </HoverCard>
     );
 }
@@ -61,7 +69,7 @@ export function ProjectTag(props: {lang: string}) {
     const color = langToColor(props.lang);
     return (
         <div
-            className="rounded-full w-3 h-3 ring-2 ring-black ring-opacity-75 dark:ring-opacity-50"
+            className="rounded-full w-3 h-3 ring-2 mx-px ring-black ring-opacity-75 dark:ring-opacity-50"
             style={{backgroundColor: color}}
         />
     )
