@@ -10,6 +10,7 @@ import ConceptsCard from '../components/ConceptsCard';
 
 // Icons
 import {BiArrowToRight, BiSun} from 'react-icons/bi';
+import {GoMarkGithub} from 'react-icons/go';
 
 
 export default function Home() {
@@ -73,9 +74,9 @@ export default function Home() {
                                 langs={['ts']}
                                 tags={['discord.js']}
                                 gh="https://github.com/ky28059/RBot"
-                                discord="https://discord.com/oauth2/authorize?client_id=684587440777986090&scope=bot&permissions=8"
+                                discord="https://discord.com/oauth2/authorize?client_id=684587440777986090&scope=bot+applications.commands&permissions=8"
                             >
-                                Discord mod bot using djs 13 and sequelize.
+                                Discord mod and music bot using djs 13 and sequelize.
                             </Project>
                             <Project
                                 name="WATT"
@@ -111,16 +112,16 @@ export default function Home() {
                                 langs={['ts']}
                                 tags={['discord.js', 'PortalBot framework']}
                                 gh="https://github.com/ky28059/PortalBot"
-                                discord="https://discord.com/oauth2/authorize?client_id=827738852902043698&scope=bot&permissions=8"
+                                discord="https://discord.com/oauth2/authorize?client_id=827738852902043698&scope=bot+applications.commands&permissions=8"
                             >
-                                TypeScript djs bot for real time cross server communication.
+                                TypeScript djs bot for real-time cross-server communication.
                             </Project>
                             <Project
                                 name="hoco-radio-2021"
                                 langs={['py']}
                                 gh="https://github.com/ky28059/hoco-radio-2021"
                             >
-                                Python script for the Raspberry Pi radio in the Junior float.
+                                Python script for the Raspberry Pi radio in the 2021 Junior float.
                             </Project>
                             <Project
                                 name="AP CSA"
@@ -131,7 +132,7 @@ export default function Home() {
                             </Project>
                         </ProjectGroup>
 
-                        <ProjectGroup name="GRT">
+                        <ProjectGroup name="GRT" gh="https://github.com/grt192">
                             <Project
                                 name="Guava Bot"
                                 img="/projects/Guava.png"
@@ -145,7 +146,7 @@ export default function Home() {
                                 name="Guava Bot Slack"
                                 img="/projects/Guava.png"
                                 langs={['ts']}
-                                tags={['bolt-js']}
+                                tags={['bolt-js', 'slack-block-builder']}
                                 gh="https://github.com/ky28059/guava-bot-slack"
                             >
                                 Slack bot for an elusive slack workspace.
@@ -159,7 +160,19 @@ export default function Home() {
                             </Project>
                         </ProjectGroup>
 
-                        <ProjectGroup name="GunnHacks">
+                        <ProjectGroup name="SEC" gh="https://github.com/gunnsec">
+                            <Project
+                                name="Hall Monitor"
+                                img="/projects/timmy.png"
+                                langs={['ts']}
+                                tags={['bolt-js', 'slack-block-builder']}
+                                gh="https://github.com/gunnsec/hall-monitor"
+                            >
+                                Slack bot for official SEC business.
+                            </Project>
+                        </ProjectGroup>
+
+                        <ProjectGroup name="GunnHacks" gh="https://github.com/GunnHacks">
                             <Project
                                 name="GunnHacks 7.0"
                                 img="/projects/gunnhacks.png"
@@ -233,11 +246,16 @@ function ProjectsCardGrid(props: {children: ReactNode}) {
     )
 }
 
-function ProjectGroup(props: {name: string, children: ReactNode}) {
+function ProjectGroup(props: {name: string, children: ReactNode, gh?: string}) {
     return (
         <div>
-            <div className="flex items-center gap-2 mb-4">
-                <h3 className="font-medium text-gray-500 mb-0.5">{props.name}</h3>
+            <div className="flex items-center gap-2 text-gray-500 mb-4">
+                <h3 className="font-medium mb-0.5">{props.name}</h3>
+                {props.gh && (
+                    <a className="text-lg" href={props.gh} target="_blank" rel="noopener noreferrer">
+                        <GoMarkGithub />
+                    </a>
+                )}
                 <hr className="w-full border-gray-600/50" />
             </div>
             <ProjectsCardGrid>

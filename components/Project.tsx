@@ -4,21 +4,20 @@ import {ReactNode} from 'react';
 import HoverCard from './HoverCard';
 
 // Icons
-import {GoMarkGithub} from 'react-icons/go';
 import {BsDiscord} from 'react-icons/bs';
-import {FiLink2} from 'react-icons/fi';
+import {FiLink} from 'react-icons/fi';
 
 
 type ProjectProps = {
     name: string, children: ReactNode, img?: string /* StaticImageData */,
     langs?: string[], tags?: string[],
-    gh?: string, discord?: string, web?: string
+    gh: string, discord?: string, web?: string
 };
 export default function Project(props: ProjectProps) {
     const {name, children: desc, img, langs, tags, gh, discord, web} = props;
 
     return (
-        <HoverCard>
+        <HoverCard href={gh}>
             <section className="flex gap-3 items-center mb-3">
                 {img && (
                     <img
@@ -30,37 +29,33 @@ export default function Project(props: ProjectProps) {
                     />
                 )}
                 <h3 className="text-xl font-bold">{name}</h3>
+
+                <section className="flex gap-2 ml-auto text-xl">
+                    {discord && (
+                        <a href={discord} rel="noopener noreferrer" target="_blank">
+                            <BsDiscord />
+                        </a>
+                    )}
+                    {web && (
+                        <a href={web} rel="noopener noreferrer" target="_blank">
+                            <FiLink />
+                        </a>
+                    )}
+                </section>
             </section>
 
             {(langs || tags) && (
                 <section className="flex flex-wrap items-center gap-1.5 mb-2">
                     {langs?.map(lang => <ProjectTag lang={lang} key={lang} />)}
                     {tags?.map(tag => (
-                        <span className="rounded-full bg-blue-500/20 text-blue-400 px-2.5 pt-0.5 pb-1 text-xs">
+                        <span className="rounded-full bg-blue-500/20 text-blue-400 px-2.5 pt-0.5 pb-1 text-xs" key={tag}>
                             {tag}
                         </span>
                     ))}
                 </section>
             )}
 
-            <p className="mb-3">{desc}</p>
-            <section className="flex gap-2 mt-auto text-xl">
-                {gh && (
-                    <a href={gh} rel="noopener noreferrer" target="_blank">
-                        <GoMarkGithub />
-                    </a>
-                )}
-                {discord && (
-                    <a href={discord} rel="noopener noreferrer" target="_blank">
-                        <BsDiscord />
-                    </a>
-                )}
-                {web && (
-                    <a href={web} rel="noopener noreferrer" target="_blank">
-                        <FiLink2 />
-                    </a>
-                )}
-            </section>
+            <p>{desc}</p>
         </HoverCard>
     );
 }

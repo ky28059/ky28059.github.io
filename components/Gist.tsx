@@ -7,11 +7,9 @@ export default function Gist(props: GistProps) {
     const {name, url, children} = props;
 
     return (
-        <a href={url} target="_blank" rel="noopener noreferrer" className="flex">
-            <HoverCard>
-                <h3 className="text-xl font-bold mb-2">{name}</h3>
-                <p>{children}</p>
-            </HoverCard>
-        </a>
+        <HoverCard href={url}>
+            <h3 className="text-xl font-bold mb-2">{name}</h3>
+            <p>{children}</p>
+        </HoverCard>
     )
 }
