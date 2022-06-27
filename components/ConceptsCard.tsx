@@ -7,7 +7,7 @@ export default function ConceptsCard() {
     )
 }
 
-function FillerText(props: {width?: number}) {
+export function FillerText(props: {width?: number}) {
     const {width = 100} = props;
 
     return (

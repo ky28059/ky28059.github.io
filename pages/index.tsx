@@ -4,9 +4,8 @@ import Link from 'next/link';
 
 // Components
 import Section, {SectionHeader} from '../components/Section';
-import Project, {ProjectTag} from '../components/Project';
-import Gist from '../components/Gist';
 import Projects from '../components/Projects';
+import MockPage from '../components/MockPage';
 import ConceptsCard from '../components/ConceptsCard';
 
 // Icons
@@ -38,27 +37,45 @@ export default function Home() {
                 </div>
             </header>
 
-            <Section secondary>
-                <div className="flex gap-8 justify-center">
-                    <div className="hidden sm:flex flex-col gap-3 basis-60">
-                        <ConceptsCard />
-                        <ConceptsCard />
-                        <ConceptsCard />
-                    </div>
-                    <div>
-                        <SectionHeader className="mb-4">Concepts</SectionHeader>
-                        <p className="mb-4">Design concepts I've made for other websites. ___.</p>
-                        <Link href="/concepts">
-                            <a className="text-lg font-medium hover:underline w-max mx-auto">
-                                Explore concepts →
-                            </a>
-                        </Link>
+            <Section secondary className="flex gap-12 justify-center">
+                <MockPage />
+                <div className="max-w-prose">
+                    <SectionHeader>About this website</SectionHeader>
+                    <p className="mb-4">
+                        This website was originally created to experiment with (at the time) new web technologies to me
+                        like Next.js and TailwindCSS. Since then, it has become a personal portfolio site and host for
+                        various miscellaneous web tinkering.
+                    </p>
+                    <p className="mb-4">
+                        The structure and function of this website was largely inspired by Sean's website,{' '}
+                        <a href="https://sheeptester.github.io/" target="_blank" rel="noopener noreferrer">sheeptester.github.io</a>.
+                        View the source code for this website on GitHub, or a directory of all pages <Link href="/all"><a>here</a></Link>.
+                    </p>
+                    <div className="flex gap-2">
+                        <a className="text-2xl text-inherit hover:no-underline" href="https://github.com/ky28059/ky28059.github.io" target="_blank" rel="noopener noreferrer">
+                            <GoMarkGithub />
+                        </a>
                     </div>
                 </div>
             </Section>
 
             <Projects />
 
+            <Section secondary className="flex gap-12 justify-center">
+                <div className="hidden sm:flex flex-col gap-3 basis-60">
+                    <ConceptsCard />
+                    <ConceptsCard />
+                    <ConceptsCard />
+                </div>
+                <div>
+                    <SectionHeader>Concepts</SectionHeader>
+                    <p className="mb-4">Design concepts I've made for other websites. ___.</p>
+                    <Link href="/concepts">
+                        <a className="text-lg font-medium text-inherit w-max mx-auto">
+                            Explore concepts →
+                        </a>
+                    </Link>
+                </div>
             </Section>
 
             </Section>
