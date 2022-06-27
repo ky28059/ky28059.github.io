@@ -1,10 +1,10 @@
 import {ReactNode} from 'react';
 
 
-export default function Section(props: {children: ReactNode, secondary?: boolean}) {
+export default function Section(props: {children: ReactNode, secondary?: boolean, className?: string}) {
     return (
-        <section className={`${props.secondary ? 'bg-gray-100 dark:bg-dark' : 'bg-white dark:bg-midnight'} py-8`}>
-            <div className="container">
+        <section className={'py-8 my-4 ' + (props.secondary ? 'bg-gray-100 dark:bg-dark' : 'bg-white dark:bg-midnight')}>
+            <div className={'container' + (props.className ? ` ${props.className}` : '')}>
                 {props.children}
             </div>
         </section>
@@ -13,7 +13,7 @@ export default function Section(props: {children: ReactNode, secondary?: boolean
 
 export function SectionHeader(props: {children: ReactNode, className?: string}) {
     return (
-        <h1 className={'text-5xl font-bold' + (props.className ? ` ${props.className}` : '')}>
+        <h1 className={'text-5xl font-bold mb-6' + (props.className ? ` ${props.className}` : '')}>
             {props.children}
         </h1>
     )

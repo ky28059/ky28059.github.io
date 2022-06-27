@@ -32,12 +32,12 @@ export default function Project(props: ProjectProps) {
 
                 <section className="flex gap-2 ml-auto text-xl">
                     {discord && (
-                        <a href={discord} rel="noopener noreferrer" target="_blank">
+                        <a href={discord} rel="noopener noreferrer" target="_blank" className="text-inherit hover:no-underline">
                             <BsDiscord />
                         </a>
                     )}
                     {web && (
-                        <a href={web} rel="noopener noreferrer" target="_blank">
+                        <a href={web} rel="noopener noreferrer" target="_blank" className="text-inherit hover:no-underline">
                             <FiLink />
                         </a>
                     )}
@@ -45,7 +45,7 @@ export default function Project(props: ProjectProps) {
             </section>
 
             {(langs || tags) && (
-                <section className="flex flex-wrap items-center gap-1.5 mb-2">
+                <section className="flex flex-wrap items-center gap-1 mb-2">
                     {langs?.map(lang => <ProjectTag lang={lang} key={lang} />)}
                     {tags?.map(tag => (
                         <span className="rounded-full bg-blue-500/20 text-blue-400 px-2.5 pt-0.5 pb-1 text-xs" key={tag}>
@@ -64,7 +64,7 @@ export function ProjectTag(props: {lang: string}) {
     const color = langToColor(props.lang);
     return (
         <div
-            className="rounded-full w-3 h-3 ring-2 mx-px ring-black ring-opacity-75 dark:ring-opacity-50"
+            className="rounded-full w-3 h-3 ring-2 mx-0.5 ring-black ring-opacity-75 dark:ring-opacity-50"
             style={{backgroundColor: color}}
         />
     )
