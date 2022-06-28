@@ -44,22 +44,22 @@ export default function RabbitSignHeader() {
                 </Link>
                 {loggedIn && (
                     <Link href="/dashboard" passHref>
-                        <a className="ml-4" title="Dashboard">
+                        <a className="ml-4 text-inherit hover:no-underline" title="Dashboard">
                             Dashboard
                         </a>
                     </Link>
                 )}
                 <Link href="/faq" passHref>
-                    <a className="ml-4" title="FAQ">
+                    <a className="ml-4 text-inherit hover:no-underline" title="FAQ">
                         FAQ
                     </a>
                 </Link>
                 {loggedIn ? <>
                     {/* TODO: these need to be updated and wrapped in <Link> */}
-                    <a className="ml-auto cursor-pointer" title="My Account">
+                    <a className="ml-auto cursor-pointer text-inherit hover:no-underline" title="My Account">
                         My Account
                     </a>
-                    <a className="sign-out-button ml-4 cursor-pointer" title="Sign Out" onClick={toggleLogin}>
+                    <a className="sign-out-button ml-4 cursor-pointer text-inherit hover:no-underline" title="Sign Out" onClick={toggleLogin}>
                         Sign Out
                     </a>
                 </> : <>
@@ -68,14 +68,14 @@ export default function RabbitSignHeader() {
                     <a
                         //href="https://login.rabbitsign.com/signup?client_id=20qopiid2uaflsvki0lde6k5j7&amp;response_type=token&amp;scope=email+openid+profile&amp;redirect_uri=https://www.rabbitsign.com/loginredirect.html"
                         title="Sign Up"
-                        className="ml-auto cursor-pointer"
+                        className="ml-auto cursor-pointer text-inherit hover:no-underline"
                         onClick={toggleLogin}
                     >
                         Sign Up
                     </a>
                     <a
                         //href="https://login.rabbitsign.com/login?client_id=20qopiid2uaflsvki0lde6k5j7&amp;response_type=token&amp;scope=email+openid+profile&amp;redirect_uri=https://www.rabbitsign.com/loginredirect.html"
-                        className="ml-4 cursor-pointer"
+                        className="ml-4 cursor-pointer text-inherit hover:no-underline"
                         title="Log In"
                         onClick={toggleLogin}
                     >

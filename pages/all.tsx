@@ -41,7 +41,7 @@ export default function All(props: {paths: string[]}) {
 export async function getStaticProps() {
     const paths = (await getFiles('./pages'))
         .map(file => file.replaceAll('\\', '/'))
-        .map(file => file.match(/.+\/pages(.*?)(?:\/index)?\.tsx/)![1])
+        .map(file => file.match(/.+\/pages(\/.*?)\/?(?:index)?\.tsx/)![1])
         .filter(path => !(path.startsWith('/_') || path === '/404'));
 
     return {

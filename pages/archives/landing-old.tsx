@@ -172,10 +172,10 @@ function ArchivedHeader() {
                 <h1 className="text-3xl font-bold ml-4 mr-8">ky28059</h1>
 
                 <span className="p-4">
-                    <Link href="/"><a>Home</a></Link>
+                    <Link href="/"><a className="text-inherit hover:no-underline">Home</a></Link>
                 </span>
                 <span className="p-4">
-                    <Link href="/concepts"><a>Concepts</a></Link>
+                    <Link href="/concepts"><a className="text-inherit hover:no-underline">Concepts</a></Link>
                 </span>
             </div>
             <div className="flex items-center text-xl gap-4">
@@ -215,17 +215,17 @@ function ArchivedProject(props: ProjectProps) {
             <p>{desc}</p>
             <span className="flex gap-2 mt-auto text-xl">
                 {gh && (
-                    <a href={gh} rel="noopener noreferrer" target="_blank">
+                    <a href={gh} rel="noopener noreferrer" target="_blank" className="text-inherit hover:no-underline">
                         <GoMarkGithub />
                     </a>
                 )}
                 {discord && (
-                    <a href={discord} rel="noopener noreferrer" target="_blank">
+                    <a href={discord} rel="noopener noreferrer" target="_blank" className="text-inherit hover:no-underline">
                         <BsDiscord />
                     </a>
                 )}
                 {web && (
-                    <a href={web} rel="noopener noreferrer" target="_blank">
+                    <a href={web} rel="noopener noreferrer" target="_blank" className="text-inherit hover:no-underline">
                         <FiLink2 />
                     </a>
                 )}
