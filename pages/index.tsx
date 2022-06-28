@@ -78,7 +78,7 @@ export default function Home() {
                 </div>
             </Section>
 
-            <Section className="flex gap-12 justify-center">
+            <Section className="flex flex-wrap-reverse lg:flex-nowrap gap-12 justify-center">
                 <CodeBlock
                     sources={[
                         'https://raw.githubusercontent.com/ky28059/competitive-programming-club/master/src/USACO2020/ABCs.java',
@@ -86,7 +86,7 @@ export default function Home() {
                         'https://raw.githubusercontent.com/ky28059/competitive-programming-club/master/src/HPI/MusicTraining.kt'
                     ]}
                 />
-                <div>
+                <div className="max-w-prose">
                     <SectionHeader>Competitive programming</SectionHeader>
                     <p className="mb-4">
                         My brief foray into competitive programming can be found on GitHub under <code>competitive-programming-club</code>,

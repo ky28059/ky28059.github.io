@@ -19,7 +19,7 @@ export default function CodeBlock(props: CodeBlockProps) {
     }, [])
 
     return (
-        <div className="flex flex-col rounded-lg overflow-hidden w-[36rem] h-[36rem] flex-none text-xs bg-[#2b2b2b] border border-gray-100/20">
+        <div className="flex flex-col rounded-lg overflow-hidden w-[36rem] h-[36rem] max-w-full flex-none text-xs bg-[#2b2b2b] border border-gray-100/20">
             <div className="flex bg-[#484a4a]/50">
                 {sources.map((source, i) => (
                     <button
