@@ -1,4 +1,3 @@
-import {ReactNode} from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 
@@ -7,6 +6,7 @@ import Section, {SectionHeader} from '../components/Section';
 import Projects from '../components/Projects';
 import MockPage from '../components/MockPage';
 import ConceptsCard from '../components/ConceptsCard';
+import CodeBlock from '../components/CodeBlock';
 
 // Icons
 import {BiArrowToRight, BiSun} from 'react-icons/bi';
@@ -28,7 +28,7 @@ export default function Home() {
                 <div className="container relative pl-44 pt-24 pb-12 pr-4">
                     <BiSun className="absolute top-8 right-8 cursor-pointer text-xl" onClick={toggleTheme}/>
                     <div className="relative">
-                        <img src="pfp.png" alt="Profile picture" className="absolute -left-32 -top-10 h-24 w-24 rounded-full" />
+                        <img src="/pfp.png" alt="Profile picture" className="absolute -left-32 -top-10 h-24 w-24 rounded-full" />
                         <h1 className="font-bold text-7xl mb-4 underline decoration-grapefruit">kevin yu.</h1>
                         <p className="text-lg">
                             Teenager that goes to Gunn High School. Interested in art, web development, and robotics.
@@ -78,6 +78,29 @@ export default function Home() {
                 </div>
             </Section>
 
+            <Section className="flex gap-12 justify-center">
+                <CodeBlock
+                    sources={[
+                        'https://raw.githubusercontent.com/ky28059/competitive-programming-club/master/src/USACO2020/ABCs.java',
+                        'https://raw.githubusercontent.com/ky28059/competitive-programming-club/master/src/ProCo2021/War.kt',
+                        'https://raw.githubusercontent.com/ky28059/competitive-programming-club/master/src/HPI/MusicTraining.kt'
+                    ]}
+                />
+                <div>
+                    <SectionHeader>Competitive programming</SectionHeader>
+                    <p className="mb-4">
+                        My brief foray into competitive programming can be found on GitHub under <code>competitive-programming-club</code>,
+                        after the club at Gunn that inspired me to try CP.
+                    </p>
+                    <p className="mb-4">
+                        My Codeforces profile can be found <a href="https://codeforces.com/profile/ky28059" target="_blank" rel="noopener noreferrer">here</a>.
+                    </p>
+                    <div className="flex gap-2">
+                        <a className="text-2xl text-inherit hover:no-underline" href="https://github.com/ky28059/competitive-programming-club" target="_blank" rel="noopener noreferrer">
+                            <GoMarkGithub />
+                        </a>
+                    </div>
+                </div>
             </Section>
         </div>
     )

@@ -10,3 +10,87 @@
         }
     }
 }
+
+// Overrides for code block syntax highlighting
+pre.prismjs {
+    @apply p-4 bg-[#2b2b2b] h-full overflow-auto;
+
+    &::-webkit-scrollbar {
+        @apply w-2 h-2;
+        &-thumb {
+            @apply bg-[#484a4a];
+        }
+        &-corner {
+            @apply hidden;
+        }
+    }
+
+    code {
+        @apply font-[Consolas,_Monaco,_'Andale_Mono',_monospace] text-[#a9b7c6] leading-[1.5em];
+
+        .comment, .prolog, .cdata {
+            @apply text-[#808080];
+        }
+        .delimiter, .boolean, .keyword, .selector, .important, .atrule {
+            @apply text-[#cc7832];
+        }
+        .operator, .punctuation, .attr-name {
+            @apply text-[#a9b7c6];
+        }
+        .tag, .tag.punctuation, .doctype, .builtin {
+            @apply text-[#e8bf6a];
+        }
+        .entity, .number, .symbol {
+            @apply text-[#6897bb];
+        }
+        .property, .constant, .variable {
+            @apply text-[#9876aa];
+        }
+        .string, .char {
+            @apply text-[#6a8759];
+        }
+        .attr-value {
+            @apply text-[#a5c261];
+        }
+        .attr-value.punctuation {
+            @apply text-[#a5c261];
+            &:first-child {
+                @apply text-[#a9b7c6];
+            }
+        }
+        .url {
+            @apply text-[#287bde] underline;
+        }
+        .function {
+            @apply text-[#ffc66d];
+        }
+        .regex {
+            @apply bg-[#364135];
+        }
+        .bold {
+            @apply font-bold;
+        }
+        .inserted {
+            @apply bg-[#294436];
+        }
+        .deleted {
+            @apply bg-[#484a4a];
+        }
+        &.language-css {
+            .token.property {
+                @apply text-[#a9b7c6];
+                + .token.punctuation {
+                    @apply text-[#a9b7c6]
+                }
+            }
+            .token.id {
+                @apply text-[#ffc66d];
+            }
+            .token.selector {
+                > .token.class, > .token.attribute, > .token.pseudo-class, > .token.pseudo-element {
+                    @apply text-[#ffc66d];
+                }
+            }
+        }
+    }
+}
