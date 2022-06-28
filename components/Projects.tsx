@@ -1,4 +1,4 @@
-import Section, {SectionHeader} from './Section';
+import Section, {SectionHeading} from './Section';
 import Project from './Project';
 import Gist from './Gist';
 import {ReactNode} from 'react';
@@ -10,7 +10,7 @@ export default function Projects() {
         <Section className="flex flex-col gap-16">
             <ProjectsLayout>
                 <ProjectsHeaderSection>
-                    <SectionHeader>Projects</SectionHeader>
+                    <SectionHeading>Projects</SectionHeading>
                     <p>
                         Various programming projects for organizations like GunnHacks, as well as personal projects
                         like WATT.
@@ -149,7 +149,7 @@ export default function Projects() {
 
             <ProjectsLayout>
                 <ProjectsHeaderSection>
-                    <SectionHeader>Gists</SectionHeader>
+                    <SectionHeading>Gists</SectionHeading>
                     <p>
                         Educational gists to teach about specific programming concepts and cool programming languages
                         and technologies.

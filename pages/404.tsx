@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import Link from "next/link";
+import PageHeading from '../components/PageHeading';
+import {IoMdCloseCircle} from 'react-icons/io';
 
 
 export default function PageNotFound() {
@@ -10,10 +12,11 @@ export default function PageNotFound() {
                 <meta name="description" content="Page not found." />
             </Head>
 
-            <main>
-                <h1 className="font-bold text-7xl mb-6 underline decoration-grapefruit">404</h1>
-                <p className="mb-1.5">Your requested page was not found.</p>
-                <Link href="/"><a className="font-medium hover:underline">Return to home →</a></Link>
+            <main className="relative pl-12">
+                <IoMdCloseCircle className="absolute left-0 top-2 text-4xl text-grapefruit" />
+                <PageHeading className="mb-6">404</PageHeading>
+                <p className="mb-1">Your requested page was not found.</p>
+                <Link href="/"><a className="font-medium text-inherit">Return to home →</a></Link>
             </main>
         </div>
     )

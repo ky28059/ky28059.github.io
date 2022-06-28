@@ -2,7 +2,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 // Components
-import Section, {SectionHeader} from '../components/Section';
+import PageHeading from '../components/PageHeading';
+import Section, {SectionHeading} from '../components/Section';
 import Projects from '../components/Projects';
 import MockPage from '../components/MockPage';
 import ConceptsCard from '../components/ConceptsCard';
@@ -29,7 +30,7 @@ export default function Home() {
                     <BiSun className="absolute top-8 right-8 cursor-pointer text-xl" onClick={toggleTheme}/>
                     <div className="relative">
                         <img src="/pfp.png" alt="Profile picture" className="absolute -left-32 -top-10 h-24 w-24 rounded-full" />
-                        <h1 className="font-bold text-7xl mb-4 underline decoration-grapefruit">kevin yu.</h1>
+                        <PageHeading className="mb-4">kevin yu.</PageHeading>
                         <p className="text-lg">
                             Teenager that goes to Gunn High School. Interested in art, web development, and robotics.
                         </p>
@@ -40,7 +41,7 @@ export default function Home() {
             <Section secondary className="flex gap-12 justify-center">
                 <MockPage />
                 <div className="max-w-prose">
-                    <SectionHeader>About this website</SectionHeader>
+                    <SectionHeading>About this website</SectionHeading>
                     <p className="mb-4">
                         This website was originally created to experiment with (at the time) new web technologies to me
                         like Next.js and TailwindCSS. Since then, it has become a personal portfolio site and host for
@@ -68,7 +69,7 @@ export default function Home() {
                     <ConceptsCard />
                 </div>
                 <div>
-                    <SectionHeader>Concepts</SectionHeader>
+                    <SectionHeading>Concepts</SectionHeading>
                     <p className="mb-4">Design concepts I've made for other websites. ___.</p>
                     <Link href="/concepts">
                         <a className="text-lg font-medium text-inherit w-max mx-auto">
@@ -87,7 +88,7 @@ export default function Home() {
                     ]}
                 />
                 <div className="max-w-prose">
-                    <SectionHeader>Competitive programming</SectionHeader>
+                    <SectionHeading>Competitive programming</SectionHeading>
                     <p className="mb-4">
                         My brief foray into competitive programming can be found on GitHub under <code>competitive-programming-club</code>,
                         after the club at Gunn that inspired me to try CP.

@@ -11,7 +11,7 @@ export default function Section(props: {children: ReactNode, secondary?: boolean
     )
 }
 
-export function SectionHeader(props: {children: ReactNode, className?: string}) {
+export function SectionHeading(props: {children: ReactNode, className?: string}) {
     return (
         <h1 className={'text-5xl font-bold mb-6' + (props.className ? ` ${props.className}` : '')}>
             {props.children}

@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Header from '../../components/Header';
+import PageHeading from '../../components/PageHeading';
 
 
 export default function Concepts() {
@@ -13,8 +14,10 @@ export default function Concepts() {
 
             <Header />
 
-            <h1 className="text-9xl font-bold text-center mt-16 mb-8">Concepts</h1>
-            <p className="text-center">This directory hosts concept designs for projects I've worked on. ___.</p>
+            <main className="container mt-16">
+                <PageHeading className="mb-8">Concepts</PageHeading>
+                <p className="">This directory hosts concept designs for projects I've worked on. ___.</p>
+            </main>
         </div>
     )
 }
