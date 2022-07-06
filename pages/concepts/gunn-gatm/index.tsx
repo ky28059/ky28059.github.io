@@ -3,24 +3,19 @@ import Head from 'next/head';
 
 
 export default function Landing() {
-    // TODO: better way to ensure that dark mode is disabled for this page?
-    useEffect(() => {
-        document.documentElement.classList.remove('dark');
-    }, []);
-
     return (
-        <div>
+        <div className="bg-white text-dark">
             <Head>
                 <title>A Geometric Approach to Matrices</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <section className="text-center mb-16 mt-8">
+            <section className="text-center mb-16 pt-8">
                 <h1 className="text-7xl font-bold mb-4">A Geometric Approach to Matrices</h1>
                 <h2 className="text-2xl">GAtM Online Resources</h2>
             </section>
 
-            <section className="container mx-auto space-y-4 mb-16">
+            <section className="container space-y-4 mb-16">
                 <p>
                     This is a website where all resources pertaining to GAtM will be made available.
                     This includes the PDF versions of the textbook and answer key, individual chapters, and also
@@ -37,9 +32,13 @@ export default function Landing() {
                 </p>
             </section>
 
-            <section className="flex flex-wrap gap-8 mx-16 mb-16">
+            <section className="flex flex-wrap gap-8 mx-16 pb-16">
                 <div className="flex basis-[48rem] flex-grow gap-8">
-                    <img src="/concepts/gatm/cover-page.png" alt="GAtM Cover" className="h-80 outline outline-1 outline-gray-400" />
+                    <img
+                        src="/concepts/gatm/cover-page.png"
+                        alt="GAtM Cover"
+                        className="h-80 outline outline-1 outline-gray-400"
+                    />
                     <div className="space-y-4">
                         <h2 className="text-3xl font-bold mb-4">A Geometric Approach to Matrices</h2>
                         <p>
@@ -66,7 +65,11 @@ export default function Landing() {
                 </div>
 
                 <div className="flex basis-[48rem] flex-grow gap-8">
-                    <img src="/concepts/gatm/cover-page-answers.png" alt="GAtM Cover" className="h-80 outline outline-1 outline-gray-400" />
+                    <img
+                        src="/concepts/gatm/cover-page-answers.png"
+                        alt="GAtM Cover"
+                        className="h-80 outline outline-1 outline-gray-400"
+                    />
                     <div className="space-y-4">
                         <h2 className="text-3xl font-bold mb-4">A Geometric Approach to Matrices (Answer Key)</h2>
                         <p>
