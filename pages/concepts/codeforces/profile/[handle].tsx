@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import {GetStaticPropsContext} from 'next';
 import CfLayout from '../../../../components/concepts/CfLayout';
-import {User} from '../../../../components/concepts/CfSidebar';
+import topUsers, {User} from '../../../../util/cfTopUsers.preval';
 
 // Icons
 import {BsGearFill, BsPeopleFill} from 'react-icons/bs';
@@ -59,20 +59,30 @@ export default function Profile(props: User) {
 
 export async function getStaticProps(context: GetStaticPropsContext) {
     const {params} = context;
-    const user = (await (await fetch(`https://codeforces.com/api/user.info?handles=${params!.handle}`)).json()).result[0];
     return {
-        props: user
+        // TODO: any way to remove the hacky cast to string from `string | string[] | undefined`?
+        props: await tryFetchCodeforcesUser(params!.handle as string)
+    }
+}
+
+// Tries to fetch a codeforces user, retrying after a second if it encounters a rate-limit.
+// Ideally we could just fetch the user directly, but because nextjs calls all `getStaticProps` at once for prerendering
+// during `next build`, prerending the `[handle]` static paths runs into api rate limits.
+// https://github.com/vercel/next.js/discussions/18550
+async function tryFetchCodeforcesUser(handle: string): Promise<User> {
+    try {
+        return (await (await fetch(`https://codeforces.com/api/user.info?handles=${handle}`)).json()).result[0];
+    } catch {
+        await new Promise((res) => setTimeout(res, 1000));
+        return tryFetchCodeforcesUser(handle);
     }
 }
 
 export async function getStaticPaths() {
-    const res = await (await fetch('https://codeforces.com/api/user.ratedList?activeOnly=true&includeRetired=false')).json();
-    const top = res.result.slice(0, 10) as User[];
-
     return {
         paths: [
             {params: {handle: 'ky28059'}},
-            ...top.map(user => ({params: {handle: user.handle}}))
+            ...topUsers.map(user => ({params: {handle: user.handle}}))
         ],
         fallback: false
     }

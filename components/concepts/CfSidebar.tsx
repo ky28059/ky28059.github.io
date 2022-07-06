@@ -1,23 +1,9 @@
 import {ReactNode, useEffect, useState} from 'react';
 import Link from 'next/link';
+import topUsers from '../../util/cfTopUsers.preval';
 
 
-export type User = {
-    handle: string, email?: string, firstName?: string, lastName?: string,
-    country?: string, city?: string, organization?: string,
-    contribution: number, rank: string, maxRank: string, rating: number, maxRating: number,
-    lastOnlineTimeSeconds: number, registrationTimeSeconds: number,
-    friendOfCount: number, avatar: string, titlePhoto: string
-}
 export default function CfSidebar() {
-    // TODO: put this in a `getStaticProps` somehow
-    const [topUsers, setTopUsers] = useState<User[]>([])
-    useEffect(() => {
-        fetch('https://codeforces.com/api/user.ratedList?activeOnly=true&includeRetired=false')
-            .then(res => res.json())
-            .then(res => setTopUsers(res.result.slice(0, 10)))
-    }, [])
-
     return (
         <aside className="flex flex-col gap-4 w-64">
             <CfSidebarCard heading="Profile | ky28059" className="p-4">
@@ -36,7 +22,7 @@ export default function CfSidebar() {
                     </div>
                     <div className="table-row-group">
                         {topUsers.map((user, i) => (
-                            <Link href={`/concepts/codeforces/profile/${user.handle}`}>
+                            <Link href={`/concepts/codeforces/profile/${user.handle}`} key={user.handle}>
                                 <a className="table-row hover:bg-gray-300/20 text-inherit hover:no-underline">
                                     <div className="table-cell pr-4 py-0.5 text-right">{i + 1}</div>
                                     <div className="table-cell py-0.5">{user.handle}</div>
