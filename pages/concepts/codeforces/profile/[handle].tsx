@@ -1,12 +1,12 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import {GetStaticPropsContext} from 'next';
 import CfLayout from '../../../../components/concepts/CfLayout';
 import {User} from '../../../../components/concepts/CfSidebar';
 
 // Icons
 import {BsGearFill, BsPeopleFill} from 'react-icons/bs';
 import {FaStickyNote} from 'react-icons/fa';
-import {GetStaticPropsContext} from "next";
 
 
 export default function Profile(props: User) {

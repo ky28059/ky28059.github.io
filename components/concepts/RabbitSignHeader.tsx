@@ -1,21 +1,14 @@
 import {useState, useEffect} from 'react';
 import Link from 'next/link';
-
-// Icons
-import {BiSun} from 'react-icons/bi';
+import ThemeToggle from '../ThemeToggle';
+import {useScroll} from '../../util/useScroll';
 
 
 export default function RabbitSignHeader() {
-    const [scroll, setScroll] = useState(0);
     const [loggedIn, setLoggedIn] = useState(false);
     const toggleLogin = () => setLoggedIn(!loggedIn);
 
-    const toggleTheme = () => document.documentElement.classList.toggle('dark');
-
-    useEffect(() => {
-        setScroll(window.scrollY);
-        document.onscroll = () => setScroll(window.scrollY);
-    }, []);
+    const scroll = useScroll();
 
     return (
         <header className={`sticky top-0 bg-white z-50 dark:bg-gray-800 ${scroll > 0 ? 'bg-opacity-90 dark:bg-opacity-90 shadow-md backdrop-blur-sm' : 'hover:bg-opacity-90 dark:hover:bg-opacity-90 hover:shadow-md hover:backdrop-blur-sm'} transition-shadow duration-300 ease-in-out`}>
@@ -43,13 +36,13 @@ export default function RabbitSignHeader() {
                     </a>
                 </Link>
                 {loggedIn && (
-                    <Link href="/dashboard" passHref>
+                    <Link href="/dashboard">
                         <a className="ml-4 text-inherit hover:no-underline" title="Dashboard">
                             Dashboard
                         </a>
                     </Link>
                 )}
-                <Link href="/faq" passHref>
+                <Link href="/faq">
                     <a className="ml-4 text-inherit hover:no-underline" title="FAQ">
                         FAQ
                     </a>
@@ -82,7 +75,7 @@ export default function RabbitSignHeader() {
                         Log In
                     </a>
                 </>}
-                <BiSun className="text-lg ml-4 cursor-pointer" onClick={toggleTheme}/>
+                <ThemeToggle className="text-lg ml-4 cursor-pointer" />
             </nav>
         </header>
     )

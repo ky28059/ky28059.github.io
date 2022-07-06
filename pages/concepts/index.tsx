@@ -16,7 +16,11 @@ export default function Concepts() {
 
             <main className="container mt-16">
                 <PageHeading className="mb-8">Concepts</PageHeading>
-                <p className="">This directory hosts concept designs for projects I've worked on. ___.</p>
+                <p className="max-w-prose">
+                    This directory hosts concept designs for projects I've worked on. Note that most (if not all) of these
+                    concepts were designed around computer screens and haven't been made responsive for mobile, so viewing
+                    them on a phone may produce undesirable results.
+                </p>
             </main>
         </div>
     )
