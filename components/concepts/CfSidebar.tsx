@@ -1,6 +1,6 @@
 import {ReactNode, useEffect, useState} from 'react';
 import Link from 'next/link';
-import topUsers from '../../util/cfTopUsers.preval';
+import cfUsers from '../../util/cfUsers.preval';
 
 
 export default function CfSidebar() {
@@ -21,7 +21,7 @@ export default function CfSidebar() {
                         </div>
                     </div>
                     <div className="table-row-group">
-                        {topUsers.map((user, i) => (
+                        {cfUsers.top.map((user, i) => (
                             <Link href={`/concepts/codeforces/profile/${user.handle}`} key={user.handle}>
                                 <a className="table-row hover:bg-gray-300/20 text-inherit hover:no-underline">
                                     <div className="table-cell pr-4 py-0.5 text-right">{i + 1}</div>

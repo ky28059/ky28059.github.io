@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import {GetStaticPropsContext} from 'next';
 import CfLayout from '../../../../components/concepts/CfLayout';
-import topUsers, {User} from '../../../../util/cfTopUsers.preval';
+import cfUsers, {User} from '../../../../util/cfUsers.preval';
 
 // Icons
 import {BsGearFill, BsPeopleFill} from 'react-icons/bs';
@@ -19,7 +19,7 @@ export default function Profile(props: User) {
             </Head>
 
             <div className="flex gap-6">
-                <img src={titlePhoto} alt={`${handle} profile picture`} className="h-36 w-36 rounded-full" />
+                <img src={titlePhoto} alt={`${handle} profile picture`} className="h-36 w-36 rounded-full object-cover" />
                 <div className="pt-12">
                     <section className="flex gap-4 items-center mb-6">
                         <h1 className="font-bold text-5xl">{props.handle}</h1>
@@ -60,8 +60,8 @@ export default function Profile(props: User) {
 export async function getStaticProps(context: GetStaticPropsContext) {
     const {params} = context;
     return {
-        // TODO: any way to remove the hacky cast to string from `string | string[] | undefined`?
-        props: await tryFetchCodeforcesUser(params!.handle as string)
+        props: cfUsers.top.find((user) => user.handle === params!.handle)
+            || cfUsers.self
     }
 }
 
@@ -80,10 +80,7 @@ async function tryFetchCodeforcesUser(handle: string): Promise<User> {
 
 export async function getStaticPaths() {
     return {
-        paths: [
-            {params: {handle: 'ky28059'}},
-            ...topUsers.map(user => ({params: {handle: user.handle}}))
-        ],
+        paths: [...cfUsers.top, cfUsers.self].map(user => ({params: {handle: user.handle}})),
         fallback: false
     }
 }

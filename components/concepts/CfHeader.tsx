@@ -2,6 +2,7 @@ import {ReactNode} from 'react';
 import Link from 'next/link';
 import {useRouter} from 'next/router';
 import ThemeToggle from '../ThemeToggle';
+import cfUsers from '../../util/cfUsers.preval';
 
 
 export default function CfHeader() {
@@ -23,7 +24,7 @@ export default function CfHeader() {
             </nav>
             <div className="flex gap-5 items-center ml-auto">
                 <div className="flex gap-2.5 items-center">
-                    <img src="/pfp.png" className="w-8 h-8 rounded-full" alt="ky28059" />
+                    <img src={cfUsers.self.avatar} className="w-8 h-8 rounded-full" alt="ky28059" />
                     <Link href="/concepts/codeforces/profile/ky28059">
                         <a className="text-inherit hover:no-underline font-medium">ky28059</a>
                     </Link>
