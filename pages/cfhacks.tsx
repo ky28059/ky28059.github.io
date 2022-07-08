@@ -31,11 +31,17 @@ export default function CodeforcesHacks() {
                     and <code>count</code>, then paste the generated javascript into console on codeforces.com.
                 </p>
                 <p className="font-medium">Notes:</p>
-                <ul className="list-disc pl-6 mb-6">
-                    <li><code>contestId</code> should be the ID of the contest (ex. <code>https://codeforces.com/contest/1701</code> has an ID of 1701).</li>
-                    <li><code>problem</code> should be the index of the problem (ex. A, B, C, etc.).</li>
-                    <li><code>testCase</code> should be the test case you want to submit as a hack.</li>
-                    <li><code>count</code> should be the number of submissions you want to parse.</li>
+                <ul className="list-disc pl-6 mb-6 max-w-4xl">
+                    <li>
+                        <code>Contest</code> should be the ID of the contest (eg.{' '}
+                        <code>https://codeforces.com/contest/1701</code> has an ID of 1701).
+                    </li>
+                    <li><code>Problem</code> should be the index (letter) of the problem (eg. A, B, C, etc.).</li>
+                    <li>
+                        <code>Count</code> should be the number of submissions you want to parse. Note that this corresponds
+                        to the total number of submissions <em>before</em> filtering for AC or problem.
+                    </li>
+                    <li><code>Test case</code> should be the test case you want to submit as a hack.</li>
                 </ul>
 
                 <div className="flex gap-3 mb-2.5 max-w-2xl">
@@ -108,8 +114,8 @@ function LabelledInput(props: LabelledInputProps) {
 }
 
 const script = (contestId: number, problem: string, testCase: string, count: number) => `const contestId = ${contestId};
-const problem = '${problem.replaceAll(/['\\]/g, '\\\$&')}';
-const testCase = \`${testCase.replaceAll(/[`\\]/g, '\\\$&')}\`;
+const problem = '${problem.replaceAll(/['\\]/g, '\\$&')}';
+const testCase = \`${testCase.replaceAll(/[`\\$]/g, '\\$&')}\`;
 const count = ${count};
 
 ;(async () => {
@@ -131,6 +137,6 @@ const count = ${count};
         await fetch(\`https://codeforces.com/data/challenge?csrf_token=\${csrf}\`, {
             body: formData,
             method: 'POST'
-        })
+        });
     }
 })();`
