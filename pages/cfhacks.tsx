@@ -4,7 +4,6 @@ import {SectionHeading} from '../components/Section';
 import {SyntaxHighlighter} from '../components/CodeBlock';
 
 
-// TODO: responsive design
 // TODO: not with this page specifically, but really consider making a `secondary` color in the theme to standardize
 // that across pages.
 export default function CodeforcesHacks() {
@@ -31,7 +30,7 @@ export default function CodeforcesHacks() {
                     and <code>count</code>, then paste the generated javascript into console on codeforces.com.
                 </p>
                 <p className="font-medium">Notes:</p>
-                <ul className="list-disc pl-6 mb-6 max-w-4xl">
+                <ul className="list-disc pl-6 mb-6 max-w-5xl">
                     <li>
                         <code>Contest</code> should be the ID of the contest (eg.{' '}
                         <code>https://codeforces.com/contest/1701</code> has an ID of 1701).
@@ -44,7 +43,7 @@ export default function CodeforcesHacks() {
                     <li><code>Test case</code> should be the test case you want to submit as a hack.</li>
                 </ul>
 
-                <div className="flex gap-3 mb-2.5 max-w-2xl">
+                <div className="flex gap-x-3 gap-y-1.5 mb-6 md:mb-2.5">
                     <LabelledInput
                         label="Contest"
                         value={contest}
@@ -75,7 +74,7 @@ export default function CodeforcesHacks() {
                         textArea.style.height = 'auto';
                         textArea.style.height = textArea.scrollHeight + 8 + 'px';
                     }}
-                    className="rounded px-3 py-1 dark:bg-[#2b2b2b] mb-3 w-full max-w-2xl border border-gray-400/50 dark:border-gray-100/10 placeholder:text-gray-400 placeholder:dark:text-gray-100/40"
+                    className="rounded px-3 py-1 dark:bg-[#2b2b2b] mb-3 w-full border border-gray-400/50 dark:border-gray-100/10 placeholder:text-gray-400 placeholder:dark:text-gray-100/40"
                 />
 
                 <p className="text-sm mb-1 text-gray-400 dark:text-gray-100/40">
