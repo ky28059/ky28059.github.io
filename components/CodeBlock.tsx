@@ -39,7 +39,7 @@ export default function CodeBlock(props: CodeBlockProps) {
 }
 
 type SyntaxHighlighterProps = {language: string, children: string | string[]};
-function SyntaxHighlighter(props: SyntaxHighlighterProps) {
+export function SyntaxHighlighter(props: SyntaxHighlighterProps) {
     return (
         <Prism language={props.language} codeTagProps={{style: {}}} showLineNumbers useInlineStyles={false}>
             {props.children}
