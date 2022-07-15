@@ -43,7 +43,7 @@ export default function CodeforcesHacks() {
                     <li><code>Test case</code> should be the test case you want to submit as a hack.</li>
                 </ul>
 
-                <div className="flex gap-x-3 gap-y-1.5 mb-6 md:mb-2.5">
+                <div className="flex flex-wrap gap-x-3 gap-y-1.5 mb-6 md:mb-2.5">
                     <LabelledInput
                         label="Contest"
                         value={contest}
@@ -79,6 +79,7 @@ export default function CodeforcesHacks() {
 
                 <p className="text-sm mb-1 text-gray-400 dark:text-gray-100/40">
                     Generated:{' '}
+                    {/* TODO: animate this with a popup or something */}
                     <button onClick={() => navigator.clipboard.writeText(script(contest, problem, testCase, count))} className="hover:underline">
                         (copy)
                     </button>
