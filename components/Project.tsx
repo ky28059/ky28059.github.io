@@ -30,12 +30,12 @@ export default function Project(props: ProjectProps) {
 
                 <section className="flex gap-2 ml-auto text-xl">
                     {discord && (
-                        <a href={discord} rel="noopener noreferrer" target="_blank" className="text-inherit hover:no-underline">
+                        <a href={discord} rel="noopener noreferrer" target="_blank" className="z-10 text-inherit hover:no-underline">
                             <BsDiscord />
                         </a>
                     )}
                     {web && (
-                        <a href={web} rel="noopener noreferrer" target="_blank" className="text-inherit hover:no-underline">
+                        <a href={web} rel="noopener noreferrer" target="_blank" className="z-10 text-inherit hover:no-underline">
                             <FiLink />
                         </a>
                     )}
