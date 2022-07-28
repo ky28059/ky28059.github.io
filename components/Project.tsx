@@ -24,8 +24,6 @@ export default function Project(props: ProjectProps) {
                         src={img}
                         className="rounded-full h-8 w-8 bg-gray-200/50 dark:bg-gray-900/50"
                         alt={`${name}-icon`}
-                        width={40}
-                        height={40}
                     />
                 )}
                 <h3 className="text-xl font-bold">{name}</h3>

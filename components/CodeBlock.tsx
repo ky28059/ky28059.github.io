@@ -10,7 +10,7 @@ type CodeBlockProps = {sources: string[]};
 export default function CodeBlock(props: CodeBlockProps) {
     const {sources} = props;
 
-    const [active, setActive] = useState(0)
+    const [active, setActive] = useState(0);
 
     const [raw, setRaw] = useState<string[]>([]);
     useEffect(() => {
