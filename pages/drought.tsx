@@ -24,7 +24,7 @@ export default function Drought() {
         <div className="h-screen flex items-center justify-center">
             <Head>
                 <title>Drought | ky28059.github.io</title>
-                <meta name="description" content="Countdown of days since Obi Wan's last commit to WATT." />
+                <meta name="description" content="Counter of days since Obi-Wan's last commit to WATT." />
             </Head>
 
             <img
