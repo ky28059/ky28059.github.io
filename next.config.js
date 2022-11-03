@@ -1,4 +1,8 @@
-const createNextPluginPreval = require('next-plugin-preval/config');
-const withNextPluginPreval = createNextPluginPreval();
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    experimental: {
+        appDir: true
+    }
+};
 
-module.exports = withNextPluginPreval();
+module.exports = nextConfig;

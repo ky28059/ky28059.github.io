@@ -1,7 +1,8 @@
+'use client';
+
 import {useState, useEffect} from 'react';
-import Head from 'next/head';
 import {DateTime} from 'luxon';
-import {useIsMounted} from '../util/useIsMounted';
+import {useIsMounted} from '../../util/useIsMounted';
 
 
 export default function Drought() {
@@ -22,11 +23,6 @@ export default function Drought() {
 
     return (
         <div className="h-screen flex items-center justify-center">
-            <Head>
-                <title>Drought | ky28059.github.io</title>
-                <meta name="description" content="Counter of days since Obi-Wan's last commit to WATT." />
-            </Head>
-
             <img
                 src="/desert.png"
                 alt="desert"
