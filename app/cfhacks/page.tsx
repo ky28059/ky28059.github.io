@@ -1,7 +1,8 @@
+'use client';
+
 import {useRef, useState} from 'react';
-import Head from 'next/head';
-import {SectionHeading} from '../components/Section';
-import {SyntaxHighlighter} from '../components/CodeBlock';
+import {SectionHeading} from '../../components/Section';
+import {SyntaxHighlighter} from '../../components/CodeBlock';
 
 
 // TODO: not with this page specifically, but really consider making a `secondary` color in the theme to standardize
@@ -16,11 +17,6 @@ export default function CodeforcesHacks() {
 
     return (
         <div>
-            <Head>
-                <title>Codeforces Hacks | ky28059.github.io</title>
-                <meta name="description" content="Generator for a script to hack all AC submissions in a Codeforces contest." />
-            </Head>
-
             <main className="container py-24">
                 <SectionHeading>Hack everyone!</SectionHeading>
 
