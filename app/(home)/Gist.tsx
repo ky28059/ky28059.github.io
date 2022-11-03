@@ -1,5 +1,5 @@
 import {ReactNode} from 'react';
-import HoverCard from './HoverCard';
+import HoverCard from '../../components/HoverCard';
 
 
 type GistProps = {name: string, url: string, children: ReactNode};

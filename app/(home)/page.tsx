@@ -1,14 +1,13 @@
-import Head from 'next/head';
 import Link from 'next/link';
 
 // Components
-import PageHeading from '../components/PageHeading';
-import Section, {SectionHeading} from '../components/Section';
-import Projects from '../components/Projects';
-import MockPage from '../components/MockPage';
-import ConceptsCard from '../components/ConceptsCard';
-import CodeBlock from '../components/CodeBlock';
-import ThemeToggle from '../components/ThemeToggle';
+import PageHeading from '../../components/PageHeading';
+import Section, {SectionHeading} from '../../components/Section';
+import Projects from './Projects';
+import MockPage from './MockPage';
+import ConceptsCard from './ConceptsCard';
+import CodeBlock from '../../components/CodeBlock';
+import ThemeToggle from '../../components/ThemeToggle';
 
 // Icons
 import {BiArrowToRight} from 'react-icons/bi';
@@ -18,11 +17,6 @@ import {GoMarkGithub} from 'react-icons/go';
 export default function Home() {
     return (
         <div>
-            <Head>
-                <title>Home | ky28059.github.io</title>
-                <meta name="description" content="Personal portfolio website and technology testing chamber." />
-            </Head>
-
             {/* TODO: responsive design */}
             <header className="bg-white dark:bg-midnight">
                 <div className="container relative pl-44 pt-24 pb-12 pr-4">
@@ -49,7 +43,7 @@ export default function Home() {
                     <p className="mb-4">
                         The structure and function of this website was largely inspired by Sean's website,{' '}
                         <a href="https://sheeptester.github.io/" target="_blank" rel="noopener noreferrer">sheeptester.github.io</a>.
-                        View the source code for this website on GitHub, or a directory of all pages <Link href="/all"><a>here</a></Link>.
+                        View the source code for this website on GitHub, or a directory of all pages <Link href="/all">here</Link>.
                     </p>
                     <div className="flex gap-2">
                         <a className="text-2xl text-inherit hover:no-underline" href="https://github.com/ky28059/ky28059.github.io" target="_blank" rel="noopener noreferrer">
@@ -70,10 +64,8 @@ export default function Home() {
                 <div>
                     <SectionHeading>Concepts</SectionHeading>
                     <p className="mb-4">Design concepts I've made for other websites. ___.</p>
-                    <Link href="/concepts">
-                        <a className="text-lg font-medium text-inherit w-max mx-auto">
-                            Explore concepts →
-                        </a>
+                    <Link href="/concepts" className="text-lg font-medium text-inherit w-max mx-auto">
+                        Explore concepts →
                     </Link>
                 </div>
             </Section>

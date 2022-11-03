@@ -1,3 +1,5 @@
+'use client';
+
 import {useEffect, useState} from 'react';
 import {Prism} from 'react-syntax-highlighter';
 
@@ -6,6 +8,7 @@ import {Prism} from 'react-syntax-highlighter';
 // fetched on mount and rendered in the block.
 // TODO: light mode
 // TODO: responsive design
+// TODO: use server rendering for fetching sources?
 type CodeBlockProps = {sources: string[]};
 export default function CodeBlock(props: CodeBlockProps) {
     const {sources} = props;

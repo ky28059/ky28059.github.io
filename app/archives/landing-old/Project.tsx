@@ -1,5 +1,5 @@
 import {ReactNode} from 'react';
-import {langToColor} from '../../../components/Project';
+import {langToColor} from '../../(home)/Project'; // TODO: shared util
 
 // Icons
 import {GoMarkGithub} from 'react-icons/go';

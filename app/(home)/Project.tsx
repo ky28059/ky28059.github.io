@@ -1,7 +1,7 @@
 import {ReactNode} from 'react';
 
 // Components
-import HoverCard from './HoverCard';
+import HoverCard from '../../components/HoverCard';
 
 // Icons
 import {BsDiscord} from 'react-icons/bs';

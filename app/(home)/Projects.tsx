@@ -1,7 +1,7 @@
-import Section, {SectionHeading} from './Section';
+import {ReactNode} from 'react';
+import Section, {SectionHeading} from '../../components/Section';
 import Project from './Project';
 import Gist from './Gist';
-import {ReactNode} from 'react';
 import {GoMarkGithub} from 'react-icons/go';
 
 
