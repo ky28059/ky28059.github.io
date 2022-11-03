@@ -1,9 +1,10 @@
+'use client';
+
 import {useState} from 'react';
-import Head from 'next/head';
 
 // Components
-import TicTacToeBoard, {defaultTTTBoard, BoardStatus, TTTBoard, TTTSymbol} from '../components/TicTacToeBoard';
-import TicTacToeScoreIndicator, {TTTScores} from '../components/TicTacToeScoreIndicator';
+import TicTacToeBoard, {defaultTTTBoard, BoardStatus, TTTBoard, TTTSymbol} from '../TicTacToeBoard';
+import TicTacToeScoreIndicator, {TTTScores} from '../TicTacToeScoreIndicator';
 
 
 export default function TicTacToe() {
@@ -45,11 +46,6 @@ export default function TicTacToe() {
 
     return (
         <main className="h-screen flex flex-col gap-8 items-center justify-center">
-            <Head>
-                <title>Offline Tic-Tac-Toe | ky28059.github.io</title>
-                <meta name="description" content="Offline Tic-Tac-Toe for single-device games." />
-            </Head>
-
             <TicTacToeScoreIndicator scores={scores} />
 
             <TicTacToeBoard

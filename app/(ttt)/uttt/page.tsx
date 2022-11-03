@@ -1,5 +1,6 @@
+'use client';
+
 import {useState} from 'react';
-import Head from 'next/head';
 
 // Components
 import UltimateTicTacToeBoard, {
@@ -8,11 +9,11 @@ import UltimateTicTacToeBoard, {
     defaultUTTTBoardStatuses,
     UTTTBoard,
     UTTTBoardStatuses
-} from '../components/UltimateTicTacToeBoard';
-import TicTacToeScoreIndicator, {TTTScores} from '../components/TicTacToeScoreIndicator';
+} from '../UltimateTicTacToeBoard';
+import TicTacToeScoreIndicator, {TTTScores} from '../TicTacToeScoreIndicator';
 
 // Utilities
-import {BoardStatus, checkBoardStatus, TTTBoard, TTTSymbol} from '../components/TicTacToeBoard';
+import {BoardStatus, checkBoardStatus, TTTBoard, TTTSymbol} from '../TicTacToeBoard';
 
 
 export default function UltimateTicTacToe() {
@@ -81,12 +82,6 @@ export default function UltimateTicTacToe() {
 
     return (
         <main className="h-screen flex flex-col gap-8 items-center justify-center">
-            <Head>
-                <title>Offline Ultimate Tic-Tac-Toe | ky28059.github.io</title>
-                <meta name="description" content="Offline Ultimate Tic-Tac-Toe for single-device games." />
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
-
             <TicTacToeScoreIndicator scores={scores} />
 
             <UltimateTicTacToeBoard
