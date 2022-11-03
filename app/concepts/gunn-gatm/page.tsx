@@ -1,15 +1,6 @@
-import {useEffect} from 'react';
-import Head from 'next/head';
-
-
 export default function Landing() {
     return (
         <div className="bg-white text-dark">
-            <Head>
-                <title>A Geometric Approach to Matrices</title>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
-
             <section className="text-center mb-16 pt-8">
                 <h1 className="text-7xl font-bold mb-4">A Geometric Approach to Matrices</h1>
                 <h2 className="text-2xl">GAtM Online Resources</h2>
