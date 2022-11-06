@@ -1,22 +1,18 @@
-import Head from 'next/head';
 import Link from 'next/link';
 
 // Components
-import Section, {SectionHeading} from '../components/Section';
+import Section, {SectionHeading} from '../../components/Section';
 
 // Utilities
 import {readdirSync} from 'fs';
 import {resolve} from 'path';
 
 
-export default function All(props: {paths: string[]}) {
+export default async function All() {
+    const paths = await getPaths();
+
     return (
         <div>
-            <Head>
-                <title>All | ky28059.github.io</title>
-                <meta name="description" content="A directory of every page on this website." />
-            </Head>
-
             <Section>
                 <SectionHeading className="underline decoration-grapefruit">All</SectionHeading>
                 <p className="mb-8 max-w-prose">
@@ -25,9 +21,9 @@ export default function All(props: {paths: string[]}) {
                 </p>
 
                 <section className="flex flex-col gap-2">
-                    {props.paths.map(path => (
-                        <Link href={path}>
-                            <a className="text-gray-400">{path}</a>
+                    {paths.map(path => (
+                        <Link href={path} className="text-gray-400" key={path}>
+                            {path}
                         </Link>
                     ))}
                 </section>
@@ -36,18 +32,15 @@ export default function All(props: {paths: string[]}) {
     )
 }
 
-// Recursively fetch all files in `./pages`, standardizing slashes, normalizing absolute paths to relative paths, handling
-// `index.tsx`, and removing `_app.tsx`, `_document.tsx`, and `404.tsx`.
-export async function getStaticProps() {
-    const paths = (await getFiles('./pages'))
+// Recursively fetch all files in `./app`, standardizing slashes, filtering for `page.tsx`, normalizing absolute paths
+// to relative paths, and mapping the file name to the generated path.
+async function getPaths() {
+    return (await getFiles('./app'))
         .map(file => file.replaceAll('\\', '/'))
-        .map(file => file.match(/.+\/pages(\/.*?)\/?(?:index)?\.tsx/)![1])
-        .filter(path => !(path.startsWith('/_') || path === '/404'))
+        .map(file => file.match(/.+\/app(\/.*?)\/page\.tsx/)?.[1])
+        .filter((file): file is string => !!file) // TODO: perhaps a bit hacky
+        .map(path => path.replaceAll(/\(.+?\)\/?/g, ''))
         .sort();
-
-    return {
-        props: {paths}
-    }
 }
 
 // Recursively searches a directory for all nested files.
