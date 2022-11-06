@@ -1,9 +1,9 @@
 import {ReactNode} from 'react';
-import CfSidebar from './CfSidebar';
 import CfHeader from './CfHeader';
+import CfSidebar from './CfSidebar';
 
 
-export default function CfLayout(props: {children: ReactNode}) {
+export default function Layout(props: {children: ReactNode}) {
     return (
         <div className="container pb-24">
             <CfHeader />
