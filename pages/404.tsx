@@ -12,10 +12,10 @@ export default function PageNotFound() {
                 <meta name="description" content="Page not found." />
             </Head>
 
-            <main className="relative pl-12">
-                <IoMdCloseCircle className="absolute left-0 top-2 text-4xl text-grapefruit" />
-                <PageHeading className="mb-6">404</PageHeading>
-                <p className="mb-1">Your requested page was not found.</p>
+            <main className="relative pl-14">
+                <IoMdCloseCircle className="absolute left-0 top-2 text-5xl text-grapefruit" />
+                <PageHeading className="mb-5">404.</PageHeading>
+                <p>Your requested page was not found.</p>
                 <Link href="/"><a className="font-medium text-inherit">Return to home →</a></Link>
             </main>
         </div>
