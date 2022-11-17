@@ -1,3 +1,5 @@
+'use client';
+
 import {BiSun} from 'react-icons/bi';
 
 
