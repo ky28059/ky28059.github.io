@@ -17,7 +17,7 @@ export default function Concepts() {
 
             <main className="container mt-16">
                 <PageHeading className="mb-8">Concepts</PageHeading>
-                <p className="max-w-prose mb-12">
+                <p className="max-w-4xl mb-12">
                     This directory hosts concept designs for projects I've worked on. Note that most (if not all) of these
                     concepts were designed around computer screens and haven't been made responsive for mobile, so viewing
                     them on a phone may produce undesirable results.
