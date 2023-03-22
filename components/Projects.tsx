@@ -12,12 +12,122 @@ export default function Projects() {
                 <ProjectsHeaderSection>
                     <SectionHeading>Projects</SectionHeading>
                     <p>
-                        Various programming projects for organizations like GunnHacks, as well as personal projects
-                        like WATT.
+                        Various programming projects for organizations like the Gunn Robotics Team or GunnHacks, as well
+                        as personal projects like RBot and WATT.
                     </p>
                 </ProjectsHeaderSection>
 
                 <section className="flex flex-col gap-6">
+                    <ProjectGroup name="GRT" gh="https://github.com/grt192">
+                        <Project
+                            name="GRT Website 2.0"
+                            img="/projects/grt.png"
+                            langs={['ts', 'css']}
+                            tags={['nextjs', 'tailwindcss']}
+                            gh="https://github.com/ky28059/GRTWebsite2.0"
+                            web="https://www.gunnrobotics.com"
+                        >
+                            A modern rewrite of the Gunn Robotics Team website.
+                        </Project>
+                        <Project
+                            name="GRT2022"
+                            langs={['java']}
+                            tags={['wpilib']}
+                            gh="https://github.com/grt192/GRT2022"
+                        >
+                            FRC team 192 code for the 2022 FIRST Robotics Competition, Rapid React.
+                        </Project>
+                        <Project
+                            name="GRT2023"
+                            langs={['java']}
+                            tags={['wpilib']}
+                            gh="https://github.com/grt192/GRT2023"
+                        >
+                            FRC team 192 code for 2023 FIRST Robotics Competition, Charged Up.
+                        </Project>
+                        <Project
+                            name="Guava Bot"
+                            img="/projects/Guava.png"
+                            langs={['ts']}
+                            tags={['discord.js', 'PortalBot framework']}
+                            gh="https://github.com/ky28059/guava-bot"
+                        >
+                            Counting and <code>!whois</code> bot for an elusive discord server.
+                        </Project>
+                        <Project
+                            name="Guava Bot Slack"
+                            img="/projects/Guava.png"
+                            langs={['ts']}
+                            tags={['bolt-js', 'slack-block-builder']}
+                            gh="https://github.com/ky28059/guava-bot-slack"
+                        >
+                            Slack bot for an elusive slack workspace.
+                        </Project>
+                    </ProjectGroup>
+
+                    <ProjectGroup name="GunnHacks" gh="https://github.com/GunnHacks">
+                        <Project
+                            name="GunnHacks 7.0"
+                            img="/projects/gunnhacks.png"
+                            langs={['js', 'html', 'scss']}
+                            gh="https://github.com/GunnHacks/GunnHacks7.0"
+                            web="https://7.0.gunnhacks.com"
+                        >
+                            Website for GunnHacks 7.0, the seventh iteration of Gunn's annual hackathon.
+                        </Project>
+                        <Project
+                            name="GunnHacks 8.0"
+                            img="/projects/gunnhacks.png"
+                            langs={['svelte', 'html', 'css']}
+                            tags={['sveltekit']}
+                            gh="https://github.com/GunnHacks/GunnHacks8.0"
+                            web="https://8.0.gunnhacks.com"
+                        >
+                            Website for GunnHacks 8.0, the eighth iteration of Gunn's annual hackathon.
+                        </Project>
+                        <Project
+                            name="GunnHacks 9.0"
+                            img="/projects/gunnhacks.png"
+                            langs={['ts', 'css']}
+                            tags={['nextjs', 'tailwindcss']}
+                            gh="https://github.com/GunnHacks/GunnHacks9.0"
+                            web="https://gunnhacks.com"
+                        >
+                            Website for GunnHacks 9.0, the ninth iteration of Gunn's annual hackathon.
+                        </Project>
+                    </ProjectGroup>
+
+                    <ProjectGroup name="G'Floats">
+                        <Project
+                            name="hoco-radio-2021"
+                            langs={['py']}
+                            tags={['pygame']}
+                            gh="https://github.com/ky28059/hoco-radio-2021"
+                        >
+                            Python script for the Raspberry Pi radio in the 2021 Junior float.
+                        </Project>
+                        <Project
+                            name="floats-2022"
+                            langs={['py']}
+                            tags={['pygame', 'pigpio', 'multiprocessing']}
+                            gh="https://github.com/ky28059/floats-2022"
+                        >
+                            Python scripts for the Raspberry Pi radio + hatch mechanism + fog machine in the 2022 Senior float.
+                        </Project>
+                    </ProjectGroup>
+
+                    <ProjectGroup name="SEC" gh="https://github.com/gunnsec">
+                        <Project
+                            name="Hall Monitor"
+                            //img="/projects/timmy.png"
+                            langs={['ts']}
+                            tags={['bolt-js', 'slack-block-builder']}
+                            gh="https://github.com/gunnsec/hall-monitor"
+                        >
+                            Slack bot for official SEC business.
+                        </Project>
+                    </ProjectGroup>
+
                     <ProjectGroup name="Personal">
                         <Project
                             name="RBot"
@@ -27,7 +137,7 @@ export default function Projects() {
                             gh="https://github.com/ky28059/RBot"
                             discord="https://discord.com/oauth2/authorize?client_id=684587440777986090&scope=bot+applications.commands&permissions=8"
                         >
-                            Discord mod and music bot using djs 13 and sequelize.
+                            Discord moderation and music bot using djs 13 and sequelize.
                         </Project>
                         <Project
                             name="WATT"
@@ -68,11 +178,13 @@ export default function Projects() {
                             TypeScript djs bot for real-time cross-server communication.
                         </Project>
                         <Project
-                            name="hoco-radio-2021"
-                            langs={['py']}
-                            gh="https://github.com/ky28059/hoco-radio-2021"
+                            name="kevin-yu"
+                            img="/pfp.png"
+                            langs={['ts']}
+                            tags={['discord.js', 'PortalBot framework']}
+                            gh="https://github.com/ky28059/kevin-yu"
                         >
-                            Python script for the Raspberry Pi radio in the 2021 Junior float.
+                            Fun discord bot for personal servers.
                         </Project>
                         <Project
                             name="AP CSA"
@@ -80,68 +192,6 @@ export default function Projects() {
                             gh="https://github.com/ky28059/AP-CSA"
                         >
                             Repository of assignments from the first (scheme) semester of Gunn's AP CSA.
-                        </Project>
-                    </ProjectGroup>
-
-                    <ProjectGroup name="GRT" gh="https://github.com/grt192">
-                        <Project
-                            name="Guava Bot"
-                            img="/projects/Guava.png"
-                            langs={['ts']}
-                            tags={['discord.js', 'PortalBot framework']}
-                            gh="https://github.com/ky28059/guava-bot"
-                        >
-                            <code>!whois</code> bot for an elusive discord server.
-                        </Project>
-                        <Project
-                            name="Guava Bot Slack"
-                            img="/projects/Guava.png"
-                            langs={['ts']}
-                            tags={['bolt-js', 'slack-block-builder']}
-                            gh="https://github.com/ky28059/guava-bot-slack"
-                        >
-                            Slack bot for an elusive slack workspace.
-                        </Project>
-                        <Project
-                            name="GRTCommandBased"
-                            langs={['java']}
-                            gh="https://github.com/grt192/GRTCommandBased"
-                        >
-                            FRC team 192 code for 2022 Rapid React.
-                        </Project>
-                    </ProjectGroup>
-
-                    <ProjectGroup name="SEC" gh="https://github.com/gunnsec">
-                        <Project
-                            name="Hall Monitor"
-                            //img="/projects/timmy.png"
-                            langs={['ts']}
-                            tags={['bolt-js', 'slack-block-builder']}
-                            gh="https://github.com/gunnsec/hall-monitor"
-                        >
-                            Slack bot for official SEC business.
-                        </Project>
-                    </ProjectGroup>
-
-                    <ProjectGroup name="GunnHacks" gh="https://github.com/GunnHacks">
-                        <Project
-                            name="GunnHacks 7.0"
-                            img="/projects/gunnhacks.png"
-                            langs={['js', 'html', 'scss']}
-                            gh="https://github.com/GunnHacks/GunnHacks7.0"
-                            web="https://7.0.gunnhacks.com"
-                        >
-                            Website for GunnHacks 7.0 (2020-2021), the seventh year of Gunn's annual hackathon.
-                        </Project>
-                        <Project
-                            name="GunnHacks 8.0"
-                            img="/projects/gunnhacks.png"
-                            langs={['svelte', 'html', 'css']}
-                            tags={['sveltekit']}
-                            gh="https://github.com/GunnHacks/GunnHacks8.0"
-                            web="https://gunnhacks.com"
-                        >
-                            Website for GunnHacks 8.0 (2021-2022), the eighth year of Gunn's annual hackathon.
                         </Project>
                     </ProjectGroup>
                 </section>
@@ -163,6 +213,10 @@ export default function Projects() {
                     </Gist>
                     <Gist name="Lambdas in Java" url="https://gist.github.com/ky28059/566596eb93ac863332783182ec356e82">
                         A guide to lambda expressions in Java 17.
+                    </Gist>
+                    <Gist name="Deploying to Vercel" url="https://gist.github.com/ky28059/1c9af929a9030105da8cf00006b50484">
+                        A guide on how to deploy an organization repository to Vercel for free (by routing it through
+                        your personal account).
                     </Gist>
                 </ProjectsCardGrid>
             </ProjectsLayout>
