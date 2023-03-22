@@ -172,10 +172,10 @@ function ArchivedHeader() {
                 <h1 className="text-3xl font-bold ml-4 mr-8">ky28059</h1>
 
                 <span className="p-4">
-                    <Link href="/"><a className="text-inherit hover:no-underline">Home</a></Link>
+                    <Link href="/" className="text-inherit hover:no-underline">Home</Link>
                 </span>
                 <span className="p-4">
-                    <Link href="/concepts"><a className="text-inherit hover:no-underline">Concepts</a></Link>
+                    <Link href="/concepts" className="text-inherit hover:no-underline">Concepts</Link>
                 </span>
             </div>
             <div className="flex items-center text-xl gap-4">

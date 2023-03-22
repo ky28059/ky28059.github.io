@@ -39,16 +39,14 @@ export default function Concepts() {
 function ImageCard(props: {name: string, src: string, href: string, children: ReactNode}) {
     const {name, src, href, children} = props;
     return (
-        <Link href={href}>
-            <a className="text-inherit hover:no-underline">
-                <div className="rounded-lg overflow-hidden w-96 border border-gray-500/25 hover:border-dark dark:hover:border-white transition duration-200">
-                    <img src={src} alt={name} className="w-full" />
-                    <div className="px-4 pt-2 pb-4">
-                        <h3 className="font-medium text-lg mb-1">{name}</h3>
-                        <p className="text-sm">{children}</p>
-                    </div>
+        <Link href={href} className="text-inherit hover:no-underline">
+            <div className="rounded-lg overflow-hidden w-96 border border-gray-500/25 hover:border-dark dark:hover:border-white transition duration-200">
+                <img src={src} alt={name} className="w-full" />
+                <div className="px-4 pt-2 pb-4">
+                    <h3 className="font-medium text-lg mb-1">{name}</h3>
+                    <p className="text-sm">{children}</p>
                 </div>
-            </a>
+            </div>
         </Link>
     )
 }

@@ -9,13 +9,11 @@ export default function CfHeader() {
     return (
         <header className="py-4 mb-20 flex gap-4 items-center">
             <Link href="/concepts/codeforces">
-                <a>
-                    <img
-                        src="/concepts/codeforces/codeforces-sponsored-by-ton.png"
-                        alt="Codeforces logo"
-                        className="h-12"
-                    />
-                </a>
+                <img
+                    src="/concepts/codeforces/codeforces-sponsored-by-ton.png"
+                    alt="Codeforces logo"
+                    className="h-12"
+                />
             </Link>
             <nav className="flex gap-2">
                 <CfHeaderItem href="/">Home</CfHeaderItem>
@@ -25,8 +23,8 @@ export default function CfHeader() {
             <div className="flex gap-5 items-center ml-auto">
                 <div className="flex gap-2.5 items-center">
                     <img src={cfUsers.self.avatar} className="w-8 h-8 rounded-full" alt="ky28059" />
-                    <Link href="/concepts/codeforces/profile/ky28059">
-                        <a className="text-inherit hover:no-underline font-medium">ky28059</a>
+                    <Link href="/concepts/codeforces/profile/ky28059" className="text-inherit hover:no-underline font-medium">
+                        ky28059
                     </Link>
                 </div>
                 <div className="cursor-pointer">Log out</div>
@@ -42,10 +40,8 @@ function CfHeaderItem(props: {href: string, children: ReactNode}) {
     const active = pathname.startsWith(href);
 
     return (
-        <Link href={href}>
-            <a className="p-2 text-inherit">
-                {props.children}
-            </a>
+        <Link href={href} className="p-2 text-inherit">
+            {props.children}
         </Link>
     )
 }

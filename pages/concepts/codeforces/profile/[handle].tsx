@@ -44,11 +44,9 @@ export default function Profile(props: User) {
                     </section>
 
                     {handle === 'ky28059' && (
-                        <Link href="/concepts/codeforces/settings">
-                            <a className="flex gap-2 items-center text-inherit hover:no-underline">
-                                <BsGearFill />
-                                Change settings
-                            </a>
+                        <Link href="/concepts/codeforces/settings" className="flex gap-2 items-center text-inherit hover:no-underline">
+                            <BsGearFill />
+                            Change settings
                         </Link>
                     )}
                 </div>

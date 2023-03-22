@@ -26,8 +26,8 @@ export default function All(props: {paths: string[]}) {
 
                 <section className="flex flex-col gap-2">
                     {props.paths.map(path => (
-                        <Link href={path}>
-                            <a className="text-gray-400">{path}</a>
+                        <Link href={path} className="text-gray-400">
+                            {path}
                         </Link>
                     ))}
                 </section>

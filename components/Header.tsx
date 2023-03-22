@@ -21,12 +21,8 @@ export default function Header() {
                     <h1 className="text-3xl font-bold">ky28059</h1>
                 </a>
 
-                <Link href="/">
-                    <a className="p-2 text-inherit hover:no-underline">Home</a>
-                </Link>
-                <Link href="/concepts">
-                    <a className="p-2 text-inherit hover:no-underline">Concepts</a>
-                </Link>
+                <Link href="/" className="p-2 text-inherit hover:no-underline">Home</Link>
+                <Link href="/concepts" className="p-2 text-inherit hover:no-underline">Concepts</Link>
             </div>
             <div className="flex items-center gap-4 ml-auto text-xl">
                 <ThemeToggle className="cursor-pointer" />

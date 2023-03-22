@@ -22,12 +22,14 @@ export default function CfSidebar() {
                     </div>
                     <div className="table-row-group">
                         {cfUsers.top.map((user, i) => (
-                            <Link href={`/concepts/codeforces/profile/${user.handle}`} key={user.handle}>
-                                <a className="table-row hover:bg-gray-300/20 text-inherit hover:no-underline">
-                                    <div className="table-cell pr-4 py-0.5 text-right">{i + 1}</div>
-                                    <div className="table-cell py-0.5">{user.handle}</div>
-                                    <div className="table-cell pr-3 py-0.5">{user.rating}</div>
-                                </a>
+                            <Link
+                                href={`/concepts/codeforces/profile/${user.handle}`}
+                                key={user.handle}
+                                className="table-row hover:bg-gray-300/20 text-inherit hover:no-underline"
+                            >
+                                <div className="table-cell pr-4 py-0.5 text-right">{i + 1}</div>
+                                <div className="table-cell py-0.5">{user.handle}</div>
+                                <div className="table-cell pr-3 py-0.5">{user.rating}</div>
                             </Link>
                         ))}
                     </div>

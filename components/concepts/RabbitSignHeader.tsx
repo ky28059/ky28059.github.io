@@ -24,28 +24,22 @@ export default function RabbitSignHeader() {
                     </a>
                 </div>
                 */}
-                <Link href="/">
-                    <a className="navbar-brand">
-                        <img
-                            src="/concepts/rabbitsign/logo-cropped.png"
-                            alt="RabbitSign logo"
-                            width={135}
-                            height={27}
-                            className="dark:invert"
-                        />
-                    </a>
+                <Link href="/" className="navbar-brand">
+                    <img
+                        src="/concepts/rabbitsign/logo-cropped.png"
+                        alt="RabbitSign logo"
+                        width={135}
+                        height={27}
+                        className="dark:invert"
+                    />
                 </Link>
                 {loggedIn && (
-                    <Link href="/dashboard">
-                        <a className="ml-4 text-inherit hover:no-underline" title="Dashboard">
-                            Dashboard
-                        </a>
+                    <Link href="/dashboard" className="ml-4 text-inherit hover:no-underline" title="Dashboard">
+                        Dashboard
                     </Link>
                 )}
-                <Link href="/faq">
-                    <a className="ml-4 text-inherit hover:no-underline" title="FAQ">
-                        FAQ
-                    </a>
+                <Link href="/faq" className="ml-4 text-inherit hover:no-underline" title="FAQ">
+                    FAQ
                 </Link>
                 {loggedIn ? <>
                     {/* TODO: these need to be updated and wrapped in <Link> */}
