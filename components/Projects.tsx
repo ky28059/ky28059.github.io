@@ -137,7 +137,7 @@ export default function Projects() {
                             gh="https://github.com/ky28059/RBot"
                             discord="https://discord.com/oauth2/authorize?client_id=684587440777986090&scope=bot+applications.commands&permissions=8"
                         >
-                            Discord moderation and music bot using djs 13 and sequelize.
+                            Discord moderation and music bot written in discord.js 14, TypeScript, and sequelize.
                         </Project>
                         <Project
                             name="WATT"
@@ -165,7 +165,7 @@ export default function Projects() {
                             gh="https://github.com/croissantderp/geckobot"
                             discord="https://discord.com/oauth2/authorize?client_id=766064505079726140&scope=bot&permissions=379968"
                         >
-                            Discord.net bot with Drive API and quantum computing.
+                            Discord.Net bot with Google Drive integration and quantum computing shenanigans.
                         </Project>
                         <Project
                             name="PortalBot"
@@ -175,7 +175,7 @@ export default function Projects() {
                             gh="https://github.com/ky28059/PortalBot"
                             discord="https://discord.com/oauth2/authorize?client_id=827738852902043698&scope=bot+applications.commands&permissions=8"
                         >
-                            TypeScript djs bot for real-time cross-server communication.
+                            TypeScript discord.js bot for real-time cross-server communication.
                         </Project>
                         <Project
                             name="kevin-yu"
@@ -185,6 +185,15 @@ export default function Projects() {
                             gh="https://github.com/ky28059/kevin-yu"
                         >
                             Fun discord bot for personal servers.
+                        </Project>
+                        <Project
+                            name="Elixirbot"
+                            langs={['elixir']}
+                            tags={['nostrum', 'nosedrum']}
+                            gh="https://github.com/ky28059/elixirbot"
+                            discord="https://discord.com/oauth2/authorize?client_id=1092613929278120017&scope=bot+applications.commands&permissions=8"
+                        >
+                            A testing / moderation bot written in elixir.
                         </Project>
                         <Project
                             name="AP CSA"

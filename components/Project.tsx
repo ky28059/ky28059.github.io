@@ -85,6 +85,7 @@ export function langToColor(lang: string) {
         case 'java': return '#b07219';
         case 'kt': return '#A97BFF';
         case 'rkt': return '#3c5caa';
+        case 'elixir': return '#6e4a7e';
         default: return '#fff';
     }
 }
