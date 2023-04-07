@@ -10,7 +10,7 @@ import {resolve} from 'path';
 
 
 export const metadata: Metadata = {
-    title: 'All | ky28059.github.io',
+    title: 'All',
     description: 'A directory of every page on this website.'
 }
 

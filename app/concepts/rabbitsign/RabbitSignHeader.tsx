@@ -52,8 +52,6 @@ export default function RabbitSignHeader() {
                         Sign Out
                     </a>
                 </> : <>
-                    {/* The style properties in the following elements are temporary and unideal
-                    Overriding the <Row>s negative margins is, however, desired behavior */}
                     <a
                         //href="https://login.rabbitsign.com/signup?client_id=20qopiid2uaflsvki0lde6k5j7&amp;response_type=token&amp;scope=email+openid+profile&amp;redirect_uri=https://www.rabbitsign.com/loginredirect.html"
                         title="Sign Up"

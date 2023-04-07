@@ -1,7 +1,15 @@
+import {Metadata} from 'next';
 import {ReactNode} from 'react';
 
 import '../scss/index.scss';
 
+
+export const metadata: Metadata = {
+    title: {
+        template: '%s | ky28059.github.io',
+        default: 'ky28059.github.io'
+    }
+}
 
 export default function Layout(props: {children: ReactNode}) {
     return (

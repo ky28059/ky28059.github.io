@@ -17,7 +17,7 @@ import {BsEnvelope, BsDiscord} from 'react-icons/bs';
 
 
 export const metadata: Metadata = {
-    title: 'Home | ky28059.github.io',
+    title: 'Home',
     description: 'Personal portfolio website and technology testing chamber.'
 }
 

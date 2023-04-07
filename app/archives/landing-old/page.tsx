@@ -7,7 +7,9 @@ import {BsChevronCompactDown} from 'react-icons/bs';
 
 
 export const metadata: Metadata = {
-    title: 'Home | ky28059.github.io',
+    title: {
+        absolute: 'Home | ky28059.github.io'
+    },
     description: 'Personal portfolio website and technology testing chamber.'
 }
 

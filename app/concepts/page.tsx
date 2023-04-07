@@ -7,7 +7,7 @@ import PageHeading from '../../components/PageHeading';
 
 
 export const metadata: Metadata = {
-    title: 'Concepts | ky28059.github.io',
+    title: 'Concepts',
     description: 'Various website redesigns and concept pages.'
 }
 

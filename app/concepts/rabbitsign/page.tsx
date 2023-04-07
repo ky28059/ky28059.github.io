@@ -1,16 +1,16 @@
-import Head from 'next/head';
+import {Metadata} from 'next';
 import Feature from './Feature';
 import RabbitSignHeader from './RabbitSignHeader';
 
 
+export const metadata: Metadata = {
+    title: 'Unlimited Free E-Signatures',
+    description: 'RabbitSign provides unlimited free e-signing. Send and sign as many documents and templates as you want, at no cost.'
+}
+
 export default function Home() {
     return (
         <div className="dark:text-white dark:bg-gray-900">
-            <Head>
-                <title>Unlimited Free E-Signatures | RabbitSign</title>
-                <meta name="description" content="RabbitSign provides unlimited free e-signing. Send and sign as many documents and templates as you want, at no cost."/>
-            </Head>
-
             <RabbitSignHeader />
 
             <section className="pt-10">

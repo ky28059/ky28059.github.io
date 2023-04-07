@@ -5,7 +5,7 @@ import {IoMdCloseCircle} from 'react-icons/io';
 
 
 export const metadata: Metadata = {
-    title: '404 | ky28059.github.io',
+    title: '404',
     description: 'Page not found.'
 }
 

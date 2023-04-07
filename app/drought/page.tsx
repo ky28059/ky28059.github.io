@@ -3,7 +3,7 @@ import DroughtCounter from './DroughtCounter';
 
 
 export const metadata: Metadata = {
-    title: 'Drought | ky28059.github.io',
+    title: 'Drought',
     description: 'Counter of days since Obi-Wan\'s last commit to WATT.'
 }
 
