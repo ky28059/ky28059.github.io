@@ -1,3 +1,5 @@
+'use client' // TODO
+
 import {useState} from 'react';
 import Head from 'next/head';
 
@@ -8,11 +10,11 @@ import UltimateTicTacToeBoard, {
     defaultUTTTBoardStatuses,
     UTTTBoard,
     UTTTBoardStatuses
-} from '../components/UltimateTicTacToeBoard';
-import TicTacToeScoreIndicator, {TTTScores} from '../components/TicTacToeScoreIndicator';
+} from '../UltimateTicTacToeBoard';
+import TicTacToeScoreIndicator, {TTTScores} from '../TicTacToeScoreIndicator';
 
 // Utilities
-import {BoardStatus, checkBoardStatus, TTTBoard, TTTSymbol} from '../components/TicTacToeBoard';
+import {BoardStatus, checkBoardStatus, TTTBoard, TTTSymbol} from '../TicTacToeBoard';
 
 
 export default function UltimateTicTacToe() {

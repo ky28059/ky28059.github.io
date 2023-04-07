@@ -1,9 +1,11 @@
+'use client' // TODO
+
 import {useState} from 'react';
 import Head from 'next/head';
 
 // Components
-import TicTacToeBoard, {defaultTTTBoard, BoardStatus, TTTBoard, TTTSymbol} from '../components/TicTacToeBoard';
-import TicTacToeScoreIndicator, {TTTScores} from '../components/TicTacToeScoreIndicator';
+import TicTacToeBoard, {defaultTTTBoard, BoardStatus, TTTBoard, TTTSymbol} from '../TicTacToeBoard';
+import TicTacToeScoreIndicator, {TTTScores} from '../TicTacToeScoreIndicator';
 
 
 export default function TicTacToe() {
