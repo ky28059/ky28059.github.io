@@ -1,7 +1,9 @@
+'use client'
+
 import {useState, useEffect} from 'react';
 import Link from 'next/link';
-import ThemeToggle from '../ThemeToggle';
-import {useScroll} from '../../util/useScroll';
+import ThemeToggle from '../../../components/ThemeToggle';
+import {useScroll} from '../../../util/useScroll';
 
 
 export default function RabbitSignHeader() {

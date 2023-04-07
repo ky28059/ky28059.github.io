@@ -1,7 +1,9 @@
+'use client'
+
 import {useRef, useState} from 'react';
 import Head from 'next/head';
-import {SectionHeading} from '../components/Section';
-import {SyntaxHighlighter} from '../components/CodeBlock';
+import {SectionHeading} from '../../components/Section';
+import {SyntaxHighlighter} from '../../components/CodeBlock';
 
 
 // TODO: not with this page specifically, but really consider making a `secondary` color in the theme to standardize

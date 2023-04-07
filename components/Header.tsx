@@ -1,3 +1,5 @@
+'use client'
+
 import {useEffect, useState} from 'react';
 import Link from 'next/link';
 import ThemeToggle from './ThemeToggle';
@@ -22,7 +24,7 @@ export default function Header() {
                 </a>
 
                 <Link href="/" className="p-2 text-inherit hover:no-underline">Home</Link>
-                <Link href="/concepts" className="p-2 text-inherit hover:no-underline">Concepts</Link>
+                <Link href="/app/page.tsx" className="p-2 text-inherit hover:no-underline">Concepts</Link>
             </div>
             <div className="flex items-center gap-4 ml-auto text-xl">
                 <ThemeToggle className="cursor-pointer" />

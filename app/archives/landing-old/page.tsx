@@ -1,26 +1,19 @@
-import {ReactNode, useEffect, useState} from 'react';
-import Head from 'next/head';
-import Link from 'next/link';
+import {Metadata} from 'next';
 
-// Icons
-import {BsChevronCompactDown, BsDiscord} from 'react-icons/bs';
-import {FiArrowRight, FiLink2} from 'react-icons/fi';
-import {BiSun} from 'react-icons/bi';
-import {MdExpandLess, MdExpandMore} from 'react-icons/md';
-import {GoMarkGithub} from 'react-icons/go';
+// Components
+import ArchivedHeader from './ArchivedHeader';
+import ArchivedProject from './ArchivedProject';
+import {BsChevronCompactDown} from 'react-icons/bs';
 
-// Utilities
-import {langToColor} from '../../components/Project';
 
+export const metadata: Metadata = {
+    title: 'Home | ky28059.github.io',
+    description: 'Personal portfolio website and technology testing chamber.'
+}
 
 export default function Home() {
     return (
         <div className="dark:text-white bg-gray-100 dark:bg-gradient-to-r dark:from-black dark:to-gray-900 selection:bg-blue-500 selection:text-white">
-            <Head>
-                <title>Home | ky28059.github.io</title>
-                <meta name="description" content="Personal portfolio website and technology testing chamber." />
-            </Head>
-
             <ArchivedHeader />
 
             <section className="bg-white dark:bg-gray-900 pt-14 pb-2 mb-10">
@@ -147,99 +140,5 @@ export default function Home() {
                 <br/>
             </section>
         </div>
-    )
-}
-
-function ArchivedHeader() {
-    const [open, setOpen] = useState(true);
-
-    const [scroll, setScroll] = useState(0);
-    const toggleTheme = () => document.documentElement.classList.toggle('dark');
-
-    useEffect(() => {
-        setScroll(window.scrollY);
-        document.onscroll = () => setScroll(window.scrollY);
-    }, []);
-
-    const ExpandIcon = open ? MdExpandLess : MdExpandMore;
-
-    return (
-        <header className={`flex sticky top-0 p-4 bg-white dark:bg-gray-800 text-black dark:text-white bg-opacity-90 ${scroll > 0 ? 'shadow-md' : 'hover:shadow-md'} backdrop-blur-sm z-50 h-20 transition-shadow duration-300 ease-in-out ${!open ? 'h-10' : ''}`}>
-            <div className={`flex flex-grow items-center h-full ${!open ? 'hidden' : ''}`}>
-                <a href="https://github.com/ky28059">
-                    <img src="/pfp.png" alt="Profile" className="rounded-full" height={50} width={50}/>
-                </a>
-                <h1 className="text-3xl font-bold ml-4 mr-8">ky28059</h1>
-
-                <span className="p-4">
-                    <Link href="/" className="text-inherit hover:no-underline">Home</Link>
-                </span>
-                <span className="p-4">
-                    <Link href="/concepts" className="text-inherit hover:no-underline">Concepts</Link>
-                </span>
-            </div>
-            <div className="flex items-center text-xl gap-4">
-                <BiSun className="cursor-pointer" onClick={toggleTheme}/>
-                <ExpandIcon className="cursor-pointer" onClick={() => setOpen(x => !x)} />
-            </div>
-        </header>
-    )
-}
-
-type ProjectProps = {
-    name: string, children: ReactNode, img?: string /* StaticImageData */, langs?: string[],
-    gh?: string, discord?: string, web?: string
-};
-function ArchivedProject(props: ProjectProps) {
-    const {name, children: desc, img, langs, gh, discord, web} = props;
-
-    return (
-        <div className="flex flex-col p-4 gap-3 shadow-lg bg-white dark:bg-gray-800 rounded-md transform hover:scale-110 transition transition-transform duration-150 w-64">
-            <span className="flex items-center space-x-3 mb-1.5">
-                {img && (
-                    <img
-                        src={img}
-                        className="rounded-full h-8 w-8 bg-gray-200/50 dark:bg-gray-900/50"
-                        alt={`${name}-icon`}
-                        width={40}
-                        height={40}
-                    />
-                )}
-                <h3 className="text-xl font-bold">{name}</h3>
-            </span>
-            {langs && (
-                <span className="space-x-2 ml-1 flex">
-                    {langs.map(lang => <ProjectTag lang={lang} key={lang} />)}
-                </span>
-            )}
-            <p>{desc}</p>
-            <span className="flex gap-2 mt-auto text-xl">
-                {gh && (
-                    <a href={gh} rel="noopener noreferrer" target="_blank" className="text-inherit hover:no-underline">
-                        <GoMarkGithub />
-                    </a>
-                )}
-                {discord && (
-                    <a href={discord} rel="noopener noreferrer" target="_blank" className="text-inherit hover:no-underline">
-                        <BsDiscord />
-                    </a>
-                )}
-                {web && (
-                    <a href={web} rel="noopener noreferrer" target="_blank" className="text-inherit hover:no-underline">
-                        <FiLink2 />
-                    </a>
-                )}
-            </span>
-        </div>
-    );
-}
-
-function ProjectTag(props: {lang: string}) {
-    const color = langToColor(props.lang);
-    return (
-        <div
-            className="rounded-full w-3 h-3 ring-2 ring-black ring-opacity-75 dark:ring-opacity-50"
-            style={{backgroundColor: color}}
-        />
     )
 }

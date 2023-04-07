@@ -1,4 +1,6 @@
-const createNextPluginPreval = require('next-plugin-preval/config');
-const withNextPluginPreval = createNextPluginPreval();
-
-module.exports = withNextPluginPreval();
+module.exports = {
+    output: 'export',
+    experimental: {
+        appDir: true,
+    }
+};

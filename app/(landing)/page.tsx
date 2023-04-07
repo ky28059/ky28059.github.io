@@ -1,14 +1,14 @@
-import Head from 'next/head';
+import {Metadata} from 'next';
 import Link from 'next/link';
 
 // Components
-import PageHeading from '../components/PageHeading';
-import Section, {SectionHeading} from '../components/Section';
-import Projects from '../components/Projects';
-import MockPage from '../components/MockPage';
-import ConceptsCard from '../components/ConceptsCard';
-import CodeBlock from '../components/CodeBlock';
-import ThemeToggle from '../components/ThemeToggle';
+import PageHeading from '../../components/PageHeading';
+import Section, {SectionHeading} from '../../components/Section';
+import CodeBlock from '../../components/CodeBlock';
+import ThemeToggle from '../../components/ThemeToggle';
+import Projects from './Projects';
+import MockPage from './MockPage';
+import ConceptsCard from './ConceptsCard';
 
 // Icons
 import {BiArrowToRight} from 'react-icons/bi';
@@ -16,14 +16,14 @@ import {GoMarkGithub} from 'react-icons/go';
 import {BsEnvelope, BsDiscord} from 'react-icons/bs';
 
 
+export const metadata: Metadata = {
+    title: 'Home | ky28059.github.io',
+    description: 'Personal portfolio website and technology testing chamber.'
+}
+
 export default function Home() {
     return (
         <div>
-            <Head>
-                <title>Home | ky28059.github.io</title>
-                <meta name="description" content="Personal portfolio website and technology testing chamber." />
-            </Head>
-
             {/* TODO: responsive design */}
             <header className="bg-white dark:bg-midnight">
                 <div className="container relative pl-44 pt-24 pb-12 pr-4">
@@ -84,7 +84,7 @@ export default function Home() {
                 <div>
                     <SectionHeading>Concepts</SectionHeading>
                     <p className="mb-4">Design concepts I've made for other websites. ___.</p>
-                    <Link href="/concepts" className="text-lg font-medium text-inherit w-max mx-auto">
+                    <Link href="/app/page.tsx" className="text-lg font-medium text-inherit w-max mx-auto">
                         Explore concepts →
                     </Link>
                 </div>

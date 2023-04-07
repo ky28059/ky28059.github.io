@@ -1,18 +1,19 @@
 import {ReactNode} from 'react';
 import Head from 'next/head';
+import {Metadata} from 'next';
 import Link from 'next/link';
 import Header from '../../components/Header';
 import PageHeading from '../../components/PageHeading';
 
 
+export const metadata: Metadata = {
+    title: 'Concepts | ky28059.github.io',
+    description: 'Various website redesigns and concept pages.'
+}
+
 export default function Concepts() {
     return (
         <div>
-            <Head>
-                <title>Concepts | ky28059.github.io</title>
-                <meta name="description" content="Various website redesigns and concept pages." />
-            </Head>
-
             <Header />
 
             <main className="container mt-16">
