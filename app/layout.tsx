@@ -1,7 +1,7 @@
 import {Metadata} from 'next';
 import {ReactNode} from 'react';
 
-import '../scss/index.scss';
+import '../styles/index.scss';
 
 
 export const metadata: Metadata = {
