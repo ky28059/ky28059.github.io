@@ -24,10 +24,10 @@ export default function Header() {
                 </a>
 
                 <Link href="/" className="p-2 text-inherit hover:no-underline">Home</Link>
-                <Link href="/app/page.tsx" className="p-2 text-inherit hover:no-underline">Concepts</Link>
+                <Link href="/concepts" className="p-2 text-inherit hover:no-underline">Concepts</Link>
             </div>
             <div className="flex items-center gap-4 ml-auto text-xl">
-                <ThemeToggle className="cursor-pointer" />
+                <ThemeToggle />
                 <ExpandIcon className="cursor-pointer" onClick={() => setOpen(x => !x)} />
             </div>
         </header>

@@ -27,7 +27,7 @@ export default function Home() {
             {/* TODO: responsive design */}
             <header className="bg-white dark:bg-midnight">
                 <div className="container relative pl-44 pt-24 pb-12 pr-4">
-                    <ThemeToggle className="absolute top-8 right-8 cursor-pointer text-xl" />
+                    <ThemeToggle className="absolute top-8 right-8 text-xl" />
                     <div className="relative">
                         <img src="/pfp.png" alt="Profile picture" className="absolute -left-32 -top-10 h-24 w-24 rounded-full" />
                         <PageHeading className="mb-5">kevin yu.</PageHeading>
@@ -84,7 +84,7 @@ export default function Home() {
                 <div>
                     <SectionHeading>Concepts</SectionHeading>
                     <p className="mb-4">Design concepts I've made for other websites. ___.</p>
-                    <Link href="/app/page.tsx" className="text-lg font-medium text-inherit w-max mx-auto">
+                    <Link href="/concepts" className="text-lg font-medium text-inherit w-max mx-auto">
                         Explore concepts →
                     </Link>
                 </div>
