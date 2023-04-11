@@ -1,6 +1,6 @@
 import {Metadata} from 'next';
-import Feature from './Feature';
-import RabbitSignHeader from './RabbitSignHeader';
+import Feature from '../Feature';
+import RabbitSignHeader from '../../RabbitSignHeader';
 
 
 export const metadata: Metadata = {
@@ -17,13 +17,13 @@ export default function Home() {
                 <h1 className="text-7xl font-bold text-center mb-4">Stop paying for e-signing.</h1>
                 <p className="text-center mb-8">RabbitSign offers truly unlimited free e-signing. Send and sign as many documents as you want, at no cost.</p>
                 <div className="space-x-4 text-center">
-                    <button className="bg-blue-500 py-2 px-4 rounded-md text-lg text-white font-medium">Get Started</button>
+                    <button className="bg-red-400 py-2 px-4 rounded-md text-lg text-white font-medium">Get Started</button>
                     <button className="py-2 px-4 text-lg font-medium">Learn More</button>
                 </div>
             </section>
 
             <section className="pt-14 pb-2 mb-20">
-                <div className="w-full mx-auto -z-10 bg-gradient-to-r from-green-400 to-blue-500 transform -skew-y-3 flex flex-row">
+                <div className="w-full mx-auto -z-10 bg-gradient-to-r from-yellow-300 via-pink-400 to-red-500 transform -skew-y-3 flex flex-row">
                     <div className="transform skew-y-3 mx-auto -my-4 flex flex-row space-x-12">
                         <div className="bg-white rounded-2xl p-8 shadow-xl text-gray-900 max-w-sm text-center">
                             <h2 className="text-3xl font-bold mb-4">Unlimited Free Templates</h2>

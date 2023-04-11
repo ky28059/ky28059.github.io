@@ -43,7 +43,7 @@ async function getPaths() {
         .map(file => file.replaceAll('\\', '/'))
         .map(file => file.match(/.+\/app(\/.*?)\/page\.tsx/)?.[1])
         .filter((file): file is string => !!file) // TODO: perhaps a bit hacky
-        .map(path => path.replaceAll(/\(.+?\)\/?/g, ''))
+        .map(path => path.replaceAll(/\(.+?\)\/?|(?<!^)\/\(.+?\)$/g, ''))
         .sort();
 }
 
