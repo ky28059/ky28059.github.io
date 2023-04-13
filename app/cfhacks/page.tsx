@@ -1,9 +1,10 @@
 'use client'
 
-import {useRef, useState} from 'react';
+import {useState} from 'react';
 import Head from 'next/head';
 import {SectionHeading} from '../../components/Section';
 import {SyntaxHighlighter} from '../../components/CodeBlock';
+import AutoResizingTextArea from '../../components/AutoResizingTextArea';
 
 
 // TODO: not with this page specifically, but really consider making a `secondary` color in the theme to standardize
@@ -13,8 +14,6 @@ export default function CodeforcesHacks() {
     const [problem, setProblem] = useState('A');
     const [testCase, setTestCase] = useState('');
     const [count, setCount] = useState(1000);
-
-    const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
     return (
         <div>
@@ -62,20 +61,10 @@ export default function CodeforcesHacks() {
                         setValue={(value) => !isNaN(Number(value)) && setCount(Number(value))}
                     />
                 </div>
-                <textarea
-                    ref={textAreaRef}
+                <AutoResizingTextArea
                     placeholder="Test case"
                     value={testCase}
-                    onChange={(e) => {
-                        setTestCase(e.target.value);
-
-                        // <textarea> auto-resizing
-                        // https://stackoverflow.com/questions/454202/creating-a-textarea-with-auto-resize
-                        const textArea = textAreaRef.current;
-                        if (!textArea) return;
-                        textArea.style.height = 'auto';
-                        textArea.style.height = textArea.scrollHeight + 8 + 'px';
-                    }}
+                    onChange={(e) => setTestCase(e.target.value)}
                     className="rounded px-3 py-1 dark:bg-[#2b2b2b] mb-3 w-full border border-gray-400/50 dark:border-gray-100/10 placeholder:text-gray-400 placeholder:dark:text-gray-100/40"
                 />
 
