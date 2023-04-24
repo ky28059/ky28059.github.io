@@ -15,8 +15,11 @@ export default function ConvertorInputs() {
                     placeholder="Type input..."
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
-                    className="rounded px-3 py-1 h-24 dark:bg-[#2b2b2b] mb-3 w-full border border-gray-400/50 dark:border-gray-100/10 placeholder:text-gray-400 placeholder:dark:text-gray-100/40"
+                    className="rounded px-3 py-1 h-24 dark:bg-[#2b2b2b] mb-2 w-full border border-gray-400/50 dark:border-gray-100/10 placeholder:text-gray-400 placeholder:dark:text-gray-100/40"
                 />
+                <p className="text-xs mb-1 text-gray-400 dark:text-gray-100/40">
+                    Length: {input.length} characters | {input.length && input.trim().split(/\s+/).length} words
+                </p>
             </section>
 
             <section className="flex-grow basis-1/2 flex flex-col gap-2">
