@@ -65,7 +65,7 @@ export default function Projects() {
                         </Project>
                     </ProjectGroup>
 
-                    <ProjectGroup name="GunnHacks" gh="https://github.com/GunnHacks">
+                    <ProjectGroup name="GunnHacks" gh="https://github.com/united-computations">
                         <Project
                             name="GunnHacks 7.0"
                             img="/projects/gunnhacks.png"
@@ -125,6 +125,15 @@ export default function Projects() {
                             gh="https://github.com/gunnsec/hall-monitor"
                         >
                             Slack bot for official SEC business.
+                        </Project>
+                        <Project
+                            name="Gunn Launchpad"
+                            langs={['ts', 'css']}
+                            tags={['nextjs', 'tailwindcss']}
+                            gh="https://github.com/gunnsec/gunn-launchpad"
+                            web="https://launchpad.gunn.one"
+                        >
+                            Website for the Gunn Launchpad initiative!
                         </Project>
                     </ProjectGroup>
 

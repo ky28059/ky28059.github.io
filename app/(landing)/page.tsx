@@ -95,7 +95,9 @@ export default function Home() {
                     sources={[
                         'https://raw.githubusercontent.com/ky28059/competitive-programming-club/master/src/USACO2020/ABCs.java',
                         'https://raw.githubusercontent.com/ky28059/competitive-programming-club/master/src/ProCo2021/War.kt',
-                        'https://raw.githubusercontent.com/ky28059/competitive-programming-club/master/src/HPI/MusicTraining.kt'
+                        'https://raw.githubusercontent.com/ky28059/competitive-programming-club/master/src/HPI/MusicTraining.kt',
+                        'https://raw.githubusercontent.com/ky28059/competitive-programming-club/master/src/CompetitiveProgrammingClub/EraseTheEnd.hs',
+                        'https://raw.githubusercontent.com/ky28059/competitive-programming-club/master/src/CompetitiveProgrammingClub/GivenSomeQueries.hs'
                     ]}
                 />
                 <div className="max-w-prose">
