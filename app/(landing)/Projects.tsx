@@ -2,7 +2,7 @@ import {ReactNode} from 'react';
 import Section, {SectionHeading} from '../../components/Section';
 import Project from './Project';
 import Gist from './Gist';
-import {GoMarkGithub} from 'react-icons/go';
+import {BsGithub} from 'react-icons/bs';
 
 
 export default function Projects() {
@@ -243,7 +243,7 @@ function ProjectsLayout(props: {children: ReactNode}) {
 
 function ProjectsHeaderSection(props: {children: ReactNode}) {
     return (
-        <div className="md:flex-none md:w-64">
+        <div className="md:flex-none md:w-64 md:sticky md:top-8 md:h-max">
             {props.children}
         </div>
     )
@@ -264,7 +264,7 @@ function ProjectGroup(props: {name: string, children: ReactNode, gh?: string}) {
                 <h3 className="font-medium mb-0.5">{props.name}</h3>
                 {props.gh && (
                     <a className="text-lg text-inherit" href={props.gh} target="_blank" rel="noopener noreferrer">
-                        <GoMarkGithub />
+                        <BsGithub />
                     </a>
                 )}
                 <hr className="w-full border-gray-600/50" />

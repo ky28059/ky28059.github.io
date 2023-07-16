@@ -12,8 +12,7 @@ import ConceptsCard from './ConceptsCard';
 
 // Icons
 import {BiArrowToRight} from 'react-icons/bi';
-import {GoMarkGithub} from 'react-icons/go';
-import {BsEnvelope, BsDiscord} from 'react-icons/bs';
+import {BsEnvelope, BsDiscord, BsGithub} from 'react-icons/bs';
 
 
 export const metadata: Metadata = {
@@ -28,6 +27,7 @@ export default function Home() {
             <header className="bg-white dark:bg-midnight">
                 <div className="container relative pl-44 pt-24 pb-12 pr-4">
                     <ThemeToggle className="absolute top-8 right-8 text-xl" />
+
                     <div className="relative">
                         <img src="/pfp.png" alt="Profile picture" className="absolute -left-32 -top-10 h-24 w-24 rounded-full" />
                         <PageHeading className="mb-5">kevin yu.</PageHeading>
@@ -36,7 +36,7 @@ export default function Home() {
                         </p>
                         <div className="text-2xl flex gap-4">
                             <a href="https://github.com/ky28059" target="_blank" rel="noopener noreferrer" className="text-inherit">
-                                <GoMarkGithub />
+                                <BsGithub />
                             </a>
                             <a href="mailto:kevinyu567+website@gmail.com" className="text-inherit">
                                 <BsEnvelope />
@@ -67,7 +67,7 @@ export default function Home() {
                     </p>
                     <div className="flex gap-2">
                         <a className="text-2xl text-inherit hover:no-underline" href="https://github.com/ky28059/ky28059.github.io" target="_blank" rel="noopener noreferrer">
-                            <GoMarkGithub />
+                            <BsGithub />
                         </a>
                     </div>
                 </div>
@@ -109,7 +109,7 @@ export default function Home() {
                     </p>
                     <div className="flex gap-2">
                         <a className="text-2xl text-inherit hover:no-underline" href="https://github.com/ky28059/competitive-programming-club" target="_blank" rel="noopener noreferrer">
-                            <GoMarkGithub />
+                            <BsGithub />
                         </a>
                     </div>
                 </div>
