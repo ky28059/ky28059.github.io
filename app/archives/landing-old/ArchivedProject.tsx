@@ -2,8 +2,7 @@ import {ReactNode} from 'react';
 import {langToColor} from '../../(landing)/Project';
 
 // Icons
-import {GoMarkGithub} from 'react-icons/go';
-import {BsDiscord} from 'react-icons/bs';
+import {BsDiscord, BsGithub} from 'react-icons/bs';
 import {FiLink2} from 'react-icons/fi';
 
 
@@ -37,7 +36,7 @@ export default function ArchivedProject(props: ProjectProps) {
             <span className="flex gap-2 mt-auto text-xl">
                 {gh && (
                     <a href={gh} rel="noopener noreferrer" target="_blank" className="text-inherit hover:no-underline">
-                        <GoMarkGithub />
+                        <BsGithub />
                     </a>
                 )}
                 {discord && (
