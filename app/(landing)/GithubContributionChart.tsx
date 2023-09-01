@@ -27,7 +27,7 @@ async function fetchContributionData(): Promise<ContributionsResponse> {
     const res = await fetch('https://api.github.com/graphql', {
         method: 'POST',
         headers: {
-            Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+            Authorization: `Bearer ${process.env.GH_USER_TOKEN}`,
         },
         body: JSON.stringify({query, variables: {username: 'ky28059'}}),
         cache: 'no-store'

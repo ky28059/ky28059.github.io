@@ -9,6 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm ci && CI=false npm run build
+        env:
+          GH_USER_TOKEN: '${{ secrets.GH_USER_TOKEN }}'
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: '${{ secrets.GITHUB_TOKEN }}'
