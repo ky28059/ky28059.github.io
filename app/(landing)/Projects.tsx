@@ -137,7 +137,7 @@ export default function Projects() {
                         </Project>
                     </ProjectGroup>
 
-                    <ProjectGroup name="Personal">
+                    <ProjectGroup name="Personal / other">
                         <Project
                             name="RBot"
                             img="/projects/RBot.png"
@@ -270,7 +270,7 @@ function ProjectGroup(props: {name: string, children: ReactNode, gh?: string}) {
     return (
         <div>
             <div className="flex items-center gap-2 text-gray-500 mb-4">
-                <h3 className="font-medium mb-0.5">{props.name}</h3>
+                <h3 className="font-medium mb-0.5 flex-none">{props.name}</h3>
                 {props.gh && (
                     <a className="text-lg text-inherit" href={props.gh} target="_blank" rel="noopener noreferrer">
                         <BsGithub />

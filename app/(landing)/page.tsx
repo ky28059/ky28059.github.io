@@ -31,8 +31,9 @@ export default function Home() {
                     <div className="relative">
                         <img src="/pfp.png" alt="Profile picture" className="absolute -left-32 -top-10 h-24 w-24 rounded-full" />
                         <PageHeading className="mb-5">kevin yu.</PageHeading>
-                        <p className="text-lg mb-3.5">
-                            Teenager that goes to Gunn High School. Interested in art, web development, and robotics.
+                        <p className="text-lg mb-3.5 max-w-prose">
+                            Gunn High School graduate and first-year student studying Computer Science at Purdue University.
+                            Interested in art, web development, and robotics.
                         </p>
                         <div className="text-2xl flex gap-4">
                             <a href="https://github.com/ky28059" target="_blank" rel="noopener noreferrer" className="text-inherit">
@@ -61,7 +62,7 @@ export default function Home() {
                         various miscellaneous web tinkering.
                     </p>
                     <p className="mb-4">
-                        The structure and function of this website was largely inspired by Sean's website,{' '}
+                        The structure and function of this website was largely inspired by{' '}
                         <a href="https://sheeptester.github.io/" target="_blank" rel="noopener noreferrer">sheeptester.github.io</a>.
                         View the source code for this website on GitHub, or a directory of all pages <Link href="/all">here</Link>.
                     </p>
@@ -83,8 +84,10 @@ export default function Home() {
                 </div>
                 <div>
                     <SectionHeading>Concepts</SectionHeading>
-                    <p className="mb-4">Design concepts I've made for other websites. ___.</p>
-                    <Link href="/concepts" className="text-lg font-medium text-inherit w-max mx-auto">
+                    <p className="mb-4">
+                        Assorted design concepts and mockups I've made for other websites live here.
+                    </p>
+                    <Link href="/concepts" className="font-medium text-inherit w-max mx-auto">
                         Explore concepts →
                     </Link>
                 </div>

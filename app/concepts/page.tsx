@@ -1,9 +1,10 @@
 import {ReactNode} from 'react';
-import Head from 'next/head';
 import {Metadata} from 'next';
 import Link from 'next/link';
+
+// Components
 import Header from '../../components/Header';
-import PageHeading from '../../components/PageHeading';
+import {SectionHeading} from '../../components/Section';
 
 
 export const metadata: Metadata = {
@@ -17,11 +18,10 @@ export default function Concepts() {
             <Header />
 
             <main className="container mt-16">
-                <PageHeading className="mb-8">Concepts</PageHeading>
-                <p className="max-w-4xl mb-12">
-                    This directory hosts concept designs for projects I've worked on. Note that most (if not all) of these
-                    concepts were designed around computer screens and haven't been made responsive for mobile, so viewing
-                    them on a phone may produce undesirable results.
+                <SectionHeading className="underline decoration-grapefruit mb-4">Concepts</SectionHeading>
+                <p className="max-w-4xl mb-10">
+                    This directory hosts design concepts and mockups for projects I've worked on. Many of these concepts
+                    may not be polished (or mobile-friendly), so handle with care!
                 </p>
 
                 <section className="flex flex-wrap gap-6">
@@ -40,11 +40,11 @@ export default function Concepts() {
 function ImageCard(props: {name: string, src: string, href: string, children: ReactNode}) {
     const {name, src, href, children} = props;
     return (
-        <Link href={href} className="text-inherit hover:no-underline">
+        <Link href={href} className="text-inherit hover:no-underline flex">
             <div className="rounded-lg overflow-hidden w-96 border border-gray-500/25 hover:border-dark dark:hover:border-white transition duration-200">
                 <img src={src} alt={name} className="w-full" />
-                <div className="px-4 pt-2 pb-4">
-                    <h3 className="font-medium text-lg mb-1">{name}</h3>
+                <div className="px-4 pt-3 pb-4">
+                    <h3 className="font-medium mb-1">{name}</h3>
                     <p className="text-sm">{children}</p>
                 </div>
             </div>
