@@ -1,6 +1,3 @@
 module.exports = {
-    output: 'export',
-    experimental: {
-        appDir: true,
-    }
+    output: 'export'
 };

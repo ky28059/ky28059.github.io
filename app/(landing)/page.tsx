@@ -9,9 +9,9 @@ import ThemeToggle from '../../components/ThemeToggle';
 import Projects from './Projects';
 import MockPage from './MockPage';
 import ConceptsCard from './ConceptsCard';
+import GithubContributionChart from './GithubContributionChart';
 
 // Icons
-import {BiArrowToRight} from 'react-icons/bi';
 import {BsEnvelope, BsDiscord, BsGithub} from 'react-icons/bs';
 
 
@@ -73,6 +73,8 @@ export default function Home() {
                     </div>
                 </div>
             </Section>
+
+            <GithubContributionChart />
 
             <Projects />
 
