@@ -29,8 +29,7 @@ async function fetchContributionData(): Promise<ContributionsResponse> {
         headers: {
             Authorization: `Bearer ${process.env.GH_USER_TOKEN}`,
         },
-        body: JSON.stringify({query, variables: {username: 'ky28059'}}),
-        cache: 'no-store'
+        body: JSON.stringify({query, variables: {username: 'ky28059'}})
     })
     return res.json()
 }
