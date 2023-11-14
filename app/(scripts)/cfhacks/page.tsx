@@ -24,7 +24,8 @@ export default function CodeforcesHacks() {
             <ul className="list-disc pl-6 mb-6 max-w-5xl">
                 <li>
                     <code>Contest</code> should be the ID of the contest (eg.{' '}
-                    <code>https://codeforces.com/contest/1701</code> has an ID of 1701).
+                    <a href="https://codeforces.com/contest/1701" target="_blank" rel="noopener noreferrer" className="font-mono">https://codeforces.com/contest/1701</a>{' '}
+                    has an ID of 1701).
                 </li>
                 <li><code>Problem</code> should be the index (letter) of the problem (eg. A, B, C, etc.).</li>
                 <li>
