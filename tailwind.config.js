@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
@@ -13,14 +15,18 @@ module.exports = {
         light: '#FFF8E8',
         grapefruit: '#FF6347',
         pomegranate: '#E03C31',
-        secondary: {
-          DEFAULT: '#757575',
+        primary: {
+          DEFAULT: '#757575', // TODO
           dark: '#BABABA'
         },
-      },
-      zIndex: {
-        '-10': '-10',
-        '-20': '-20',
+        secondary: {
+          DEFAULT: '#757575',
+          dark: '#777777',
+        },
+        tertiary: {
+          DEFAULT: colors.gray['300'],
+          dark: '#404040'
+        }
       }
     },
     container: {

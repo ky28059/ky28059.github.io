@@ -34,7 +34,7 @@ export default function CfHacksContent() {
                 placeholder="Test case"
                 value={testCase}
                 onChange={(e) => setTestCase(e.target.value)}
-                className="rounded px-3 py-1 dark:bg-[#2b2b2b] mb-3 w-full border border-gray-400/50 dark:border-gray-100/10 placeholder:text-gray-400 placeholder:dark:text-gray-100/40"
+                className="rounded px-3 py-1 dark:bg-[#2b2b2b] mb-3 w-full border border-secondary/40 dark:border-secondary-dark/40 placeholder:text-secondary placeholder:dark:text-secondary-dark"
             />
 
             <ScriptOutput>
@@ -52,12 +52,12 @@ function LabelledInput(props: LabelledInputProps) {
     const {value, setValue, label} = props;
     return (
         <div className="flex flex-col gap-1 flex-grow">
-            <label className="text-xs text-gray-400 dark:text-gray-100/40">{label}</label>
+            <label className="text-xs text-secondary dark:text-secondary-dark">{label}</label>
             <input
                 type="text"
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
-                className="rounded px-3 py-1 dark:bg-[#2b2b2b] border border-gray-400/50 dark:border-gray-100/10"
+                className="rounded px-3 py-1 dark:bg-[#2b2b2b] border border-secondary/40 dark:border-secondary-dark/40"
             />
         </div>
     )

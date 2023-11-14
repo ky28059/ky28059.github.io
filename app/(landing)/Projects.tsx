@@ -11,7 +11,7 @@ export default function Projects() {
             <ProjectsLayout>
                 <ProjectsHeaderSection>
                     <SectionHeading>Projects</SectionHeading>
-                    <p className="text-secondary dark:text-secondary-dark">
+                    <p className="text-primary dark:text-primary-dark">
                         Various programming projects for organizations like the Gunn Robotics Team or GunnHacks, as well
                         as personal projects like RBot and WATT.
                     </p>
@@ -218,7 +218,7 @@ export default function Projects() {
             <ProjectsLayout>
                 <ProjectsHeaderSection>
                     <SectionHeading>Gists</SectionHeading>
-                    <p className="text-secondary dark:text-secondary-dark">
+                    <p className="text-primary dark:text-primary-dark">
                         Educational gists to inform about specific programming concepts and cool programming languages
                         and technologies.
                     </p>
@@ -260,7 +260,7 @@ function ProjectsHeaderSection(props: {children: ReactNode}) {
 
 function ProjectsCardGrid(props: {children: ReactNode}) {
     return (
-        <div className="flex flex-wrap justify-center md:justify-start gap-6 w-full">
+        <div className="flex flex-wrap justify-center md:justify-start gap-5 w-full">
             {props.children}
         </div>
     )
@@ -269,14 +269,14 @@ function ProjectsCardGrid(props: {children: ReactNode}) {
 function ProjectGroup(props: {name: string, children: ReactNode, gh?: string}) {
     return (
         <div>
-            <div className="flex items-center gap-2 text-gray-500 mb-4">
+            <div className="flex items-center gap-2 text-secondary dark:text-secondary-dark mb-4">
                 <h3 className="font-medium mb-0.5 flex-none">{props.name}</h3>
                 {props.gh && (
                     <a className="text-lg text-inherit" href={props.gh} target="_blank" rel="noopener noreferrer">
                         <BsGithub />
                     </a>
                 )}
-                <hr className="w-full border-gray-600/50" />
+                <hr className="w-full border-secondary/50 dark:border-secondary-dark/50" />
             </div>
             <ProjectsCardGrid>
                 {props.children}

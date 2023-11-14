@@ -18,11 +18,11 @@ export default function Project(props: ProjectProps) {
 
     return (
         <HoverCard href={gh}>
-            <section className="flex gap-3 items-center mb-3">
+            <section className="flex gap-3 items-center mb-2">
                 {img && (
                     <img
                         src={img}
-                        className="rounded-full h-8 w-8 bg-gray-200/50 dark:bg-gray-900/50"
+                        className="rounded-full h-8 w-8 bg-gray-200/50 dark:bg-gray-900/50 -ml-1"
                         alt={`${name}-icon`}
                     />
                 )}

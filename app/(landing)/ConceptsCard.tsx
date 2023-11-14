@@ -12,7 +12,7 @@ export function FillerText(props: {width?: number}) {
 
     return (
         <span
-            className="block h-4 bg-gray-300/40 dark:bg-gray-300/10 rounded-full animate-pulse"
+            className="block h-4 bg-gray-300/60 dark:bg-gray-300/10 rounded-full animate-pulse"
             style={{width: `${width}%`}}
         />
     )

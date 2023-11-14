@@ -8,8 +8,6 @@ export const metadata: Metadata = {
     description: 'Generator for a script to hack all AC submissions in a Codeforces contest.'
 }
 
-// TODO: not with this page specifically, but really consider making a `secondary` color in the theme to standardize
-// that across pages.
 export default function CodeforcesHacks() {
     return (
         <>
