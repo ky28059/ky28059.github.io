@@ -31,7 +31,7 @@ export default function Home() {
                     <div className="relative">
                         <img src="/pfp.png" alt="Profile picture" className="absolute -left-32 -top-10 h-24 w-24 rounded-full" />
                         <PageHeading className="mb-5">kevin yu.</PageHeading>
-                        <p className="text-lg mb-3.5 max-w-prose">
+                        <p className="mb-3.5 max-w-3xl text-secondary dark:text-secondary-dark">
                             Gunn High School graduate and first-year student studying Computer Science at Purdue University.
                             Interested in art, web development, and robotics.
                         </p>

@@ -26,7 +26,7 @@ export default function Project(props: ProjectProps) {
                         alt={`${name}-icon`}
                     />
                 )}
-                <h3 className="text-xl font-bold">{name}</h3>
+                <h3 className="text-xl font-semibold">{name}</h3>
 
                 <section className="flex gap-2 ml-auto text-xl">
                     {discord && (
@@ -53,7 +53,7 @@ export default function Project(props: ProjectProps) {
                 </section>
             )}
 
-            <p>{desc}</p>
+            <p className="text-sm">{desc}</p>
         </HoverCard>
     );
 }

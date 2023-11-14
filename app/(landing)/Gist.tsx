@@ -8,8 +8,8 @@ export default function Gist(props: GistProps) {
 
     return (
         <HoverCard href={url}>
-            <h3 className="text-xl font-bold mb-2">{name}</h3>
-            <p>{children}</p>
+            <h3 className="text-xl font-semibold mb-2">{name}</h3>
+            <p className="text-sm">{children}</p>
         </HoverCard>
     )
 }

@@ -11,7 +11,7 @@ export default function Projects() {
             <ProjectsLayout>
                 <ProjectsHeaderSection>
                     <SectionHeading>Projects</SectionHeading>
-                    <p>
+                    <p className="text-secondary dark:text-secondary-dark">
                         Various programming projects for organizations like the Gunn Robotics Team or GunnHacks, as well
                         as personal projects like RBot and WATT.
                     </p>
@@ -218,8 +218,8 @@ export default function Projects() {
             <ProjectsLayout>
                 <ProjectsHeaderSection>
                     <SectionHeading>Gists</SectionHeading>
-                    <p>
-                        Educational gists to teach about specific programming concepts and cool programming languages
+                    <p className="text-secondary dark:text-secondary-dark">
+                        Educational gists to inform about specific programming concepts and cool programming languages
                         and technologies.
                     </p>
                 </ProjectsHeaderSection>
@@ -244,7 +244,7 @@ export default function Projects() {
 
 function ProjectsLayout(props: {children: ReactNode}) {
     return (
-        <div className="flex flex-wrap md:flex-nowrap gap-8">
+        <div className="flex flex-wrap md:flex-nowrap gap-y-8 gap-x-12">
             {props.children}
         </div>
     )
