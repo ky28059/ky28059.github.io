@@ -37,7 +37,7 @@ export default function PurdueHousing() {
             </ul>
             <p className="mb-6">
                 Using this script is a bit more complicated than just pasting it into the console in the housing portal;
-                see <a href="#using">Using</a> for more details on how it works.
+                see the <a href="#using">Using</a> section for more details on how it works.
             </p>
 
             <PurdueHousingContent />

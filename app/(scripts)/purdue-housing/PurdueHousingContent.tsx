@@ -1,7 +1,6 @@
 'use client'
 
-import {useState} from 'react';
-import AutoResizingTextArea from '../../../components/AutoResizingTextArea';
+import {ReactNode, useState} from 'react';
 import ScriptOutput from '../ScriptOutput';
 import LabelledInput from '../LabelledInput';
 
@@ -11,9 +10,12 @@ export default function PurdueHousingContent() {
     const [upperRoomRate, setUpperRoomRate] = useState(20000);
     const [delay, setDelay] = useState(1000);
 
+    const [buildingIds, setBuildingIds] = useState([1, 34, 16, 6, 4, 5]);
+    const [roomTypeIds, setRoomTypeIds] = useState([165, 167, 166]);
+
     return (
         <>
-            <div className="flex flex-wrap gap-x-3 gap-y-1.5 mb-6 md:mb-2.5">
+            <div className="flex flex-wrap gap-x-3 gap-y-1.5 mb-6 md:mb-4">
                 <LabelledInput
                     label="Lower room rate ($)"
                     value={lowerRoomRate}
@@ -31,8 +33,85 @@ export default function PurdueHousingContent() {
                 />
             </div>
 
+            <div className="flex gap-24 pl-4 mb-4">
+                <div>
+                    <IdCheckbox id={166} ids={roomTypeIds} setIds={setRoomTypeIds}>
+                        Apartment
+                    </IdCheckbox>
+                    <IdCheckbox id={165} ids={roomTypeIds} setIds={setRoomTypeIds}>
+                        Double
+                    </IdCheckbox>
+                    <IdCheckbox id={198} ids={roomTypeIds} setIds={setRoomTypeIds}>
+                        Quad
+                    </IdCheckbox>
+                    <IdCheckbox id={169} ids={roomTypeIds} setIds={setRoomTypeIds}>
+                        Single
+                    </IdCheckbox>
+                    <IdCheckbox id={167} ids={roomTypeIds} setIds={setRoomTypeIds}>
+                        Suite
+                    </IdCheckbox>
+                    <IdCheckbox id={168} ids={roomTypeIds} setIds={setRoomTypeIds}>
+                        Triple
+                    </IdCheckbox>
+                </div>
+
+                <div className="grid sm:grid-cols-2 lg:grid-rows-6 lg:grid-flow-col gap-x-6">
+                    <IdCheckbox id={1} ids={buildingIds} setIds={setBuildingIds}>
+                        Cary Quadrangle
+                    </IdCheckbox>
+                    <IdCheckbox id={2} ids={buildingIds} setIds={setBuildingIds}>
+                        Earhart
+                    </IdCheckbox>
+                    <IdCheckbox id={3} ids={buildingIds} setIds={setBuildingIds}>
+                        First Street Towers
+                    </IdCheckbox>
+                    <IdCheckbox id={34} ids={buildingIds} setIds={setBuildingIds}>
+                        Frieda Parker
+                    </IdCheckbox>
+                    <IdCheckbox id={4} ids={buildingIds} setIds={setBuildingIds}>
+                        Harrison
+                    </IdCheckbox>
+                    <IdCheckbox id={5} ids={buildingIds} setIds={setBuildingIds}>
+                        Hawkins
+                    </IdCheckbox>
+                    <IdCheckbox id={6} ids={buildingIds} setIds={setBuildingIds}>
+                        Hillenbrand
+                    </IdCheckbox>
+                    <IdCheckbox id={17} ids={buildingIds} setIds={setBuildingIds}>
+                        Honors
+                    </IdCheckbox>
+                    <IdCheckbox id={8} ids={buildingIds} setIds={setBuildingIds}>
+                        McCutcheon
+                    </IdCheckbox>
+                    <IdCheckbox id={9} ids={buildingIds} setIds={setBuildingIds}>
+                        Meredith
+                    </IdCheckbox>
+                    <IdCheckbox id={33} ids={buildingIds} setIds={setBuildingIds}>
+                        Meredith South
+                    </IdCheckbox>
+                    <IdCheckbox id={10} ids={buildingIds} setIds={setBuildingIds}>
+                        Owen
+                    </IdCheckbox>
+                    <IdCheckbox id={12} ids={buildingIds} setIds={setBuildingIds}>
+                        Shreve
+                    </IdCheckbox>
+                    <IdCheckbox id={13} ids={buildingIds} setIds={setBuildingIds}>
+                        Tarkington
+                    </IdCheckbox>
+                    <IdCheckbox id={14} ids={buildingIds} setIds={setBuildingIds}>
+                        Wiley
+                    </IdCheckbox>
+                    <IdCheckbox id={15} ids={buildingIds} setIds={setBuildingIds}>
+                        Windsor
+                    </IdCheckbox>
+                    <IdCheckbox id={16} ids={buildingIds} setIds={setBuildingIds}>
+                        Winifred Parker
+                    </IdCheckbox>
+                </div>
+            </div>
+
             <ScriptOutput className="mb-6">
-                {script(lowerRoomRate, upperRoomRate, delay)}
+                {script(lowerRoomRate, upperRoomRate, delay, roomTypeIds, buildingIds)}
             </ScriptOutput>
 
             <ScriptOutput>
@@ -42,11 +121,37 @@ export default function PurdueHousingContent() {
     )
 }
 
-const script = (lowerRoomRate: number, upperRoomRate: number, delay: number) => `const roomTypeIds = [165, 167, 166];
-const buildingIds = [1, 34, 16, 6, 4, 5];
-const lowerRoomRate = 1000;
-const upperRoomRate = 20000;
-const delay = 1000;
+type IdCheckboxProps = {
+    id: number,
+    ids: number[],
+    setIds: (ids: number[]) => void,
+    children: ReactNode
+}
+function IdCheckbox(props: IdCheckboxProps) {
+    const {id, ids, setIds, children} = props;
+
+    return (
+        <div className="flex gap-3 text-primary dark:text-primary-dark">
+            <input
+                type="checkbox"
+                className="accent-grapefruit"
+                checked={ids.includes(id)}
+                onChange={(e) => {
+                    e.target.checked
+                        ? setIds([...ids, id])
+                        : setIds(ids.filter(i => i !== id))
+                }}
+            />
+            {children}
+        </div>
+    )
+}
+
+const script = (lowerRoomRate: number, upperRoomRate: number, delay: number, roomTypeIds: number[], buildingIds: number[]) => `const roomTypeIds = [${roomTypeIds.join(', ')}];
+const buildingIds = [${buildingIds.join(', ')}];
+const lowerRoomRate = ${lowerRoomRate};
+const upperRoomRate = ${upperRoomRate};
+const delay = ${delay};
 
 let id;
 ;(async () => {
