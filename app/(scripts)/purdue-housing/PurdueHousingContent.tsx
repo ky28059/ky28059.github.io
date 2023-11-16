@@ -110,12 +110,8 @@ export default function PurdueHousingContent() {
                 </div>
             </div>
 
-            <ScriptOutput className="mb-6">
+            <ScriptOutput className="mb-10">
                 {script(lowerRoomRate, upperRoomRate, delay, roomTypeIds, buildingIds)}
-            </ScriptOutput>
-
-            <ScriptOutput>
-                {nextPageScript}
             </ScriptOutput>
         </>
     )
@@ -274,13 +270,6 @@ let id;
 function log(m) {
     console.log(\`[\${new Date().toLocaleTimeString()}]: \${m}\`);
 }`
-
-const nextPageScript = `const rawUrl = await (await fetch(window.location.href, {
-    method: 'POST',
-    body: JSON.stringify({PageWidgetData: []})
-})).text()
-
-window.location = rawUrl.slice(1, -1).replaceAll('\\\\u0026', '&');`
 
 function roomTypeToId(room: string) {
     switch (room) {

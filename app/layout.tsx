@@ -18,7 +18,7 @@ const inter = Inter({
 
 export default function Layout(props: {children: ReactNode}) {
     return (
-        <html className="dark">
+        <html className="dark scroll-smooth">
             <head>
                 <meta charSet="utf-8" />
             </head>

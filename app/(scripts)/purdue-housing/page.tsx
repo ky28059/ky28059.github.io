@@ -1,6 +1,7 @@
 import {Metadata} from 'next';
 import {SectionHeading} from '../../../components/Section';
 import PurdueHousingContent from './PurdueHousingContent';
+import ScriptOutput from '../ScriptOutput';
 
 
 export const metadata: Metadata = {
@@ -42,9 +43,91 @@ export default function PurdueHousing() {
 
             <PurdueHousingContent />
 
-            <div>
-                {/* TODO: table */}
+            <h3 className="text-2xl font-bold mb-3" id="using">
+                Using
+            </h3>
+            <p className="mb-3">
+                Because of how the housing portal's request hashes and dynamic routes work,
+                this script only works on the <strong>List Rooms</strong> page (ie. the page that looks like:
+            </p>
+
+            <div className="flex gap-2 mb-1">
+                <img
+                    src="/assets/scripts/initial-selection.png"
+                    alt="List rooms page"
+                    className="rounded min-w-0 object-cover object-center"
+                />
+                <img
+                    src="/assets/scripts/list-rooms.png"
+                    alt="List rooms page"
+                    className="rounded min-w-0 object-cover object-center"
+                />
             </div>
+            <p className="text-secondary dark:text-secondary-dark text-sm italic mb-3 text-center">
+                <strong className="font-semibold">Left:</strong> Initial Selection page with no rooms available;{' '}
+                <strong className="font-semibold">Right:</strong> List Rooms page
+            </p>
+
+            <p className="mb-4">
+                If you have navigated to the <strong>Initial Selection</strong> page but cannot go further due to
+                there being no available rooms, run the following script in the console to jump to the next page:
+            </p>
+            <ScriptOutput className="mb-4">
+                {nextPageScript}
+            </ScriptOutput>
+
+            <p className="mb-4">
+                Once you're at the list rooms page, copying the first script above into your console should start
+                the room search process.
+            </p>
+
+            <p className="mb-8">
+                The script sends a lot of logs in the console, mostly for debugging purposes. You'll know the script
+                has found a room when it starts opening a bunch of tabs (an imperfect solution, but one that works
+                given the time constraints and limited opportunities to test it). These tabs will be the bed assignment
+                pages for the room the script has just added to your cart; wait for one to load, fill it out as normal,
+                and pray that the request goes through. Remember to hit confirm as normal on the proceeding page as well.
+            </p>
+
+            <h3 className="text-2xl font-bold mb-3">
+                Other things to note
+            </h3>
+            <p className="mb-4">
+                During execution, the script makes a request to the filter rooms endpoint (the same one the list rooms
+                webpage uses) every <code>delay</code> milliseconds. If, for whatever reason, you want to stop sending
+                new requests, you can clear the interval with
+            </p>
+            <ScriptOutput className="mb-4">
+                clearInterval(id)
+            </ScriptOutput>
+
+            <p className="mb-4">
+                Note that at peak times, response times from the API will greatly exceed the rate at which the
+                script makes new fetches to it (the worst I've seen were response times of almost 3 minutes). Clearing
+                the interval <strong>does not prevent fetches that are still pending from resolving, only the creation
+                of new ones.</strong> The list of pending requests can easily range in the thousands during peak times;
+                to clear all requests immediately, reload the page or close the tab.
+            </p>
+
+            <p className="mb-4">
+                If, during execution, you want to add or remove buildings or room types from your filter,
+                simply mutate the <code>roomTypeIds</code> and <code>buildingIds</code> arrays directly:
+            </p>
+            <ScriptOutput className="mb-4">
+                buildingIds.push(1) // Add Cary to the building id filter
+            </ScriptOutput>
+            <ScriptOutput className="mb-4">
+                roomTypeIds.splice(i, 1) // Remove one id from the room type filter, where `i` is the index of the element to remove
+            </ScriptOutput>
+
+            {/* TODO: table */}
         </>
     )
 }
+
+const nextPageScript = `const rawUrl = await (await fetch(window.location.href, {
+    method: 'POST',
+    body: JSON.stringify({PageWidgetData: []})
+})).text()
+
+window.location = rawUrl.slice(1, -1).replaceAll('\\\\u0026', '&');`
