@@ -1,4 +1,7 @@
+import {ReactNode} from 'react';
 import {Metadata} from 'next';
+
+// Components
 import {SectionHeading} from '../../../components/Section';
 import PurdueHousingContent from './PurdueHousingContent';
 import ScriptOutput from '../ScriptOutput';
@@ -120,8 +123,138 @@ export default function PurdueHousing() {
                 roomTypeIds.splice(i, 1) // Remove one id from the room type filter, where `i` is the index of the element to remove
             </ScriptOutput>
 
-            {/* TODO: table */}
+            <p className="mb-4">
+                The full list of IDs corresponding to buildings and rooms can be referenced here:
+            </p>
+
+            <div className="flex flex-wrap gap-6">
+                <table>
+                    <tbody>
+                    <tr>
+                        <IdTableHeaderCell>Building name</IdTableHeaderCell>
+                        <IdTableHeaderCell>Building ID</IdTableHeaderCell>
+                    </tr>
+                    <tr>
+                        <IdTableCell>Cary Quadrangle</IdTableCell>
+                        <IdTableCell>1</IdTableCell>
+                    </tr>
+                    <tr>
+                        <IdTableCell>Earhart</IdTableCell>
+                        <IdTableCell>2</IdTableCell>
+                    </tr>
+                    <tr>
+                        <IdTableCell>First Street Towers</IdTableCell>
+                        <IdTableCell>3</IdTableCell>
+                    </tr>
+                    <tr>
+                        <IdTableCell>Frieda Parker</IdTableCell>
+                        <IdTableCell>34</IdTableCell>
+                    </tr>
+                    <tr>
+                        <IdTableCell>Harrison</IdTableCell>
+                        <IdTableCell>4</IdTableCell>
+                    </tr>
+                    <tr>
+                        <IdTableCell>Hawkins</IdTableCell>
+                        <IdTableCell>5</IdTableCell>
+                    </tr>
+                    <tr>
+                        <IdTableCell>Hillenbrand</IdTableCell>
+                        <IdTableCell>6</IdTableCell>
+                    </tr>
+                    <tr>
+                        <IdTableCell>Honors</IdTableCell>
+                        <IdTableCell>17</IdTableCell>
+                    </tr>
+                    <tr>
+                        <IdTableCell>McCutcheon</IdTableCell>
+                        <IdTableCell>8</IdTableCell>
+                    </tr>
+                    <tr>
+                        <IdTableCell>Meredith</IdTableCell>
+                        <IdTableCell>9</IdTableCell>
+                    </tr>
+                    <tr>
+                        <IdTableCell>Meredith South</IdTableCell>
+                        <IdTableCell>33</IdTableCell>
+                    </tr>
+                    <tr>
+                        <IdTableCell>Owen</IdTableCell>
+                        <IdTableCell>10</IdTableCell>
+                    </tr>
+                    <tr>
+                        <IdTableCell>Shreve</IdTableCell>
+                        <IdTableCell>12</IdTableCell>
+                    </tr>
+                    <tr>
+                        <IdTableCell>Tarkington</IdTableCell>
+                        <IdTableCell>13</IdTableCell>
+                    </tr>
+                    <tr>
+                        <IdTableCell>Wiley</IdTableCell>
+                        <IdTableCell>14</IdTableCell>
+                    </tr>
+                    <tr>
+                        <IdTableCell>Windsor</IdTableCell>
+                        <IdTableCell>15</IdTableCell>
+                    </tr>
+                    <tr>
+                        <IdTableCell>Winifred Parker</IdTableCell>
+                        <IdTableCell>16</IdTableCell>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <table className="h-max">
+                    <tbody>
+                    <tr>
+                        <IdTableHeaderCell>Room type</IdTableHeaderCell>
+                        <IdTableHeaderCell>Room type ID</IdTableHeaderCell>
+                    </tr>
+                    <tr>
+                        <IdTableCell>Apartment</IdTableCell>
+                        <IdTableCell>166</IdTableCell>
+                    </tr>
+                    <tr>
+                        <IdTableCell>Double</IdTableCell>
+                        <IdTableCell>165</IdTableCell>
+                    </tr>
+                    <tr>
+                        <IdTableCell>Quad</IdTableCell>
+                        <IdTableCell>198</IdTableCell>
+                    </tr>
+                    <tr>
+                        <IdTableCell>Single</IdTableCell>
+                        <IdTableCell>169</IdTableCell>
+                    </tr>
+                    <tr>
+                        <IdTableCell>Suite</IdTableCell>
+                        <IdTableCell>167</IdTableCell>
+                    </tr>
+                    <tr>
+                        <IdTableCell>Triple</IdTableCell>
+                        <IdTableCell>168</IdTableCell>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </>
+    )
+}
+
+function IdTableCell(props: {children: ReactNode}) {
+    return (
+        <td className="px-4 py-2 text-sm text-primary dark:text-primary-dark border border-tertiary dark:border-tertiary-dark">
+            {props.children}
+        </td>
+    )
+}
+
+function IdTableHeaderCell(props: {children: ReactNode}) {
+    return (
+        <th className="text-sm text-left font-medium px-4 py-2 border border-tertiary dark:border-tertiary-dark bg-gray-100 dark:bg-dark">
+            {props.children}
+        </th>
     )
 }
 
