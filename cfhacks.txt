@@ -1,8 +1,8 @@
 1:HL["/_next/static/media/c9a5bc6a7c948fb0-s.p.woff2",{"as":"font","type":"font/woff2"}]
-2:HL["/_next/static/css/917f0deb2f09bba3.css",{"as":"style"}]
-0:["1RYnZ9agbU3K7l_VfUBGm",[[["",{"children":["(scripts)",{"children":["cfhacks",{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],"$L3",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/917f0deb2f09bba3.css","precedence":"next"}]],"$L4"]]]]
-5:I{"id":47767,"chunks":["272:static/chunks/webpack-b1ac1de8b031eedc.js","971:static/chunks/fd9d1056-41e84e187dcb9e34.js","596:static/chunks/596-79f213c8e9607110.js"],"name":"default","async":false}
-6:I{"id":57920,"chunks":["272:static/chunks/webpack-b1ac1de8b031eedc.js","971:static/chunks/fd9d1056-41e84e187dcb9e34.js","596:static/chunks/596-79f213c8e9607110.js"],"name":"default","async":false}
+2:HL["/_next/static/css/e018b51feddf99ab.css",{"as":"style"}]
+0:["a0qeZQWebvPiW_9T5c2xY",[[["",{"children":["(scripts)",{"children":["cfhacks",{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],"$L3",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/e018b51feddf99ab.css","precedence":"next"}]],"$L4"]]]]
+5:I{"id":47767,"chunks":["272:static/chunks/webpack-579eab9fe41c07db.js","971:static/chunks/fd9d1056-41e84e187dcb9e34.js","596:static/chunks/596-79f213c8e9607110.js"],"name":"default","async":false}
+6:I{"id":57920,"chunks":["272:static/chunks/webpack-579eab9fe41c07db.js","971:static/chunks/fd9d1056-41e84e187dcb9e34.js","596:static/chunks/596-79f213c8e9607110.js"],"name":"default","async":false}
 7:I{"id":46685,"chunks":["685:static/chunks/685-04096f6a5a8602e3.js","628:static/chunks/app/(scripts)/layout-e2c7f7fa4824438b.js"],"name":"","async":false}
 9:I{"id":73650,"chunks":["235:static/chunks/235-5e14838119c04a8d.js","520:static/chunks/app/(scripts)/cfhacks/page-b5df37840ae0e04c.js"],"name":"","async":false}
 4:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"Codeforces Hacks | ky28059.github.io"}],["$","meta","2",{"name":"description","content":"Generator for a script to hack all AC submissions in a Codeforces contest."}],["$","meta","3",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","4",{"name":"next-size-adjust"}]]
