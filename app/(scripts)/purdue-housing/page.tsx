@@ -5,6 +5,7 @@ import {Metadata} from 'next';
 import {SectionHeading} from '../../../components/Section';
 import PurdueHousingContent from './PurdueHousingContent';
 import ScriptOutput from '../ScriptOutput';
+import LinkHeading from '../../../components/LinkHeading';
 
 
 export const metadata: Metadata = {
@@ -41,17 +42,18 @@ export default function PurdueHousing() {
             </ul>
             <p className="mb-6">
                 Using this script is a bit more complicated than just pasting it into the console in the housing portal;
-                see the <a href="#using">Using</a> section for more details on how it works.
+                see the <a href="#using-this-script">Using this script</a> section for more details on how it works.
             </p>
 
             <PurdueHousingContent />
 
-            <h3 className="text-2xl font-bold mb-3" id="using">
-                Using
-            </h3>
+            <LinkHeading className="text-2xl font-bold mb-3" id="using-this-script">
+                Using this script
+            </LinkHeading>
             <p className="mb-3">
                 Because of how the housing portal's request hashes and dynamic routes work,
-                this script only works on the <strong>List Rooms</strong> page (ie. the page that looks like:
+                this script only works on the <strong>List Rooms</strong> page (ie. the page that looks like the image
+                on the right):
             </p>
 
             <div className="flex gap-2 mb-1">
@@ -72,7 +74,7 @@ export default function PurdueHousing() {
             </p>
 
             <p className="mb-4">
-                If you have navigated to the <strong>Initial Selection</strong> page but cannot go further due to
+                If you have navigated to the <strong>Initial Selection</strong> page (left) but cannot go further due to
                 there being no available rooms, run the following script in the console to jump to the next page:
             </p>
             <ScriptOutput className="mb-4">
@@ -92,9 +94,9 @@ export default function PurdueHousing() {
                 and pray that the request goes through. Remember to hit confirm as normal on the proceeding page as well.
             </p>
 
-            <h3 className="text-2xl font-bold mb-3">
+            <LinkHeading className="text-2xl font-bold mb-3" id="other-notes">
                 Other things to note
-            </h3>
+            </LinkHeading>
             <p className="mb-4">
                 During execution, the script makes a request to the filter rooms endpoint (the same one the list rooms
                 webpage uses) every <code>delay</code> milliseconds. If, for whatever reason, you want to stop sending
