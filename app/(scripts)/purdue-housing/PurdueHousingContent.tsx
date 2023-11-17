@@ -33,7 +33,7 @@ export default function PurdueHousingContent() {
                 />
             </div>
 
-            <div className="flex gap-24 pl-4 mb-4">
+            <div className="flex gap-8 sm:gap-24 pl-4 mb-4">
                 <div>
                     <IdCheckbox id={166} ids={roomTypeIds} setIds={setRoomTypeIds}>
                         Apartment
@@ -127,10 +127,10 @@ function IdCheckbox(props: IdCheckboxProps) {
     const {id, ids, setIds, children} = props;
 
     return (
-        <div className="flex gap-3 text-primary dark:text-primary-dark">
+        <div className="flex gap-3 text-primary dark:text-primary-dark items-center">
             <input
                 type="checkbox"
-                className="accent-grapefruit"
+                className="accent-grapefruit flex-none"
                 checked={ids.includes(id)}
                 onChange={(e) => {
                     e.target.checked
