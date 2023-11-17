@@ -75,14 +75,14 @@ export default function PurdueHousing() {
 
             <p className="mb-4">
                 If you have navigated to the <strong>Initial Selection</strong> page (left) but cannot go further due to
-                there being no available rooms, run the following script in the console to jump to the next page:
+                there being no available rooms, run the following code in the console to jump to the next page:
             </p>
             <ScriptOutput className="mb-4">
                 {nextPageScript}
             </ScriptOutput>
 
             <p className="mb-4">
-                Once you're at the list rooms page, copying the first script above into your console should start
+                Once you're at the list rooms page, copying the original script into your console should start
                 the room search process.
             </p>
 
