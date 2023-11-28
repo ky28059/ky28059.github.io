@@ -1,12 +1,18 @@
 import type {ReactNode} from 'react';
+import type {Metadata} from 'next';
 import LinkHeading from '../../../components/LinkHeading';
 
+
+export const metadata: Metadata = {
+    title: 'AP Drawing Portfolio 2023',
+    description: 'My AP Drawing Portfolio from 2023.'
+}
 
 export default function APArt2023() {
     return (
         <div className="flex flex-col lg:flex-row gap-12">
             <aside className="lg:sticky flex-none h-max top-10 pr-12 lg:border-r border-tertiary dark:border-tertiary-dark lg:w-[16rem] xl:w-auto">
-                <div className="mb-8 border-l-8 border-s-4 border-grapefruit -ml-4 pl-4">
+                <div className="mb-7 border-l-8 border-s-4 border-grapefruit -ml-4 pl-4">
                     <h1 className="font-bold text-4xl mb-3">AP Drawing 2023</h1>
                     <p className="text-primary dark:text-primary-dark">
                         <strong>Submitted:</strong> 2023-05-05
@@ -61,7 +67,7 @@ export default function APArt2023() {
                     technologies shaped the world around us? How does the internet and social media keep us connected but
                     also isolated, overwhelmed, and imprisoned?
                 </p>
-                <p className="text-primary dark:text-primary-dark mb-16 text-sm border-l-2 border-secondary dark:border-secondary-dark pl-4">
+                <p className="text-primary dark:text-primary-dark mb-14 text-sm border-l-2 border-secondary dark:border-secondary-dark pl-4">
                     My sustained investigation began with broad depictions of technology usage in modern society (2, 3).
                     I then examined specific relationships: social media addiction (4), media negativity (7), wasteful
                     consumerism (9), the relationship between science and warfare (10),  digital privacy (12), and AI art
