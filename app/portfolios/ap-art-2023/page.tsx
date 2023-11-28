@@ -1,18 +1,21 @@
+import type {ReactNode} from 'react';
 import LinkHeading from '../../../components/LinkHeading';
 
 
 export default function APArt2023() {
     return (
         <>
-            <h1 className="font-bold text-4xl mb-3">AP Drawing 2023</h1>
-            <p className="text-primary dark:text-primary-dark">
-                <strong>Submitted:</strong> 2023-05-05
-            </p>
-            <p className="text-primary dark:text-primary-dark">
-                <strong>Score:</strong> AP 6 (perfect score!)
-            </p>
+            <div className="mb-12 border-l-8 border-s-4 border-grapefruit -ml-4 pl-4">
+                <h1 className="font-bold text-4xl mb-3">AP Drawing 2023</h1>
+                <p className="text-primary dark:text-primary-dark">
+                    <strong>Submitted:</strong> 2023-05-05
+                </p>
+                <p className="text-primary dark:text-primary-dark">
+                    <strong>Score:</strong> AP 6 (perfect score!)
+                </p>
+            </div>
 
-            <div className="flex mt-12 gap-10">
+            <div className="flex gap-10">
                 <aside className="sticky flex-none h-max top-8 pr-10 border-r border-tertiary dark:border-tertiary-dark">
                     <a href="#sustained-investigation" className="text-primary dark:text-primary-dark block mb-2 font-semibold">
                         Sustained investigation
@@ -39,11 +42,11 @@ export default function APArt2023() {
                         Selected works
                     </a>
                     <ol className="list-decimal pl-7 text-sm marker:text-primary dark:marker:text-primary-dark">
-                        <li><a href="#2" className="text-primary dark:text-primary-dark">Modern Man</a></li>
-                        <li><a href="#3" className="text-primary dark:text-primary-dark">Hope</a></li>
-                        <li><a href="#4" className="text-primary dark:text-primary-dark">iPhetamines</a></li>
-                        <li><a href="#9" className="text-primary dark:text-primary-dark">Great American Garbage Patch</a></li>
-                        <li><a href="#15" className="text-primary dark:text-primary-dark">Death of the Artist</a></li>
+                        <li><a href="#2-1" className="text-primary dark:text-primary-dark">Hope</a></li>
+                        <li><a href="#2-2" className="text-primary dark:text-primary-dark">Great American Garbage Patch</a></li>
+                        <li><a href="#2-3" className="text-primary dark:text-primary-dark">iPhetamines</a></li>
+                        <li><a href="#2-4" className="text-primary dark:text-primary-dark">Modern Man</a></li>
+                        <li><a href="#2-5" className="text-primary dark:text-primary-dark">Death of the Artist</a></li>
                     </ol>
                 </aside>
 
@@ -52,7 +55,7 @@ export default function APArt2023() {
                         Sustained investigation
                     </LinkHeading>
 
-                    <div className="flex flex-col gap-16 pl-2">
+                    <PortfolioPieces>
                         <PortfolioPiece
                             name="1. Modern Man (process)"
                             id="1"
@@ -217,14 +220,84 @@ export default function APArt2023() {
                         >
                             Landscape painting = idyllic, old-fashioned art. Robot arm = technological advancements (AI).
                         </PortfolioPiece>
-                    </div>
+                    </PortfolioPieces>
 
-                    <LinkHeading className="text-2xl font-bold mb-8 mt-20" id="selected-works">
+                    <LinkHeading className="text-3xl font-bold mb-8 mt-20" id="selected-works">
                         Selected works
                     </LinkHeading>
+
+                    <PortfolioPieces>
+                        <PortfolioPiece
+                            name="1. Hope"
+                            id="2-1"
+                            src="/assets/portfolios/ap-art-2023/3.jpg"
+                            height="24”"
+                            width="18”"
+                            ideas="A seedling sprouts in a society overrun by capitalism, industrialization, and greed."
+                            materials="Markers, pens, color pencils"
+                        >
+                            Social media icons+harsh, warm colors=chaos in world. Green seedling=contrast hope for growth+change
+                        </PortfolioPiece>
+
+                        <PortfolioPiece
+                            name="2. Great American Garbage Patch"
+                            id="2-2"
+                            src="/assets/portfolios/ap-art-2023/9.jpg"
+                            height="24”"
+                            width="18”"
+                            ideas="Consumerism’s effect on the earth."
+                            materials="Markers, pens, color pencils"
+                        >
+                            Saturated billboards+cityscape=allure of consumerism; drab, gray garbage heap/pollution=wastefulness
+                        </PortfolioPiece>
+
+                        <PortfolioPiece
+                            name="3. iPhetamines"
+                            id="2-3"
+                            src="/assets/portfolios/ap-art-2023/4.jpg"
+                            height="12”"
+                            width="16”"
+                            ideas="The addictive nature of smartphone notifications and social media."
+                            materials="Markers, pens, color pencils"
+                        >
+                            iPhone pill=high-tech addiction. Saturated colors+pasted icons=disingenuity of online connections
+                        </PortfolioPiece>
+
+                        <PortfolioPiece
+                            name="4. Modern Man"
+                            id="2-4"
+                            src="/assets/portfolios/ap-art-2023/2.jpg"
+                            height="16”"
+                            width="12”"
+                            ideas="The augmentation of traditional values / ideas in a modern society."
+                            materials="Markers, pens, color pencils"
+                        >
+                            Warm marble (statue of David)=traditional human values. Cold metal covering=influence of technology.
+                        </PortfolioPiece>
+
+                        <PortfolioPiece
+                            name="5. Death of the Artist"
+                            id="2-5"
+                            src="/assets/portfolios/ap-art-2023/15.jpg"
+                            height="24”"
+                            width="19”"
+                            ideas="Creating art in an AI-permeated world."
+                            materials="Markers, pens, color pencils"
+                        >
+                            Landscape painting = idyllic, old-fashioned art. Robot arm = technological advancements (AI).
+                        </PortfolioPiece>
+                    </PortfolioPieces>
                 </div>
             </div>
         </>
+    )
+}
+
+function PortfolioPieces(props: {children: ReactNode}) {
+    return (
+        <div className="flex flex-col gap-16 pl-2">
+            {props.children}
+        </div>
     )
 }
 
@@ -235,6 +308,7 @@ type PortfolioPieceProps = {
     height: string,
     width: string,
     materials: string,
+    ideas?: string,
     children: string,
 }
 function PortfolioPiece(props: PortfolioPieceProps) {
@@ -257,6 +331,11 @@ function PortfolioPiece(props: PortfolioPieceProps) {
                 <p className="text-primary dark:text-primary-dark">
                     <strong>Width:</strong> {props.width}
                 </p>
+                {props.ideas && (
+                    <p className="text-primary dark:text-primary-dark">
+                        <strong>Idea(s):</strong> {props.ideas}
+                    </p>
+                )}
                 <p className="text-primary dark:text-primary-dark">
                     <strong>Material(s):</strong> {props.materials}
                 </p>
