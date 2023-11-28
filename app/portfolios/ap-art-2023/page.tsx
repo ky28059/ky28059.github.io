@@ -4,8 +4,8 @@ import LinkHeading from '../../../components/LinkHeading';
 
 export default function APArt2023() {
     return (
-        <div className="flex gap-12">
-            <aside className="sticky flex-none h-max top-10 pr-12 border-r border-tertiary dark:border-tertiary-dark">
+        <div className="flex flex-col lg:flex-row gap-12">
+            <aside className="lg:sticky flex-none h-max top-10 pr-12 lg:border-r border-tertiary dark:border-tertiary-dark lg:w-[16rem] xl:w-auto">
                 <div className="mb-8 border-l-8 border-s-4 border-grapefruit -ml-4 pl-4">
                     <h1 className="font-bold text-4xl mb-3">AP Drawing 2023</h1>
                     <p className="text-primary dark:text-primary-dark">
@@ -49,7 +49,7 @@ export default function APArt2023() {
                 </ol>
             </aside>
 
-            <div>
+            <div className="min-w-0">
                 <LinkHeading className="text-3xl font-bold mb-6" id="sustained-investigation">
                     Sustained investigation
                 </LinkHeading>
@@ -327,14 +327,14 @@ type PortfolioPieceProps = {
 }
 function PortfolioPiece(props: PortfolioPieceProps) {
     return (
-        <div className="flex gap-8">
+        <div className="flex flex-col sm:flex-row gap-x-8 gap-y-4">
             {/* TODO: popup on click */}
             <img
-                className="max-w-md rounded shadow-md"
+                className="sm:max-w-xs md:max-w-sm xl:max-w-md rounded shadow-md"
                 src={props.src}
                 alt={props.name}
             />
-            <div>
+            <div className="min-w-0">
                 <LinkHeading id={props.id} className="font-semibold text-2xl mb-2">
                     {props.name}
                 </LinkHeading>
@@ -346,14 +346,14 @@ function PortfolioPiece(props: PortfolioPieceProps) {
                     <strong>Width:</strong> {props.width}
                 </p>
                 {props.ideas && (
-                    <p className="text-primary dark:text-primary-dark">
+                    <p className="text-primary dark:text-primary-dark break-words">
                         <strong>Idea(s):</strong> {props.ideas}
                     </p>
                 )}
                 <p className="text-primary dark:text-primary-dark">
                     <strong>Material(s):</strong> {props.materials}
                 </p>
-                <p className="text-primary dark:text-primary-dark max-w-prose">
+                <p className="text-primary dark:text-primary-dark max-w-prose break-words">
                     <strong>Process(es):</strong> {props.children}
                 </p>
                 <p className="text-secondary dark:text-secondary-dark text-sm">
