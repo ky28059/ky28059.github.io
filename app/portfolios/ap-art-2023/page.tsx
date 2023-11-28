@@ -19,7 +19,7 @@ export default function APArt2023() {
                 <a href="#sustained-investigation" className="text-primary dark:text-primary-dark block mb-2 font-semibold">
                     Sustained investigation
                 </a>
-                <ol className="list-decimal pl-7 text-sm marker:text-primary dark:marker:text-primary-dark mb-6">
+                <ol className="list-decimal pl-6 text-sm marker:text-primary dark:marker:text-primary-dark mb-6">
                     <li><a href="#1" className="text-primary dark:text-primary-dark">Modern Man (process)</a></li>
                     <li><a href="#2" className="text-primary dark:text-primary-dark">Modern Man</a></li>
                     <li><a href="#3" className="text-primary dark:text-primary-dark">Hope</a></li>
@@ -40,7 +40,7 @@ export default function APArt2023() {
                 <a href="#selected-works" className="text-primary dark:text-primary-dark block mb-2 font-semibold">
                     Selected works
                 </a>
-                <ol className="list-decimal pl-7 text-sm marker:text-primary dark:marker:text-primary-dark">
+                <ol className="list-decimal pl-6 text-sm marker:text-primary dark:marker:text-primary-dark">
                     <li><a href="#2-1" className="text-primary dark:text-primary-dark">Hope</a></li>
                     <li><a href="#2-2" className="text-primary dark:text-primary-dark">Great American Garbage Patch</a></li>
                     <li><a href="#2-3" className="text-primary dark:text-primary-dark">iPhetamines</a></li>
@@ -50,9 +50,25 @@ export default function APArt2023() {
             </aside>
 
             <div>
-                <LinkHeading className="text-3xl font-bold mb-8" id="sustained-investigation">
+                <LinkHeading className="text-3xl font-bold mb-6" id="sustained-investigation">
                     Sustained investigation
                 </LinkHeading>
+                <p className="text-primary dark:text-primary-dark mb-4 text-sm border-l-2 border-secondary dark:border-secondary-dark pl-4">
+                    High-tech gadgets like phones, smart watches, and airpods are ubiquitous in today’s society. But as
+                    technology continues to evolve at an ever-increasing pace, its effect on users can often be overlooked.
+                    As an aspiring engineer with a background in software development and robotics, I wanted to investigate
+                    our relationship to our technology and how technology has both helped and hurt humanity. How have new
+                    technologies shaped the world around us? How does the internet and social media keep us connected but
+                    also isolated, overwhelmed, and imprisoned?
+                </p>
+                <p className="text-primary dark:text-primary-dark mb-16 text-sm border-l-2 border-secondary dark:border-secondary-dark pl-4">
+                    My sustained investigation began with broad depictions of technology usage in modern society (2, 3).
+                    I then examined specific relationships: social media addiction (4), media negativity (7), wasteful
+                    consumerism (9), the relationship between science and warfare (10),  digital privacy (12), and AI art
+                    (15). I experimented with high saturation to portray the artificial highs and lows of modern consumption
+                    (3, 4, 9, 12), and contrast to highlight lighting, texture, and surfaces (2, 3, 9, 10, 12, 14, 15).
+                    I revise works to decrease visual clutter and better highlight my original ideas (7, 12).
+                </p>
 
                 <PortfolioPieces>
                     <PortfolioPiece
