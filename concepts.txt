@@ -1,8 +1,8 @@
 1:HL["/_next/static/media/c9a5bc6a7c948fb0-s.p.woff2",{"as":"font","type":"font/woff2"}]
-2:HL["/_next/static/css/0f284a72f20e894d.css",{"as":"style"}]
-0:["EhdUspqaTTtvnWpm3fGCk",[[["",{"children":["concepts",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],"$L3",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/0f284a72f20e894d.css","precedence":"next"}]],"$L4"]]]]
-5:I{"id":47767,"chunks":["272:static/chunks/webpack-e8ef514e0c119211.js","971:static/chunks/fd9d1056-41e84e187dcb9e34.js","596:static/chunks/596-79f213c8e9607110.js"],"name":"default","async":false}
-6:I{"id":57920,"chunks":["272:static/chunks/webpack-e8ef514e0c119211.js","971:static/chunks/fd9d1056-41e84e187dcb9e34.js","596:static/chunks/596-79f213c8e9607110.js"],"name":"default","async":false}
+2:HL["/_next/static/css/ea3d73a1e0d06a07.css",{"as":"style"}]
+0:["k_UTvBfKuFlsvVzl8p9TO",[[["",{"children":["concepts",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],"$L3",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/ea3d73a1e0d06a07.css","precedence":"next"}]],"$L4"]]]]
+5:I{"id":47767,"chunks":["272:static/chunks/webpack-65c871f628e9e20a.js","971:static/chunks/fd9d1056-41e84e187dcb9e34.js","596:static/chunks/596-79f213c8e9607110.js"],"name":"default","async":false}
+6:I{"id":57920,"chunks":["272:static/chunks/webpack-65c871f628e9e20a.js","971:static/chunks/fd9d1056-41e84e187dcb9e34.js","596:static/chunks/596-79f213c8e9607110.js"],"name":"default","async":false}
 7:I{"id":46685,"chunks":["115:static/chunks/8dc5345f-8893e268e1829a00.js","685:static/chunks/685-04096f6a5a8602e3.js","714:static/chunks/app/concepts/page-59fafcbedcd0bbcd.js"],"name":"","async":false}
 9:I{"id":6655,"chunks":["115:static/chunks/8dc5345f-8893e268e1829a00.js","685:static/chunks/685-04096f6a5a8602e3.js","714:static/chunks/app/concepts/page-59fafcbedcd0bbcd.js"],"name":"","async":false}
 4:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"Concepts | ky28059.github.io"}],["$","meta","2",{"name":"description","content":"Various website redesigns and concept pages."}],["$","meta","3",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","4",{"name":"next-size-adjust"}]]
