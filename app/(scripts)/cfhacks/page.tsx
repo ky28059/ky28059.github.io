@@ -1,4 +1,4 @@
-import {Metadata} from 'next';
+import type {Metadata} from 'next';
 import {SectionHeading} from '../../../components/Section';
 import CfHacksContent from './CfHacksContent';
 

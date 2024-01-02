@@ -1,4 +1,4 @@
-import {Metadata} from 'next';
+import type {Metadata} from 'next';
 import Link from 'next/link';
 
 // Components
@@ -14,6 +14,7 @@ import GithubContributionChart from './GithubContributionChart';
 // Icons
 import {BsDiscord, BsGithub, BsLinkedin} from 'react-icons/bs';
 import {FaEnvelope} from 'react-icons/fa6';
+import {PiFlagPennantFill} from 'react-icons/pi';
 
 
 export const metadata: Metadata = {
@@ -26,7 +27,7 @@ export default function Home() {
         <div>
             {/* TODO: responsive design */}
             <header className="bg-white dark:bg-midnight">
-                <div className="container relative pl-44 pt-24 pb-12 pr-4">
+                <div className="container relative pl-48 pt-24 pb-10 pr-4">
                     <ThemeToggle className="absolute top-8 right-8 text-xl" />
 
                     <div className="relative">
@@ -82,19 +83,19 @@ export default function Home() {
 
             <Projects />
 
-            <Section secondary className="flex gap-12 justify-center">
-                <div className="hidden sm:flex flex-col gap-3 basis-60">
-                    <ConceptsCard />
-                    <ConceptsCard />
-                    <ConceptsCard />
-                </div>
+            <Section secondary className="flex gap-6 justify-center">
+                <PiFlagPennantFill className="text-grapefruit text-5xl" />
                 <div>
-                    <SectionHeading>Concepts</SectionHeading>
-                    <p className="mb-4">
-                        Assorted design concepts and mockups I've made for other websites live here.
+                    <SectionHeading>CTFs</SectionHeading>
+                    <p className="mb-0.5">
+                        I participate in Capture the Flag (CTF) competitions as part of Purdue's CTF team{' '}
+                        <a href="https://ctftime.org/team/11464" target="_blank" rel="noopener noreferrer" className="font-mono">b01lers</a>!
                     </p>
-                    <Link href="/concepts" className="font-medium text-inherit w-max mx-auto">
-                        Explore concepts →
+                    <p className="mb-4">
+                        View an incomplete collection of challenge writeups here:
+                    </p>
+                    <Link href="/writeups" className="font-medium text-inherit w-max mx-auto">
+                        CTF writeups →
                     </Link>
                 </div>
             </Section>
