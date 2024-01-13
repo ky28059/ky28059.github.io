@@ -71,7 +71,7 @@ function TicTacToeCell(props: TicTacToeBoardProps & {id: number}) {
 
     return (
         <button
-            className={'group font-bold text-center box-content ' + (small ? 'w-16 h-16 text-3xl ' : 'w-36 h-36 text-7xl ') + (displaySymbol === '✕' ? 'text-red-400' : 'text-blue-400')}
+            className={'group font-bold text-center box-content ' + (small ? 'size-16 text-3xl ' : 'size-36 text-7xl ') + (displaySymbol === '✕' ? 'text-red-400' : 'text-blue-400')}
             disabled={disabled || !!symbol} // TODO: disable the button if it's not the player's move
             onClick={() => setSquare(id, playerSymbol)}
         >

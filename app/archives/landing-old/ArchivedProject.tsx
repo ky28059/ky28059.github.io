@@ -58,7 +58,7 @@ function ProjectTag(props: {lang: string}) {
     const color = langToColor(props.lang);
     return (
         <div
-            className="rounded-full w-3 h-3 ring-2 ring-black ring-opacity-75 dark:ring-opacity-50"
+            className="rounded-full size-3 ring-2 ring-black ring-opacity-75 dark:ring-opacity-50"
             style={{backgroundColor: color}}
         />
     )

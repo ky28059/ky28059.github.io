@@ -7,7 +7,7 @@ export default async function GithubContributionChart() {
                 <div className="dark:invert dark:hue-rotate-180 flex flex-col gap-1" key={i}>
                     {week.contributionDays.map((day) => (
                         <div
-                            className="rounded-sm w-4 h-4"
+                            className="rounded-sm size-4"
                             style={{backgroundColor: day.color}}
                             key={day.date}
                         />
