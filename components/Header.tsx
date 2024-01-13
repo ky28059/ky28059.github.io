@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import ThemeToggle from './ThemeToggle';
-import {useScroll} from '../util/useScroll';
+import {useScroll} from '../hooks/useScroll';
 
 
 export default function Header() {
