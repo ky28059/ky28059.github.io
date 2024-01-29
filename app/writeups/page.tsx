@@ -40,6 +40,11 @@ export default async function All() {
                         Stop the model thief!
                     </Writeup>
                 </CTF>
+                <CTF name="TetCTF 2024">
+                    <Writeup href="https://gist.github.com/ky28059/9822d07004862c228a90ca0da00166b6">
+                        Stress Release Service
+                    </Writeup>
+                </CTF>
             </section>
         </>
     )
