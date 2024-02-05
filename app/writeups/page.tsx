@@ -45,6 +45,11 @@ export default async function All() {
                         Stress Release Service
                     </Writeup>
                 </CTF>
+                <CTF name="DiceCTF Quals 2024">
+                    <Writeup href="https://gist.github.com/ky28059/0510cb86a449925d38dc9a0c6a312b35">
+                        zshfuck
+                    </Writeup>
+                </CTF>
             </section>
         </>
     )
