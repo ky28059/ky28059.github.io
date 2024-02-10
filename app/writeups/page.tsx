@@ -50,6 +50,14 @@ export default async function All() {
                         zshfuck
                     </Writeup>
                 </CTF>
+                <CTF name="0xL4ugh CTF 2024">
+                    <Writeup href="https://gist.github.com/ky28059/cec9f7e8071b52e890c6a2469360be48">
+                        MyVault
+                    </Writeup>
+                    <Writeup href="https://gist.github.com/ky28059/68631ca4de137e7fd855ab08b75531be">
+                        Cheater
+                    </Writeup>
+                </CTF>
             </section>
         </>
     )
