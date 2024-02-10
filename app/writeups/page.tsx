@@ -16,7 +16,7 @@ export default async function All() {
 
             <section className="flex flex-col gap-4 pl-4">
                 <CTF name="BuckeyeCTF 2023">
-                    <Writeup href="https://gist.github.com/ky28059/a851fdabc90d887a61af81c071f6f0ce">
+                    <Writeup type="misc" href="https://gist.github.com/ky28059/a851fdabc90d887a61af81c071f6f0ce">
                         typescrip
                     </Writeup>
                 </CTF>
@@ -41,20 +41,20 @@ export default async function All() {
                     </Writeup>
                 </CTF>
                 <CTF name="TetCTF 2024">
-                    <Writeup href="https://gist.github.com/ky28059/9822d07004862c228a90ca0da00166b6">
+                    <Writeup type="misc" href="https://gist.github.com/ky28059/9822d07004862c228a90ca0da00166b6">
                         Stress Release Service
                     </Writeup>
                 </CTF>
                 <CTF name="DiceCTF Quals 2024">
-                    <Writeup href="https://gist.github.com/ky28059/0510cb86a449925d38dc9a0c6a312b35">
+                    <Writeup type="misc" href="https://gist.github.com/ky28059/0510cb86a449925d38dc9a0c6a312b35">
                         zshfuck
                     </Writeup>
                 </CTF>
                 <CTF name="0xL4ugh CTF 2024">
-                    <Writeup href="https://gist.github.com/ky28059/cec9f7e8071b52e890c6a2469360be48">
+                    <Writeup type="apk" href="https://gist.github.com/ky28059/cec9f7e8071b52e890c6a2469360be48">
                         MyVault
                     </Writeup>
-                    <Writeup href="https://gist.github.com/ky28059/68631ca4de137e7fd855ab08b75531be">
+                    <Writeup type="osint" href="https://gist.github.com/ky28059/68631ca4de137e7fd855ab08b75531be">
                         Cheater
                     </Writeup>
                 </CTF>
@@ -75,12 +75,18 @@ function CTF(props: {name: string, children: ReactNode}) {
     )
 }
 
-function Writeup(props: {href: string, children: ReactNode}) {
+type ChallType = 'misc' | 'web' | 'crypto' | 'pwn' | 'rev' | 'osint' | 'apk'
+function Writeup(props: {href: string, type?: ChallType, children: ReactNode}) {
     return (
         <li className="font-mono">
             <a href={props.href} target="_blank" rel="noopener noreferrer">
                 {props.children}
             </a>
+            {props.type && (
+                <span className="ml-1.5 select-none px-1.5 py-0.5 text-xs rounded-full bg-grapefruit/30 text-grapefruit font-semibold hover:no-underline">
+                    {props.type}
+                </span>
+            )}
         </li>
     )
 }
