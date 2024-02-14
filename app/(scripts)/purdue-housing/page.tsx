@@ -20,15 +20,15 @@ export default function PurdueHousing() {
 
             <p className="mb-3">
                 This is a script to automatically search for open housing spots on the Purdue housing portal.
-                To use this script, input the target <code>contestId</code>, <code>problem</code>, <code>testCase</code>,
-                and <code>count</code>, then paste the generated javascript into console on codeforces.com.
             </p>
             <p className="font-medium">Notes:</p>
             <ul className="list-disc pl-6 mb-4 space-y-1.5">
                 <li>
                     <code>Lower room rate</code> should be the minimum rate of the room (default: $1,000).
                 </li>
-                <li><code>Upper room rate</code> should be the maximum rate of the room (default: $20,000).</li>
+                <li>
+                    <code>Upper room rate</code> should be the maximum rate of the room (default: $20,000).
+                </li>
                 <li>
                     <code>Delay</code> should be the delay, in milliseconds, the script waits before attempting to look
                     for rooms again. Please keep this number reasonable; too many requests will crash the server and{' '}
