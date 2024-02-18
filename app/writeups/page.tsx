@@ -58,6 +58,11 @@ export default async function All() {
                         Cheater
                     </Writeup>
                 </CTF>
+                <CTF name="BITSCTF 2024">
+                    <Writeup type="web" href="https://gist.github.com/ky28059/80491a6f0250146511a945a0f8bb49c2">
+                        Just Wierd Things
+                    </Writeup>
+                </CTF>
             </section>
         </>
     )
