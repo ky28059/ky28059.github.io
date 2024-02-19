@@ -63,6 +63,17 @@ export default async function All() {
                         Just Wierd Things
                     </Writeup>
                 </CTF>
+                <CTF name="LA CTF 2024">
+                    <Writeup type="misc" href="https://gist.github.com/ky28059/11bd9429d863a3f0e1e9f86579cfdc28">
+                        gacha
+                    </Writeup>
+                    <Writeup type="misc" href="https://gist.github.com/ky28059/e3c2664e7fab9a91d2fb20abebe9fc6f">
+                        jsfudge
+                    </Writeup>
+                    <Writeup type="misc" href="https://gist.github.com/ky28059/75ac9eafe11fe7645efe6edc414971e8">
+                        my poor git
+                    </Writeup>
+                </CTF>
             </section>
         </>
     )
