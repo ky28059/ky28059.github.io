@@ -74,6 +74,11 @@ export default async function All() {
                         my poor git
                     </Writeup>
                 </CTF>
+                <CTF name="bi0sCTF 2024">
+                    <Writeup type="misc" href="https://gist.github.com/ky28059/c193b08a07a433be4fac60426c47e92c">
+                        A Block and a Hard Place
+                    </Writeup>
+                </CTF>
             </section>
         </>
     )
