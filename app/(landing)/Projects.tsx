@@ -116,6 +116,7 @@ export default function Projects() {
                         </Project>
                     </ProjectGroup>
 
+                    {/*
                     <ProjectGroup name="SEC" gh="https://github.com/gunnsec">
                         <Project
                             name="Hall Monitor"
@@ -136,6 +137,7 @@ export default function Projects() {
                             Website for the Gunn Launchpad initiative!
                         </Project>
                     </ProjectGroup>
+                    */}
 
                     <ProjectGroup name="Personal / other">
                         <Project
