@@ -37,7 +37,7 @@ export default function Home() {
                             Gunn High School graduate and first-year student studying Computer Science at Purdue University.
                             Interested in art, web development, and robotics.
                         </p>
-                        <p className="mb-3.5">
+                        <p className="mb-3.5 text-primary dark:text-primary-dark">
                             My resume can be found <a href="/Resume.pdf">here</a>.
                         </p>
                         <div className="text-2xl flex gap-4">

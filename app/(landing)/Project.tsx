@@ -9,10 +9,13 @@ import {FiLink} from 'react-icons/fi';
 
 
 type ProjectProps = {
-    name: string, children: ReactNode, img?: string,
-    langs?: string[], tags?: string[],
+    name: string,
+    children: ReactNode,
+    img?: string,
+    langs?: LanguageKey[],
+    tags?: string[],
     gh: string, discord?: string, web?: string
-};
+}
 export default function Project(props: ProjectProps) {
     const {name, children: desc, img, langs, tags, gh, discord, web} = props;
 
@@ -58,7 +61,10 @@ export default function Project(props: ProjectProps) {
     );
 }
 
-export function ProjectTag(props: {lang: string}) {
+type LanguageKey = 'html' | 'js' | 'ts' | 'css' | 'scss' | 'svelte' | 'py' | 'c#' | 'q#'
+    | 'java' | 'kt' | 'rkt' | 'elixir'
+
+export function ProjectTag(props: {lang: LanguageKey}) {
     const color = langToColor(props.lang);
     return (
         <div
@@ -69,9 +75,8 @@ export function ProjectTag(props: {lang: string}) {
 }
 
 // Map tag name to GitHub language color
-// Sad, but there are no libraries with TypeScript typings that accomplish this
 // https://github.com/ozh/github-colors/blob/master/colors.json
-export function langToColor(lang: string) {
+export function langToColor(lang: LanguageKey) {
     switch (lang) {
         case 'html': return '#e44b23';
         case 'js': return '#f1e05a';

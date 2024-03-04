@@ -21,7 +21,7 @@ export default function Projects() {
                     <ProjectGroup name="Goldhaber-Gordon Group" gh="https://github.com/dgglab">
                         <Project
                             name="flakefinder"
-                            langs={['python']}
+                            langs={['py']}
                             tags={['opencv', 'multiprocessing', 'numpy']}
                             gh="https://github.com/ky28059/flakefinder"
                         >
