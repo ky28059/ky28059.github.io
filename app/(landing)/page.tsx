@@ -33,9 +33,12 @@ export default function Home() {
                     <div className="relative">
                         <img src="/pfp.png" alt="Profile picture" className="absolute -left-32 -top-10 h-24 w-24 rounded-full" />
                         <PageHeading className="mb-5">kevin yu.</PageHeading>
-                        <p className="mb-3.5 max-w-3xl text-primary dark:text-primary-dark">
+                        <p className="mb-3 max-w-3xl text-primary dark:text-primary-dark">
                             Gunn High School graduate and first-year student studying Computer Science at Purdue University.
                             Interested in art, web development, and robotics.
+                        </p>
+                        <p className="mb-3.5">
+                            My resume can be found <a href="/Resume.pdf">here</a>.
                         </p>
                         <div className="text-2xl flex gap-4">
                             <a href="https://github.com/ky28059" target="_blank" rel="noopener noreferrer" className="text-inherit">
