@@ -61,7 +61,7 @@ export default function Project(props: ProjectProps) {
     );
 }
 
-type LanguageKey = 'html' | 'js' | 'ts' | 'css' | 'scss' | 'svelte' | 'py' | 'c#' | 'q#'
+export type LanguageKey = 'html' | 'js' | 'ts' | 'css' | 'scss' | 'svelte' | 'py' | 'c#' | 'q#'
     | 'java' | 'kt' | 'rkt' | 'elixir'
 
 export function ProjectTag(props: {lang: LanguageKey}) {

@@ -1,5 +1,5 @@
 import {ReactNode} from 'react';
-import {langToColor} from '../../(landing)/Project';
+import {langToColor, LanguageKey} from '../../(landing)/Project';
 
 // Icons
 import {BsDiscord, BsGithub} from 'react-icons/bs';
@@ -7,7 +7,7 @@ import {FiLink2} from 'react-icons/fi';
 
 
 type ProjectProps = {
-    name: string, children: ReactNode, img?: string /* StaticImageData */, langs?: string[],
+    name: string, children: ReactNode, img?: string /* StaticImageData */, langs?: LanguageKey[],
     gh?: string, discord?: string, web?: string
 };
 export default function ArchivedProject(props: ProjectProps) {
@@ -54,7 +54,7 @@ export default function ArchivedProject(props: ProjectProps) {
     );
 }
 
-function ProjectTag(props: {lang: string}) {
+function ProjectTag(props: {lang: LanguageKey}) {
     const color = langToColor(props.lang);
     return (
         <div
