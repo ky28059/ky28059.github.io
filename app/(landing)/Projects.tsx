@@ -18,6 +18,17 @@ export default function Projects() {
                 </ProjectsHeaderSection>
 
                 <section className="flex flex-col gap-6">
+                    <ProjectGroup name="Goldhaber-Gordon Group" gh="https://github.com/dgglab">
+                        <Project
+                            name="flakefinder"
+                            langs={['python']}
+                            tags={['opencv', 'multiprocessing', 'numpy']}
+                            gh="https://github.com/ky28059/flakefinder"
+                        >
+                            Scripts to detect and classify monolayer graphene flakes in microscope scan datasets.
+                        </Project>
+                    </ProjectGroup>
+
                     <ProjectGroup name="GRT" gh="https://github.com/grt192">
                         <Project
                             name="GRT Website 2.0"
@@ -160,6 +171,15 @@ export default function Projects() {
                         >
                             Gunn schedule app and UGWA successor.
                         </Project>
+                        <Project
+                            name="Pyrite"
+                            langs={['ts', 'css']}
+                            tags={['nextjs', 'tailwindcss', 'firebase']}
+                            gh="https://github.com/ky28059/pyrite"
+                            web="https://pyrite-pwl.vercel.app/"
+                        >
+                            A student-made schedule app for Purdue University!
+                        </Project>
                         {/*
                         <Project
                             name="Word Generator"
@@ -221,8 +241,8 @@ export default function Projects() {
                 <ProjectsHeaderSection>
                     <SectionHeading>Gists</SectionHeading>
                     <p className="text-primary dark:text-primary-dark">
-                        Educational gists to inform about specific programming concepts and cool programming languages
-                        and technologies.
+                        GitHub gists about specific programming concepts, cool programming languages / technologies,
+                        and more.
                     </p>
                 </ProjectsHeaderSection>
 
@@ -235,8 +255,7 @@ export default function Projects() {
                         A guide to lambda expressions in Java 17.
                     </Gist>
                     <Gist name="Deploying to Vercel" url="https://gist.github.com/ky28059/1c9af929a9030105da8cf00006b50484">
-                        A guide on how to deploy an organization repository to Vercel for free (by routing it through
-                        your personal account).
+                        A guide on how to deploy an organization repository to Vercel for free.
                     </Gist>
                 </ProjectsCardGrid>
             </ProjectsLayout>

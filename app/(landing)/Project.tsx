@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import type {ReactNode} from 'react';
 
 // Components
 import HoverCard from './HoverCard';
@@ -9,7 +9,7 @@ import {FiLink} from 'react-icons/fi';
 
 
 type ProjectProps = {
-    name: string, children: ReactNode, img?: string /* StaticImageData */,
+    name: string, children: ReactNode, img?: string,
     langs?: string[], tags?: string[],
     gh: string, discord?: string, web?: string
 };
@@ -46,7 +46,7 @@ export default function Project(props: ProjectProps) {
                 <section className="flex flex-wrap items-center gap-1 mb-2">
                     {langs?.map(lang => <ProjectTag lang={lang} key={lang} />)}
                     {tags?.map(tag => (
-                        <span className="rounded-full bg-blue-500/20 text-blue-400 px-2.5 pt-0.5 pb-1 text-xs" key={tag}>
+                        <span className="rounded-full bg-blue-500/20 text-blue-400 px-2.5 py-0.5 text-xs" key={tag}>
                             {tag}
                         </span>
                     ))}
