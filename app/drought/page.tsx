@@ -11,7 +11,7 @@ export default function Drought() {
     return (
         <div className="h-screen flex items-center justify-center">
             <img
-                src="/desert.png"
+                src="/assets/drought/desert.png"
                 alt="desert"
                 className="fixed inset-0 w-full h-full object-cover object-center"
             />
