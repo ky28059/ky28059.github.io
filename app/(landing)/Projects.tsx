@@ -70,7 +70,7 @@ export default function Projects() {
                             name="GunnHacks 7.0"
                             img="/projects/gunnhacks.png"
                             langs={['js', 'html', 'scss']}
-                            gh="https://github.com/GunnHacks/GunnHacks7.0"
+                            gh="https://github.com/united-computations/GunnHacks7.0"
                             web="https://7.0.gunnhacks.com"
                         >
                             Website for GunnHacks 7.0, the seventh iteration of Gunn's annual hackathon.
@@ -80,7 +80,7 @@ export default function Projects() {
                             img="/projects/gunnhacks.png"
                             langs={['svelte', 'html', 'css']}
                             tags={['sveltekit']}
-                            gh="https://github.com/GunnHacks/GunnHacks8.0"
+                            gh="https://github.com/united-computations/GunnHacks8.0"
                             web="https://8.0.gunnhacks.com"
                         >
                             Website for GunnHacks 8.0, the eighth iteration of Gunn's annual hackathon.
@@ -90,7 +90,7 @@ export default function Projects() {
                             img="/projects/gunnhacks.png"
                             langs={['ts', 'css']}
                             tags={['nextjs', 'tailwindcss']}
-                            gh="https://github.com/GunnHacks/GunnHacks9.0"
+                            gh="https://github.com/united-computations/GunnHacks9.0"
                             web="https://gunnhacks.com"
                         >
                             Website for GunnHacks 9.0, the ninth iteration of Gunn's annual hackathon.
