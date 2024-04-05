@@ -18,6 +18,19 @@ export default function Projects() {
                 </ProjectsHeaderSection>
 
                 <section className="flex flex-col gap-6">
+                    <ProjectGroup name="b01lers" gh="https://github.com/b01lers">
+                        <Project
+                            name="bctf"
+                            img="/assets/projects/b01lers.svg"
+                            langs={['ts', 'css']}
+                            tags={['nextjs', 'tailwindcss']}
+                            gh="https://github.com/ky28059/bctf"
+                            web="https://b01lersc.tf"
+                        >
+                            The new website for b01lers CTF!
+                        </Project>
+                    </ProjectGroup>
+
                     <ProjectGroup name="Goldhaber-Gordon Group" gh="https://github.com/dgglab">
                         <Project
                             name="flakefinder"
