@@ -79,6 +79,17 @@ export default async function All() {
                         A Block and a Hard Place
                     </Writeup>
                 </CTF>
+                <CTF name="UMass CTF 2024">
+                    <Writeup type="misc" href="https://gist.github.com/ky28059/fd0ed1fb606c13ba6d686bcf07e6809d">
+                        Krusty Katering
+                    </Writeup>
+                    <Writeup type="misc" href="https://gist.github.com/ky28059/6c7d64b108118ddb29d4d919b6635f2f">
+                        100 degrees
+                    </Writeup>
+                    <Writeup type="misc" href="https://gist.github.com/ky28059/e1d26ae6652bc6f4c25535555034ca4b">
+                        Stop the voices
+                    </Writeup>
+                </CTF>
             </section>
         </>
     )
