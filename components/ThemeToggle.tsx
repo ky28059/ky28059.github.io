@@ -1,9 +1,9 @@
 'use client'
 
-import {BiSun} from 'react-icons/bi';
+import { BiSun } from 'react-icons/bi';
 
 
-export default function ThemeToggle(props: {className?: string}) {
+export default function ThemeToggle(props: { className?: string }) {
     const toggleTheme = () => document.documentElement.classList.toggle('dark');
     return (
         <button onClick={toggleTheme} className={props.className}>

@@ -1,7 +1,9 @@
-import {Metadata} from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+// Components
 import PageHeading from '../components/PageHeading';
-import {IoMdCloseCircle} from 'react-icons/io';
+import { IoMdCloseCircle } from 'react-icons/io';
 
 
 export const metadata: Metadata = {

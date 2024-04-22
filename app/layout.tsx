@@ -1,6 +1,6 @@
-import {Metadata} from 'next';
-import {ReactNode} from 'react';
-import {Inter} from 'next/font/google';
+import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
+import { Inter } from 'next/font/google';
 
 import '../styles/index.scss';
 
@@ -16,7 +16,7 @@ const inter = Inter({
     subsets: ['latin']
 });
 
-export default function Layout(props: {children: ReactNode}) {
+export default function Layout(props: { children: ReactNode }) {
     return (
         <html className="dark scroll-smooth">
             <head>

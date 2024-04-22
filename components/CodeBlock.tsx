@@ -1,14 +1,16 @@
 'use client'
 
-import {useEffect, useState} from 'react';
-import {Prism} from 'react-syntax-highlighter';
+import { useEffect, useState } from 'react';
+import { Prism } from 'react-syntax-highlighter';
 
 
 // A multi-page code block component. `props.sources` should be an array of GitHub raw file URLs, which will be
 // fetched on mount and rendered in the block.
 // TODO: light mode
 // TODO: responsive design
-type CodeBlockProps = {sources: string[]};
+type CodeBlockProps = {
+    sources: string[]
+}
 export default function CodeBlock(props: CodeBlockProps) {
     const {sources} = props;
 

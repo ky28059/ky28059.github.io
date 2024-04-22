@@ -3,7 +3,7 @@ type LabelledInputProps = {
     label: string
 };
 export default function LabelledInput(props: LabelledInputProps) {
-    const {value, setValue, label} = props;
+    const { value, setValue, label } = props;
     return (
         <div className="flex flex-col gap-1 flex-grow">
             <label className="text-xs text-secondary dark:text-secondary-dark">{label}</label>

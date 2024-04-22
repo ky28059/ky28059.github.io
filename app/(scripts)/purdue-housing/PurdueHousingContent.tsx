@@ -1,6 +1,8 @@
 'use client'
 
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
+
+// Components
 import ScriptOutput from '../ScriptOutput';
 import LabelledInput from '../LabelledInput';
 

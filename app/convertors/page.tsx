@@ -1,5 +1,5 @@
-import {Metadata} from 'next';
-import {SectionHeading} from '../../components/Section';
+import { Metadata } from 'next';
+import { SectionHeading } from '../../components/Section';
 import ConvertorInputs from './ConvertorInputs';
 
 

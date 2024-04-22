@@ -1,8 +1,8 @@
-import type {ReactNode} from 'react';
+import type { ReactNode } from 'react';
 import Link from 'next/link';
 
 
-export default function Layout(props: {children: ReactNode}) {
+export default function Layout(props: { children: ReactNode }) {
     return (
         <main className="container pt-20 pb-24">
             <Link href="/" className="text-secondary dark:text-secondary-dark text-sm mb-10 -ml-5 block w-max">

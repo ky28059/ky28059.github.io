@@ -1,7 +1,7 @@
-import type {Metadata} from 'next';
-import type {ReactNode} from 'react';
-import {SectionHeading} from '../../components/Section';
-import {PiFlagPennantFill} from 'react-icons/pi';
+import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
+import { SectionHeading } from '../../components/Section';
+import { PiFlagPennantFill } from 'react-icons/pi';
 
 
 export const metadata: Metadata = {
@@ -95,7 +95,7 @@ export default async function All() {
     )
 }
 
-function CTF(props: {name: string, children: ReactNode}) {
+function CTF(props: { name: string, children: ReactNode }) {
     return (
         <div className="relative">
             <PiFlagPennantFill className="absolute -left-6 text-grapefruit mt-0.5" />
@@ -108,7 +108,8 @@ function CTF(props: {name: string, children: ReactNode}) {
 }
 
 type ChallType = 'misc' | 'web' | 'crypto' | 'pwn' | 'rev' | 'osint' | 'apk'
-function Writeup(props: {href: string, type?: ChallType, children: ReactNode}) {
+
+function Writeup(props: { href: string, type?: ChallType, children: ReactNode }) {
     return (
         <li className="font-mono">
             <a href={props.href} target="_blank" rel="noopener noreferrer">

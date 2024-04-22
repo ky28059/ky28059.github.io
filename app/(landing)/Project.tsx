@@ -1,11 +1,11 @@
-import type {ReactNode} from 'react';
+import type { ReactNode } from 'react';
 
 // Components
 import HoverCard from './HoverCard';
 
 // Icons
-import {BsDiscord} from 'react-icons/bs';
-import {FiLink} from 'react-icons/fi';
+import { BsDiscord } from 'react-icons/bs';
+import { FiLink } from 'react-icons/fi';
 
 
 type ProjectProps = {
@@ -17,7 +17,7 @@ type ProjectProps = {
     gh: string, discord?: string, web?: string
 }
 export default function Project(props: ProjectProps) {
-    const {name, children: desc, img, langs, tags, gh, discord, web} = props;
+    const { name, children: desc, img, langs, tags, gh, discord, web } = props;
 
     return (
         <HoverCard href={gh}>
@@ -64,12 +64,12 @@ export default function Project(props: ProjectProps) {
 export type LanguageKey = 'html' | 'js' | 'ts' | 'css' | 'scss' | 'svelte' | 'py' | 'c#' | 'q#'
     | 'java' | 'kt' | 'rkt' | 'elixir'
 
-export function ProjectTag(props: {lang: LanguageKey}) {
+export function ProjectTag(props: { lang: LanguageKey }) {
     const color = langToColor(props.lang);
     return (
         <div
             className="rounded-full size-3 ring-2 mx-0.5 ring-black ring-opacity-75 dark:ring-opacity-50"
-            style={{backgroundColor: color}}
+            style={{ backgroundColor: color }}
         />
     )
 }

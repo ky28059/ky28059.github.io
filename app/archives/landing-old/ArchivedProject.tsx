@@ -1,9 +1,9 @@
-import {ReactNode} from 'react';
-import {langToColor, LanguageKey} from '../../(landing)/Project';
+import type { ReactNode } from 'react';
+import { langToColor, LanguageKey } from '../../(landing)/Project';
 
 // Icons
-import {BsDiscord, BsGithub} from 'react-icons/bs';
-import {FiLink2} from 'react-icons/fi';
+import { BsDiscord, BsGithub } from 'react-icons/bs';
+import { FiLink2 } from 'react-icons/fi';
 
 
 type ProjectProps = {
@@ -11,7 +11,7 @@ type ProjectProps = {
     gh?: string, discord?: string, web?: string
 };
 export default function ArchivedProject(props: ProjectProps) {
-    const {name, children: desc, img, langs, gh, discord, web} = props;
+    const { name, children: desc, img, langs, gh, discord, web } = props;
 
     return (
         <div className="flex flex-col p-4 gap-3 shadow-lg bg-white dark:bg-gray-800 rounded-md transform hover:scale-110 transition-transform duration-150 w-64">
@@ -54,12 +54,12 @@ export default function ArchivedProject(props: ProjectProps) {
     );
 }
 
-function ProjectTag(props: {lang: LanguageKey}) {
+function ProjectTag(props: { lang: LanguageKey }) {
     const color = langToColor(props.lang);
     return (
         <div
             className="rounded-full size-3 ring-2 ring-black ring-opacity-75 dark:ring-opacity-50"
-            style={{backgroundColor: color}}
+            style={{ backgroundColor: color }}
         />
     )
 }

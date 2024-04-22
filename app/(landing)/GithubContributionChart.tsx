@@ -8,7 +8,7 @@ export default async function GithubContributionChart() {
                     {week.contributionDays.map((day) => (
                         <div
                             className="rounded-sm size-4"
-                            style={{backgroundColor: day.color}}
+                            style={{ backgroundColor: day.color }}
                             key={day.date}
                         />
                     ))}
@@ -29,7 +29,7 @@ async function fetchContributionData(): Promise<ContributionsResponse> {
         headers: {
             Authorization: `Bearer ${process.env.GH_USER_TOKEN}`,
         },
-        body: JSON.stringify({query, variables: {username: 'ky28059'}})
+        body: JSON.stringify({ query, variables: { username: 'ky28059' } })
     })
     return res.json()
 }

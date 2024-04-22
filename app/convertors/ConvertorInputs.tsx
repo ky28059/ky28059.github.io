@@ -1,6 +1,6 @@
 'use client'
 
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import AutoResizingTextArea from '../../components/AutoResizingTextArea';
 
 

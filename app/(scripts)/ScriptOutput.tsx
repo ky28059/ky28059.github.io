@@ -1,9 +1,9 @@
 'use client'
 
-import {SyntaxHighlighter} from '../../components/CodeBlock';
+import { SyntaxHighlighter } from '../../components/CodeBlock';
 
 
-export default function ScriptOutput(props: {className?: string, children: string}) {
+export default function ScriptOutput(props: { className?: string, children: string }) {
     return (
         <>
             <p className="text-sm mb-1 text-secondary dark:text-secondary-dark">

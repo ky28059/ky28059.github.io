@@ -1,10 +1,14 @@
-import type {ReactNode} from 'react';
+import type { ReactNode } from 'react';
 import HoverCard from './HoverCard';
 
 
-type GistProps = {name: string, url: string, children: ReactNode};
+type GistProps = {
+    name: string,
+    url: string,
+    children: ReactNode
+}
 export default function Gist(props: GistProps) {
-    const {name, url, children} = props;
+    const { name, url, children } = props;
 
     return (
         <HoverCard href={url}>

@@ -7,13 +7,13 @@ export default function ConceptsCard() {
     )
 }
 
-export function FillerText(props: {width?: number}) {
-    const {width = 100} = props;
+export function FillerText(props: { width?: number }) {
+    const { width = 100 } = props;
 
     return (
         <span
             className="block h-4 bg-gray-300/60 dark:bg-gray-300/10 rounded-full animate-pulse"
-            style={{width: `${width}%`}}
+            style={{ width: `${width}%` }}
         />
     )
 }

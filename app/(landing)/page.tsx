@@ -1,9 +1,9 @@
-import type {Metadata} from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 
 // Components
 import PageHeading from '../../components/PageHeading';
-import Section, {SectionHeading} from '../../components/Section';
+import Section, { SectionHeading } from '../../components/Section';
 import CodeBlock from '../../components/CodeBlock';
 import ThemeToggle from '../../components/ThemeToggle';
 import Projects from './Projects';
@@ -12,9 +12,9 @@ import ConceptsCard from './ConceptsCard';
 import GithubContributionChart from './GithubContributionChart';
 
 // Icons
-import {BsDiscord, BsGithub, BsLinkedin} from 'react-icons/bs';
-import {FaEnvelope} from 'react-icons/fa6';
-import {PiFlagPennantFill} from 'react-icons/pi';
+import { BsDiscord, BsGithub, BsLinkedin } from 'react-icons/bs';
+import { FaEnvelope } from 'react-icons/fa6';
+import { PiFlagPennantFill } from 'react-icons/pi';
 
 
 export const metadata: Metadata = {

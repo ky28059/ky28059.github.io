@@ -1,6 +1,8 @@
 'use client'
 
-import {useState} from 'react';
+import { useState } from 'react';
+
+// Components
 import AutoResizingTextArea from '../../../components/AutoResizingTextArea';
 import ScriptOutput from '../ScriptOutput';
 import LabelledInput from '../LabelledInput';

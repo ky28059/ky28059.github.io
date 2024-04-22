@@ -1,4 +1,4 @@
-import {FillerText} from './ConceptsCard';
+import { FillerText } from './ConceptsCard';
 
 
 // The mock browser window image on the home page "About" section.

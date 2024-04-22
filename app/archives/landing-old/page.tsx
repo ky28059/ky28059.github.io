@@ -1,9 +1,11 @@
-import {Metadata} from 'next';
+import type { Metadata } from 'next';
 
 // Components
 import ArchivedHeader from './ArchivedHeader';
 import ArchivedProject from './ArchivedProject';
-import {BsChevronCompactDown} from 'react-icons/bs';
+
+// Icons
+import { BsChevronCompactDown } from 'react-icons/bs';
 
 
 export const metadata: Metadata = {

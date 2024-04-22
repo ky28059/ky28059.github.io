@@ -1,11 +1,11 @@
 'use client'
 
-import {TextareaHTMLAttributes, useRef} from 'react';
+import { TextareaHTMLAttributes, useRef } from 'react';
 
 
 export default function AutoResizingTextArea(props: TextareaHTMLAttributes<HTMLTextAreaElement>) {
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
-    const {onChange, ...textAreaProps} = props;
+    const { onChange, ...textAreaProps } = props;
 
     return (
         <textarea

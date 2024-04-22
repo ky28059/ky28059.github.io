@@ -1,8 +1,8 @@
 'use client'
 
-import {useEffect, useState} from 'react';
-import {DateTime} from 'luxon';
-import {useIsMounted} from '../../hooks/useIsMounted';
+import { useEffect, useState } from 'react';
+import { DateTime } from 'luxon';
+import { useIsMounted } from '../../hooks/useIsMounted';
 
 export default function DroughtCounter() {
     const [time, setTime] = useState(DateTime.now());

@@ -1,4 +1,4 @@
-import {useLayoutEffect, useState} from 'react';
+import { useLayoutEffect, useState } from 'react';
 
 
 // A hook that returns true after `useEffect` runs, for displaying placeholders for dynamic data while prerendering

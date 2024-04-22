@@ -1,8 +1,12 @@
-import {ReactNode} from 'react';
-import Section, {SectionHeading} from '../../components/Section';
+import { ReactNode } from 'react';
+
+// Components
+import Section, { SectionHeading } from '../../components/Section';
 import Project from './Project';
 import Gist from './Gist';
-import {BsGithub} from 'react-icons/bs';
+
+// Icons
+import { BsGithub } from 'react-icons/bs';
 
 
 export default function Projects() {
@@ -136,7 +140,8 @@ export default function Projects() {
                             tags={['pygame', 'pigpio', 'multiprocessing']}
                             gh="https://github.com/ky28059/floats-2022"
                         >
-                            Python scripts for the Raspberry Pi radio + hatch mechanism + fog machine in the 2022 Senior float.
+                            Python scripts for the Raspberry Pi radio + hatch mechanism + fog machine in the 2022
+                            Senior float.
                         </Project>
                     </ProjectGroup>
 
@@ -260,14 +265,23 @@ export default function Projects() {
                 </ProjectsHeaderSection>
 
                 <ProjectsCardGrid>
-                    <Gist name="Short circuit evaluation" url="https://gist.github.com/ky28059/84f33cee7cec0066390f79ee3629021e">
+                    <Gist
+                        name="Short circuit evaluation"
+                        url="https://gist.github.com/ky28059/84f33cee7cec0066390f79ee3629021e"
+                    >
                         An explanation of short circuit lazy evaluation in boolean expressions, and its relevance in
                         weakly typed languages.
                     </Gist>
-                    <Gist name="Lambdas in Java" url="https://gist.github.com/ky28059/566596eb93ac863332783182ec356e82">
+                    <Gist
+                        name="Lambdas in Java"
+                        url="https://gist.github.com/ky28059/566596eb93ac863332783182ec356e82"
+                    >
                         A guide to lambda expressions in Java 17.
                     </Gist>
-                    <Gist name="Deploying to Vercel" url="https://gist.github.com/ky28059/1c9af929a9030105da8cf00006b50484">
+                    <Gist
+                        name="Deploying to Vercel"
+                        url="https://gist.github.com/ky28059/1c9af929a9030105da8cf00006b50484"
+                    >
                         A guide on how to deploy an organization repository to Vercel for free.
                     </Gist>
                 </ProjectsCardGrid>
@@ -276,7 +290,7 @@ export default function Projects() {
     )
 }
 
-function ProjectsLayout(props: {children: ReactNode}) {
+function ProjectsLayout(props: { children: ReactNode }) {
     return (
         <div className="flex flex-wrap md:flex-nowrap gap-y-8 gap-x-12">
             {props.children}
@@ -284,7 +298,7 @@ function ProjectsLayout(props: {children: ReactNode}) {
     )
 }
 
-function ProjectsHeaderSection(props: {children: ReactNode}) {
+function ProjectsHeaderSection(props: { children: ReactNode }) {
     return (
         <div className="md:flex-none md:w-64 md:sticky md:top-8 md:h-max">
             {props.children}
@@ -292,7 +306,7 @@ function ProjectsHeaderSection(props: {children: ReactNode}) {
     )
 }
 
-function ProjectsCardGrid(props: {children: ReactNode}) {
+function ProjectsCardGrid(props: { children: ReactNode }) {
     return (
         <div className="flex flex-wrap justify-center md:justify-start gap-5 w-full">
             {props.children}
@@ -300,7 +314,7 @@ function ProjectsCardGrid(props: {children: ReactNode}) {
     )
 }
 
-function ProjectGroup(props: {name: string, children: ReactNode, gh?: string}) {
+function ProjectGroup(props: { name: string, children: ReactNode, gh?: string }) {
     return (
         <div>
             <div className="flex items-center gap-2 text-secondary dark:text-secondary-dark mb-4">

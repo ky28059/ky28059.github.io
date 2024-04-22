@@ -1,12 +1,12 @@
-import type {Metadata} from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 
 // Components
-import Section, {SectionHeading} from '../../components/Section';
+import Section, { SectionHeading } from '../../components/Section';
 
-// Utilities
-import {readdirSync} from 'fs';
-import {resolve} from 'path';
+// Utils
+import { readdirSync } from 'fs';
+import { resolve } from 'path';
 
 
 export const metadata: Metadata = {
@@ -19,7 +19,9 @@ export default async function All() {
 
     return (
         <Section>
-            <SectionHeading className="underline decoration-grapefruit">All</SectionHeading>
+            <SectionHeading className="underline decoration-grapefruit">
+                All
+            </SectionHeading>
             <p className="mb-8 max-w-prose">
                 This page was automatically generated at build time by recursively parsing TSX files and subdirectories
                 in <code>./app</code>. Accordingly, not all dynamic paths (<code>[path]</code>) may be valid.

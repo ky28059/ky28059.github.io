@@ -1,8 +1,8 @@
-import type {ReactNode} from 'react';
-import type {Metadata} from 'next';
+import type { ReactNode } from 'react';
+import type { Metadata } from 'next';
 
 // Components
-import {SectionHeading} from '../../../components/Section';
+import { SectionHeading } from '../../../components/Section';
 import PurdueHousingContent from './PurdueHousingContent';
 import ScriptOutput from '../ScriptOutput';
 import LinkHeading from '../../../components/LinkHeading';
@@ -31,8 +31,8 @@ export default function PurdueHousing() {
                 </li>
                 <li>
                     <code>Delay</code> should be the delay, in milliseconds, the script waits before attempting to look
-                    for rooms again. Please keep this number reasonable; too many requests will crash the server and{' '}
-                    <em>no one</em> will get rooms.
+                    for rooms again. Please keep this number reasonable; too many requests will crash the server
+                    and <em>no one</em> will get rooms.
                 </li>
                 <li>
                     Check the corresponding boxes for the buildings and room types you want to filter for. The script
@@ -91,7 +91,8 @@ export default function PurdueHousing() {
                 has found a room when it starts opening a bunch of tabs (an imperfect solution, but one that works
                 given the time constraints and limited opportunities to test it). These tabs will be the bed assignment
                 pages for the room the script has just added to your cart; wait for one to load, fill it out as normal,
-                and pray that the request goes through. Remember to hit confirm as normal on the proceeding page as well.
+                and pray that the request goes through. Remember to hit confirm as normal on the proceeding page as
+                well.
             </p>
 
             <LinkHeading className="text-2xl font-bold mb-3" id="other-notes">
@@ -244,7 +245,7 @@ export default function PurdueHousing() {
     )
 }
 
-function IdTableCell(props: {children: ReactNode}) {
+function IdTableCell(props: { children: ReactNode }) {
     return (
         <td className="px-4 py-2 text-sm text-primary dark:text-primary-dark border border-tertiary dark:border-tertiary-dark">
             {props.children}
@@ -252,7 +253,7 @@ function IdTableCell(props: {children: ReactNode}) {
     )
 }
 
-function IdTableHeaderCell(props: {children: ReactNode}) {
+function IdTableHeaderCell(props: { children: ReactNode }) {
     return (
         <th className="text-sm text-left font-medium px-4 py-2 border border-tertiary dark:border-tertiary-dark bg-gray-100 dark:bg-dark">
             {props.children}
