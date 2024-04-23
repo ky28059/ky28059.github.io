@@ -1,8 +1,10 @@
 'use client'
 
 import { useMemo, useState } from 'react';
+
+// Components
 import AutoResizingTextArea from '../../../components/AutoResizingTextArea';
-import {SyntaxHighlighter} from '../../../components/CodeBlock';
+import ScriptOutput from '../ScriptOutput';
 
 
 export default function ObfuscationContent() {
@@ -31,11 +33,11 @@ export default function ObfuscationContent() {
         // Split parsed string into tokens, attempt to escape punctuation
         let parsedString = corpus.replaceAll(removeRegex, '');
         const tokens = parsedString
-            .split(/\s+|\b/)
+            .split(/\s+|(?<=\W)|(?=\W)/)
             .filter(t => !!t);
 
         const wordMappings: {[word: string]: string} = {};
-        let prefix = '';
+        let prefix = 'struct tbnlw{int srlpn;}tbnlw_o;int main(void){';
 
         const errors: string[] = [];
 
@@ -56,16 +58,24 @@ export default function ObfuscationContent() {
                 prefix = '0);' + prefix;
                 i++;
             } else if (next === '.') {
-                mapping += '(void)0';
-                prefix = ';' + prefix;
+                mapping += '(void)tbnlw_o';
+                prefix = 'srlpn;' + prefix;
                 i++;
             } else if (next === '-') {
                 mapping += '(void)(0';
                 prefix = '0);' + prefix;
                 i++;
+            } else if (next === ')') {
+                mapping += '(void)(0';
+                prefix = ';' + prefix;
+                i++;
             }
 
-            if (mapping) parsedString = parsedString.replaceAll(RegExp(`\\b${current}\\b`, 'g'), mapping);
+            if (i === tokens.length - 1) mapping += '}';
+
+            parsedString = parsedString.replaceAll(RegExp(`\\b${current}\\b`, 'g'), mapping
+                ? mapping
+                : `/* ${current} */`);
             wordMappings[current] = mapping || '// free';
         }
 
@@ -81,13 +91,13 @@ export default function ObfuscationContent() {
 
     return (
         <div className="flex gap-6">
-            <div className="flex-grow [&>pre]:h-max">
+            <div className="flex-grow [&>pre]:h-max min-w-0">
                 <h5 className="text-secondary dark:text-secondary-dark text-sm mb-1">
                     Parsed corpus
                 </h5>
-                <SyntaxHighlighter language="c">
+                <ScriptOutput language="c">
                     {parsedString}
-                </SyntaxHighlighter>
+                </ScriptOutput>
                 {errors.length > 0 && (
                     <div>
                         {errors.map((e) => (
@@ -99,19 +109,19 @@ export default function ObfuscationContent() {
                 <h5 className="text-secondary dark:text-secondary-dark text-sm mt-4 mb-1">
                     Tokens
                 </h5>
-                <SyntaxHighlighter language="c">
+                <ScriptOutput language="c">
                     {JSON.stringify(tokens)}
-                </SyntaxHighlighter>
+                </ScriptOutput>
 
                 <h5 className="text-secondary dark:text-secondary-dark text-sm mt-4 mb-1">
                     Generated program
                 </h5>
-                <SyntaxHighlighter language="c">
+                <ScriptOutput language="c">
                     {defineString + '\n\n' + corpus}
-                </SyntaxHighlighter>
+                </ScriptOutput>
             </div>
 
-            <div className="w-[26rem]">
+            <div className="w-[26rem] flex-none">
                 <h5 className="text-secondary dark:text-secondary-dark text-sm mb-1">
                     Corpus
                 </h5>

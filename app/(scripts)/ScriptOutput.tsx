@@ -3,7 +3,12 @@
 import { SyntaxHighlighter } from '../../components/CodeBlock';
 
 
-export default function ScriptOutput(props: { className?: string, children: string }) {
+type ScriptOutputProps = {
+    className?: string,
+    children: string,
+    language?: string
+}
+export default function ScriptOutput(props: ScriptOutputProps) {
     return (
         <>
             <p className="text-sm mb-1 text-secondary dark:text-secondary-dark">
@@ -14,7 +19,7 @@ export default function ScriptOutput(props: { className?: string, children: stri
                 </button>
             </p>
             <div className={'rounded-lg overflow-hidden text-xs' + (props.className ? ` ${props.className}` : '')}>
-                <SyntaxHighlighter language="javascript">
+                <SyntaxHighlighter language={props.language ?? 'javascript'}>
                     {props.children}
                 </SyntaxHighlighter>
             </div>
