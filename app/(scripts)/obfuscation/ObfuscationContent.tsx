@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react';
+import { ReactNode, useMemo, useState } from 'react';
 
 // Components
 import AutoResizingTextArea from '../../../components/AutoResizingTextArea';
@@ -92,9 +92,45 @@ export default function ObfuscationContent() {
     return (
         <div className="flex gap-6">
             <div className="flex-grow [&>pre]:h-max min-w-0">
-                <h5 className="text-secondary dark:text-secondary-dark text-sm mb-1">
-                    Parsed corpus
-                </h5>
+                <p>...</p>
+
+                <p className="mt-4 mb-3">
+                    Then, the parsed string is tokenized into the following tokens:
+                </p>
+                <ScriptOutput>
+                    {JSON.stringify(tokens)}
+                </ScriptOutput>
+
+                <p className="my-4">
+                    If each token contained only valid variable names, we'd be done. However, symbols like{' '}
+                    <InlineCode>.</InlineCode>, <InlineCode>,</InlineCode>, or brackets like{' '}
+                    <InlineCode>[</InlineCode> and <InlineCode>(</InlineCode> cannot be overridden via macro; the script
+                    will attempt to "escape" them using surrounding controllable tokens instead.
+                </p>
+                <p className="my-4">
+                    The basic strategy for doing so is as follows:
+                </p>
+                <ul className="list-disc list-outside pl-6 text-pretty">
+                    <li>
+                        Attempt to escape <InlineCode>,</InlineCode> by wrapping it in{' '}
+                        <InlineCode>(void)((void)0,0);</InlineCode>{' '}
+                        <em className="text-secondary dark:text-secondary-dark">(a discarded comma operator expression)</em>.
+                    </li>
+                    <li>
+                        Attempt to escape <InlineCode>.</InlineCode> by wrapping it in{' '}
+                        <InlineCode>(void)obj.prop;</InlineCode>{' '}
+                        <em className="text-secondary dark:text-secondary-dark">(a discarded access to some property on some object)</em>.
+                    </li>
+                    <li>
+                        Attempt to escape <InlineCode>-</InlineCode> by wrapping it in{' '}
+                        <InlineCode>(void)(0-0);</InlineCode>{' '}
+                        <em className="text-secondary dark:text-secondary-dark">(a discarded integer subtraction)</em>.
+                    </li>
+                </ul>
+
+                <p className="my-4">
+                    Applying these rules, we can generate the following parsed corpus:
+                </p>
                 <ScriptOutput language="c">
                     {parsedString}
                 </ScriptOutput>
@@ -106,22 +142,19 @@ export default function ObfuscationContent() {
                     </div>
                 )}
 
-                <h5 className="text-secondary dark:text-secondary-dark text-sm mt-4 mb-1">
-                    Tokens
-                </h5>
-                <ScriptOutput language="c">
-                    {JSON.stringify(tokens)}
-                </ScriptOutput>
+                <p className="my-4">
+                    ...
+                </p>
 
-                <h5 className="text-secondary dark:text-secondary-dark text-sm mt-4 mb-1">
-                    Generated program
-                </h5>
+                <p className="mt-4 mb-3">
+                    generating the following final C program:
+                </p>
                 <ScriptOutput language="c">
                     {defineString + '\n\n' + corpus}
                 </ScriptOutput>
             </div>
 
-            <div className="w-[26rem] flex-none">
+            <div className="w-[26rem] flex-none sticky top-8 h-max">
                 <h5 className="text-secondary dark:text-secondary-dark text-sm mb-1">
                     Corpus
                 </h5>
@@ -135,6 +168,34 @@ export default function ObfuscationContent() {
     )
 }
 
+function InlineCode(props: { children: ReactNode }) {
+    return (
+        <code className="text-secondary dark:text-secondary-dark bg-black/20 rounded p-1">
+            {props.children}
+        </code>
+    )
+}
+
+const defaultCorpus = `A cantilever is a rigid structural element that extends horizontally and is
+unsupported at one end. Typically it extends from a flat vertical surface such
+as a wall, to which it must be firmly attached. Like other structural elements,
+a cantilever can be formed as a beam, plate, truss, or slab.
+
+See also
+- Applied mechanics
+- Cantilever bicycle brakes
+- Cantilever bicycle frame
+- Cantilever chair
+- Cantilever method
+- Cantilevered stairs
+- Corbel arch
+- Euler-Bernoulli beam theory
+- Grand Canyon Skywalk
+- Knudsen force in the context of microcantilevers
+- Orthodontics
+- Statics`
+
+/*
 const defaultCorpus = `A cantilever is a rigid structural element that extends horizontally and is
 unsupported at one end. Typically it extends from a flat vertical surface such
 as a wall, to which it must be firmly attached. Like other structural elements,
@@ -286,3 +347,4 @@ See also
 - Knudsen force in the context of microcantilevers
 - Orthodontics
 - Statics`
+*/
