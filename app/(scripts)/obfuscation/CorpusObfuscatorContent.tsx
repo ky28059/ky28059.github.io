@@ -68,6 +68,14 @@ export default function CorpusObfuscatorContent() {
                 mapping += '(void)tbnlw_o';
                 prefix = 'srlpn;' + prefix;
                 matched = true;
+            } else if (next === '?') {
+                mapping += '(void)(0';
+                prefix = '0:0);' + prefix;
+                matched = true;
+            } else if (next === ':') {
+                mapping += '(void)(0?0';
+                prefix = '0);' + prefix;
+                matched = true;
             } else if (unaryOps.includes(next)) {
                 mapping += '(void)';
                 prefix = '0;' + prefix;
@@ -201,6 +209,15 @@ export default function CorpusObfuscatorContent() {
                             while a float literal is not.)
                         </em>
                     </li>
+                    <li>
+                        Attempt to escape <InlineCode>?</InlineCode> and <InlineCode>:</InlineCode> by wrapping it in
+                        <CodeBlock>
+                            (void)(0?0:0);
+                        </CodeBlock>
+                        <em className="text-secondary dark:text-secondary-dark text-sm">
+                            (a discarded ternary expression.)
+                        </em>
+                    </li>
                 </ul>
 
                 <p className="my-4">
@@ -295,7 +312,7 @@ function CodeBlock(props: { children: string }) {
 const unaryOps = ['~', '!'];
 const binaryOps = ['-', '+', '*', '/', '%', '&', '|', '^', '>', '<'];
 
-const specialChars = [',', '.', '\'', '"', '[', ']', '(', ')'].concat(unaryOps, binaryOps);
+const specialChars = [',', '.', '\'', '"', '?', ':', '[', ']', '(', ')'].concat(unaryOps, binaryOps);
 
 function isUncontrollable(token: string) {
     return specialChars.includes(token) || !isNaN(Number(token)); // TODO
