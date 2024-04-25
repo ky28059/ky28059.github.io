@@ -7,7 +7,7 @@ import AutoResizingTextArea from '../../../components/AutoResizingTextArea';
 import ScriptOutput from '../ScriptOutput';
 
 
-export default function ObfuscationContent() {
+export default function CorpusObfuscatorContent() {
     const [corpus, setCorpus] = useState(defaultCorpus);
 
     const {defineString, parsedString, wordCounts, tokens, errors} = useMemo(() => {
@@ -41,6 +41,7 @@ export default function ObfuscationContent() {
 
         const errors: string[] = [];
 
+        // Traverse through token list, escaping special characters and generating error messages
         for (let i = 0; i < tokens.length; i++) {
             const current = tokens[i];
             const next = tokens[i + 1];
@@ -151,7 +152,27 @@ export default function ObfuscationContent() {
                 </ul>
 
                 <p className="my-4">
-                    Applying these rules, we can generate the following parsed corpus:
+                    Unfortunately, <InlineCode>-Werror</InlineCode> causes compilation to fail on unclosed quotes in
+                    <InlineCode>#define</InlineCode> macros, and because macros can't insert block comments into code
+                    there are certain text sequences that are simply impossible to escape. These include:
+                </p>
+                <ul className="list-disc list-outside pl-6 text-pretty">
+                    <li>
+                        Any corpus that starts with an uncontrollable token.
+                    </li>
+                    <li>
+                        Any corpus that ends with an uncontrollable token.
+                    </li>
+                    <li>
+                        Two <InlineCode>,</InlineCode>s in a row without a controllable token in between.
+                    </li>
+                    <li>
+                        Any special character proceeded by an incompatible, uncontrollable token.
+                    </li>
+                </ul>
+
+                <p className="my-4">
+                    Applying these rules (and assuming no errors), we can generate the following parsed corpus:
                 </p>
                 <ScriptOutput language="c">
                     {parsedString}
@@ -203,6 +224,8 @@ const defaultCorpus = `A cantilever is a rigid structural element that extends h
 unsupported at one end. Typically it extends from a flat vertical surface such
 as a wall, to which it must be firmly attached. Like other structural elements,
 a cantilever can be formed as a beam, plate, truss, or slab.
+
+Cantilever construction allows overhanging structures without additional support.
 
 See also
 - Applied mechanics
