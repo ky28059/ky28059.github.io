@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: 'Generator for C programs obfuscated from a given text corpus.'
 }
 
-export default function CodeforcesHacks() {
+export default function CorpusObfuscator() {
     return (
         <>
             <SectionHeading>Simple Corpus Obfuscator</SectionHeading>
