@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function CodeforcesHacks() {
     return (
         <>
-            <SectionHeading>Corpus Obfuscator</SectionHeading>
+            <SectionHeading>Simple Corpus Obfuscator</SectionHeading>
             <CorpusObfuscatorContent />
         </>
     )

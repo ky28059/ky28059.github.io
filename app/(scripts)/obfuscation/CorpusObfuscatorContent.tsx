@@ -11,11 +11,11 @@ export default function CorpusObfuscatorContent() {
     const [corpus, setCorpus] = useState(defaultCorpus);
 
     const {defineString, parsedString, wordCounts, tokens, errors} = useMemo(() => {
-        const words = corpus.split(/(?:[\s\n().\-,/;:'"]|\[.+?])+/);
+        const words = [...corpus.matchAll(/\b[a-zA-Z]+\b/g)];
 
         const wordCounts: {[word: string]: number} = {};
 
-        for (const word of words) {
+        for (const [word] of words) {
             if (!wordCounts[word]) wordCounts[word] = 0;
             wordCounts[word]++;
         }
@@ -46,30 +46,41 @@ export default function CorpusObfuscatorContent() {
             const current = tokens[i];
             const next = tokens[i + 1];
 
-            if (!/[a-zA-Z]+/.test(current)) {
-                if (i === 0) errors.push('File does not begin with controllable token.')
+            if (!/^[a-zA-Z]+$/.test(current)) {
+                if (i === 0)
+                    errors.push('Corpus does not begin with controllable token.');
+                if (!isUncontrollable(current) && !(current in wordCounts))
+                    errors.push(`Invalid token \`${current}\` in corpus`);
                 continue; // TODO
             }
 
             let mapping = prefix;
+            let matched = false;
             prefix = '';
 
             if (next === ',') {
                 mapping += '(void)((void)0';
                 prefix = '0);' + prefix;
-                i++;
+                matched = true;
             } else if (next === '.') {
                 mapping += '(void)tbnlw_o';
                 prefix = 'srlpn;' + prefix;
-                i++;
+                matched = true;
             } else if (next === '-') {
                 mapping += '(void)(0';
                 prefix = '0);' + prefix;
+                matched = true;
+            } else if (Number(next)) {
+                mapping += '(void)';
+                prefix += ';';
+                matched = true;
+            }
+
+            if (matched) {
                 i++;
-            } else if (next === ')') {
-                mapping += '(void)(0';
-                prefix = ';' + prefix;
-                i++;
+                if (isUncontrollable(tokens[i + 1])) {
+                    errors.push(`Special character followed by uncontrollable token after token \`${current}\``); // TODO
+                }
             }
 
             if (i === tokens.length - 1) mapping += '}';
@@ -80,7 +91,7 @@ export default function CorpusObfuscatorContent() {
             wordMappings[current] = mapping || '// free';
         }
 
-        if (prefix) errors.push('File does not end with controllable token.')
+        if (prefix) errors.push('Corpus does not end with controllable token.')
         console.log(tokens, wordMappings)
 
         const defineString = filtered
@@ -124,8 +135,7 @@ export default function CorpusObfuscatorContent() {
 
                 <p className="my-4">
                     If each token contained only valid variable names, we'd be done. However, symbols like{' '}
-                    <InlineCode>.</InlineCode>, <InlineCode>,</InlineCode>, or brackets like{' '}
-                    <InlineCode>[</InlineCode> and <InlineCode>(</InlineCode> cannot be overridden via macro; the script
+                    <InlineCode>.</InlineCode> or <InlineCode>,</InlineCode> cannot be overridden via macro; the script
                     will attempt to "escape" them using surrounding controllable tokens instead.
                 </p>
                 <p className="my-4">
@@ -133,21 +143,29 @@ export default function CorpusObfuscatorContent() {
                 </p>
                 <ul className="list-disc list-outside pl-6 text-pretty">
                     <li>
+                        Attempt to escape integer literals by wrapping it in{' '}
+                        <InlineCode>(void)0;</InlineCode>.
+                    </li>
+                    <li>
                         Attempt to escape <InlineCode>,</InlineCode> by wrapping it in{' '}
                         <InlineCode>(void)((void)0,0);</InlineCode>{' '}
-                        <em className="text-secondary dark:text-secondary-dark">(a discarded comma operator
-                            expression)</em>.
+                        <em className="text-secondary dark:text-secondary-dark">
+                            (a discarded comma operator expression)
+                        </em>.
                     </li>
                     <li>
                         Attempt to escape <InlineCode>.</InlineCode> by wrapping it in{' '}
                         <InlineCode>(void)obj.prop;</InlineCode>{' '}
-                        <em className="text-secondary dark:text-secondary-dark">(a discarded access to some property on
-                            some object)</em>.
+                        <em className="text-secondary dark:text-secondary-dark">
+                            (a discarded access to some property on some object)
+                        </em>.
                     </li>
                     <li>
                         Attempt to escape <InlineCode>-</InlineCode> by wrapping it in{' '}
                         <InlineCode>(void)(0-0);</InlineCode>{' '}
-                        <em className="text-secondary dark:text-secondary-dark">(a discarded integer subtraction)</em>.
+                        <em className="text-secondary dark:text-secondary-dark">
+                            (a discarded integer subtraction)
+                        </em>.
                     </li>
                 </ul>
 
@@ -164,6 +182,9 @@ export default function CorpusObfuscatorContent() {
                         Any corpus that ends with an uncontrollable token.
                     </li>
                     <li>
+                        Any invalid token (i.e. a token that starts with a number that isn't a valid number literal).
+                    </li>
+                    <li>
                         Two <InlineCode>,</InlineCode>s in a row without a controllable token in between.
                     </li>
                     <li>
@@ -172,18 +193,16 @@ export default function CorpusObfuscatorContent() {
                 </ul>
 
                 <p className="my-4">
+                    Furthermore, rules surrounding brackets are tricky and this generator is not smart enough to escape
+                    them automatically; corpora containing brackets or parentheses must be edited manually.
+                </p>
+
+                <p className="my-4">
                     Applying these rules (and assuming no errors), we can generate the following parsed corpus:
                 </p>
                 <ScriptOutput language="c">
                     {parsedString}
                 </ScriptOutput>
-                {errors.length > 0 && (
-                    <div>
-                        {errors.map((e) => (
-                            <p key={e}>{e}</p>
-                        ))}
-                    </div>
-                )}
 
                 <p className="my-4">
                     where the commented tokens are free slots to put any C code you want to run.
@@ -207,6 +226,14 @@ export default function CorpusObfuscatorContent() {
                     onChange={(e) => setCorpus(e.target.value)}
                     className="text-sm rounded px-6 py-4 h-24 dark:bg-[#2b2b2b] mb-2 w-full border border-gray-400/50 dark:border-gray-100/10 placeholder:text-gray-400 placeholder:dark:text-gray-100/40"
                 />
+
+                {errors.length > 0 && (
+                    <ol className="bg-black/20 rounded pr-6 pl-10 py-3 text-red-500 text-sm list-outside list-decimal">
+                        {errors.map((e) => (
+                            <li key={e}>{e}</li>
+                        ))}
+                    </ol>
+                )}
             </div>
         </div>
     )
@@ -218,6 +245,11 @@ function InlineCode(props: { children: ReactNode }) {
             {props.children}
         </code>
     )
+}
+
+const specialChars = [',', '.', '\'', '"', '-', '[', ']', '(', ')'];
+function isUncontrollable(token: string) {
+    return specialChars.includes(token) || !isNaN(Number(token)); // TODO
 }
 
 const defaultCorpus = `A cantilever is a rigid structural element that extends horizontally and is
