@@ -66,9 +66,9 @@ export default function CorpusObfuscatorContent() {
                 mapping += '(void)tbnlw_o';
                 prefix = 'srlpn;' + prefix;
                 matched = true;
-            } else if (next === '-') {
+            } else if (intOps.includes(next)) {
                 mapping += '(void)(0';
-                prefix = '0);' + prefix;
+                prefix = '1);' + prefix;
                 matched = true;
             } else if (Number(next)) {
                 mapping += '(void)';
@@ -144,7 +144,18 @@ export default function CorpusObfuscatorContent() {
                 <ul className="list-disc list-outside pl-6 text-pretty">
                     <li>
                         Attempt to escape integer literals by wrapping it in{' '}
-                        <InlineCode>(void)0;</InlineCode>.
+                        <InlineCode>(void) [token];</InlineCode>.
+                    </li>
+                    <li>
+                        Attempt to escape any valid integer operator (i.e.{' '}
+                        <span className="inline-flex gap-1">
+                            {intOps.map(o => <InlineCode key={o}>{o}</InlineCode>)}
+                        </span>)
+                        by wrapping it in{' '}
+                        <InlineCode>(void)(0 [operator] 1);</InlineCode>{' '}
+                        <em className="text-secondary dark:text-secondary-dark">
+                            (a discarded integer operation)
+                        </em>.
                     </li>
                     <li>
                         Attempt to escape <InlineCode>,</InlineCode> by wrapping it in{' '}
@@ -158,13 +169,6 @@ export default function CorpusObfuscatorContent() {
                         <InlineCode>(void)obj.prop;</InlineCode>{' '}
                         <em className="text-secondary dark:text-secondary-dark">
                             (a discarded access to some property on some object)
-                        </em>.
-                    </li>
-                    <li>
-                        Attempt to escape <InlineCode>-</InlineCode> by wrapping it in{' '}
-                        <InlineCode>(void)(0-0);</InlineCode>{' '}
-                        <em className="text-secondary dark:text-secondary-dark">
-                            (a discarded integer subtraction)
                         </em>.
                     </li>
                 </ul>
@@ -247,7 +251,9 @@ function InlineCode(props: { children: ReactNode }) {
     )
 }
 
-const specialChars = [',', '.', '\'', '"', '-', '[', ']', '(', ')'];
+const intOps = ['-', '+', '*', '/', '%', '&', '|', '^', '>', '<'];
+const specialChars = intOps.concat([',', '.', '\'', '"', '[', ']', '(', ')']);
+
 function isUncontrollable(token: string) {
     return specialChars.includes(token) || !isNaN(Number(token)); // TODO
 }
