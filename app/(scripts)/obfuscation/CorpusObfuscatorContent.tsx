@@ -119,7 +119,7 @@ export default function CorpusObfuscatorContent() {
     }, [corpus]);
 
     return (
-        <div className="flex gap-6">
+        <div className="flex gap-6 flex-col-reverse xl:flex-row">
             <div className="flex-grow [&>pre]:h-max min-w-0">
                 <p className="my-4">
                     The main idea goal of this obfuscator is being able to format any C program into a given block of
@@ -268,7 +268,7 @@ export default function CorpusObfuscatorContent() {
                 </ScriptOutput>
             </div>
 
-            <div className="w-[26rem] flex-none sticky top-8 h-max">
+            <div className="xl:w-[26rem] flex-none xl:sticky top-8 h-max">
                 <h5 className="text-secondary dark:text-secondary-dark text-sm mb-1">
                     Corpus
                 </h5>
