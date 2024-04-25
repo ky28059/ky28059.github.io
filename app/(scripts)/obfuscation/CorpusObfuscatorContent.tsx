@@ -5,6 +5,7 @@ import { ReactNode, useMemo, useState } from 'react';
 // Components
 import AutoResizingTextArea from '../../../components/AutoResizingTextArea';
 import ScriptOutput from '../ScriptOutput';
+import { SyntaxHighlighter } from '../../../components/CodeBlock';
 
 
 export default function CorpusObfuscatorContent() {
@@ -45,6 +46,7 @@ export default function CorpusObfuscatorContent() {
         for (let i = 0; i < tokens.length; i++) {
             const current = tokens[i];
             const next = tokens[i + 1];
+            const after = tokens[i + 2];
 
             if (!/^[a-zA-Z]+$/.test(current)) {
                 if (i === 0)
@@ -66,7 +68,11 @@ export default function CorpusObfuscatorContent() {
                 mapping += '(void)tbnlw_o';
                 prefix = 'srlpn;' + prefix;
                 matched = true;
-            } else if (intOps.includes(next)) {
+            } else if (unaryOps.includes(next)) {
+                mapping += '(void)';
+                prefix = '0;' + prefix;
+                matched = true;
+            } else if (binaryOps.includes(next)) {
                 mapping += '(void)(0';
                 prefix = '1);' + prefix;
                 matched = true;
@@ -76,11 +82,14 @@ export default function CorpusObfuscatorContent() {
                 matched = true;
             }
 
+            // Warn on uncontrollable token after current special char
+            if (matched && isUncontrollable(after)) {
+                errors.push(`Special character followed by uncontrollable token after token \`${current}\``); // TODO
+            }
+
+            // Skip parsing the next token if we know it's a special char
             if (matched) {
                 i++;
-                if (isUncontrollable(tokens[i + 1])) {
-                    errors.push(`Special character followed by uncontrollable token after token \`${current}\``); // TODO
-                }
             }
 
             if (i === tokens.length - 1) mapping += '}';
@@ -141,42 +150,63 @@ export default function CorpusObfuscatorContent() {
                 <p className="my-4">
                     The basic strategy for doing so is as follows:
                 </p>
-                <ul className="list-disc list-outside pl-6 text-pretty">
+                <ul className="list-disc list-outside pl-6 text-pretty space-y-3">
                     <li>
-                        Attempt to escape integer literals by wrapping it in{' '}
-                        <InlineCode>(void) [token];</InlineCode>.
+                        Attempt to escape integer literals by wrapping it in
+                        <CodeBlock>
+                            (void) [token];
+                        </CodeBlock>
                     </li>
                     <li>
-                        Attempt to escape any valid integer operator (i.e.{' '}
+                        Attempt to escape any valid unary operator (e.g.{' '}
                         <span className="inline-flex gap-1">
-                            {intOps.map(o => <InlineCode key={o}>{o}</InlineCode>)}
+                            {unaryOps.map(o => <InlineCode key={o}>{o}</InlineCode>)}
                         </span>)
-                        by wrapping it in{' '}
-                        <InlineCode>(void)(0 [operator] 1);</InlineCode>{' '}
-                        <em className="text-secondary dark:text-secondary-dark">
-                            (a discarded integer operation)
-                        </em>.
+                        by wrapping it in
+                        <CodeBlock>
+                            (void) [operator] 0;
+                        </CodeBlock>
                     </li>
                     <li>
-                        Attempt to escape <InlineCode>,</InlineCode> by wrapping it in{' '}
-                        <InlineCode>(void)((void)0,0);</InlineCode>{' '}
-                        <em className="text-secondary dark:text-secondary-dark">
-                            (a discarded comma operator expression)
-                        </em>.
+                        Attempt to escape any valid binary operator (e.g.{' '}
+                        <span className="inline-flex gap-1">
+                            {binaryOps.map(o => <InlineCode key={o}>{o}</InlineCode>)}
+                        </span>)
+                        by wrapping it in
+                        <CodeBlock>
+                            (void)(0 [operator] 1);
+                        </CodeBlock>
+                        <em className="text-secondary dark:text-secondary-dark text-sm">
+                            (1 is used on the right to prevent division by zero errors with <InlineCode>/</InlineCode>
+                            and <InlineCode>%</InlineCode>.)
+                        </em>
                     </li>
                     <li>
-                        Attempt to escape <InlineCode>.</InlineCode> by wrapping it in{' '}
-                        <InlineCode>(void)obj.prop;</InlineCode>{' '}
-                        <em className="text-secondary dark:text-secondary-dark">
-                            (a discarded access to some property on some object)
-                        </em>.
+                        Attempt to escape <InlineCode>,</InlineCode> by wrapping it in
+                        <CodeBlock>
+                            (void)((void)0,0);
+                        </CodeBlock>
+                        <em className="text-secondary dark:text-secondary-dark text-sm">
+                            (a discarded comma operator expression.)
+                        </em>
+                    </li>
+                    <li>
+                        Attempt to escape <InlineCode>.</InlineCode> by wrapping it in
+                        <CodeBlock>
+                            (void)obj.prop;
+                        </CodeBlock>
+                        <em className="text-secondary dark:text-secondary-dark text-sm">
+                            (a discarded access to some property on some object. This is used instead of something
+                            like <InlineCode>0.0</InlineCode> because object property access is valid across newlines,
+                            while a float literal is not.)
+                        </em>
                     </li>
                 </ul>
 
                 <p className="my-4">
-                    Unfortunately, <InlineCode>-Werror</InlineCode> causes compilation to fail on unclosed quotes in
-                    <InlineCode>#define</InlineCode> macros, and because macros can't insert block comments into code
-                    there are certain text sequences that are simply impossible to escape. These include:
+                    Unfortunately, <InlineCode>-Werror</InlineCode> causes compilation to fail on unclosed quotes
+                    in <InlineCode>#define</InlineCode> macros, and because macros can't insert block comments into
+                    code there are certain text sequences that are simply impossible to escape. These include:
                 </p>
                 <ul className="list-disc list-outside pl-6 text-pretty">
                     <li>
@@ -245,14 +275,27 @@ export default function CorpusObfuscatorContent() {
 
 function InlineCode(props: { children: ReactNode }) {
     return (
-        <code className="text-secondary dark:text-secondary-dark bg-black/20 rounded p-1">
+        <code className="text-primary dark:text-primary-dark bg-black/20 rounded p-1">
             {props.children}
         </code>
     )
 }
 
-const intOps = ['-', '+', '*', '/', '%', '&', '|', '^', '>', '<'];
-const specialChars = intOps.concat([',', '.', '\'', '"', '[', ']', '(', ')']);
+// TODO
+function CodeBlock(props: { children: string }) {
+    return (
+        <div className="rounded-lg overflow-hidden text-sm [&>pre]:!py-3 mt-1">
+            <SyntaxHighlighter language="c">
+                {props.children}
+            </SyntaxHighlighter>
+        </div>
+    )
+}
+
+const unaryOps = ['~', '!'];
+const binaryOps = ['-', '+', '*', '/', '%', '&', '|', '^', '>', '<'];
+
+const specialChars = [',', '.', '\'', '"', '[', ']', '(', ')'].concat(unaryOps, binaryOps);
 
 function isUncontrollable(token: string) {
     return specialChars.includes(token) || !isNaN(Number(token)); // TODO
