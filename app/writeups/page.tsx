@@ -90,6 +90,20 @@ export default async function All() {
                         Stop the voices
                     </Writeup>
                 </CTF>
+                <CTF name="San Diego CTF 2024">
+                    <Writeup type="misc" href="https://gist.github.com/ky28059/dcd9fcad9f92264d79708255e6f15e70">
+                        impossible-golf
+                    </Writeup>
+                    <Writeup type="osint" href="https://gist.github.com/ky28059/9b5dc250b9b0ddb51e05b9e690a82432">
+                        Chill Beats
+                    </Writeup>
+                    <Writeup type="web" href="https://gist.github.com/ky28059/e8fc98d5b0be999b1409cc80a9077c54">
+                        calculator
+                    </Writeup>
+                    <Writeup type="crypto" href="https://gist.github.com/ky28059/e9d0957313af0d38811e6e845dab7a41">
+                        Raccoon Run
+                    </Writeup>
+                </CTF>
             </section>
         </>
     )
