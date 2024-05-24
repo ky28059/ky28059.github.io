@@ -40,7 +40,7 @@ export default function Landing() {
                             This is the full PDF for the textbook; chapters are provided for convenience. Keep in mind that
                             these versions will be continuously updated so may not match the printed version.
                         </p>
-                        <a href="/textbook/gatm.pdf" className="block text-blue-600 mb-6">
+                        <a href="/ky28059/www/textbook/gatm.pdf" className="block text-blue-600 mb-6">
                             Click here for the full textbook.
                         </a>
 
@@ -65,7 +65,7 @@ export default function Landing() {
                             PDFs have been completely updated to match the textbook; the full answer key and other chapters
                             may contain answers to problems that do not exist.
                         </p>
-                        <a href="/textbook/gatm-key.pdf" className="block text-blue-600 mb-6">
+                        <a href="/ky28059/www/textbook/gatm-key.pdf" className="block text-blue-600 mb-6">
                             Click here for the full answer key.
                         </a>
 

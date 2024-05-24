@@ -38,7 +38,7 @@ export default function Home() {
                             Interested in art, web development, and robotics.
                         </p>
                         <p className="mb-3.5 text-primary dark:text-primary-dark">
-                            My resume can be found <a href="/Resume.pdf">here</a>.
+                            My resume can be found <a href="/ky28059/www/Resume.pdf">here</a>.
                         </p>
                         <div className="text-2xl flex gap-4">
                             <a href="https://github.com/ky28059" target="_blank" rel="noopener noreferrer" className="text-inherit">
