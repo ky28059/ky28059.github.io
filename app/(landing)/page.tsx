@@ -103,6 +103,21 @@ export default function Home() {
                 </div>
             </Section>
 
+            <Section className="flex gap-12">
+                <div>
+                    <SectionHeading>Art</SectionHeading>
+                    <p className="mb-4">
+                        [...]
+                    </p>
+                    <Link href="/portfolios" className="font-medium text-inherit w-max mx-auto">
+                        Explore portfolios →
+                    </Link>
+                </div>
+                <div className="hidden sm:flex flex-col gap-3 basis-60">
+                    <img src="/assets/portfolios/ap-art-2023/3.jpg" className="rounded max-w-sm" />
+                </div>
+            </Section>
+
             <Section className="flex flex-wrap-reverse lg:flex-nowrap gap-12 justify-center">
                 <CodeBlock
                     sources={[
