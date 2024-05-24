@@ -80,7 +80,7 @@ export default function APArt2023() {
                     <PortfolioPiece
                         name="1. Modern Man (process)"
                         id="1"
-                        src="/assets/portfolios/ap-art-2023/1.jpg"
+                        src="/ky28059/www/assets/portfolios/ap-art-2023/1.jpg"
                         height="N/A"
                         width="N/A"
                         materials="Markers, pens, pencils, color pencils"
@@ -91,7 +91,7 @@ export default function APArt2023() {
                     <PortfolioPiece
                         name="2. Modern Man"
                         id="2"
-                        src="/assets/portfolios/ap-art-2023/2.jpg"
+                        src="/ky28059/www/assets/portfolios/ap-art-2023/2.jpg"
                         height="16”"
                         width="12”"
                         materials="Markers, pens, color pencils"
@@ -102,7 +102,7 @@ export default function APArt2023() {
                     <PortfolioPiece
                         name="3. Hope"
                         id="3"
-                        src="/assets/portfolios/ap-art-2023/3.jpg"
+                        src="/ky28059/www/assets/portfolios/ap-art-2023/3.jpg"
                         height="24”"
                         width="18”"
                         materials="Markers, pens, color pencils"
@@ -113,7 +113,7 @@ export default function APArt2023() {
                     <PortfolioPiece
                         name="4. iPhetamines"
                         id="4"
-                        src="/assets/portfolios/ap-art-2023/4.jpg"
+                        src="/ky28059/www/assets/portfolios/ap-art-2023/4.jpg"
                         height="12”"
                         width="16”"
                         materials="Markers, pens, color pencils, iPhone screen"
@@ -124,7 +124,7 @@ export default function APArt2023() {
                     <PortfolioPiece
                         name="5. Drowning (draft)"
                         id="5"
-                        src="/assets/portfolios/ap-art-2023/5.png"
+                        src="/ky28059/www/assets/portfolios/ap-art-2023/5.png"
                         height="12”"
                         width="9”"
                         materials="Markers, pens, color pencils, Adobe Photoshop"
@@ -135,7 +135,7 @@ export default function APArt2023() {
                     <PortfolioPiece
                         name="6. Drowning (process)"
                         id="6"
-                        src="/assets/portfolios/ap-art-2023/6.jpg"
+                        src="/ky28059/www/assets/portfolios/ap-art-2023/6.jpg"
                         height="12”"
                         width="9”"
                         materials="Pens"
@@ -146,7 +146,7 @@ export default function APArt2023() {
                     <PortfolioPiece
                         name="7. Drowning"
                         id="7"
-                        src="/assets/portfolios/ap-art-2023/7.jpg"
+                        src="/ky28059/www/assets/portfolios/ap-art-2023/7.jpg"
                         height="12”"
                         width="9”"
                         materials="Markers, pens, color pencils, Adobe Photoshop, newspapers"
@@ -157,7 +157,7 @@ export default function APArt2023() {
                     <PortfolioPiece
                         name="8. Great American Garbage Patch (process)"
                         id="8"
-                        src="/assets/portfolios/ap-art-2023/8.jpg"
+                        src="/ky28059/www/assets/portfolios/ap-art-2023/8.jpg"
                         height="N/A"
                         width="N/A"
                         materials="Markers, pens, pencils, color pencils"
@@ -168,7 +168,7 @@ export default function APArt2023() {
                     <PortfolioPiece
                         name="9. Great American Garbage Patch"
                         id="9"
-                        src="/assets/portfolios/ap-art-2023/9.jpg"
+                        src="/ky28059/www/assets/portfolios/ap-art-2023/9.jpg"
                         height="24”"
                         width="18”"
                         materials="Markers, pens, color pencils"
@@ -179,7 +179,7 @@ export default function APArt2023() {
                     <PortfolioPiece
                         name="10. Two Minutes to Midnight"
                         id="10"
-                        src="/assets/portfolios/ap-art-2023/10.jpg"
+                        src="/ky28059/www/assets/portfolios/ap-art-2023/10.jpg"
                         height="24”"
                         width="18”"
                         materials="Markers, pens, color pencils"
@@ -190,7 +190,7 @@ export default function APArt2023() {
                     <PortfolioPiece
                         name="11. 21st Century Thinker (draft)"
                         id="11"
-                        src="/assets/portfolios/ap-art-2023/11.jpg"
+                        src="/ky28059/www/assets/portfolios/ap-art-2023/11.jpg"
                         height="24”"
                         width="18”"
                         materials="Markers, pens"
@@ -201,7 +201,7 @@ export default function APArt2023() {
                     <PortfolioPiece
                         name="12. 21st Century Thinker"
                         id="12"
-                        src="/assets/portfolios/ap-art-2023/12.jpg"
+                        src="/ky28059/www/assets/portfolios/ap-art-2023/12.jpg"
                         height="24”"
                         width="18”"
                         materials="Markers, pens, collage"
@@ -212,7 +212,7 @@ export default function APArt2023() {
                     <PortfolioPiece
                         name="13. The God Particle (process)"
                         id="13"
-                        src="/assets/portfolios/ap-art-2023/13.jpg"
+                        src="/ky28059/www/assets/portfolios/ap-art-2023/13.jpg"
                         height="N/A"
                         width="N/A"
                         materials="Markers, pens, color pencils"
@@ -223,7 +223,7 @@ export default function APArt2023() {
                     <PortfolioPiece
                         name="14. The God Particle"
                         id="14"
-                        src="/assets/portfolios/ap-art-2023/14.jpg"
+                        src="/ky28059/www/assets/portfolios/ap-art-2023/14.jpg"
                         height="24”"
                         width="18”"
                         materials="Markers, pens, color pencils"
@@ -234,7 +234,7 @@ export default function APArt2023() {
                     <PortfolioPiece
                         name="15. Death of the Artist"
                         id="15"
-                        src="/assets/portfolios/ap-art-2023/15.jpg"
+                        src="/ky28059/www/assets/portfolios/ap-art-2023/15.jpg"
                         height="24”"
                         width="19”"
                         materials="Markers, pens, color pencils"
@@ -251,7 +251,7 @@ export default function APArt2023() {
                     <PortfolioPiece
                         name="1. Hope"
                         id="2-1"
-                        src="/assets/portfolios/ap-art-2023/3.jpg"
+                        src="/ky28059/www/assets/portfolios/ap-art-2023/3.jpg"
                         height="24”"
                         width="18”"
                         ideas="A seedling sprouts in a society overrun by capitalism, industrialization, and greed."
@@ -263,7 +263,7 @@ export default function APArt2023() {
                     <PortfolioPiece
                         name="2. Great American Garbage Patch"
                         id="2-2"
-                        src="/assets/portfolios/ap-art-2023/9.jpg"
+                        src="/ky28059/www/assets/portfolios/ap-art-2023/9.jpg"
                         height="24”"
                         width="18”"
                         ideas="Consumerism’s effect on the earth."
@@ -275,7 +275,7 @@ export default function APArt2023() {
                     <PortfolioPiece
                         name="3. iPhetamines"
                         id="2-3"
-                        src="/assets/portfolios/ap-art-2023/4.jpg"
+                        src="/ky28059/www/assets/portfolios/ap-art-2023/4.jpg"
                         height="12”"
                         width="16”"
                         ideas="The addictive nature of smartphone notifications and social media."
@@ -287,7 +287,7 @@ export default function APArt2023() {
                     <PortfolioPiece
                         name="4. Modern Man"
                         id="2-4"
-                        src="/assets/portfolios/ap-art-2023/2.jpg"
+                        src="/ky28059/www/assets/portfolios/ap-art-2023/2.jpg"
                         height="16”"
                         width="12”"
                         ideas="The augmentation of traditional values / ideas in a modern society."
@@ -299,7 +299,7 @@ export default function APArt2023() {
                     <PortfolioPiece
                         name="5. Death of the Artist"
                         id="2-5"
-                        src="/assets/portfolios/ap-art-2023/15.jpg"
+                        src="/ky28059/www/assets/portfolios/ap-art-2023/15.jpg"
                         height="24”"
                         width="19”"
                         ideas="Creating art in an AI-permeated world."

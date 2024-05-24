@@ -35,7 +35,7 @@ export default function Landing() {
                 </section>
 
                 <section className="flex flex-wrap gap-16 mx-8">
-                    <TextbookContainer name="A Geometric Approach to Matrices" src="/concepts/gatm/cover-page.png">
+                    <TextbookContainer name="A Geometric Approach to Matrices" src="/ky28059/www/concepts/gatm/cover-page.png">
                         <p className="mb-4">
                             This is the full PDF for the textbook; chapters are provided for convenience. Keep in mind that
                             these versions will be continuously updated so may not match the printed version.
@@ -59,7 +59,7 @@ export default function Landing() {
                         </ChaptersList>
                     </TextbookContainer>
 
-                    <TextbookContainer name="A Geometric Approach to Matrices (Answer Key)" src="/concepts/gatm/cover-page-answers.png">
+                    <TextbookContainer name="A Geometric Approach to Matrices (Answer Key)" src="/ky28059/www/concepts/gatm/cover-page-answers.png">
                         <p className="mb-4">
                             This contains answers to all of the problems in the textbook. Note that only the first five chapter
                             PDFs have been completely updated to match the textbook; the full answer key and other chapters

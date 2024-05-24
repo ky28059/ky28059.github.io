@@ -25,10 +25,10 @@ export default function Concepts() {
                 </p>
 
                 <section className="flex flex-wrap gap-6">
-                    <ImageCard name="RabbitSign" src="/concepts/thumbnails/rabbitsign.png" href="/concepts/rabbitsign">
+                    <ImageCard name="RabbitSign" src="/ky28059/www/concepts/thumbnails/rabbitsign.png" href="/concepts/rabbitsign">
                         A redesign of the RabbitSign landing page.
                     </ImageCard>
-                    <ImageCard name="GAtM" src="/concepts/thumbnails/gatm.png" href="/concepts/gunn-gatm">
+                    <ImageCard name="GAtM" src="/ky28059/www/concepts/thumbnails/gatm.png" href="/concepts/gunn-gatm">
                         A redesign and port of <code>gunn-gatm.github.io</code> to React.
                     </ImageCard>
                 </section>

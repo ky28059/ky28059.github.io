@@ -25,7 +25,7 @@ export default function Projects() {
                     <ProjectGroup name="b01lers" gh="https://github.com/b01lers">
                         <Project
                             name="bctf"
-                            img="/assets/projects/b01lers.svg"
+                            img="/ky28059/www/assets/projects/b01lers.svg"
                             langs={['ts', 'css']}
                             tags={['nextjs', 'tailwindcss']}
                             gh="https://github.com/ky28059/bctf"
@@ -49,7 +49,7 @@ export default function Projects() {
                     <ProjectGroup name="GRT" gh="https://github.com/grt192">
                         <Project
                             name="GRT Website 2.0"
-                            img="/assets/projects/grt.png"
+                            img="/ky28059/www/assets/projects/grt.png"
                             langs={['ts', 'css']}
                             tags={['nextjs', 'tailwindcss']}
                             gh="https://github.com/ky28059/GRTWebsite2.0"
@@ -75,7 +75,7 @@ export default function Projects() {
                         </Project>
                         <Project
                             name="Guava Bot"
-                            img="/assets/projects/Guava.png"
+                            img="/ky28059/www/assets/projects/Guava.png"
                             langs={['ts']}
                             tags={['discord.js', 'PortalBot framework']}
                             gh="https://github.com/ky28059/guava-bot"
@@ -84,7 +84,7 @@ export default function Projects() {
                         </Project>
                         <Project
                             name="Guava Bot Slack"
-                            img="/assets/projects/Guava.png"
+                            img="/ky28059/www/assets/projects/Guava.png"
                             langs={['ts']}
                             tags={['bolt-js', 'slack-block-builder']}
                             gh="https://github.com/ky28059/guava-bot-slack"
@@ -96,7 +96,7 @@ export default function Projects() {
                     <ProjectGroup name="GunnHacks" gh="https://github.com/united-computations">
                         <Project
                             name="GunnHacks 7.0"
-                            img="/assets/projects/gunnhacks.png"
+                            img="/ky28059/www/assets/projects/gunnhacks.png"
                             langs={['js', 'html', 'scss']}
                             gh="https://github.com/united-computations/GunnHacks7.0"
                             web="https://7.0.gunnhacks.com"
@@ -105,7 +105,7 @@ export default function Projects() {
                         </Project>
                         <Project
                             name="GunnHacks 8.0"
-                            img="/assets/projects/gunnhacks.png"
+                            img="/ky28059/www/assets/projects/gunnhacks.png"
                             langs={['svelte', 'html', 'css']}
                             tags={['sveltekit']}
                             gh="https://github.com/united-computations/GunnHacks8.0"
@@ -115,7 +115,7 @@ export default function Projects() {
                         </Project>
                         <Project
                             name="GunnHacks 9.0"
-                            img="/assets/projects/gunnhacks.png"
+                            img="/ky28059/www/assets/projects/gunnhacks.png"
                             langs={['ts', 'css']}
                             tags={['nextjs', 'tailwindcss']}
                             gh="https://github.com/united-computations/GunnHacks9.0"
@@ -149,7 +149,7 @@ export default function Projects() {
                     <ProjectGroup name="SEC" gh="https://github.com/gunnsec">
                         <Project
                             name="Hall Monitor"
-                            //img="/projects/timmy.png"
+                            //img="/ky28059/www/projects/timmy.png"
                             langs={['ts']}
                             tags={['bolt-js', 'slack-block-builder']}
                             gh="https://github.com/gunnsec/hall-monitor"
@@ -171,7 +171,7 @@ export default function Projects() {
                     <ProjectGroup name="Personal / other">
                         <Project
                             name="RBot"
-                            img="/assets/projects/RBot.png"
+                            img="/ky28059/www/assets/projects/RBot.png"
                             langs={['ts']}
                             tags={['discord.js']}
                             gh="https://github.com/ky28059/RBot"
@@ -181,7 +181,7 @@ export default function Projects() {
                         </Project>
                         <Project
                             name="WATT"
-                            img="/assets/projects/watt-white.png"
+                            img="/ky28059/www/assets/projects/watt-white.png"
                             langs={['ts', 'html', 'scss']}
                             tags={['create-react-app', 'tailwindcss', 'firebase']}
                             gh="https://github.com/GunnWATT/watt"
@@ -208,7 +208,7 @@ export default function Projects() {
                         */}
                         <Project
                             name="Geckobot"
-                            img="/assets/projects/GeckoBot.png"
+                            img="/ky28059/www/assets/projects/GeckoBot.png"
                             langs={['c#', 'q#']}
                             tags={['discord.net']}
                             gh="https://github.com/croissantderp/geckobot"
@@ -218,7 +218,7 @@ export default function Projects() {
                         </Project>
                         <Project
                             name="PortalBot"
-                            img="/assets/projects/PortalBot.jpg"
+                            img="/ky28059/www/assets/projects/PortalBot.jpg"
                             langs={['ts']}
                             tags={['discord.js', 'PortalBot framework']}
                             gh="https://github.com/ky28059/PortalBot"
@@ -228,7 +228,7 @@ export default function Projects() {
                         </Project>
                         <Project
                             name="kevin-yu"
-                            img="/pfp.png"
+                            img="/ky28059/www/pfp.png"
                             langs={['ts']}
                             tags={['discord.js', 'PortalBot framework']}
                             gh="https://github.com/ky28059/kevin-yu"

@@ -37,7 +37,7 @@ export default function Home() {
                 <div className="container mx-auto flex justify-center flex-wrap gap-6">
                     <ArchivedProject
                         name="RBot"
-                        img="/projects/RBot.png"
+                        img="/ky28059/www/projects/RBot.png"
                         langs={['ts']}
                         gh="https://github.com/ky28059/RBot"
                         discord="https://discord.com/oauth2/authorize?client_id=684587440777986090&scope=bot&permissions=8"
@@ -46,7 +46,7 @@ export default function Home() {
                     </ArchivedProject>
                     <ArchivedProject
                         name="WATT"
-                        img="/projects/watt-white.png"
+                        img="/ky28059/www/projects/watt-white.png"
                         langs={['ts', 'html', 'scss']}
                         gh="https://github.com/GunnWATT/watt"
                         web="https://gunnwatt.web.app/"
@@ -63,7 +63,7 @@ export default function Home() {
                     */}
                     <ArchivedProject
                         name="Geckobot"
-                        img="/projects/GeckoBot.png"
+                        img="/ky28059/www/projects/GeckoBot.png"
                         langs={['c#', 'q#']}
                         gh="https://github.com/croissantderp/geckobot"
                         discord="https://discord.com/oauth2/authorize?client_id=766064505079726140&scope=bot&permissions=379968"
@@ -72,7 +72,7 @@ export default function Home() {
                     </ArchivedProject>
                     <ArchivedProject
                         name="PortalBot"
-                        img="/projects/PortalBot.jpg"
+                        img="/ky28059/www/projects/PortalBot.jpg"
                         langs={['ts']}
                         gh="https://github.com/ky28059/PortalBot"
                         discord="https://discord.com/oauth2/authorize?client_id=827738852902043698&scope=bot&permissions=8"
@@ -81,7 +81,7 @@ export default function Home() {
                     </ArchivedProject>
                     <ArchivedProject
                         name="GunnHacks 7.0"
-                        img="/projects/gunnhacks.png"
+                        img="/ky28059/www/projects/gunnhacks.png"
                         langs={['js', 'html', 'scss']}
                         gh="https://github.com/GunnHacks/GunnHacks7.0"
                         web="https://7.0.gunnhacks.com"
@@ -90,7 +90,7 @@ export default function Home() {
                     </ArchivedProject>
                     <ArchivedProject
                         name="GunnHacks 8.0"
-                        img="/projects/gunnhacks.png"
+                        img="/ky28059/www/projects/gunnhacks.png"
                         langs={['svelte', 'html', 'css']}
                         gh="https://github.com/GunnHacks/GunnHacks8.0"
                         web="https://gunnhacks.com"
@@ -99,7 +99,7 @@ export default function Home() {
                     </ArchivedProject>
                     <ArchivedProject
                         name="Guava Bot"
-                        img="/projects/Guava.png"
+                        img="/ky28059/www/projects/Guava.png"
                         langs={['ts']}
                         gh="https://github.com/ky28059/guava-bot"
                     >
@@ -107,7 +107,7 @@ export default function Home() {
                     </ArchivedProject>
                     <ArchivedProject
                         name="Guava Bot Slack"
-                        img="/projects/Guava.png"
+                        img="/ky28059/www/projects/Guava.png"
                         langs={['ts']}
                         gh="https://github.com/ky28059/guava-bot-slack"
                     >

@@ -31,7 +31,7 @@ export default function Home() {
                     <ThemeToggle className="absolute top-8 right-8 text-xl" />
 
                     <div className="relative">
-                        <img src="/pfp.png" alt="Profile picture" className="absolute -left-32 -top-10 h-24 w-24 rounded-full" />
+                        <img src="/ky28059/www/pfp.png" alt="Profile picture" className="absolute -left-32 -top-10 h-24 w-24 rounded-full" />
                         <PageHeading className="mb-5">kevin yu.</PageHeading>
                         <p className="mb-3 max-w-3xl text-primary dark:text-primary-dark">
                             Gunn High School graduate and first-year student studying Computer Science at Purdue University.

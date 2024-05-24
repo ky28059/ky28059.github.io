@@ -28,7 +28,7 @@ export default function RabbitSignHeader() {
                 */}
                 <Link href="/" className="navbar-brand">
                     <img
-                        src="/concepts/rabbitsign/logo-cropped.png"
+                        src="/ky28059/www/concepts/rabbitsign/logo-cropped.png"
                         alt="RabbitSign logo"
                         width={135}
                         height={27}

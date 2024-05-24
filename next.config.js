@@ -1,3 +1,4 @@
 module.exports = {
-    output: 'export'
+    output: 'export',
+    basePath: '/ky28059/www'
 };

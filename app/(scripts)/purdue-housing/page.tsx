@@ -58,12 +58,12 @@ export default function PurdueHousing() {
 
             <div className="flex gap-2 mb-1">
                 <img
-                    src="/assets/scripts/initial-selection.png"
+                    src="/ky28059/www/assets/scripts/initial-selection.png"
                     alt="List rooms page"
                     className="rounded min-w-0 object-cover object-center"
                 />
                 <img
-                    src="/assets/scripts/list-rooms.png"
+                    src="/ky28059/www/assets/scripts/list-rooms.png"
                     alt="List rooms page"
                     className="rounded min-w-0 object-cover object-center"
                 />
