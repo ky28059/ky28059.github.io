@@ -1,4 +1,5 @@
 import { DateTime } from 'luxon';
+import GithubContributionChartWrapper from './GithubContributionChartWrapper';
 
 
 export default async function GithubContributionChart() {
@@ -27,8 +28,8 @@ export default async function GithubContributionChart() {
     }
 
     return (
-        <section className="scroll-smooth relative w-max max-w-full mx-auto flex gap-1 overflow-x-auto py-4 px-2">
-            <span className="font-mono flex-none text-secondary [writing-mode:vertical-lr] rotate-180 px-4">
+        <GithubContributionChartWrapper>
+            <span className="font-mono flex-none text-secondary [writing-mode:vertical-lr] text-center rotate-180 px-4">
                 {start.toLocaleString(DateTime.DATE_FULL)}
             </span>
 
@@ -44,7 +45,7 @@ export default async function GithubContributionChart() {
                 </div>
             ))}
 
-            <span className="font-mono flex-none text-secondary [writing-mode:vertical-lr] px-4">
+            <span className="font-mono flex-none text-secondary [writing-mode:vertical-lr] text-center px-4">
                 {end.toLocaleString(DateTime.DATE_FULL)}
             </span>
             {/*
@@ -52,7 +53,7 @@ export default async function GithubContributionChart() {
                 <p>{res.data.user.contributionsCollection.contributionCalendar.totalContributions} contributions in the past year.</p>
             </div>
             */}
-        </section>
+        </GithubContributionChartWrapper>
     )
 }
 
