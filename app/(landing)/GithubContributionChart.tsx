@@ -1,9 +1,38 @@
+import { DateTime } from 'luxon';
+
+
 export default async function GithubContributionChart() {
-    const res = await fetchContributionData();
+    const start = DateTime.fromISO('2020-01-01');
+    const end = DateTime.now();
+
+    let curr = start;
+    const weeks: ContributionWeek[] = [];
+
+    // Calculate contribution history one year at a time.
+    while (curr < end) {
+        const next = curr.plus({ 'year': 1 });
+        const res = await fetchContributionData(
+            curr,
+            next > end ? end : next.minus({ day: 1 })
+        );
+
+        // Push newly fetched contributions, merging fetch boundaries when they arise.
+        const newWeeks = res.data.user.contributionsCollection.contributionCalendar.weeks;
+        if (weeks.length && newWeeks[0].contributionDays.length < 7) {
+            weeks.at(-1)!.contributionDays.push(...newWeeks[0].contributionDays);
+            newWeeks.shift();
+        }
+        weeks.push(...newWeeks);
+        curr = next;
+    }
 
     return (
-        <section className="relative w-max max-w-full mx-auto flex gap-1 justify-end overflow-hidden py-4 before:w-20 before:bg-gradient-to-r before:from-white dark:before:from-midnight before:absolute before:inset-y-0 before:left-0 before:z-10">
-            {res.data.user.contributionsCollection.contributionCalendar.weeks.map((week, i) => (
+        <section className="scroll-smooth relative w-max max-w-full mx-auto flex gap-1 overflow-x-auto py-4 px-2">
+            <span className="font-mono flex-none text-secondary [writing-mode:vertical-lr] rotate-180 px-4">
+                {start.toLocaleString(DateTime.DATE_FULL)}
+            </span>
+
+            {weeks.map((week, i) => (
                 <div className="dark:invert dark:hue-rotate-180 flex flex-col gap-1" key={i}>
                     {week.contributionDays.map((day) => (
                         <div
@@ -14,6 +43,10 @@ export default async function GithubContributionChart() {
                     ))}
                 </div>
             ))}
+
+            <span className="font-mono flex-none text-secondary [writing-mode:vertical-lr] px-4">
+                {end.toLocaleString(DateTime.DATE_FULL)}
+            </span>
             {/*
             <div className="pl-2 text-sm italic text-gray-500 w-36">
                 <p>{res.data.user.contributionsCollection.contributionCalendar.totalContributions} contributions in the past year.</p>
@@ -23,21 +56,24 @@ export default async function GithubContributionChart() {
     )
 }
 
-async function fetchContributionData(): Promise<ContributionsResponse> {
+async function fetchContributionData(from: DateTime, to: DateTime): Promise<ContributionsResponse> {
     const res = await fetch('https://api.github.com/graphql', {
         method: 'POST',
         headers: {
             Authorization: `Bearer ${process.env.GH_USER_TOKEN}`,
         },
-        body: JSON.stringify({ query, variables: { username: 'ky28059' } })
+        body: JSON.stringify({
+            query,
+            variables: { username: 'ky28059', from: from.toISO(), to: to.toISO() }
+        })
     })
-    return res.json()
+    return res.json();
 }
 
 const query = `
-query($username:String!) {
-  user(login: $username){
-    contributionsCollection {
+query($username: String!, $from: DateTime, $to: DateTime) {
+  user(login: $username) {
+    contributionsCollection(from: $from, to: $to) {
       contributionCalendar {
         totalContributions
         weeks {
@@ -59,15 +95,17 @@ type ContributionDay = {
     date: string
 }
 
+type ContributionWeek = {
+    contributionDays: ContributionDay[]
+}
+
 type ContributionsResponse = {
     data: {
         user: {
             contributionsCollection: {
                 contributionCalendar: {
                     totalContributions: number,
-                    weeks: {
-                        contributionDays: ContributionDay[]
-                    }[]
+                    weeks: ContributionWeek[]
                 }
             }
         }

@@ -9,6 +9,10 @@
             @apply underline;
         }
     }
+
+    .dark {
+        color-scheme: dark;
+    }
 }
 
 // Overrides for code block syntax highlighting
