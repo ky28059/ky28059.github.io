@@ -104,6 +104,11 @@ export default async function All() {
                         Raccoon Run
                     </Writeup>
                 </CTF>
+                <CTF name="GPN CTF 2024">
+                    <Writeup type="web" href="https://gist.github.com/ky28059/0c4ecb3e46bccbd295151d6d30c110d4">
+                        Letter to the editor
+                    </Writeup>
+                </CTF>
             </section>
         </>
     )
