@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 // Components
 import Section, { SectionHeading } from '../../components/Section';
 import Project from './Project';
+import ProjectImageCard from './ProjectImageCard';
 import Gist from './Gist';
 
 // Icons
@@ -23,56 +24,59 @@ export default function Projects() {
 
                 <section className="flex flex-col gap-6">
                     <ProjectGroup name="b01lers" gh="https://github.com/b01lers">
-                        <Project
+                        <ProjectImageCard
                             name="bctf"
-                            img="/assets/projects/b01lers.svg"
+                            href="/assets/projects/b01lers-ctf.png"
                             langs={['ts', 'css']}
                             tags={['nextjs', 'tailwindcss']}
                             gh="https://github.com/ky28059/bctf"
                             web="https://b01lersc.tf"
                         >
                             The new website for b01lers CTF!
-                        </Project>
+                        </ProjectImageCard>
                     </ProjectGroup>
 
                     <ProjectGroup name="Goldhaber-Gordon Group" gh="https://github.com/dgglab">
-                        <Project
+                        <ProjectImageCard
                             name="flakefinder"
+                            href="/assets/projects/flakefinder.png"
                             langs={['py']}
                             tags={['opencv', 'multiprocessing', 'numpy']}
                             gh="https://github.com/ky28059/flakefinder"
                         >
                             Scripts to detect and classify monolayer graphene flakes in microscope scan datasets.
-                        </Project>
+                        </ProjectImageCard>
                     </ProjectGroup>
 
                     <ProjectGroup name="GRT" gh="https://github.com/grt192">
-                        <Project
+                        <ProjectImageCard
                             name="GRT Website 2.0"
-                            img="/assets/projects/grt.png"
+                            href="/assets/projects/grt-website.png"
                             langs={['ts', 'css']}
                             tags={['nextjs', 'tailwindcss']}
                             gh="https://github.com/ky28059/GRTWebsite2.0"
                             web="https://www.gunnrobotics.com"
                         >
                             A modern rewrite of the Gunn Robotics Team website.
-                        </Project>
-                        <Project
+                        </ProjectImageCard>
+                        <ProjectImageCard
                             name="GRT2022"
+                            href="/assets/projects/grt-22.JPG"
                             langs={['java']}
                             tags={['wpilib']}
                             gh="https://github.com/grt192/GRT2022"
                         >
                             FRC team 192 code for the 2022 FIRST Robotics Competition, Rapid React.
-                        </Project>
-                        <Project
+                        </ProjectImageCard>
+                        <ProjectImageCard
                             name="GRT2023"
+                            href="/assets/projects/grt-23-2.png"
                             langs={['java']}
                             tags={['wpilib']}
                             gh="https://github.com/grt192/GRT2023"
                         >
                             FRC team 192 code for 2023 FIRST Robotics Competition, Charged Up.
-                        </Project>
+                        </ProjectImageCard>
                         <Project
                             name="Guava Bot"
                             img="/assets/projects/Guava.png"
@@ -94,55 +98,57 @@ export default function Projects() {
                     </ProjectGroup>
 
                     <ProjectGroup name="GunnHacks" gh="https://github.com/united-computations">
-                        <Project
+                        <ProjectImageCard
                             name="GunnHacks 7.0"
-                            img="/assets/projects/gunnhacks.png"
+                            href="/assets/projects/gunnhacks-7.0.jpg"
                             langs={['js', 'html', 'scss']}
                             gh="https://github.com/united-computations/GunnHacks7.0"
                             web="https://7.0.gunnhacks.com"
                         >
                             Website for GunnHacks 7.0, the seventh iteration of Gunn's annual hackathon.
-                        </Project>
-                        <Project
+                        </ProjectImageCard>
+                        <ProjectImageCard
                             name="GunnHacks 8.0"
-                            img="/assets/projects/gunnhacks.png"
+                            href="/assets/projects/gunnhacks-8.0.jpg"
                             langs={['svelte', 'html', 'css']}
                             tags={['sveltekit']}
                             gh="https://github.com/united-computations/GunnHacks8.0"
                             web="https://8.0.gunnhacks.com"
                         >
                             Website for GunnHacks 8.0, the eighth iteration of Gunn's annual hackathon.
-                        </Project>
-                        <Project
+                        </ProjectImageCard>
+                        <ProjectImageCard
                             name="GunnHacks 9.0"
-                            img="/assets/projects/gunnhacks.png"
+                            href="/assets/projects/gunnhacks-9.0.png"
                             langs={['ts', 'css']}
                             tags={['nextjs', 'tailwindcss']}
                             gh="https://github.com/united-computations/GunnHacks9.0"
                             web="https://gunnhacks.com"
                         >
                             Website for GunnHacks 9.0, the ninth iteration of Gunn's annual hackathon.
-                        </Project>
+                        </ProjectImageCard>
                     </ProjectGroup>
 
                     <ProjectGroup name="G'Floats">
-                        <Project
+                        <ProjectImageCard
                             name="hoco-radio-2021"
+                            href="/assets/projects/floats-22.JPG"
                             langs={['py']}
                             tags={['pygame']}
                             gh="https://github.com/ky28059/hoco-radio-2021"
                         >
                             Python script for the Raspberry Pi radio in the 2021 Junior float.
-                        </Project>
-                        <Project
+                        </ProjectImageCard>
+                        <ProjectImageCard
                             name="floats-2022"
+                            href="/assets/projects/floats-23.JPG"
                             langs={['py']}
                             tags={['pygame', 'pigpio', 'multiprocessing']}
                             gh="https://github.com/ky28059/floats-2022"
                         >
                             Python scripts for the Raspberry Pi radio + hatch mechanism + fog machine in the 2022
                             Senior float.
-                        </Project>
+                        </ProjectImageCard>
                     </ProjectGroup>
 
                     {/*
@@ -189,15 +195,16 @@ export default function Projects() {
                         >
                             Gunn schedule app and UGWA successor.
                         </Project>
-                        <Project
+                        <ProjectImageCard
                             name="Pyrite"
+                            href="/assets/projects/pyrite.png"
                             langs={['ts', 'css']}
                             tags={['nextjs', 'tailwindcss', 'firebase']}
                             gh="https://github.com/ky28059/pyrite"
                             web="https://pyrite-pwl.vercel.app/"
                         >
                             A student-made schedule app for Purdue University!
-                        </Project>
+                        </ProjectImageCard>
                         {/*
                         <Project
                             name="Word Generator"
@@ -206,16 +213,16 @@ export default function Projects() {
                             web="https://ky28059.github.io/#/word-gen"
                         />
                         */}
-                        <Project
+                        <ProjectImageCard
                             name="Geckobot"
-                            img="/assets/projects/GeckoBot.png"
+                            href="/assets/projects/geckobot-2.png"
                             langs={['c#', 'q#']}
                             tags={['discord.net']}
                             gh="https://github.com/croissantderp/geckobot"
                             discord="https://discord.com/oauth2/authorize?client_id=766064505079726140&scope=bot&permissions=379968"
                         >
                             Discord.Net bot with Google Drive integration and quantum computing shenanigans.
-                        </Project>
+                        </ProjectImageCard>
                         <Project
                             name="PortalBot"
                             img="/assets/projects/PortalBot.jpg"
