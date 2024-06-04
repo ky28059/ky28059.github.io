@@ -175,26 +175,6 @@ export default function Projects() {
                     */}
 
                     <ProjectGroup name="Personal / other">
-                        <Project
-                            name="RBot"
-                            img="/assets/projects/RBot.png"
-                            langs={['ts']}
-                            tags={['discord.js']}
-                            gh="https://github.com/ky28059/RBot"
-                            discord="https://discord.com/oauth2/authorize?client_id=684587440777986090&scope=bot+applications.commands&permissions=8"
-                        >
-                            Discord moderation and music bot written in discord.js 14, TypeScript, and sequelize.
-                        </Project>
-                        <Project
-                            name="WATT"
-                            img="/assets/projects/watt-white.png"
-                            langs={['ts', 'html', 'scss']}
-                            tags={['create-react-app', 'tailwindcss', 'firebase']}
-                            gh="https://github.com/GunnWATT/watt"
-                            web="https://gunnwatt.web.app/"
-                        >
-                            Gunn schedule app and UGWA successor.
-                        </Project>
                         <ProjectImageCard
                             name="Pyrite"
                             href="/assets/projects/pyrite.png"
@@ -205,6 +185,16 @@ export default function Projects() {
                         >
                             A student-made schedule app for Purdue University!
                         </ProjectImageCard>
+                        <ProjectImageCard
+                            name="WATT"
+                            href="/assets/projects/watt.png"
+                            langs={['ts', 'html', 'scss']}
+                            tags={['create-react-app', 'tailwindcss', 'firebase']}
+                            gh="https://github.com/GunnWATT/watt"
+                            web="https://gunnwatt.web.app/"
+                        >
+                            Gunn schedule app and UGWA successor.
+                        </ProjectImageCard>
                         {/*
                         <Project
                             name="Word Generator"
@@ -213,6 +203,16 @@ export default function Projects() {
                             web="https://ky28059.github.io/#/word-gen"
                         />
                         */}
+                        <Project
+                            name="RBot"
+                            img="/assets/projects/RBot.png"
+                            langs={['ts']}
+                            tags={['discord.js']}
+                            gh="https://github.com/ky28059/RBot"
+                            discord="https://discord.com/oauth2/authorize?client_id=684587440777986090&scope=bot+applications.commands&permissions=8"
+                        >
+                            Discord moderation and music bot written in discord.js 14, TypeScript, and sequelize.
+                        </Project>
                         <ProjectImageCard
                             name="Geckobot"
                             href="/assets/projects/geckobot-2.png"
