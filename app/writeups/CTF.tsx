@@ -6,6 +6,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react
 // Icons
 import { PiFlagPennantFill } from 'react-icons/pi';
 import { HiChevronDown } from 'react-icons/hi2';
+import { BiSubdirectoryRight } from 'react-icons/bi';
 
 
 type CTFProps = {
@@ -22,7 +23,7 @@ export default function CTF(props: CTFProps) {
                 <HiChevronDown className='ml-auto size-5 p-1 rounded-full bg-black/5 dark:bg-white/5 transition-transform duration-200 rotate-180 ui-open:rotate-0' />
             </DisclosureButton>
 
-            <DisclosurePanel as="ol" className="flex flex-col list-disc list-outside pl-6">
+            <DisclosurePanel as="ol" className="flex flex-col pl-6">
                 {props.children}
             </DisclosurePanel>
         </Disclosure>
@@ -33,7 +34,9 @@ type ChallType = 'misc' | 'web' | 'crypto' | 'pwn' | 'rev' | 'osint' | 'apk'
 
 export function Writeup(props: { href: string, type?: ChallType, children: ReactNode }) {
     return (
-        <li className="font-mono">
+        <li className="group relative font-mono">
+            <BiSubdirectoryRight className="absolute -left-7 text-xl inset-y-0 my-auto text-secondary dark:text-secondary-dark group-hover:text-primary dark:group-hover:text-primary-dark" />
+
             <a href={props.href} target="_blank" rel="noopener noreferrer">
                 {props.children}
             </a>
