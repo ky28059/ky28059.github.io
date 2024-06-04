@@ -30,14 +30,16 @@ export default function ProjectImageCard(props: ProjectImageCardProps) {
 
                         {langs?.map(lang => <ProjectTag lang={lang} key={lang} />)}
                         {tags?.map(tag => (
-                            <span className="rounded-full bg-blue-500/20 text-blue-400 px-2.5 pt-0.5 pb-1 text-xs" key={tag}>
+                            <span className="rounded-full bg-blue-500/20 text-blue-400 px-2.5 py-0.5 text-xs" key={tag}>
                                 {tag}
                             </span>
                         ))}
                     </section>
                 )}
 
-                <p className="text-xs">{children}</p>
+                <p className="text-xs text-primary dark:text-primary-dark">
+                    {children}
+                </p>
             </div>
         </div>
     )

@@ -323,15 +323,17 @@ function ProjectsCardGrid(props: { children: ReactNode }) {
 
 function ProjectGroup(props: { name: string, children: ReactNode, gh?: string }) {
     return (
-        <div>
-            <div className="flex items-center gap-2 text-secondary dark:text-secondary-dark mb-4">
-                <h3 className="font-medium mb-0.5 flex-none">{props.name}</h3>
+        <div className="flex gap-8">
+            <div className="flex flex-col items-center gap-3 text-secondary dark:text-secondary-dark mb-4">
+                <h3 className="font-medium mb-0.5 flex-none [writing-mode:vertical-lr]">
+                    {props.name}
+                </h3>
                 {props.gh && (
                     <a className="text-lg text-inherit" href={props.gh} target="_blank" rel="noopener noreferrer">
                         <BsGithub />
                     </a>
                 )}
-                <hr className="w-full border-secondary/50 dark:border-secondary-dark/50" />
+                <hr className="h-full w-px border-r border-secondary/50 dark:border-secondary-dark/50" />
             </div>
             <ProjectsCardGrid>
                 {props.children}
