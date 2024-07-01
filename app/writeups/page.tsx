@@ -110,6 +110,23 @@ export default async function All() {
                         Letter to the editor
                     </Writeup>
                 </CTF>
+                <CTF name="UIUCTF 2024">
+                    <Writeup type="osint" href="https://gist.github.com/ky28059/d6b13cd067d6b9d9fbc695080f9f7f7e">
+                        Hip With the Youth
+                    </Writeup>
+                    <Writeup type="osint" href="https://gist.github.com/ky28059/4e755cf1ba9a791899af3d4120c4a7d3">
+                        An Unlikely Partnership
+                    </Writeup>
+                    <Writeup type="osint" href="https://gist.github.com/ky28059/11ade1fe6eaaf1a864f60291a6ca3764">
+                        The Weakest Link
+                    </Writeup>
+                    <Writeup type="osint" href="https://gist.github.com/ky28059/f55af843f32868e72f3fcb0bc9b732a2">
+                        Night
+                    </Writeup>
+                    <Writeup type="web" href="https://gist.github.com/ky28059/6f7ef0a073b142a9ed5d460a930a9d1c">
+                        Log Action
+                    </Writeup>
+                </CTF>
             </section>
         </>
     )
