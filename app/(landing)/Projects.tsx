@@ -23,6 +23,19 @@ export default function Projects() {
                 </ProjectsHeaderSection>
 
                 <section className="flex flex-col gap-6">
+                    <ProjectGroup name="MIT RACECAR Neo" gh="https://github.com/MITRacecarNeo">
+                        <ProjectImageCard
+                            name="RACECAR Neo Library"
+                            href="/assets/projects/racecar-library-3.jpg"
+                            langs={['py']}
+                            tags={['opencv', 'numpy', 'sphinx']}
+                            gh="https://github.com/MITRacecarNeo/racecar-neo-library"
+                            web="https://mitracecarneo.github.io/racecar-neo-library/"
+                        >
+                            The onboard library and documentation for MIT BWSI RACECAR.
+                        </ProjectImageCard>
+                    </ProjectGroup>
+
                     <ProjectGroup name="b01lers" gh="https://github.com/b01lers">
                         <ProjectImageCard
                             name="bctf"
@@ -91,7 +104,7 @@ export default function Projects() {
                             href="/assets/projects/grt-vision-23-2.JPG"
                             langs={['py']}
                             tags={['zeromq', 'pupil-apriltags']}
-                            gh="https://github.com/grt192/GRT2023"
+                            gh="https://github.com/grt192/GRTVision2023"
                         >
                             Attempt at a scalable vision framework for FRC 2023 supporting AprilTag and green-light
                             detection.
@@ -222,16 +235,16 @@ export default function Projects() {
                             web="https://ky28059.github.io/#/word-gen"
                         />
                         */}
-                        <Project
+                        <ProjectImageCard
                             name="RBot"
-                            img="/assets/projects/RBot.png"
+                            href="/assets/projects/rbot-2.png"
                             langs={['ts']}
                             tags={['discord.js']}
                             gh="https://github.com/ky28059/RBot"
                             discord="https://discord.com/oauth2/authorize?client_id=684587440777986090&scope=bot+applications.commands&permissions=8"
                         >
                             Discord moderation and music bot written in discord.js 14, TypeScript, and sequelize.
-                        </Project>
+                        </ProjectImageCard>
                         <ProjectImageCard
                             name="Geckobot"
                             href="/assets/projects/geckobot-2.png"
@@ -242,16 +255,16 @@ export default function Projects() {
                         >
                             Discord.Net bot with Google Drive integration and quantum computing shenanigans.
                         </ProjectImageCard>
-                        <Project
+                        <ProjectImageCard
                             name="PortalBot"
-                            img="/assets/projects/PortalBot.jpg"
+                            href="/assets/projects/PortalBot.jpg"
                             langs={['ts']}
                             tags={['discord.js', 'PortalBot framework']}
                             gh="https://github.com/ky28059/PortalBot"
                             discord="https://discord.com/oauth2/authorize?client_id=827738852902043698&scope=bot+applications.commands&permissions=8"
                         >
                             TypeScript discord.js bot for real-time cross-server communication.
-                        </Project>
+                        </ProjectImageCard>
                         <Project
                             name="kevin-yu"
                             img="/pfp.png"
