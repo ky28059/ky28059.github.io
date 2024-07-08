@@ -1,6 +1,3 @@
-import type { ReactNode } from 'react';
-
-// Components
 import HoverCard from './HoverCard';
 
 // Icons
@@ -8,16 +5,20 @@ import { BsDiscord } from 'react-icons/bs';
 import { FiLink } from 'react-icons/fi';
 
 
-type ProjectProps = {
+export type ProjectData = {
     name: string,
-    children: ReactNode,
+    href: string
+    desc: string,
     img?: string,
-    langs?: LanguageKey[],
-    tags?: string[],
-    gh: string, discord?: string, web?: string
+    langs: LanguageKey[],
+    tags: string[],
+
+    gh: string,
+    discord?: string,
+    web?: string
 }
-export default function Project(props: ProjectProps) {
-    const { name, children: desc, img, langs, tags, gh, discord, web } = props;
+export default function Project(props: ProjectData) {
+    const { name, desc, img, langs, tags, gh, discord, web } = props;
 
     return (
         <HoverCard href={gh}>
