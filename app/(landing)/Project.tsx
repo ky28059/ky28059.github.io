@@ -62,7 +62,7 @@ export default function Project(props: ProjectProps) {
 }
 
 export type LanguageKey = 'html' | 'js' | 'ts' | 'css' | 'scss' | 'svelte' | 'py' | 'c#' | 'q#'
-    | 'java' | 'kt' | 'rkt' | 'elixir'
+    | 'java' | 'kt' | 'rkt' | 'elixir' | 'rust'
 
 export function ProjectTag(props: { lang: LanguageKey }) {
     const color = langToColor(props.lang);
@@ -91,6 +91,7 @@ export function langToColor(lang: LanguageKey) {
         case 'kt': return '#A97BFF';
         case 'rkt': return '#3c5caa';
         case 'elixir': return '#6e4a7e';
+        case 'rust': return '#dea584';
         default: return '#fff';
     }
 }

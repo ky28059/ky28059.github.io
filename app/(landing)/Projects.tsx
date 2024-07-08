@@ -26,13 +26,22 @@ export default function Projects() {
                     <ProjectGroup name="b01lers" gh="https://github.com/b01lers">
                         <ProjectImageCard
                             name="bctf"
-                            href="/assets/projects/b01lers-ctf.png"
+                            href="/assets/projects/b01lers-ctf-3.png"
                             langs={['ts', 'css']}
                             tags={['nextjs', 'tailwindcss']}
                             gh="https://github.com/ky28059/bctf"
                             web="https://b01lersc.tf"
                         >
                             The new website for b01lers CTF!
+                        </ProjectImageCard>
+                        <ProjectImageCard
+                            name="b01lers-bot"
+                            href="/assets/projects/b01lers-bot.png"
+                            langs={['rust']}
+                            tags={['serenity', 'poise', 'sqlx']}
+                            gh="https://github.com/Athryx/b01lers-bot"
+                        >
+                            An upgraded discord bot for the b01lers CTF team server.
                         </ProjectImageCard>
                     </ProjectGroup>
 
@@ -70,12 +79,22 @@ export default function Projects() {
                         </ProjectImageCard>
                         <ProjectImageCard
                             name="GRT2023"
-                            href="/assets/projects/grt-23-2.png"
+                            href="/assets/projects/grt-23-3.JPG"
                             langs={['java']}
                             tags={['wpilib']}
                             gh="https://github.com/grt192/GRT2023"
                         >
                             FRC team 192 code for 2023 FIRST Robotics Competition, Charged Up.
+                        </ProjectImageCard>
+                        <ProjectImageCard
+                            name="GRTVision2023"
+                            href="/assets/projects/grt-vision-23-2.JPG"
+                            langs={['py']}
+                            tags={['zeromq', 'pupil-apriltags']}
+                            gh="https://github.com/grt192/GRT2023"
+                        >
+                            Attempt at a scalable vision framework for FRC 2023 supporting AprilTag and green-light
+                            detection.
                         </ProjectImageCard>
                         <Project
                             name="Guava Bot"
@@ -251,13 +270,14 @@ export default function Projects() {
                         >
                             A testing / moderation bot written in elixir.
                         </Project>
-                        <Project
+                        <ProjectImageCard
                             name="AP CSA"
+                            href="/assets/projects/ap-csa.png"
                             langs={['rkt']}
                             gh="https://github.com/ky28059/AP-CSA"
                         >
                             Repository of assignments from the first (scheme) semester of Gunn's AP CSA.
-                        </Project>
+                        </ProjectImageCard>
                     </ProjectGroup>
                 </section>
             </ProjectsLayout>

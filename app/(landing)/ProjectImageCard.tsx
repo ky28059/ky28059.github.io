@@ -20,10 +20,10 @@ export default function ProjectImageCard(props: ProjectImageCardProps) {
             <img
                 src={href}
                 alt={name}
-                className="w-full h-48 object-cover transition duration-150"
+                className="w-full h-44 object-cover transition duration-150"
             />
 
-            <div className="px-5 pt-2.5 pb-4">
+            <div className="px-5 pt-3.5 pb-4">
                 {(langs || tags) && (
                     <section className="flex flex-wrap items-center gap-1 mb-2">
                         <h3 className="text-sm font-semibold mr-2">{props.name}</h3>
