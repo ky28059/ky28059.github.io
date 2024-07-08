@@ -1,6 +1,15 @@
-import { LanguageKey, ProjectData, ProjectTag } from './Project';
+export type ProjectData = {
+    name: string,
+    href: string
+    desc: string,
+    img?: string,
+    langs: LanguageKey[],
+    tags: string[],
 
-
+    gh: string,
+    discord?: string,
+    web?: string
+}
 export default function ProjectImageCard(props: ProjectData) {
     return (
         <div className="group rounded-md overflow-hidden border border-white/25 hover:border-white/50 transition duration-150 relative w-96">
@@ -30,4 +39,39 @@ export default function ProjectImageCard(props: ProjectData) {
             </div>
         </div>
     )
+}
+
+export type LanguageKey = 'html' | 'js' | 'ts' | 'css' | 'scss' | 'svelte' | 'py' | 'c#' | 'q#'
+    | 'java' | 'kt' | 'rkt' | 'elixir' | 'rust'
+
+export function ProjectTag(props: { lang: LanguageKey }) {
+    const color = langToColor(props.lang);
+    return (
+        <div
+            className="rounded-full size-3 ring-2 mx-0.5 ring-black ring-opacity-75 dark:ring-opacity-50"
+            style={{ backgroundColor: color }}
+        />
+    )
+}
+
+// Map tag name to GitHub language color
+// https://github.com/ozh/github-colors/blob/master/colors.json
+export function langToColor(lang: LanguageKey) {
+    switch (lang) {
+        case 'html': return '#e44b23';
+        case 'js': return '#f1e05a';
+        case 'ts': return '#2b7489';
+        case 'css': return '#563d7c';
+        case 'scss': return '#c6538c';
+        case 'svelte': return '#ff3e00';
+        case 'py': return '#3572A5';
+        case 'c#': return '#178600';
+        case 'q#': return '#fed659';
+        case 'java': return '#b07219';
+        case 'kt': return '#A97BFF';
+        case 'rkt': return '#3c5caa';
+        case 'elixir': return '#6e4a7e';
+        case 'rust': return '#dea584';
+        default: return '#fff';
+    }
 }

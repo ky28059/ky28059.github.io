@@ -2,8 +2,7 @@ import { ReactNode } from 'react';
 
 // Components
 import Section, { SectionHeading } from '../../components/Section';
-import { langToColor, LanguageKey, ProjectData, ProjectTag } from './Project';
-import ProjectImageCard from './ProjectImageCard';
+import ProjectImageCard, { langToColor, LanguageKey, ProjectData, ProjectTag } from './ProjectImageCard';
 import Gist from './Gist';
 
 // Icons
