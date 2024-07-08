@@ -274,15 +274,16 @@ export default function Projects() {
                         >
                             Fun discord bot for personal servers.
                         </Project>
-                        <Project
+                        <ProjectImageCard
                             name="Elixirbot"
+                            href="/assets/projects/elixirbot.jpg"
                             langs={['elixir']}
                             tags={['nostrum', 'nosedrum']}
                             gh="https://github.com/ky28059/elixirbot"
                             discord="https://discord.com/oauth2/authorize?client_id=1092613929278120017&scope=bot+applications.commands&permissions=8"
                         >
-                            A testing / moderation bot written in elixir.
-                        </Project>
+                            A testing / moderation bot written to explore elixir.
+                        </ProjectImageCard>
                         <ProjectImageCard
                             name="AP CSA"
                             href="/assets/projects/ap-csa.png"
