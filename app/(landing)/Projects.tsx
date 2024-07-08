@@ -1,8 +1,8 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 // Components
 import Section, { SectionHeading } from '../../components/Section';
-import ProjectImageCard, { langToColor, LanguageKey, ProjectData, ProjectTag } from './ProjectImageCard';
+import ProjectImageCard, { langToColor, langToFullName, LanguageKey, ProjectData } from './ProjectImageCard';
 import Gist from './Gist';
 
 // Icons
@@ -28,13 +28,16 @@ export default function Projects() {
             <ProjectsLayout>
                 <ProjectsHeaderSection>
                     <SectionHeading>Projects</SectionHeading>
-                    <p className="text-primary dark:text-primary-dark mb-5">
+                    <p className="text-primary dark:text-primary-dark mb-6">
                         Various programming projects for organizations like the Gunn Robotics Team or GunnHacks, as well
                         as personal projects like RBot and WATT.
                     </p>
 
+                    <h2 className="text-lg font-semibold mb-2">
+                        Statistics
+                    </h2>
                     {Object.entries(counts).sort(([, a], [, b]) => b - a).map(([lang, count]) => (
-                        <div key={lang} className="flex gap-3 items-center mb-0.5">
+                        <div key={lang} className="group flex gap-3 items-center mb-0.5">
                             <div
                                 className="rounded-full size-3 ring-2 mx-0.5 ring-black ring-opacity-75 dark:ring-opacity-50"
                                 style={{
@@ -43,7 +46,7 @@ export default function Projects() {
                                 }}
                             />
                             <span className="text-sm text-secondary dark:text-secondary-dark">
-                                {lang} ({count})
+                                {langToFullName(lang as LanguageKey)} ({count})
                             </span>
                         </div>
                     ))}
@@ -306,7 +309,7 @@ function ProjectsLayout(props: { children: ReactNode }) {
 
 function ProjectsHeaderSection(props: { children: ReactNode }) {
     return (
-        <div className="md:flex-none md:w-64 md:sticky md:top-8 md:h-max">
+        <div className="md:flex-none md:w-64 md:sticky md:top-12 md:h-max">
             {props.children}
         </div>
     )

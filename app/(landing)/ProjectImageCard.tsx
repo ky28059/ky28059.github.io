@@ -75,3 +75,23 @@ export function langToColor(lang: LanguageKey) {
         default: return '#fff';
     }
 }
+
+export function langToFullName(lang: LanguageKey) {
+    switch (lang) {
+        case 'html': return 'HTML';
+        case 'js': return 'JavaScript';
+        case 'ts': return 'TypeScript';
+        case 'css': return 'CSS';
+        case 'scss': return 'SCSS';
+        case 'svelte': return 'Svelte';
+        case 'py': return 'Python';
+        case 'c#': return 'C#';
+        case 'q#': return 'Q#';
+        case 'java': return 'Java';
+        case 'kt': return 'Kotlin';
+        case 'rkt': return 'Racket';
+        case 'elixir': return 'Elixir';
+        case 'rust': return 'Rust';
+        default: return 'Unknown';
+    }
+}
