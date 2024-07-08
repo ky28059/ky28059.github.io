@@ -39,7 +39,7 @@ export default function Projects() {
                     <ProjectGroup name="b01lers" gh="https://github.com/b01lers">
                         <ProjectImageCard
                             name="bctf"
-                            href="/assets/projects/b01lers-ctf-3.png"
+                            href="/assets/projects/b01lers-ctf-3.jpg"
                             langs={['ts', 'css']}
                             tags={['nextjs', 'tailwindcss']}
                             gh="https://github.com/ky28059/bctf"
@@ -49,7 +49,7 @@ export default function Projects() {
                         </ProjectImageCard>
                         <ProjectImageCard
                             name="b01lers-bot"
-                            href="/assets/projects/b01lers-bot.png"
+                            href="/assets/projects/b01lers-bot.jpg"
                             langs={['rust']}
                             tags={['serenity', 'poise', 'sqlx']}
                             gh="https://github.com/Athryx/b01lers-bot"
@@ -61,7 +61,7 @@ export default function Projects() {
                     <ProjectGroup name="Goldhaber-Gordon Group" gh="https://github.com/dgglab">
                         <ProjectImageCard
                             name="flakefinder"
-                            href="/assets/projects/flakefinder.png"
+                            href="/assets/projects/flakefinder.jpg"
                             langs={['py']}
                             tags={['opencv', 'multiprocessing', 'numpy']}
                             gh="https://github.com/ky28059/flakefinder"
@@ -73,7 +73,7 @@ export default function Projects() {
                     <ProjectGroup name="GRT" gh="https://github.com/grt192">
                         <ProjectImageCard
                             name="GRT Website 2.0"
-                            href="/assets/projects/grt-website.png"
+                            href="/assets/projects/grt-website.jpg"
                             langs={['ts', 'css']}
                             tags={['nextjs', 'tailwindcss']}
                             gh="https://github.com/ky28059/GRTWebsite2.0"
@@ -237,7 +237,7 @@ export default function Projects() {
                         */}
                         <ProjectImageCard
                             name="RBot"
-                            href="/assets/projects/rbot-2.png"
+                            href="/assets/projects/rbot.jpg"
                             langs={['ts']}
                             tags={['discord.js']}
                             gh="https://github.com/ky28059/RBot"
@@ -247,7 +247,7 @@ export default function Projects() {
                         </ProjectImageCard>
                         <ProjectImageCard
                             name="Geckobot"
-                            href="/assets/projects/geckobot-2.png"
+                            href="/assets/projects/geckobot-3.jpg"
                             langs={['c#', 'q#']}
                             tags={['discord.net']}
                             gh="https://github.com/croissantderp/geckobot"
