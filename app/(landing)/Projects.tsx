@@ -265,6 +265,20 @@ const projects: ProjectGroupData[] = [
             gh: "https://github.com/GunnWATT/watt",
             web: "https://gunnwatt.web.app/"
         }, {
+            name: "kevin-yu",
+            href: "/pfp.png",
+            langs: ['ts'],
+            tags: ['discord.js', 'PortalBot framework'],
+            gh: "https://github.com/ky28059/kevin-yu",
+            desc: "Fun discord bot for personal servers."
+        }, {
+            name: "Corpus Obfuscator",
+            href: "/assets/projects/corpus-obfuscator-2.jpg",
+            langs: ['ts'],
+            tags: [],
+            gh: "https://github.com/ky28059/ky28059.github.io/tree/main/app/(scripts)/corpus-obfuscator",
+            desc: "Simple obfuscator to represent any C program as any corpus of text using #define macros."
+        }, {
             desc: "Discord moderation and music bot written in discord.js 14, TypeScript, and sequelize.",
             name: "RBot",
             href: "/assets/projects/rbot.jpg",
@@ -297,19 +311,12 @@ const projects: ProjectGroupData[] = [
             gh: "https://github.com/ky28059/elixirbot",
             discord: "https://discord.com/oauth2/authorize?client_id=1092613929278120017&scope=bot+applications.commands&permissions=8"
         }, {
-            name: "kevin-yu",
-            href: "/pfp.png",
-            langs: ['ts'],
-            tags: ['discord.js', 'PortalBot framework'],
-            gh: "https://github.com/ky28059/kevin-yu",
-            desc: "Fun discord bot for personal servers."
-        }, {
             name: "competitive-programming-club",
             href: "/assets/projects/competitive-programming-club-2.jpg",
             langs: ['kt', 'go', 'java', 'haskell'],
             tags: [],
             gh: "https://github.com/ky28059/competitive-programming-club",
-            desc: "A repository of my competitive programming code from various competitions and events."
+            desc: "Repository of competitive programming solutions from various competitions and events."
         }, {
             desc: "Repository of assignments from the first (scheme) semester of Gunn's AP CSA.",
             name: "AP CSA",
