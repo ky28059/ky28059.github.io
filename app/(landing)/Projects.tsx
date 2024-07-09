@@ -200,7 +200,8 @@ const projects: ProjectGroupData[] = [
         },
             // TODO: guava bot & slack
         ]
-    }, {
+    },
+    {
         name: "GunnHacks",
         gh: "https://github.com/united-computations",
         projects: [{
@@ -230,7 +231,7 @@ const projects: ProjectGroupData[] = [
         }]
     }, {
         name: "G'Floats",
-        projects: [ {
+        projects: [{
             desc: "Python scripts for the Raspberry Pi radio + hatch mechanism + fog machine in the 2022 Senior float.",
             name: "floats-2022",
             href: "/assets/projects/floats-23.JPG",
@@ -266,7 +267,7 @@ const projects: ProjectGroupData[] = [
             web: "https://gunnwatt.web.app/"
         }, {
             name: "kevin-yu",
-            href: "/pfp.png",
+            href: "/assets/projects/kevin-yu.jpg",
             langs: ['ts'],
             tags: ['discord.js', 'PortalBot framework'],
             gh: "https://github.com/ky28059/kevin-yu",
@@ -277,6 +278,7 @@ const projects: ProjectGroupData[] = [
             langs: ['ts'],
             tags: [],
             gh: "https://github.com/ky28059/ky28059.github.io/tree/main/app/(scripts)/corpus-obfuscator",
+            web: 'https://ky28059.github.io/corpus-obfuscator',
             desc: "Simple obfuscator to represent any C program as any corpus of text using #define macros."
         }, {
             desc: "Discord moderation and music bot written in discord.js 14, TypeScript, and sequelize.",
@@ -355,7 +357,9 @@ function ProjectsCardGrid(props: { children: ReactNode }) {
 function ProjectGroup(props: { name: string, children: ReactNode, gh?: string }) {
     return (
         <div className="flex gap-8">
-            <div className="flex flex-col items-center gap-3 text-secondary dark:text-secondary-dark mb-2">
+            <div className="flex flex-col items-center gap-3 text-secondary dark:text-secondary-dark mb-2 -mt-1.5">
+                <div className="size-3.5 flex-none rounded-full bg-secondary dark:bg-secondary-dark" />
+
                 <h3 className="font-medium mb-0.5 flex-none [writing-mode:vertical-lr]">
                     {props.name}
                 </h3>
