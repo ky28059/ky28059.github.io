@@ -148,7 +148,7 @@ const projects: ProjectGroupData[] = [
             desc: 'Scoreboard scraper and automated attack / testing pipeline for eCTF 2024.',
             href: "/assets/projects/scrape-bot.jpg",
             langs: ['ts'],
-            tags: ['discord.js', 'PortalBot framework'],
+            tags: ['discord.js', 'express', 'PortalBot framework'],
             gh: "https://github.com/Purdue-eCTF-2024/scrape-bot"
         }]
     },
@@ -302,6 +302,13 @@ const projects: ProjectGroupData[] = [
             tags: ['discord.js', 'PortalBot framework'],
             gh: "https://github.com/ky28059/kevin-yu",
             desc: "Fun discord bot for personal servers."
+        }, {
+            name: "competitive-programming-club",
+            href: "/assets/projects/competitive-programming-club-2.jpg",
+            langs: ['kt', 'go', 'java', 'haskell'],
+            tags: [],
+            gh: "https://github.com/ky28059/competitive-programming-club",
+            desc: "A repository of my competitive programming code from various competitions and events."
         }, {
             desc: "Repository of assignments from the first (scheme) semester of Gunn's AP CSA.",
             name: "AP CSA",

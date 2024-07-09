@@ -42,7 +42,7 @@ export default function ProjectImageCard(props: ProjectData) {
 }
 
 export type LanguageKey = 'html' | 'js' | 'ts' | 'css' | 'scss' | 'svelte' | 'py' | 'c#' | 'q#'
-    | 'java' | 'kt' | 'rkt' | 'elixir' | 'rust'
+    | 'java' | 'kt' | 'rkt' | 'elixir' | 'rust' | 'go' | 'haskell'
 
 export function ProjectTag(props: { lang: LanguageKey }) {
     const color = langToColor(props.lang);
@@ -72,6 +72,8 @@ export function langToColor(lang: LanguageKey) {
         case 'rkt': return '#3c5caa';
         case 'elixir': return '#6e4a7e';
         case 'rust': return '#dea584';
+        case 'go': return '#00ADD8';
+        case 'haskell': return '#5e5086';
         default: return '#fff';
     }
 }
@@ -92,6 +94,8 @@ export function langToFullName(lang: LanguageKey) {
         case 'rkt': return 'Racket';
         case 'elixir': return 'Elixir';
         case 'rust': return 'Rust';
+        case 'go': return 'Go';
+        case 'haskell': return 'Haskell';
         default: return 'Unknown';
     }
 }
