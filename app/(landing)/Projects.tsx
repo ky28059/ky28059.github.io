@@ -29,15 +29,16 @@ export default function Projects() {
                 <ProjectsHeaderSection>
                     <SectionHeading>Projects</SectionHeading>
                     <p className="text-primary dark:text-primary-dark mb-6">
-                        Various programming projects for organizations like the Gunn Robotics Team or GunnHacks, as well
-                        as personal projects like RBot and WATT.
+                        Various programming projects for organizations like the b01lers CTF team or BWSI, as well
+                        as personal hobby projects like RBot and WATT.
                     </p>
 
-                    <h2 className="text-lg font-semibold mb-2">
+                    {/* TODO */}
+                    <h2 className="text-lg font-semibold mb-2 hidden">
                         Statistics
                     </h2>
                     {Object.entries(counts).sort(([, a], [, b]) => b - a).map(([lang, count]) => (
-                        <div key={lang} className="group flex gap-3 items-center mb-0.5">
+                        <div key={lang} className="group flex gap-3 items-center mb-0.5 !hidden">
                             <div
                                 className="rounded-full size-3 ring-2 mx-0.5 ring-black ring-opacity-75 dark:ring-opacity-50"
                                 style={{
@@ -176,13 +177,6 @@ const projects: ProjectGroupData[] = [
             gh: "https://github.com/ky28059/GRTWebsite2.0",
             web: "https://www.gunnrobotics.com"
         }, {
-            desc: "FRC team 192 code for the 2022 FIRST Robotics Competition, Rapid React.",
-            name: "GRT2022",
-            href: "/assets/projects/grt-22.JPG",
-            langs: ["java"],
-            tags: ["wpilib"],
-            gh: "https://github.com/grt192/GRT2022"
-        }, {
             desc: "FRC team 192 code for 2023 FIRST Robotics Competition, Charged Up.",
             name: "GRT2023",
             href: "/assets/projects/grt-23-3.JPG",
@@ -196,6 +190,13 @@ const projects: ProjectGroupData[] = [
             langs: ["py"],
             tags: ["zeromq", "pupil-apriltags"],
             gh: "https://github.com/grt192/GRTVision2023"
+        }, {
+            desc: "FRC team 192 code for the 2022 FIRST Robotics Competition, Rapid React.",
+            name: "GRT2022",
+            href: "/assets/projects/grt-22.JPG",
+            langs: ["java"],
+            tags: ["wpilib"],
+            gh: "https://github.com/grt192/GRT2022"
         },
             // TODO: guava bot & slack
         ]
@@ -203,13 +204,13 @@ const projects: ProjectGroupData[] = [
         name: "GunnHacks",
         gh: "https://github.com/united-computations",
         projects: [{
-            desc: "Website for GunnHacks 7.0, the seventh iteration of Gunn's annual hackathon.",
-            name: "GunnHacks 7.0",
-            href: "/assets/projects/gunnhacks-7.0.jpg",
-            langs: ["js", "html", "scss"],
-            tags: [],
-            gh: "https://github.com/united-computations/GunnHacks7.0",
-            web: "https://7.0.gunnhacks.com"
+            desc: "Website for GunnHacks 9.0, the ninth iteration of Gunn's annual hackathon.",
+            name: "GunnHacks 9.0",
+            href: "/assets/projects/gunnhacks-9.0.png",
+            langs: ["ts", "css"],
+            tags: ["nextjs", "tailwindcss"],
+            gh: "https://github.com/united-computations/GunnHacks9.0",
+            web: "https://gunnhacks.com"
         }, {
             desc: "Website for GunnHacks 8.0, the eighth iteration of Gunn's annual hackathon.",
             name: "GunnHacks 8.0",
@@ -219,30 +220,30 @@ const projects: ProjectGroupData[] = [
             gh: "https://github.com/united-computations/GunnHacks8.0",
             web: "https://8.0.gunnhacks.com"
         }, {
-            desc: "Website for GunnHacks 9.0, the ninth iteration of Gunn's annual hackathon.",
-            name: "GunnHacks 9.0",
-            href: "/assets/projects/gunnhacks-9.0.png",
-            langs: ["ts", "css"],
-            tags: ["nextjs", "tailwindcss"],
-            gh: "https://github.com/united-computations/GunnHacks9.0",
-            web: "https://gunnhacks.com"
+            desc: "Website for GunnHacks 7.0, the seventh iteration of Gunn's annual hackathon.",
+            name: "GunnHacks 7.0",
+            href: "/assets/projects/gunnhacks-7.0.jpg",
+            langs: ["js", "html", "scss"],
+            tags: [],
+            gh: "https://github.com/united-computations/GunnHacks7.0",
+            web: "https://7.0.gunnhacks.com"
         }]
     }, {
         name: "G'Floats",
-        projects: [{
-            desc: "Python script for the Raspberry Pi radio in the 2021 Junior float.",
-            name: "hoco-radio-2021",
-            href: "/assets/projects/floats-22.JPG",
-            langs: ["py"],
-            tags: ["pygame"],
-            gh: "https://github.com/ky28059/hoco-radio-2021"
-        }, {
+        projects: [ {
             desc: "Python scripts for the Raspberry Pi radio + hatch mechanism + fog machine in the 2022 Senior float.",
             name: "floats-2022",
             href: "/assets/projects/floats-23.JPG",
             langs: ["py"],
             tags: ["pygame", "pigpio", "multiprocessing"],
             gh: "https://github.com/ky28059/floats-2022"
+        }, {
+            desc: "Python script for the Raspberry Pi radio in the 2021 Junior float.",
+            name: "hoco-radio-2021",
+            href: "/assets/projects/floats-22.JPG",
+            langs: ["py"],
+            tags: ["pygame"],
+            gh: "https://github.com/ky28059/hoco-radio-2021"
         }]
     },
     {
@@ -347,7 +348,7 @@ function ProjectsCardGrid(props: { children: ReactNode }) {
 function ProjectGroup(props: { name: string, children: ReactNode, gh?: string }) {
     return (
         <div className="flex gap-8">
-            <div className="flex flex-col items-center gap-3 text-secondary dark:text-secondary-dark mb-4">
+            <div className="flex flex-col items-center gap-3 text-secondary dark:text-secondary-dark mb-2">
                 <h3 className="font-medium mb-0.5 flex-none [writing-mode:vertical-lr]">
                     {props.name}
                 </h3>
