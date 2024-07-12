@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
-import CounterContent from './CounterContent';
+import TwentyOnePointsContent from './TwentyOnePointsContent';
 
 
 export const metadata: Metadata = {
-    title: 'Counter',
+    title: '21 points',
     description: 'Simple counter for the 21 points icebreaker.'
 }
 
 export default function Counter() {
     return (
         <div className="h-screen flex items-center justify-center">
-            <CounterContent />
+            <TwentyOnePointsContent />
         </div>
     )
 }
