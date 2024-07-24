@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Counter() {
     return (
-        <div className="h-screen flex items-center justify-center">
+        <div className="h-dvh flex items-center justify-center">
             <TwentyOnePointsContent />
         </div>
     )
