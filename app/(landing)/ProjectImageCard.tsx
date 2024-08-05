@@ -41,7 +41,7 @@ export default function ProjectImageCard(props: ProjectData) {
     )
 }
 
-export type LanguageKey = 'html' | 'js' | 'ts' | 'css' | 'scss' | 'svelte' | 'py' | 'c#' | 'q#'
+export type LanguageKey = 'html' | 'js' | 'ts' | 'css' | 'scss' | 'svelte' | 'py' | 'cpp' | 'c#' | 'q#'
     | 'java' | 'kt' | 'rkt' | 'elixir' | 'rust' | 'go' | 'haskell'
 
 export function ProjectTag(props: { lang: LanguageKey }) {
@@ -65,6 +65,7 @@ export function langToColor(lang: LanguageKey) {
         case 'scss': return '#c6538c';
         case 'svelte': return '#ff3e00';
         case 'py': return '#3572A5';
+        case 'cpp': return '#f34b7d';
         case 'c#': return '#178600';
         case 'q#': return '#fed659';
         case 'java': return '#b07219';
@@ -87,6 +88,7 @@ export function langToFullName(lang: LanguageKey) {
         case 'scss': return 'SCSS';
         case 'svelte': return 'Svelte';
         case 'py': return 'Python';
+        case 'cpp': return 'C++';
         case 'c#': return 'C#';
         case 'q#': return 'Q#';
         case 'java': return 'Java';

@@ -117,6 +117,13 @@ const projects: ProjectGroupData[] = [
             tags: ['opencv', 'numpy', 'sphinx'],
             gh: "https://github.com/MITRacecarNeo/racecar-neo-library",
             web: "https://mitracecarneo.github.io/racecar-neo-library/"
+        }, {
+            name: "Dynamic Obstacles 2024",
+            desc: 'Arduino code for the dynamic obstacles as part of the 2024 RACECAR Grand Prix.',
+            href: "/assets/projects/dynamic-obstacles.jpg",
+            langs: ['cpp'],
+            tags: ['arduino'],
+            gh: "https://github.com/MITRacecarNeo/dynamic-obstacles-2024",
         }]
     },
     {
