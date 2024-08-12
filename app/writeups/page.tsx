@@ -11,19 +11,41 @@ export const metadata: Metadata = {
 }
 
 export default async function Writeups() {
+    const categoryCounts: { [c: string]: number } = {};
+    for (const w of ctfs.flatMap(c => c.writeups)) {
+        if (!w.type) continue;
+        if (!categoryCounts[w.type]) categoryCounts[w.type] = 0;
+        categoryCounts[w.type]++;
+    }
+
     return (
         <>
             <SectionHeading>CTF Writeups</SectionHeading>
 
-            <section className="flex flex-col gap-4 pl-4">
-                {ctfs.map((c) => (
-                    <CTF name={c.name} key={c.name}>
-                        {c.writeups.map((w) => (
-                            <Writeup {...w} key={w.name} />
-                        ))}
-                    </CTF>
-                ))}
-            </section>
+            <div className="flex gap-8">
+                <section className="flex-grow flex flex-col gap-4 pl-4">
+                    {ctfs.map((c) => (
+                        <CTF name={c.name} key={c.name}>
+                            {c.writeups.map((w) => (
+                                <Writeup {...w} key={w.name} />
+                            ))}
+                        </CTF>
+                    ))}
+                </section>
+
+                <section className="px-6 py-4 rounded h-max sticky top-8 w-72 bg-black/5 dark:bg-white/5">
+                    <h2 className="font-semibold mb-2 text-sm">Categories</h2>
+
+                    {Object.entries(categoryCounts).sort(([a, ], [b, ]) => a.localeCompare(b)).map(([name, count]) => (
+                        <div className="flex gap-2 items-center">
+                            <p className="text-primary dark:text-primary-dark">{name}</p>
+                            <span className="text-xs font-semibold text-grapefruit bg-grapefruit/30 rounded-full px-1.5 py-0.5">
+                                {count}
+                            </span>
+                        </div>
+                    ))}
+                </section>
+            </div>
         </>
     )
 }
