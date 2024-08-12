@@ -32,13 +32,18 @@ export default function CTF(props: CTFProps) {
 
 type ChallType = 'misc' | 'web' | 'crypto' | 'pwn' | 'rev' | 'osint' | 'apk'
 
-export function Writeup(props: { href: string, type?: ChallType, children: ReactNode }) {
+export type WriteupData = {
+    href: string,
+    type?: ChallType,
+    name: string
+}
+export function Writeup(props: WriteupData) {
     return (
         <li className="group relative font-mono">
             <BiSubdirectoryRight className="absolute -left-7 text-xl inset-y-0 my-auto text-secondary dark:text-secondary-dark group-hover:text-primary dark:group-hover:text-primary-dark" />
 
             <a href={props.href} target="_blank" rel="noopener noreferrer">
-                {props.children}
+                {props.name}
             </a>
             {props.type && (
                 <span className="ml-1.5 select-none px-1.5 py-0.5 text-xs rounded-full bg-grapefruit/30 text-grapefruit font-semibold hover:no-underline">
