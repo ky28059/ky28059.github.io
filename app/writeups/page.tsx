@@ -57,6 +57,14 @@ type CTFData = {
 
 const ctfs: CTFData[] = [
     {
+        name: 'corCTF 2024',
+        writeups: [{
+            type: 'misc',
+            href: 'https://gist.github.com/ky28059/2f279fff831a5be3d6b5fbb8a6d86057',
+            name: 'msfrogofwar3'
+        }]
+    },
+    {
         name: 'UIUCTF 2024',
         writeups: [{
             type: 'osint',
