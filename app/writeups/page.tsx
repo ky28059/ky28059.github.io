@@ -57,6 +57,14 @@ type CTFData = {
 
 const ctfs: CTFData[] = [
     {
+        name: 'LITCTF 2024',
+        writeups: [{
+            type: 'pwn',
+            href: 'https://gist.github.com/ky28059/850fe47a2d02422cae230ff311db4b84',
+            name: 'recurse'
+        }]
+    },
+    {
         name: 'corCTF 2024',
         writeups: [{
             type: 'misc',
