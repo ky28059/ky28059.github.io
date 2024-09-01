@@ -57,6 +57,22 @@ type CTFData = {
 
 const ctfs: CTFData[] = [
     {
+        name: 'CyberSpace CTF 2024',
+        writeups: [{
+            type: 'misc',
+            href: 'https://gist.github.com/ky28059/467d31ff2f536b79f517da4f85229be4',
+            name: 'SKK?'
+        }, {
+            type: 'misc',
+            href: 'https://gist.github.com/ky28059/c7e3e83bb501755bda31683f0d359578',
+            name: 'Game with Rin'
+        }, {
+            type: 'web',
+            href: 'https://gist.github.com/ky28059/5af97a38d168d540bda2e5b3ae1324bf',
+            name: 'trendz(zz)?'
+        }]
+    },
+    {
         name: 'LITCTF 2024',
         writeups: [{
             type: 'pwn',
