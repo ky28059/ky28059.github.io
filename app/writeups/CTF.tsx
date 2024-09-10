@@ -30,7 +30,7 @@ export default function CTF(props: CTFProps) {
     )
 }
 
-type ChallType = 'misc' | 'web' | 'crypto' | 'pwn' | 'rev' | 'osint' | 'apk'
+type ChallType = 'misc' | 'web' | 'crypto' | 'pwn' | 'rev' | 'osint' | 'apk' | 'forensics'
 
 export type WriteupData = {
     href: string,

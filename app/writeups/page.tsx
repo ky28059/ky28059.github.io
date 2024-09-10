@@ -57,6 +57,14 @@ type CTFData = {
 
 const ctfs: CTFData[] = [
     {
+        name: 'CSAW\'24 Quals',
+        writeups: [{
+            type: 'forensics',
+            href: 'https://gist.github.com/ky28059/6c2437fd2e120bad3af82c8fcd36e5a5',
+            name: 'I like it RAW'
+        }]
+    },
+    {
         name: 'CyberSpace CTF 2024',
         writeups: [{
             type: 'misc',
