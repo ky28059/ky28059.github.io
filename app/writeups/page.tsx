@@ -57,6 +57,13 @@ type CTFData = {
 
 const ctfs: CTFData[] = [
     {
+        name: 'jailCTF 2024',
+        writeups: [{
+            href: 'https://gist.github.com/ky28059/e9170fdb1df865a9811ef434c097e781',
+            name: 'jellyjail'
+        }]
+    },
+    {
         name: 'CSAW\'24 Quals',
         writeups: [{
             type: 'forensics',
