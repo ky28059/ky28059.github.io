@@ -107,12 +107,23 @@ type ProjectGroupData = {
 
 const projects: ProjectGroupData[] = [
     {
+        name: 'Campus Ventures',
+        projects: [{
+            name: 'Jumpseat',
+            desc: 'Travel engine for college students at Purdue, IU, UIUC, and more.',
+            src: '/assets/projects/jumpseat.jpg',
+            langs: ['ts', 'css'],
+            tags: ['nextjs', 'tailwindcss'],
+            web: 'https://jumpseatapp.com'
+        }]
+    },
+    {
         name: "MIT RACECAR Neo",
         gh: "https://github.com/MITRacecarNeo",
         projects: [{
             name: "RACECAR Neo Library",
             desc: 'The onboard library and documentation for MIT BWSI RACECAR.',
-            href: "/assets/projects/racecar-library-3.jpg",
+            src: "/assets/projects/racecar-library-3.jpg",
             langs: ['py'],
             tags: ['opencv', 'numpy', 'sphinx'],
             gh: "https://github.com/MITRacecarNeo/racecar-neo-library",
@@ -120,7 +131,7 @@ const projects: ProjectGroupData[] = [
         }, {
             name: "Dynamic Obstacles 2024",
             desc: 'Arduino code for the dynamic obstacles as part of the 2024 RACECAR Grand Prix.',
-            href: "/assets/projects/dynamic-obstacles.jpg",
+            src: "/assets/projects/dynamic-obstacles.jpg",
             langs: ['cpp'],
             tags: ['arduino'],
             gh: "https://github.com/MITRacecarNeo/dynamic-obstacles-2024",
@@ -132,7 +143,7 @@ const projects: ProjectGroupData[] = [
         projects: [{
             name: "bctf",
             desc: 'The new website for b01lers CTF!',
-            href: "/assets/projects/b01lers-ctf-3.jpg",
+            src: "/assets/projects/b01lers-ctf-3.jpg",
             langs: ['ts', 'css'],
             tags: ['nextjs', 'tailwindcss'],
             gh: "https://github.com/ky28059/bctf",
@@ -140,21 +151,21 @@ const projects: ProjectGroupData[] = [
         }, {
             name: "b01lers-bot",
             desc: 'An upgraded discord bot for the b01lers CTF team server.',
-            href: "/assets/projects/b01lers-bot.jpg",
+            src: "/assets/projects/b01lers-bot.jpg",
             langs: ['rust'],
             tags: ['serenity', 'poise', 'sqlx'],
             gh: "https://github.com/Athryx/b01lers-bot"
         }, {
             name: "MITRE eCTF 2024",
             desc: 'Secure protocol implementation for the MITRE embedded CTF 2024.',
-            href: "/assets/projects/ectf-24.jpg",
+            src: "/assets/projects/ectf-24.jpg",
             langs: ['rust'],
             tags: ['MAX78000FTHR'],
             gh: "https://github.com/Purdue-eCTF-2024/2024-ectf-secure-example"
         }, {
             name: "scrape-bot",
             desc: 'Scoreboard scraper and automated attack / testing pipeline for eCTF 2024.',
-            href: "/assets/projects/scrape-bot.jpg",
+            src: "/assets/projects/scrape-bot.jpg",
             langs: ['ts'],
             tags: ['discord.js', 'express', 'PortalBot framework'],
             gh: "https://github.com/Purdue-eCTF-2024/scrape-bot"
@@ -166,7 +177,7 @@ const projects: ProjectGroupData[] = [
         projects: [{
             desc: "Scripts to detect and classify monolayer graphene flakes in microscope scan datasets.",
             name: "flakefinder",
-            href: "/assets/projects/flakefinder.jpg",
+            src: "/assets/projects/flakefinder.jpg",
             langs: ["py"],
             tags: ["opencv", "multiprocessing", "numpy"],
             gh: "https://github.com/ky28059/flakefinder"
@@ -178,7 +189,7 @@ const projects: ProjectGroupData[] = [
         projects: [{
             desc: "A modern rewrite of the Gunn Robotics Team website.",
             name: "GRT Website 2.0",
-            href: "/assets/projects/grt-website.jpg",
+            src: "/assets/projects/grt-website.jpg",
             langs: ["ts", "css"],
             tags: ["nextjs", "tailwindcss"],
             gh: "https://github.com/ky28059/GRTWebsite2.0",
@@ -186,21 +197,21 @@ const projects: ProjectGroupData[] = [
         }, {
             desc: "FRC team 192 code for 2023 FIRST Robotics Competition, Charged Up.",
             name: "GRT2023",
-            href: "/assets/projects/grt-23-3.JPG",
+            src: "/assets/projects/grt-23-3.JPG",
             langs: ["java"],
             tags: ["wpilib"],
             gh: "https://github.com/grt192/GRT2023"
         }, {
             desc: "Attempt at a scalable vision framework for FRC 2023 supporting AprilTag and green-light detection.",
             name: "GRTVision2023",
-            href: "/assets/projects/grt-vision-23-2.JPG",
+            src: "/assets/projects/grt-vision-23-2.JPG",
             langs: ["py"],
             tags: ["zeromq", "pupil-apriltags"],
             gh: "https://github.com/grt192/GRTVision2023"
         }, {
             desc: "FRC team 192 code for the 2022 FIRST Robotics Competition, Rapid React.",
             name: "GRT2022",
-            href: "/assets/projects/grt-22.JPG",
+            src: "/assets/projects/grt-22.JPG",
             langs: ["java"],
             tags: ["wpilib"],
             gh: "https://github.com/grt192/GRT2022"
@@ -214,7 +225,7 @@ const projects: ProjectGroupData[] = [
         projects: [{
             desc: "Website for GunnHacks 9.0, the ninth iteration of Gunn's annual hackathon.",
             name: "GunnHacks 9.0",
-            href: "/assets/projects/gunnhacks-9.0.png",
+            src: "/assets/projects/gunnhacks-9.0.png",
             langs: ["ts", "css"],
             tags: ["nextjs", "tailwindcss"],
             gh: "https://github.com/united-computations/GunnHacks9.0",
@@ -222,7 +233,7 @@ const projects: ProjectGroupData[] = [
         }, {
             desc: "Website for GunnHacks 8.0, the eighth iteration of Gunn's annual hackathon.",
             name: "GunnHacks 8.0",
-            href: "/assets/projects/gunnhacks-8.0.jpg",
+            src: "/assets/projects/gunnhacks-8.0.jpg",
             langs: ["svelte", "html", "css"],
             tags: ["sveltekit"],
             gh: "https://github.com/united-computations/GunnHacks8.0",
@@ -230,7 +241,7 @@ const projects: ProjectGroupData[] = [
         }, {
             desc: "Website for GunnHacks 7.0, the seventh iteration of Gunn's annual hackathon.",
             name: "GunnHacks 7.0",
-            href: "/assets/projects/gunnhacks-7.0.jpg",
+            src: "/assets/projects/gunnhacks-7.0.jpg",
             langs: ["js", "html", "scss"],
             tags: [],
             gh: "https://github.com/united-computations/GunnHacks7.0",
@@ -241,14 +252,14 @@ const projects: ProjectGroupData[] = [
         projects: [{
             desc: "Python scripts for the Raspberry Pi radio + hatch mechanism + fog machine in the 2022 Senior float.",
             name: "floats-2022",
-            href: "/assets/projects/floats-23.JPG",
+            src: "/assets/projects/floats-23.JPG",
             langs: ["py"],
             tags: ["pygame", "pigpio", "multiprocessing"],
             gh: "https://github.com/ky28059/floats-2022"
         }, {
             desc: "Python script for the Raspberry Pi radio in the 2021 Junior float.",
             name: "hoco-radio-2021",
-            href: "/assets/projects/floats-22.JPG",
+            src: "/assets/projects/floats-22.JPG",
             langs: ["py"],
             tags: ["pygame"],
             gh: "https://github.com/ky28059/hoco-radio-2021"
@@ -259,7 +270,7 @@ const projects: ProjectGroupData[] = [
         projects: [{
             desc: "A student-made schedule app for Purdue University!",
             name: "Pyrite",
-            href: "/assets/projects/pyrite.png",
+            src: "/assets/projects/pyrite.png",
             langs: ["ts", "css"],
             tags: ["nextjs", "tailwindcss", "firebase"],
             gh: "https://github.com/ky28059/pyrite",
@@ -267,21 +278,21 @@ const projects: ProjectGroupData[] = [
         }, {
             desc: "Gunn schedule app and UGWA successor.",
             name: "WATT",
-            href: "/assets/projects/watt.png",
+            src: "/assets/projects/watt.png",
             langs: ["ts", "html", "scss"],
             tags: ["create-react-app", "tailwindcss", "firebase"],
             gh: "https://github.com/GunnWATT/watt",
             web: "https://gunnwatt.web.app/"
         }, {
             name: "kevin-yu",
-            href: "/assets/projects/kevin-yu.jpg",
+            src: "/assets/projects/kevin-yu.jpg",
             langs: ['ts'],
             tags: ['discord.js', 'PortalBot framework'],
             gh: "https://github.com/ky28059/kevin-yu",
             desc: "Fun discord bot for personal servers."
         }, {
             name: "Corpus Obfuscator",
-            href: "/assets/projects/corpus-obfuscator-2.jpg",
+            src: "/assets/projects/corpus-obfuscator-2.jpg",
             langs: ['ts'],
             tags: [],
             gh: "https://github.com/ky28059/ky28059.github.io/tree/main/app/(scripts)/corpus-obfuscator",
@@ -290,7 +301,7 @@ const projects: ProjectGroupData[] = [
         }, {
             desc: "Discord moderation and music bot written in discord.js 14, TypeScript, and sequelize.",
             name: "RBot",
-            href: "/assets/projects/rbot.jpg",
+            src: "/assets/projects/rbot.jpg",
             langs: ["ts"],
             tags: ["discord.js"],
             gh: "https://github.com/ky28059/RBot",
@@ -298,7 +309,7 @@ const projects: ProjectGroupData[] = [
         }, {
             desc: "Discord.Net bot with Google Drive integration and quantum computing shenanigans.",
             name: "Geckobot",
-            href: "/assets/projects/geckobot-3.jpg",
+            src: "/assets/projects/geckobot-3.jpg",
             langs: ["c#", "q#"],
             tags: ["discord.net"],
             gh: "https://github.com/croissantderp/geckobot",
@@ -306,7 +317,7 @@ const projects: ProjectGroupData[] = [
         }, {
             desc: "TypeScript discord.js bot for real-time cross-server communication.",
             name: "PortalBot",
-            href: "/assets/projects/PortalBot.jpg",
+            src: "/assets/projects/PortalBot.jpg",
             langs: ["ts"],
             tags: ["discord.js", "PortalBot framework"],
             gh: "https://github.com/ky28059/PortalBot",
@@ -314,14 +325,14 @@ const projects: ProjectGroupData[] = [
         }, {
             desc: "A testing / moderation bot written to explore elixir.",
             name: "Elixirbot",
-            href: "/assets/projects/elixirbot.jpg",
+            src: "/assets/projects/elixirbot.jpg",
             langs: ["elixir"],
             tags: ["nostrum", "nosedrum"],
             gh: "https://github.com/ky28059/elixirbot",
             discord: "https://discord.com/oauth2/authorize?client_id=1092613929278120017&scope=bot+applications.commands&permissions=8"
         }, {
             name: "competitive-programming-club",
-            href: "/assets/projects/competitive-programming-club-2.jpg",
+            src: "/assets/projects/competitive-programming-club-2.jpg",
             langs: ['kt', 'go', 'java', 'haskell'],
             tags: [],
             gh: "https://github.com/ky28059/competitive-programming-club",
@@ -329,7 +340,7 @@ const projects: ProjectGroupData[] = [
         }, {
             desc: "Repository of assignments from the first (scheme) semester of Gunn's AP CSA.",
             name: "AP CSA",
-            href: "/assets/projects/ap-csa.jpg",
+            src: "/assets/projects/ap-csa.jpg",
             langs: ["rkt"],
             tags: [],
             gh: "https://github.com/ky28059/AP-CSA"

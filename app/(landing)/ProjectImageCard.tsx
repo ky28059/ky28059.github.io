@@ -1,22 +1,25 @@
 export type ProjectData = {
     name: string,
-    href: string
+    src: string
     desc: string,
     img?: string,
     langs: LanguageKey[],
     tags: string[],
 
-    gh: string,
+    gh?: string,
     discord?: string,
     web?: string
 }
 export default function ProjectImageCard(props: ProjectData) {
+    // TODO: display all links on hover
+    const href = props.web ?? props.gh;
+
     return (
         <div className="group rounded-md overflow-hidden border border-white/25 hover:border-white/50 transition duration-150 relative w-96">
-            <a href={props.gh} target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-10" />
+            <a href={href} target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-10" />
 
             <img
-                src={props.href}
+                src={props.src}
                 alt={props.name}
                 className="w-full h-44 object-cover transition duration-150"
             />
