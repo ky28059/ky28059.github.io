@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 
 // Components
 import { SectionHeading } from '../../components/Section';
-import CTF, { Writeup, WriteupData } from './CTF';
+import CTF from './CTF';
+import Writeup, { WriteupData } from './Writeup';
 
 
 export const metadata: Metadata = {
@@ -33,7 +34,7 @@ export default async function Writeups() {
                     ))}
                 </section>
 
-                <section className="px-6 py-4 rounded h-max sticky top-8 w-72 bg-black/5 dark:bg-white/5">
+                <section className="px-6 py-4 rounded h-max sticky top-8 w-72 flex-none bg-black/5 dark:bg-white/5">
                     <h2 className="font-semibold mb-2 text-sm">Categories</h2>
 
                     {Object.entries(categoryCounts).sort(([a, ], [b, ]) => a.localeCompare(b)).map(([name, count]) => (
