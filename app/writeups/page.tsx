@@ -58,6 +58,27 @@ type CTFData = {
 
 const ctfs: CTFData[] = [
     {
+        name: 'PatriotCTF 2024',
+        writeups: [{
+            href: 'https://gist.github.com/ky28059/f18c4f60f000b3f94c5aef427ce8b9aa',
+            name: 'Really Only Echo',
+            type: 'misc',
+            src: 'https://gist.github.com/user-attachments/assets/a08452a5-fcd9-4849-af40-8979f678f55e'
+        }, {
+            href: 'https://gist.github.com/ky28059/d539294051afa549eb303b832c7a5826',
+            name: 'Blob',
+            type: 'web',
+            src: '/assets/writeups/blob.jpg',
+            tags: ['ssti']
+        }, {
+            href: 'https://gist.github.com/ky28059/747618991296df76fa586bb2cf24d7ec',
+            name: 'Let\'s Play [steg]Hide & Seek',
+            type: 'misc',
+            src: 'https://gist.github.com/user-attachments/assets/1cd54f3b-de05-4e5c-969a-4e1b2c1ffe66',
+            tags: ['imgproc']
+        }]
+    },
+    {
         name: 'jailCTF 2024',
         writeups: [{
             href: 'https://gist.github.com/ky28059/e9170fdb1df865a9811ef434c097e781',
@@ -176,6 +197,7 @@ const ctfs: CTFData[] = [
             name: "Raccoon Run",
             type: "crypto",
             href: "https://gist.github.com/ky28059/e9d0957313af0d38811e6e845dab7a41",
+            src: 'http://www.quadibloc.com/crypto/images/merstw.gif',
             tags: ['randcrack', 'scripting']
         }]
     },
