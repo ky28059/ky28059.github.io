@@ -20,7 +20,7 @@ export default async function Writeup(props: WriteupData) {
         >
             {props.src ? (
                 <img
-                    className="w-36 h-20 object-cover object-center flex-none bg-white"
+                    className="w-36 h-20 object-cover object-center flex-none bg-black/30"
                     src={props.src}
                     alt={props.name}
                 />

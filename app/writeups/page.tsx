@@ -63,6 +63,7 @@ const ctfs: CTFData[] = [
             href: 'https://gist.github.com/ky28059/e9170fdb1df865a9811ef434c097e781',
             name: 'jellyjail',
             // src: 'https://gist.github.com/user-attachments/assets/39b2cd25-132a-43bf-84a4-a7b29b78a38a'
+            // src: '/assets/writeups/jellyjail.jpg'
             src: 'https://gist.github.com/user-attachments/assets/c76f30bc-7abd-46fc-ae5b-bb5b697e2515'
         }]
     },
@@ -87,11 +88,13 @@ const ctfs: CTFData[] = [
             type: 'misc',
             href: 'https://gist.github.com/ky28059/c7e3e83bb501755bda31683f0d359578',
             name: 'Game with Rin',
+            src: '/assets/writeups/game-with-rin.jpg',
             tags: ['scripting']
         }, {
             type: 'web',
             href: 'https://gist.github.com/ky28059/5af97a38d168d540bda2e5b3ae1324bf',
-            name: 'trendz(zz)?'
+            name: 'trendz(zz)?',
+            src: '/assets/writeups/trendz.jpg'
         }]
     },
     {
@@ -108,8 +111,8 @@ const ctfs: CTFData[] = [
             type: 'misc',
             href: 'https://gist.github.com/ky28059/2f279fff831a5be3d6b5fbb8a6d86057',
             name: 'msfrogofwar3',
-            src: 'https://gist.github.com/user-attachments/assets/8a765e88-8838-49ae-bc11-91094fc83f97',
-            tags: ['stockfish']
+            src: '/assets/writeups/msfrogofwar3.jpg',
+            tags: ['stockfish', 'ssti']
         }]
     },
     {
@@ -128,7 +131,7 @@ const ctfs: CTFData[] = [
             type: 'osint',
             href: 'https://gist.github.com/ky28059/11ade1fe6eaaf1a864f60291a6ca3764',
             name: 'The Weakest Link',
-            src: 'https://gist.github.com/assets/60120929/d5c4010e-1a33-4414-80cf-d81e9a9145af'
+            src: '/assets/writeups/weakest-link.jpg'
         }, {
             type: 'osint',
             href: 'https://gist.github.com/ky28059/f55af843f32868e72f3fcb0bc9b732a2',
@@ -146,6 +149,7 @@ const ctfs: CTFData[] = [
             type: 'web',
             href: 'https://gist.github.com/ky28059/0c4ecb3e46bccbd295151d6d30c110d4',
             name: 'Letter to the editor',
+            // src: '/assets/writeups/letter-to-the-editor.jpg'
             src: 'https://gist.github.com/assets/60120929/baae2b59-e268-4aaa-af1e-fcfb460a0537'
         }]
     },
@@ -188,7 +192,7 @@ const ctfs: CTFData[] = [
             name: "100 degrees",
             type: "misc",
             href: "https://gist.github.com/ky28059/6c7d64b108118ddb29d4d919b6635f2f",
-            src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Lagrange_polynomial.svg/2560px-Lagrange_polynomial.svg.png'
+            src: '/assets/writeups/100-degrees.jpg'
         },
         {
             name: "Stop the voices",
@@ -225,7 +229,8 @@ const ctfs: CTFData[] = [
         }, {
             name: "my poor git",
             type: "misc",
-            href: "https://gist.github.com/ky28059/75ac9eafe11fe7645efe6edc414971e8"
+            href: "https://gist.github.com/ky28059/75ac9eafe11fe7645efe6edc414971e8",
+            src: 'https://avatars.githubusercontent.com/u/18133?s=200&v=4'
         }]
     },
     {
@@ -242,7 +247,8 @@ const ctfs: CTFData[] = [
         writeups: [{
             name: "MyVault",
             type: "apk",
-            href: "https://gist.github.com/ky28059/cec9f7e8071b52e890c6a2469360be48"
+            href: "https://gist.github.com/ky28059/cec9f7e8071b52e890c6a2469360be48",
+            src: '/assets/writeups/myvault.jpg'
         }, {
             name: "Cheater",
             type: "osint",
@@ -266,6 +272,7 @@ const ctfs: CTFData[] = [
             name: "Stress Release Service",
             type: "misc",
             href: "https://gist.github.com/ky28059/9822d07004862c228a90ca0da00166b6",
+            src: '/assets/writeups/stress-release-service.jpg',
             tags: ['charset']
         }]
     },
@@ -297,7 +304,8 @@ const ctfs: CTFData[] = [
             tags: ['prompt engineering']
         }, {
             name: "Stop the model thief!",
-            href: "https://gist.github.com/ky28059/2f74ca229358e1d7ef508cfa76379d35"
+            href: "https://gist.github.com/ky28059/2f74ca229358e1d7ef508cfa76379d35",
+            // src: '/assets/writeups/model-thief.jpg'
         }]
     },
     {
