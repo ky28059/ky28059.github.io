@@ -12,7 +12,7 @@ export default function LinkHeading(props: LinkHeadingProps) {
         <div className="relative">
             <span id={props.id} className="absolute -top-16" />
             <a
-                className={'group flex gap-2 items-center text-inherit hover:underline decoration-1 underline-offset-4 decoration-secondary dark:decoration-secondary-dark decoration-dotted' + (props.className ? ` ${props.className}` : '')}
+                className={'group flex gap-2 items-center text-inherit hover:underline decoration-1 underline-offset-4 decoration-secondary decoration-dotted' + (props.className ? ` ${props.className}` : '')}
                 href={`#${props.id}`}
             >
                 <h2>{props.children}</h2>

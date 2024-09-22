@@ -6,7 +6,7 @@ import { FillerText } from './ConceptsCard';
 export default function MockPage() {
     return (
         <div className="hidden sm:block bg-white dark:bg-midnight rounded-lg shadow-lg basis-72 min-w-[16rem] pb-4 h-max">
-            <div className="flex gap-2 p-2 border-b border-tertiary dark:border-tertiary-dark">
+            <div className="flex gap-2 p-2 border-b border-tertiary">
                 <div className="size-2 rounded-full bg-red-500" />
                 <div className="size-2 rounded-full bg-yellow-500" />
                 <div className="size-2 rounded-full bg-lime-500" />

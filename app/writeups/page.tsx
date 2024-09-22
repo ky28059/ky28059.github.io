@@ -38,7 +38,7 @@ export default async function Writeups() {
 
                     {Object.entries(categoryCounts).sort(([a, ], [b, ]) => a.localeCompare(b)).map(([name, count]) => (
                         <div className="flex gap-2 items-center">
-                            <p className="text-primary dark:text-primary-dark">{name}</p>
+                            <p className="text-primary">{name}</p>
                             <span className="text-xs font-semibold text-grapefruit bg-grapefruit/30 rounded-full px-1.5 py-0.5">
                                 {count}
                             </span>

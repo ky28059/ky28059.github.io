@@ -129,7 +129,7 @@ function IdCheckbox(props: IdCheckboxProps) {
     const {id, ids, setIds, children} = props;
 
     return (
-        <div className="flex gap-3 text-primary dark:text-primary-dark items-center">
+        <div className="flex gap-3 text-primary items-center">
             <input
                 type="checkbox"
                 className="accent-grapefruit flex-none"

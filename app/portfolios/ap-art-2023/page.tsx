@@ -11,47 +11,47 @@ export const metadata: Metadata = {
 export default function APArt2023() {
     return (
         <div className="flex flex-col lg:flex-row gap-12">
-            <aside className="lg:sticky flex-none h-max top-10 pr-12 lg:border-r border-tertiary dark:border-tertiary-dark lg:w-[16rem] xl:w-auto">
+            <aside className="lg:sticky flex-none h-max top-10 pr-12 lg:border-r border-tertiary lg:w-[16rem] xl:w-auto">
                 <div className="mb-7 border-l-8 border-s-4 border-grapefruit -ml-4 pl-4">
                     <h1 className="font-bold text-4xl mb-3">AP Drawing 2023</h1>
-                    <p className="text-primary dark:text-primary-dark">
+                    <p className="text-primary">
                         <strong>Submitted:</strong> 2023-05-05
                     </p>
-                    <p className="text-primary dark:text-primary-dark">
+                    <p className="text-primary">
                         <strong>Score:</strong> AP 6 (perfect score!)
                     </p>
                 </div>
 
-                <a href="#sustained-investigation" className="text-primary dark:text-primary-dark block mb-2 font-semibold">
+                <a href="#sustained-investigation" className="text-primary block mb-2 font-semibold">
                     Sustained investigation
                 </a>
-                <ol className="list-decimal pl-6 text-sm marker:text-primary dark:marker:text-primary-dark mb-6">
-                    <li><a href="#1" className="text-primary dark:text-primary-dark">Modern Man (process)</a></li>
-                    <li><a href="#2" className="text-primary dark:text-primary-dark">Modern Man</a></li>
-                    <li><a href="#3" className="text-primary dark:text-primary-dark">Hope</a></li>
-                    <li><a href="#4" className="text-primary dark:text-primary-dark">iPhetamines</a></li>
-                    <li><a href="#5" className="text-primary dark:text-primary-dark">Drowning (draft)</a></li>
-                    <li><a href="#6" className="text-primary dark:text-primary-dark">Drowning (process)</a></li>
-                    <li><a href="#7" className="text-primary dark:text-primary-dark">Drowning</a></li>
-                    <li><a href="#8" className="text-primary dark:text-primary-dark">Great American Garbage Patch (process)</a></li>
-                    <li><a href="#9" className="text-primary dark:text-primary-dark">Great American Garbage Patch</a></li>
-                    <li><a href="#10" className="text-primary dark:text-primary-dark">Two Minutes to Midnight</a></li>
-                    <li><a href="#11" className="text-primary dark:text-primary-dark">21st Century Thinker (draft)</a></li>
-                    <li><a href="#12" className="text-primary dark:text-primary-dark">21st Century Thinker</a></li>
-                    <li><a href="#13" className="text-primary dark:text-primary-dark">The God Particle (process)</a></li>
-                    <li><a href="#14" className="text-primary dark:text-primary-dark">The God Particle</a></li>
-                    <li><a href="#15" className="text-primary dark:text-primary-dark">Death of the Artist</a></li>
+                <ol className="list-decimal pl-6 text-sm marker:text-primary mb-6">
+                    <li><a href="#1" className="text-primary">Modern Man (process)</a></li>
+                    <li><a href="#2" className="text-primary">Modern Man</a></li>
+                    <li><a href="#3" className="text-primary">Hope</a></li>
+                    <li><a href="#4" className="text-primary">iPhetamines</a></li>
+                    <li><a href="#5" className="text-primary">Drowning (draft)</a></li>
+                    <li><a href="#6" className="text-primary">Drowning (process)</a></li>
+                    <li><a href="#7" className="text-primary">Drowning</a></li>
+                    <li><a href="#8" className="text-primary">Great American Garbage Patch (process)</a></li>
+                    <li><a href="#9" className="text-primary">Great American Garbage Patch</a></li>
+                    <li><a href="#10" className="text-primary">Two Minutes to Midnight</a></li>
+                    <li><a href="#11" className="text-primary">21st Century Thinker (draft)</a></li>
+                    <li><a href="#12" className="text-primary">21st Century Thinker</a></li>
+                    <li><a href="#13" className="text-primary">The God Particle (process)</a></li>
+                    <li><a href="#14" className="text-primary">The God Particle</a></li>
+                    <li><a href="#15" className="text-primary">Death of the Artist</a></li>
                 </ol>
 
-                <a href="#selected-works" className="text-primary dark:text-primary-dark block mb-2 font-semibold">
+                <a href="#selected-works" className="text-primary block mb-2 font-semibold">
                     Selected works
                 </a>
-                <ol className="list-decimal pl-6 text-sm marker:text-primary dark:marker:text-primary-dark">
-                    <li><a href="#2-1" className="text-primary dark:text-primary-dark">Hope</a></li>
-                    <li><a href="#2-2" className="text-primary dark:text-primary-dark">Great American Garbage Patch</a></li>
-                    <li><a href="#2-3" className="text-primary dark:text-primary-dark">iPhetamines</a></li>
-                    <li><a href="#2-4" className="text-primary dark:text-primary-dark">Modern Man</a></li>
-                    <li><a href="#2-5" className="text-primary dark:text-primary-dark">Death of the Artist</a></li>
+                <ol className="list-decimal pl-6 text-sm marker:text-primary">
+                    <li><a href="#2-1" className="text-primary">Hope</a></li>
+                    <li><a href="#2-2" className="text-primary">Great American Garbage Patch</a></li>
+                    <li><a href="#2-3" className="text-primary">iPhetamines</a></li>
+                    <li><a href="#2-4" className="text-primary">Modern Man</a></li>
+                    <li><a href="#2-5" className="text-primary">Death of the Artist</a></li>
                 </ol>
             </aside>
 
@@ -59,7 +59,7 @@ export default function APArt2023() {
                 <LinkHeading className="text-3xl font-bold mb-6" id="sustained-investigation">
                     Sustained investigation
                 </LinkHeading>
-                <p className="text-primary dark:text-primary-dark mb-4 text-sm border-l-2 border-secondary dark:border-secondary-dark pl-4">
+                <p className="text-primary mb-4 text-sm border-l-2 border-secondary pl-4">
                     High-tech gadgets like phones, smart watches, and airpods are ubiquitous in today’s society. But as
                     technology continues to evolve at an ever-increasing pace, its effect on users can often be overlooked.
                     As an aspiring engineer with a background in software development and robotics, I wanted to investigate
@@ -67,7 +67,7 @@ export default function APArt2023() {
                     technologies shaped the world around us? How does the internet and social media keep us connected but
                     also isolated, overwhelmed, and imprisoned?
                 </p>
-                <p className="text-primary dark:text-primary-dark mb-14 text-sm border-l-2 border-secondary dark:border-secondary-dark pl-4">
+                <p className="text-primary mb-14 text-sm border-l-2 border-secondary pl-4">
                     My sustained investigation began with broad depictions of technology usage in modern society (2, 3).
                     I then examined specific relationships: social media addiction (4), media negativity (7), wasteful
                     consumerism (9), the relationship between science and warfare (10),  digital privacy (12), and AI art
@@ -345,24 +345,24 @@ function PortfolioPiece(props: PortfolioPieceProps) {
                     {props.name}
                 </LinkHeading>
 
-                <p className="text-primary dark:text-primary-dark">
+                <p className="text-primary">
                     <strong>Height:</strong> {props.height}
                 </p>
-                <p className="text-primary dark:text-primary-dark">
+                <p className="text-primary">
                     <strong>Width:</strong> {props.width}
                 </p>
                 {props.ideas && (
-                    <p className="text-primary dark:text-primary-dark break-words">
+                    <p className="text-primary break-words">
                         <strong>Idea(s):</strong> {props.ideas}
                     </p>
                 )}
-                <p className="text-primary dark:text-primary-dark">
+                <p className="text-primary">
                     <strong>Material(s):</strong> {props.materials}
                 </p>
-                <p className="text-primary dark:text-primary-dark max-w-prose break-words">
+                <p className="text-primary max-w-prose break-words">
                     <strong>Process(es):</strong> {props.children}
                 </p>
-                <p className="text-secondary dark:text-secondary-dark text-sm">
+                <p className="text-secondary text-sm">
                     ({props.children.length} chars)
                 </p>
             </div>

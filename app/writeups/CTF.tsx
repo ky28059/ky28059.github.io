@@ -16,7 +16,7 @@ type CTFProps = {
 export default function CTF(props: CTFProps) {
     return (
         <Disclosure as="div" defaultOpen className="-ml-3">
-            <DisclosureButton className="relative flex items-center rounded px-3 py-1 w-full mb-3 text-left text-primary dark:text-primary-dark hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 transition duration-200">
+            <DisclosureButton className="relative flex items-center rounded px-3 py-1 w-full mb-3 text-left text-primary hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 transition duration-200">
                 <PiFlagPennantFill className="absolute -left-6 text-grapefruit mt-0.5" />
                 <h3>{props.name}</h3>
 
@@ -42,7 +42,7 @@ export type WriteupData = {
 export function Writeup(props: WriteupData) {
     return (
         <a
-            className="group flex gap-5 relative font-mono border rounded overflow-clip hover:no-underline text-primary dark:text-primary-dark hover:text-black dark:hover:text-white border-white/25 hover:border-white/50 transition duration-150"
+            className="group flex gap-5 relative font-mono border rounded overflow-clip hover:no-underline text-primary hover:text-black dark:hover:text-white border-white/25 hover:border-white/50 transition duration-150"
             href={props.href}
             target="_blank"
             rel="noopener noreferrer"
@@ -60,12 +60,12 @@ export function Writeup(props: WriteupData) {
             <div className="py-3.5">
                 <p className="mb-0.5">
                     {props.type && (
-                        <span className="text-secondary dark:text-secondary-dark">
+                        <span className="text-secondary">
                             {props.type}
                         </span>
                     )}
                     {props.type && (
-                        <span className="text-tertiary dark:text-tertiary-dark mx-0.5">/</span>
+                        <span className="text-tertiary mx-0.5">/</span>
                     )}
                     {props.name}
                 </p>

@@ -1,5 +1,4 @@
 import type { Config } from 'tailwindcss';
-import colors from 'tailwindcss/colors';
 
 import headlessuiPlugin from '@headlessui/tailwindcss';
 
@@ -19,18 +18,9 @@ const config: Config = {
                 light: '#FFF8E8',
                 grapefruit: '#FF6347',
                 pomegranate: '#E03C31',
-                primary: {
-                    DEFAULT: '#757575', // TODO
-                    dark: '#BABABA'
-                },
-                secondary: {
-                    DEFAULT: '#757575',
-                    dark: '#777777',
-                },
-                tertiary: {
-                    DEFAULT: colors.gray['300'],
-                    dark: '#404040'
-                }
+                primary: 'rgb(var(--primary) / <alpha-value>)',
+                secondary: 'rgb(var(--secondary) / <alpha-value>)',
+                tertiary: 'rgb(var(--tertiary) / <alpha-value>)'
             }
         },
         container: {

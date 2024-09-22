@@ -184,7 +184,7 @@ export default function CorpusObfuscatorContent() {
                         <CodeBlock>
                             (void)(0 [operator] 1);
                         </CodeBlock>
-                        <em className="text-secondary dark:text-secondary-dark text-sm">
+                        <em className="text-secondary text-sm">
                             (1 is used on the right to prevent division by zero errors with <InlineCode>/</InlineCode>
                             and <InlineCode>%</InlineCode>.)
                         </em>
@@ -194,7 +194,7 @@ export default function CorpusObfuscatorContent() {
                         <CodeBlock>
                             (void)((void)0,0);
                         </CodeBlock>
-                        <em className="text-secondary dark:text-secondary-dark text-sm">
+                        <em className="text-secondary text-sm">
                             (a discarded comma operator expression.)
                         </em>
                     </li>
@@ -203,7 +203,7 @@ export default function CorpusObfuscatorContent() {
                         <CodeBlock>
                             (void)obj.prop;
                         </CodeBlock>
-                        <em className="text-secondary dark:text-secondary-dark text-sm">
+                        <em className="text-secondary text-sm">
                             (a discarded access to some property on some object. This is used instead of something
                             like <InlineCode>0.0</InlineCode> because object property access is valid across newlines,
                             while a float literal is not.)
@@ -214,7 +214,7 @@ export default function CorpusObfuscatorContent() {
                         <CodeBlock>
                             (void)(0?0:0);
                         </CodeBlock>
-                        <em className="text-secondary dark:text-secondary-dark text-sm">
+                        <em className="text-secondary text-sm">
                             (a discarded ternary expression.)
                         </em>
                     </li>
@@ -269,7 +269,7 @@ export default function CorpusObfuscatorContent() {
             </div>
 
             <div className="xl:w-[26rem] flex-none xl:sticky top-8 h-max">
-                <h5 className="text-secondary dark:text-secondary-dark text-sm mb-1">
+                <h5 className="text-secondary text-sm mb-1">
                     Corpus
                 </h5>
                 <AutoResizingTextArea
@@ -292,7 +292,7 @@ export default function CorpusObfuscatorContent() {
 
 function InlineCode(props: { children: ReactNode }) {
     return (
-        <code className="text-primary dark:text-primary-dark bg-black/20 rounded p-1">
+        <code className="text-primary bg-black/20 rounded p-1">
             {props.children}
         </code>
     )

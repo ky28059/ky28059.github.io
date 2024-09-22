@@ -28,7 +28,7 @@ export default function Projects() {
             <ProjectsLayout>
                 <ProjectsHeaderSection>
                     <SectionHeading>Projects</SectionHeading>
-                    <p className="text-primary dark:text-primary-dark mb-6">
+                    <p className="text-primary mb-6">
                         Various programming projects for organizations like the b01lers CTF team or BWSI, as well
                         as personal hobby projects like RBot and WATT.
                     </p>
@@ -46,7 +46,7 @@ export default function Projects() {
                                     width: `${(count / total) * 100 * scale}%`
                                 }}
                             />
-                            <span className="text-sm text-secondary dark:text-secondary-dark">
+                            <span className="text-sm text-secondary">
                                 {langToFullName(lang as LanguageKey)} ({count})
                             </span>
                         </div>
@@ -67,7 +67,7 @@ export default function Projects() {
             <ProjectsLayout>
                 <ProjectsHeaderSection>
                     <SectionHeading>Gists</SectionHeading>
-                    <p className="text-primary dark:text-primary-dark">
+                    <p className="text-primary">
                         GitHub gists about specific programming concepts, cool programming languages / technologies,
                         and more.
                     </p>
@@ -375,8 +375,8 @@ function ProjectsCardGrid(props: { children: ReactNode }) {
 function ProjectGroup(props: { name: string, children: ReactNode, gh?: string }) {
     return (
         <div className="flex gap-8">
-            <div className="flex flex-col items-center gap-3 text-secondary dark:text-secondary-dark mb-2 -mt-1.5">
-                <div className="size-3.5 flex-none rounded-full bg-secondary dark:bg-secondary-dark" />
+            <div className="flex flex-col items-center gap-3 text-secondary mb-2 -mt-1.5">
+                <div className="size-3.5 flex-none rounded-full bg-secondary" />
 
                 <h3 className="font-medium mb-0.5 flex-none [writing-mode:vertical-lr]">
                     {props.name}
@@ -386,7 +386,7 @@ function ProjectGroup(props: { name: string, children: ReactNode, gh?: string })
                         <BsGithub />
                     </a>
                 )}
-                <hr className="h-full w-px border-r border-secondary/50 dark:border-secondary-dark/50" />
+                <hr className="h-full w-px border-r border-secondary/50" />
             </div>
             <ProjectsCardGrid>
                 {props.children}

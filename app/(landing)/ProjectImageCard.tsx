@@ -36,7 +36,7 @@ export default function ProjectImageCard(props: ProjectData) {
                     ))}
                 </section>
 
-                <p className="text-xs text-primary dark:text-primary-dark">
+                <p className="text-xs text-primary">
                     {props.desc}
                 </p>
             </div>

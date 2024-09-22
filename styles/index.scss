@@ -10,8 +10,18 @@
         }
     }
 
-    .dark {
-        color-scheme: dark;
+    :root {
+        --primary: 117 117 117; // #757575
+        --secondary: 117 117 117; // #757575
+        --tertiary: 209 213 219; // #d1d5db
+
+        &.dark {
+            color-scheme: dark;
+
+            --primary: 186 186 186; // #BABABA
+            --secondary: 119 119 119; // #777777
+            --tertiary: 64 64 64; // #404040
+        }
     }
 }
 

@@ -29,7 +29,7 @@ export default function TwentyOnePointsContent() {
         <>
             {confettiInstances}
             <button
-                className="fixed text-8xl flex justify-center items-center text-tertiary dark:text-tertiary-dark hover:text-secondary dark:hover:text-secondary-dark w-full h-[50dvh] top-0 hover:bg-tertiary/20 dark:hover:bg-tertiary-dark/20 transition duration-200"
+                className="fixed text-8xl flex justify-center items-center text-tertiary hover:text-secondary w-full h-[50dvh] top-0 hover:bg-tertiary/20 transition duration-200"
                 onClick={incrementCount}
             >
                 <FiChevronUp />
@@ -38,7 +38,7 @@ export default function TwentyOnePointsContent() {
                 {count}
             </h1>
             <button
-                className="fixed text-8xl flex justify-center items-center text-tertiary dark:text-tertiary-dark hover:text-secondary dark:hover:text-secondary-dark w-full h-[50dvh] bottom-0 hover:bg-tertiary/20 dark:hover:bg-tertiary-dark/20 transition duration-200"
+                className="fixed text-8xl flex justify-center items-center text-tertiary hover:text-secondary w-full h-[50dvh] bottom-0 hover:bg-tertiary/20 transition duration-200"
                 onClick={() => setCount((c) => c - 1)}
             >
                 <FiChevronDown />

@@ -68,7 +68,7 @@ export default function PurdueHousing() {
                     className="rounded min-w-0 object-cover object-center"
                 />
             </div>
-            <p className="text-secondary dark:text-secondary-dark text-sm italic mb-3 text-center">
+            <p className="text-secondary text-sm italic mb-3 text-center">
                 <strong className="font-semibold">Left:</strong> Initial Selection page with no rooms available;{' '}
                 <strong className="font-semibold">Right:</strong> List Rooms page
             </p>
@@ -247,7 +247,7 @@ export default function PurdueHousing() {
 
 function IdTableCell(props: { children: ReactNode }) {
     return (
-        <td className="px-4 py-2 text-sm text-primary dark:text-primary-dark border border-tertiary dark:border-tertiary-dark">
+        <td className="px-4 py-2 text-sm text-primary border border-tertiary">
             {props.children}
         </td>
     )
@@ -255,7 +255,7 @@ function IdTableCell(props: { children: ReactNode }) {
 
 function IdTableHeaderCell(props: { children: ReactNode }) {
     return (
-        <th className="text-sm text-left font-medium px-4 py-2 border border-tertiary dark:border-tertiary-dark bg-gray-100 dark:bg-dark">
+        <th className="text-sm text-left font-medium px-4 py-2 border border-tertiary bg-gray-100 dark:bg-dark">
             {props.children}
         </th>
     )

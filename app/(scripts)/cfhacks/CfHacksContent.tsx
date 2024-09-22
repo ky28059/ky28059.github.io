@@ -37,7 +37,7 @@ export default function CfHacksContent() {
                 placeholder="Test case"
                 value={testCase}
                 onChange={(e) => setTestCase(e.target.value)}
-                className="rounded px-3 py-1 dark:bg-[#2b2b2b] mb-3 w-full border border-secondary/40 dark:border-secondary-dark/40 placeholder:text-secondary placeholder:dark:text-secondary-dark"
+                className="rounded px-3 py-1 dark:bg-[#2b2b2b] mb-3 w-full border border-secondary/40 placeholder:text-secondary"
             />
 
             <ScriptOutput>
