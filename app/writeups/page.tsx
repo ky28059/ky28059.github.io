@@ -85,7 +85,8 @@ const ctfs: CTFData[] = [
         }, {
             type: 'misc',
             href: 'https://gist.github.com/ky28059/c7e3e83bb501755bda31683f0d359578',
-            name: 'Game with Rin'
+            name: 'Game with Rin',
+            tags: ['scripting']
         }, {
             type: 'web',
             href: 'https://gist.github.com/ky28059/5af97a38d168d540bda2e5b3ae1324bf',
@@ -170,7 +171,7 @@ const ctfs: CTFData[] = [
             name: "Raccoon Run",
             type: "crypto",
             href: "https://gist.github.com/ky28059/e9d0957313af0d38811e6e845dab7a41",
-            tags: ['randcrack']
+            tags: ['randcrack', 'scripting']
         }]
     },
     {
@@ -179,7 +180,8 @@ const ctfs: CTFData[] = [
             name: "Krusty Katering",
             type: "misc",
             href: "https://gist.github.com/ky28059/fd0ed1fb606c13ba6d686bcf07e6809d",
-            src: "https://gist.github.com/assets/60120929/58a78bb3-8459-4bb1-a0cd-68f1e4491451"
+            src: "https://gist.github.com/assets/60120929/58a78bb3-8459-4bb1-a0cd-68f1e4491451",
+            tags: ['scripting']
         },
         {
             name: "100 degrees",
@@ -201,7 +203,8 @@ const ctfs: CTFData[] = [
             name: "A Block and a Hard Place",
             type: "misc",
             href: "https://gist.github.com/ky28059/c193b08a07a433be4fac60426c47e92c",
-            src: 'https://gist.github.com/assets/60120929/e9d7885e-0836-4e5e-958b-653ec5ae846d'
+            src: 'https://gist.github.com/assets/60120929/e9d7885e-0836-4e5e-958b-653ec5ae846d',
+            tags: ['scripting']
         }]
     },
     {
@@ -215,7 +218,9 @@ const ctfs: CTFData[] = [
         }, {
             name: "jsfudge",
             type: "misc",
-            href: "https://gist.github.com/ky28059/e3c2664e7fab9a91d2fb20abebe9fc6f"
+            href: "https://gist.github.com/ky28059/e3c2664e7fab9a91d2fb20abebe9fc6f",
+            src: 'https://jsfuck.com/preview.png',
+            tags: ['charset']
         }, {
             name: "my poor git",
             type: "misc",
@@ -250,7 +255,8 @@ const ctfs: CTFData[] = [
             name: "zshfuck",
             type: "misc",
             href: "https://gist.github.com/ky28059/0510cb86a449925d38dc9a0c6a312b35",
-            src: 'https://gist.github.com/assets/60120929/db124457-8412-460a-bc46-85ba7ccd0f4c'
+            src: 'https://gist.github.com/assets/60120929/db124457-8412-460a-bc46-85ba7ccd0f4c',
+            tags: ['charset']
         }]
     },
     {
@@ -258,7 +264,8 @@ const ctfs: CTFData[] = [
         writeups: [{
             name: "Stress Release Service",
             type: "misc",
-            href: "https://gist.github.com/ky28059/9822d07004862c228a90ca0da00166b6"
+            href: "https://gist.github.com/ky28059/9822d07004862c228a90ca0da00166b6",
+            tags: ['charset']
         }]
     },
     {
