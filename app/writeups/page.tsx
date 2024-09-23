@@ -13,17 +13,27 @@ export const metadata: Metadata = {
 
 export default async function Writeups() {
     const categoryCounts: { [c: string]: number } = {};
+    const tagCounts: { [t: string]: number } = {};
+
+    // Calculate category and tag counts
     for (const w of ctfs.flatMap(c => c.writeups)) {
-        if (!w.type) continue;
-        if (!categoryCounts[w.type]) categoryCounts[w.type] = 0;
-        categoryCounts[w.type]++;
+        if (w.type) {
+            if (!categoryCounts[w.type]) categoryCounts[w.type] = 0;
+            categoryCounts[w.type]++;
+        }
+
+        if (!w.tags) continue;
+        w.tags.forEach((tag) => {
+            if (!tagCounts[tag]) tagCounts[tag] = 0;
+            tagCounts[tag]++;
+        });
     }
 
     return (
         <>
             <SectionHeading>CTF Writeups</SectionHeading>
 
-            <div className="flex gap-8">
+            <div className="flex gap-8 pt-2">
                 <section className="flex-grow flex flex-col gap-4 pl-4">
                     {ctfs.map((c) => (
                         <CTF name={c.name} key={c.name}>
@@ -34,18 +44,45 @@ export default async function Writeups() {
                     ))}
                 </section>
 
-                <section className="px-6 py-4 rounded h-max sticky top-8 w-72 flex-none bg-black/5 dark:bg-white/5">
+                <aside className="pl-8 py-2 rounded h-max sticky top-8 w-60 flex-none border-l border-tertiary">
                     <h2 className="font-semibold mb-2 text-sm">Categories</h2>
 
-                    {Object.entries(categoryCounts).sort(([a, ], [b, ]) => a.localeCompare(b)).map(([name, count]) => (
-                        <div className="flex gap-2 items-center">
-                            <p className="text-primary">{name}</p>
-                            <span className="text-xs font-semibold text-grapefruit bg-grapefruit/30 rounded-full px-1.5 py-0.5">
-                                {count}
-                            </span>
+                    {Object.entries(categoryCounts).sort(([a,], [b,]) => a.localeCompare(b)).map(([name, count]) => (
+                        <div className="flex gap-2 items-center" key={name}>
+                            <input
+                                className="accent-grapefruit"
+                                type="checkbox"
+                                id={`category-${name}`}
+                                name={`category-${name}`}
+                            />
+                            <label className="text-primary" htmlFor={`category-${name}`}>
+                                {name}{' '}
+                                <span className="text-xs font-semibold text-grapefruit bg-grapefruit/30 rounded-full px-1.5 py-0.5">
+                                    {count}
+                                </span>
+                            </label>
                         </div>
                     ))}
-                </section>
+
+                    <h2 className="font-semibold mt-4 mb-2 text-sm">Tags</h2>
+
+                    {Object.entries(tagCounts).sort(([a,], [b,]) => a.localeCompare(b)).map(([name, count]) => (
+                        <div className="flex gap-2 items-center" key={name}>
+                            <input
+                                className="accent-grapefruit"
+                                type="checkbox"
+                                id={`tag-${name}`}
+                                name={`tag-${name}`}
+                            />
+                            <label className="text-primary" htmlFor={`tag-${name}`}>
+                                {name}{' '}
+                                <span className="text-xs font-semibold text-grapefruit bg-grapefruit/30 rounded-full px-1.5 py-0.5">
+                                    {count}
+                                </span>
+                            </label>
+                        </div>
+                    ))}
+                </aside>
             </div>
         </>
     )
