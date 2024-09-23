@@ -7,10 +7,7 @@ export type WriteupData = {
     name: string,
     tags?: string[]
 }
-export default async function Writeup(props: WriteupData) {
-    const raw = await (await fetch(`${props.href}/raw`)).text();
-    const desc = raw.match(/> (.+)/)![1];
-
+export default function Writeup(props: WriteupData & { desc: string }) {
     return (
         <a
             className="group flex gap-5 relative border rounded overflow-clip hover:no-underline text-primary hover:text-black dark:hover:text-white border-white/25 hover:border-white/50 transition duration-150"
@@ -58,7 +55,7 @@ export default async function Writeup(props: WriteupData) {
                 </div>
 
                 <p className="text-secondary text-xs line-clamp-1">
-                    {'>'} {desc}
+                    {'>'} {props.desc}
                 </p>
             </div>
         </a>
