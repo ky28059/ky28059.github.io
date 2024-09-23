@@ -144,7 +144,7 @@ export const ctfs: CTFData[] = [
             name: "Raccoon Run",
             type: "crypto",
             href: "https://gist.github.com/ky28059/e9d0957313af0d38811e6e845dab7a41",
-            src: 'http://www.quadibloc.com/crypto/images/merstw.gif',
+            src: '/assets/writeups/raccoon-run.gif',
             tags: ['randcrack', 'scripting']
         }]
     },
