@@ -149,6 +149,13 @@ const projects: ProjectGroupData[] = [
             gh: "https://github.com/ky28059/bctf",
             web: "https://b01lersc.tf"
         }, {
+            name: "rctf-deploy-action",
+            desc: 'Opinionated challenge metadata updater for rCTF deployment.',
+            src: "/assets/projects/rctf-deploy-action.jpg",
+            langs: ['ts'],
+            tags: ['GitHub action'],
+            gh: "https://github.com/b01lers/rctf-deploy-action"
+        }, {
             name: "b01lers-bot",
             desc: 'An upgraded discord bot for the b01lers CTF team server.',
             src: "/assets/projects/b01lers-bot.jpg",
