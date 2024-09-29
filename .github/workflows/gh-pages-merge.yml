@@ -7,7 +7,7 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - run: npm ci && CI=false npm run build
         env:
           GH_USER_TOKEN: '${{ secrets.GH_USER_TOKEN }}'
