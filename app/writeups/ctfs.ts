@@ -8,6 +8,15 @@ type CTFData = {
 
 export const ctfs: CTFData[] = [
     {
+        name: 'DEADFACE CTF 2024',
+        writeups: [{
+            href: 'https://gist.github.com/ky28059/7420e657c833bbe586c56a77aabf223d',
+            name: 'Target List 1',
+            type: 'web',
+            src: '/assets/writeups/targetlist.jpg'
+        }]
+    },
+    {
         name: 'BuckeyeCTF 2024',
         writeups: [{
             href: 'https://gist.github.com/ky28059/b5f47ad77ea136d07cfaf15980fedf4c',
