@@ -8,6 +8,30 @@ type CTFData = {
 
 export const ctfs: CTFData[] = [
     {
+        name: '1337UP LIVE CTF 2024',
+        writeups: [{
+            href: 'https://gist.github.com/ky28059/e2d24c379eb5a10b44adfc4427030d28',
+            name: 'Trackdown',
+            type: 'osint',
+            src: '/assets/writeups/trackdown.jpg'
+        }, {
+            href: 'https://gist.github.com/ky28059/2ccccf62b9b38a941154026e5dbc6f5b',
+            name: 'Trackdown 2',
+            type: 'osint',
+            src: '/assets/writeups/trackdown2.jpg'
+        }, {
+            href: 'https://gist.github.com/ky28059/91df12b57366ef5ab356fb09239eb4d8',
+            name: 'Pizza Paradise',
+            type: 'web',
+            src: '/assets/writeups/pizza-paradise.jpg'
+        }, {
+            href: 'https://gist.github.com/ky28059/1eef81c26836b44b96856b2c564067ff',
+            name: 'Private Github Repository',
+            type: 'osint',
+            src: '/assets/writeups/private-git-repo.jpg'
+        }]
+    },
+    {
         name: 'DEADFACE CTF 2024',
         writeups: [{
             href: 'https://gist.github.com/ky28059/7420e657c833bbe586c56a77aabf223d',
