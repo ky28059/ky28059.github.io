@@ -162,20 +162,25 @@ const projects: ProjectGroupData[] = [
             langs: ['rust'],
             tags: ['serenity', 'poise', 'sqlx'],
             gh: "https://github.com/Athryx/b01lers-bot"
-        }, {
+        }]
+    },
+    {
+        name: 'Purdue eCTF',
+        gh: 'https://github.com/Purdue-eCTF',
+        projects: [{
             name: "MITRE eCTF 2024",
             desc: 'Secure protocol implementation for the MITRE embedded CTF 2024.',
             src: "/assets/projects/ectf-24.jpg",
             langs: ['rust'],
             tags: ['MAX78000FTHR'],
-            gh: "https://github.com/Purdue-eCTF-2024/2024-ectf-secure-example"
+            gh: "https://github.com/Purdue-eCTF/2024-ectf-secure-example"
         }, {
             name: "scrape-bot",
             desc: 'Scoreboard scraper and automated attack / testing pipeline for eCTF 2024.',
             src: "/assets/projects/scrape-bot.jpg",
             langs: ['ts'],
             tags: ['discord.js', 'express', 'PortalBot framework'],
-            gh: "https://github.com/Purdue-eCTF-2024/scrape-bot"
+            gh: "https://github.com/Purdue-eCTF/scrape-bot"
         }]
     },
     {
