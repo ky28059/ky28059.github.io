@@ -8,6 +8,16 @@ type CTFData = {
 
 export const ctfs: CTFData[] = [
     {
+        name: 'LakeCTF \'24-\'25 Quals',
+        writeups: [{
+            href: 'https://gist.github.com/ky28059/b99b68a576fef8f91fcb950aa5c394bb',
+            name: 'VerySusOrganization',
+            type: 'misc',
+            src: '/assets/writeups/verysusorganization.jpg',
+            tags: ['github', 'npm']
+        }]
+    },
+    {
         name: '1337UP LIVE CTF 2024',
         writeups: [{
             href: 'https://gist.github.com/ky28059/e2d24c379eb5a10b44adfc4427030d28',
@@ -28,7 +38,8 @@ export const ctfs: CTFData[] = [
             href: 'https://gist.github.com/ky28059/1eef81c26836b44b96856b2c564067ff',
             name: 'Private Github Repository',
             type: 'osint',
-            src: '/assets/writeups/private-git-repo.jpg'
+            src: '/assets/writeups/private-git-repo.jpg',
+            tags: ['github']
         }]
     },
     {
