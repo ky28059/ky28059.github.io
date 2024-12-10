@@ -34,7 +34,7 @@ export default function Home() {
                         <img src="/pfp.png" alt="Profile picture" className="absolute -left-32 -top-10 h-24 w-24 rounded-full" />
                         <PageHeading className="mb-5">kevin yu.</PageHeading>
                         <p className="mb-3 max-w-3xl text-primary">
-                            Gunn High School graduate and first-year student studying Computer Science at Purdue University.
+                            Gunn High School graduate and second-year student studying Computer Science at Purdue University.
                             Interested in art, web development, and robotics.
                         </p>
                         <p className="mb-3.5 text-primary">
