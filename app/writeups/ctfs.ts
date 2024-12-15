@@ -8,6 +8,15 @@ type CTFData = {
 
 export const ctfs: CTFData[] = [
     {
+        name: 'm0leCon Beginner CTF 2024',
+        writeups: [{
+            href: 'https://gist.github.com/ky28059/fdf7379fc3c90ee601f38bff211ab8eb',
+            name: 'PIETcture',
+            type: 'misc',
+            src: '/assets/writeups/pietcture.png'
+        }]
+    },
+    {
         name: 'LakeCTF \'24-\'25 Quals',
         writeups: [{
             href: 'https://gist.github.com/ky28059/b99b68a576fef8f91fcb950aa5c394bb',
