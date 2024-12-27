@@ -1,6 +1,6 @@
 'use client'
 
-import { SyntaxHighlighter } from '../../components/CodeBlock';
+import { SyntaxHighlighter } from './CodeBlock';
 
 
 type ScriptOutputProps = {
@@ -8,7 +8,7 @@ type ScriptOutputProps = {
     children: string,
     language?: string
 }
-export default function ScriptOutput(props: ScriptOutputProps) {
+export default function CopyCodeBlock(props: ScriptOutputProps) {
     return (
         <>
             <p className="text-sm mb-1 text-secondary">

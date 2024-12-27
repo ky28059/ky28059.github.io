@@ -3,7 +3,7 @@
 import { ReactNode, useState } from 'react';
 
 // Components
-import ScriptOutput from '../ScriptOutput';
+import CopyCodeBlock from '../../../components/CopyCodeBlock';
 import LabelledInput from '../LabelledInput';
 
 
@@ -112,9 +112,9 @@ export default function PurdueHousingContent() {
                 </div>
             </div>
 
-            <ScriptOutput className="mb-10">
+            <CopyCodeBlock className="mb-10">
                 {script(lowerRoomRate, upperRoomRate, delay, roomTypeIds, buildingIds)}
-            </ScriptOutput>
+            </CopyCodeBlock>
         </>
     )
 }

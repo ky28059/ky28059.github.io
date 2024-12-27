@@ -1,11 +1,12 @@
 'use client'
 
-import { ReactNode, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 // Components
 import AutoResizingTextArea from '../../../components/AutoResizingTextArea';
-import ScriptOutput from '../ScriptOutput';
+import CopyCodeBlock from '../../../components/CopyCodeBlock';
 import { SyntaxHighlighter } from '../../../components/CodeBlock';
+import { InlineCode } from '../../../components/InlineCode';
 
 
 export default function CorpusObfuscatorContent() {
@@ -135,7 +136,7 @@ export default function CorpusObfuscatorContent() {
                     First, we need to figure out what tokens we have in the text to work with. We can extract all word
                     matches from the corpus using Regex, giving us the following word counts:
                 </p>
-                <ScriptOutput>{JSON.stringify(wordCounts)}</ScriptOutput>
+                <CopyCodeBlock>{JSON.stringify(wordCounts)}</CopyCodeBlock>
 
                 <p className="my-4">
                     To prevent saturating the generation process with overly convoluted computations, we first remove
@@ -146,9 +147,9 @@ export default function CorpusObfuscatorContent() {
                 <p className="mt-4 mb-3">
                     Then, the parsed string is tokenized into the following tokens:
                 </p>
-                <ScriptOutput>
+                <CopyCodeBlock>
                     {JSON.stringify(tokens)}
-                </ScriptOutput>
+                </CopyCodeBlock>
 
                 <p className="my-4">
                     If each token contained only valid variable names, we'd be done. However, symbols like{' '}
@@ -251,9 +252,9 @@ export default function CorpusObfuscatorContent() {
                 <p className="my-4">
                     Applying these rules (and assuming no errors), we can generate the following parsed corpus:
                 </p>
-                <ScriptOutput language="c">
+                <CopyCodeBlock language="c">
                     {parsedString}
-                </ScriptOutput>
+                </CopyCodeBlock>
 
                 <p className="my-4">
                     where the commented tokens are free slots to put any C code you want to run.
@@ -263,9 +264,9 @@ export default function CorpusObfuscatorContent() {
                     Then, we can map these tokens to <InlineCode>#define</InlineCode> macros to generate the
                     final C program (replace defines with <InlineCode>// free</InlineCode> comments with your C code):
                 </p>
-                <ScriptOutput language="c">
+                <CopyCodeBlock language="c">
                     {defineString + '\n\n' + corpus}
-                </ScriptOutput>
+                </CopyCodeBlock>
             </div>
 
             <div className="xl:w-[26rem] flex-none xl:sticky top-8 h-max">
@@ -287,14 +288,6 @@ export default function CorpusObfuscatorContent() {
                 )}
             </div>
         </div>
-    )
-}
-
-function InlineCode(props: { children: ReactNode }) {
-    return (
-        <code className="text-primary bg-black/20 rounded p-1">
-            {props.children}
-        </code>
     )
 }
 

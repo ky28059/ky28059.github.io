@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 // Components
 import AutoResizingTextArea from '../../../components/AutoResizingTextArea';
-import ScriptOutput from '../ScriptOutput';
+import CopyCodeBlock from '../../../components/CopyCodeBlock';
 import LabelledInput from '../LabelledInput';
 
 
@@ -40,9 +40,9 @@ export default function CfHacksContent() {
                 className="rounded px-3 py-1 dark:bg-[#2b2b2b] mb-3 w-full border border-secondary/40 placeholder:text-secondary"
             />
 
-            <ScriptOutput>
+            <CopyCodeBlock>
                 {script(contest, problem, testCase, count)}
-            </ScriptOutput>
+            </CopyCodeBlock>
         </>
     )
 }
