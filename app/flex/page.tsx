@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import CopyCodeBlock from '../../components/CopyCodeBlock';
 import { InlineCode } from '../../components/InlineCode';
 import LinkHeading from '../../components/LinkHeading';
+import { BsGithub } from 'react-icons/bs';
 
 
 export const metadata: Metadata = {
@@ -22,15 +23,20 @@ export default function Drought() {
                 <CopyCodeBlock language="css">
                     {'.container {\n    display: flex;\n}'}
                 </CopyCodeBlock>
-                <p className="mt-4">
+                <p className="my-4">
                     Flexbox, or the "flexible box" layout in CSS, is the greatest (CSS) invention
                     since <InlineCode>z-index</InlineCode>. A flex container is easy to specify, and is useful in a
                     huge range of CSS applications.
                 </p>
-                <p className="mt-4">
+                <p className="mb-4">
                     As always, while the examples on this page are touched-up a bit for visuals, you can always open
                     inspect element and poke around or view this page's source code on GitHub.
                 </p>
+                <div className="flex gap-2">
+                    <a className="text-2xl text-inherit hover:no-underline" href="https://github.com/ky28059/ky28059.github.io/blob/main/app/flex/page.tsx" target="_blank" rel="noopener noreferrer">
+                        <BsGithub />
+                    </a>
+                </div>
             </TextSection>
             <section className="my-12 flex justify-center">
                 <FlexDemoContainer className="flex" label="display: flex">
@@ -517,7 +523,7 @@ export default function Drought() {
             </section>
 
             <TextSection>
-                and just about anything in between. [...]
+                and just about anything in between. {/* [...] */}
             </TextSection>
         </div>
     )
