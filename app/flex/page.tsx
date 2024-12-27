@@ -181,7 +181,7 @@ export default function Drought() {
                     Wrapping is great, but how do we deal with the excess whitespace in the container?
                 </p>
                 <p className="mb-4">
-                    To align elements <em>along the perpendicular (cross) axis as the flex container</em>, use
+                    To align elements <em>along the perpendicular (cross) axis of the flex container</em>, use
                     the <InlineCode>align-items</InlineCode> property.
                 </p>
                 <CopyCodeBlock language="css">
@@ -288,7 +288,7 @@ export default function Drought() {
                     Alignment (parallel axis)
                 </LinkHeading>
                 <p className="mb-4">
-                    To align elements <em>along the same (parallel) axis as the flex container</em>, use
+                    To align elements <em>along the parallel (main) axis of the flex container</em>, use
                     the <InlineCode>justify-content</InlineCode> property.
                 </p>
                 <CopyCodeBlock language="css">
@@ -312,8 +312,8 @@ export default function Drought() {
 
             <TextSection>
                 <p className="mb-4">
-                    You can think of <InlineCode>justify-content</InlineCode> as aligning elements along the
-                    container's parallel axis, but what <InlineCode>justify-content</InlineCode> actually controls
+                    While it suffices to think of <InlineCode>justify-content</InlineCode> as aligning elements along
+                    the container's parallel axis, what <InlineCode>justify-content</InlineCode> actually controls
                     is the distribution of <em>whitespace</em> within the container.
                 </p>
                 <p className="mb-4">
@@ -326,15 +326,15 @@ export default function Drought() {
                             <InlineCode>start</InlineCode> (default)
                         </td>
                         <td className="p-2 border-t border-tertiary">
-                            Place whitespace at the end of the container e.g. the right (row) or bottom (column)
-                            (this results in elements being pushed to the left (row) or top (column)).
+                            Place whitespace at the end of the container e.g. the right (row) or bottom (column);
+                            this results in elements being pushed to the left (row) or top (column).
                         </td>
                     </tr>
                     <tr>
                         <td className="p-2 border-r border-t border-tertiary"><InlineCode>end</InlineCode></td>
                         <td className="p-2 border-t border-tertiary">
-                            Place whitespace at the start of the container e.g. the left (row) or top (column)
-                            (this results in elements being pushed to the right (row) or bottom (column)).
+                            Place whitespace at the start of the container e.g. the left (row) or top (column);
+                            this results in elements being pushed to the right (row) or bottom (column).
                         </td>
                     </tr>
                     <tr>
