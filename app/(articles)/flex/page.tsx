@@ -2,9 +2,9 @@ import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
 
 // Components
-import CopyCodeBlock from '../../components/CopyCodeBlock';
-import { InlineCode } from '../../components/InlineCode';
-import LinkHeading from '../../components/LinkHeading';
+import CopyCodeBlock from '../../../components/CopyCodeBlock';
+import { InlineCode } from '../../../components/InlineCode';
+import LinkHeading from '../../../components/LinkHeading';
 import { BsGithub } from 'react-icons/bs';
 
 
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function Drought() {
     return (
-        <div>
+        <>
             <div className="h-screen bg-gradient-to-br from-pink-500 via-red-500 to-orange-500 fixed inset-0 -z-10" />
 
             <TextSection>
@@ -525,7 +525,7 @@ export default function Drought() {
             <TextSection>
                 and just about anything in between. {/* [...] */}
             </TextSection>
-        </div>
+        </>
     )
 }
 
