@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function Drought() {
     return (
         <>
-            <div className="h-screen bg-gradient-to-br from-pink-500 via-red-500 to-orange-500 fixed inset-0 -z-10" />
+            <div className="bg-gradient-to-br from-pink-500 via-red-500 to-orange-500 fixed inset-0 -z-10" />
 
             <TextSection>
                 <h1 className="text-5xl font-bold mb-4">Flex(box)</h1>
@@ -40,9 +40,9 @@ export default function Drought() {
             </TextSection>
             <section className="my-12 flex justify-center">
                 <FlexDemoContainer className="flex" label="display: flex">
-                    <div className="w-48 h-24 bg-blue-400/50 flex items-center justify-center">1</div>
-                    <div className="w-48 h-24 bg-blue-400/35 flex items-center justify-center">2</div>
-                    <div className="w-48 h-24 bg-blue-400/20 flex items-center justify-center">3</div>
+                    <div className="w-24 sm:w-48 h-24 bg-blue-400/50 flex items-center justify-center">1</div>
+                    <div className="w-24 sm:w-48 h-24 bg-blue-400/35 flex items-center justify-center">2</div>
+                    <div className="w-24 sm:w-48 h-24 bg-blue-400/20 flex items-center justify-center">3</div>
                 </FlexDemoContainer>
             </section>
 
@@ -65,17 +65,17 @@ export default function Drought() {
                     of elements reversed.
                 </p>
             </TextSection>
-            <section className="my-12 flex gap-12 justify-center">
+            <section className="my-12 px-12 flex flex-wrap gap-12 justify-center">
                 <FlexDemoContainer className="flex flex-col" label="flex-direction: column">
-                    <div className="w-96 h-20 bg-blue-400/50 flex items-center justify-center">1</div>
-                    <div className="w-96 h-20 bg-blue-400/35 flex items-center justify-center">2</div>
-                    <div className="w-96 h-20 bg-blue-400/20 flex items-center justify-center">3</div>
+                    <div className="w-[80vw] sm:w-96 h-20 bg-blue-400/50 flex items-center justify-center">1</div>
+                    <div className="w-[80vw] sm:w-96 h-20 bg-blue-400/35 flex items-center justify-center">2</div>
+                    <div className="w-[80vw] sm:w-96 h-20 bg-blue-400/20 flex items-center justify-center">3</div>
                 </FlexDemoContainer>
 
                 <FlexDemoContainer className="flex flex-col-reverse" label="flex-direction: column-reverse">
-                    <div className="w-96 h-20 bg-blue-400/50 flex items-center justify-center">1</div>
-                    <div className="w-96 h-20 bg-blue-400/35 flex items-center justify-center">2</div>
-                    <div className="w-96 h-20 bg-blue-400/20 flex items-center justify-center">3</div>
+                    <div className="w-[80vw] sm:w-96 h-20 bg-blue-400/50 flex items-center justify-center">1</div>
+                    <div className="w-[80vw] sm:w-96 h-20 bg-blue-400/35 flex items-center justify-center">2</div>
+                    <div className="w-[80vw] sm:w-96 h-20 bg-blue-400/20 flex items-center justify-center">3</div>
                 </FlexDemoContainer>
             </section>
 
@@ -104,7 +104,7 @@ export default function Drought() {
                 <FlexDemoContainer className="flex flex-wrap w-[80%] max-w-2xl" label="flex-wrap: wrap">
                     {Array(6).fill(0).map((_, i) => (
                         <div
-                            className="w-48 h-28 bg-blue-400 flex items-center justify-center"
+                            className="w-28 sm:w-48 h-28 bg-blue-400 flex items-center justify-center"
                             // @ts-ignore
                             style={{ '--tw-bg-opacity': (8 - i) / 12 }}
                             key={i}
@@ -138,7 +138,7 @@ export default function Drought() {
                 <FlexWhitespaceDemoContainer className="flex flex-wrap gap-4 w-[80%] max-w-2xl" label="gap: 1rem">
                     {Array(6).fill(0).map((_, i) => (
                         <div
-                            className="w-48 h-20 bg-violet-700 rounded-md text-xl font-semibold text-white/70 flex items-center justify-center"
+                            className="w-20 sm:w-48 h-20 bg-violet-700 rounded-md text-xl font-semibold text-white/70 flex items-center justify-center"
                             key={i}
                         >
                             {i + 1}
@@ -164,7 +164,7 @@ export default function Drought() {
                 >
                     {Array(6).fill(0).map((_, i) => (
                         <div
-                            className="w-48 h-20 bg-violet-700 rounded-md text-xl font-semibold text-white/70 flex items-center justify-center"
+                            className="w-20 sm:w-48 h-20 bg-violet-700 rounded-md text-xl font-semibold text-white/70 flex items-center justify-center"
                             key={i}
                         >
                             {i + 1}
@@ -193,12 +193,12 @@ export default function Drought() {
                 </p>
             </TextSection>
             <section className="container my-12 flex flex-col gap-12 items-center">
-                <FlexWhitespaceDemoContainer className="flex items-center h-52 gap-3" label="align-items: center">
-                    <div className="w-48 h-24 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">1</div>
-                    <div className="w-48 h-32 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">2</div>
-                    <div className="w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">3</div>
-                    <div className="w-48 h-44 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">4</div>
-                    <div className="w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">5</div>
+                <FlexWhitespaceDemoContainer className="flex items-center h-52 gap-1.5 sm:gap-3" label="align-items: center">
+                    <div className="w-16 sm:w-24 lg:w-40 h-24 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">1</div>
+                    <div className="w-16 sm:w-24 lg:w-40 h-32 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">2</div>
+                    <div className="w-16 sm:w-24 lg:w-40 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">3</div>
+                    <div className="w-16 sm:w-24 lg:w-40 h-44 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">4</div>
+                    <div className="w-16 sm:w-24 lg:w-40 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">5</div>
                 </FlexWhitespaceDemoContainer>
             </section>
 
@@ -248,38 +248,38 @@ export default function Drought() {
                 </p>
             </TextSection>
             <section className="container my-12 flex flex-col gap-12 items-center">
-                <FlexWhitespaceDemoContainer className="flex h-48 gap-3" label="align-items: stretch">
+                <FlexWhitespaceDemoContainer className="flex h-48 gap-1.5 sm:gap-3" label="align-items: stretch">
                     <div className="bg-violet-700/35">
-                        <div className="w-48 h-24 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">1</div>
+                        <div className="w-16 sm:w-24 lg:w-40 h-24 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">1</div>
                     </div>
                     <div className="bg-violet-700/35">
-                        <div className="w-48 h-32 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">2</div>
+                        <div className="w-16 sm:w-24 lg:w-40 h-32 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">2</div>
                     </div>
                     <div className="bg-violet-700/35">
-                        <div className="w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">3</div>
+                        <div className="w-16 sm:w-24 lg:w-40 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">3</div>
                     </div>
                     <div className="bg-violet-700/35">
-                        <div className="w-48 h-44 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">4</div>
+                        <div className="w-16 sm:w-24 lg:w-40 h-44 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">4</div>
                     </div>
                     <div className="bg-violet-700/35">
-                        <div className="w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">5</div>
+                        <div className="w-16 sm:w-24 lg:w-40 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">5</div>
                     </div>
                 </FlexWhitespaceDemoContainer>
 
-                <FlexWhitespaceDemoContainer className="flex items-start h-48 gap-3" label="align-items: start">
-                    <div className="w-48 h-24 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">1</div>
-                    <div className="w-48 h-32 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">2</div>
-                    <div className="w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">3</div>
-                    <div className="w-48 h-44 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">4</div>
-                    <div className="w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">5</div>
+                <FlexWhitespaceDemoContainer className="flex items-start h-48 gap-1.5 sm:gap-3" label="align-items: start">
+                    <div className="w-16 sm:w-24 lg:w-40 h-24 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">1</div>
+                    <div className="w-16 sm:w-24 lg:w-40 h-32 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">2</div>
+                    <div className="w-16 sm:w-24 lg:w-40 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">3</div>
+                    <div className="w-16 sm:w-24 lg:w-40 h-44 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">4</div>
+                    <div className="w-16 sm:w-24 lg:w-40 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">5</div>
                 </FlexWhitespaceDemoContainer>
 
-                <FlexWhitespaceDemoContainer className="flex items-end h-48 gap-3" label="align-items: end">
-                    <div className="w-48 h-24 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">1</div>
-                    <div className="w-48 h-32 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">2</div>
-                    <div className="w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">3</div>
-                    <div className="w-48 h-44 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">4</div>
-                    <div className="w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">5</div>
+                <FlexWhitespaceDemoContainer className="flex items-end h-48 gap-1.5 sm:gap-3" label="align-items: end">
+                    <div className="w-16 sm:w-24 lg:w-40 h-24 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">1</div>
+                    <div className="w-16 sm:w-24 lg:w-40 h-32 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">2</div>
+                    <div className="w-16 sm:w-24 lg:w-40 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">3</div>
+                    <div className="w-16 sm:w-24 lg:w-40 h-44 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">4</div>
+                    <div className="w-16 sm:w-24 lg:w-40 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">5</div>
                 </FlexWhitespaceDemoContainer>
             </section>
 
@@ -304,9 +304,9 @@ export default function Drought() {
                     className="flex justify-center w-full gap-4"
                     label="justify-content: center"
                 >
-                    <div className="w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">1</div>
-                    <div className="w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">2</div>
-                    <div className="w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">3</div>
+                    <div className="w-[20%] lg:w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">1</div>
+                    <div className="w-[20%] lg:w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">2</div>
+                    <div className="w-[20%] lg:w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">3</div>
                 </FlexWhitespaceDemoContainer>
             </section>
 
@@ -375,36 +375,36 @@ export default function Drought() {
                     className="flex w-full gap-4"
                     label="justify-content: start"
                 >
-                    <div className="w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">1</div>
-                    <div className="w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">2</div>
-                    <div className="w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">3</div>
+                    <div className="w-[20%] lg:w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">1</div>
+                    <div className="w-[20%] lg:w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">2</div>
+                    <div className="w-[20%] lg:w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">3</div>
                 </FlexWhitespaceDemoContainer>
 
                 <FlexWhitespaceDemoContainer
                     className="flex justify-end w-full gap-4"
                     label="justify-content: end"
                 >
-                    <div className="w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">1</div>
-                    <div className="w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">2</div>
-                    <div className="w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">3</div>
+                    <div className="w-[20%] lg:w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">1</div>
+                    <div className="w-[20%] lg:w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">2</div>
+                    <div className="w-[20%] lg:w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">3</div>
                 </FlexWhitespaceDemoContainer>
 
                 <FlexWhitespaceDemoContainer
                     className="flex justify-between w-full gap-4"
                     label="justify-content: space-between"
                 >
-                    <div className="w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">1</div>
-                    <div className="w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">2</div>
-                    <div className="w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">3</div>
+                    <div className="w-[20%] lg:w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">1</div>
+                    <div className="w-[20%] lg:w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">2</div>
+                    <div className="w-[20%] lg:w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">3</div>
                 </FlexWhitespaceDemoContainer>
 
                 <FlexWhitespaceDemoContainer
                     className="flex justify-evenly w-full gap-4"
                     label="justify-content: space-evenly"
                 >
-                    <div className="w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">1</div>
-                    <div className="w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">2</div>
-                    <div className="w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">3</div>
+                    <div className="w-[20%] lg:w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">1</div>
+                    <div className="w-[20%] lg:w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">2</div>
+                    <div className="w-[20%] lg:w-48 h-20 bg-violet-700 text-xl font-semibold text-white/70 flex items-center justify-center rounded-md">3</div>
                 </FlexWhitespaceDemoContainer>
             </section>
 
@@ -448,7 +448,7 @@ export default function Drought() {
                 </CopyCodeBlock>
             </TextSection>
             <section className="container my-12 flex flex-col gap-12 items-center">
-                <FlexWhitespaceDemoContainer className="flex justify-center w-full gap-8">
+                <FlexWhitespaceDemoContainer className="flex flex-col md:flex-row items-center justify-center w-full gap-8">
                     <div className="rounded-lg bg-white shadow-lg w-64 overflow-clip">
                         <img
                             className="w-full h-36 object-cover object-center"

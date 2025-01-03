@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Layout(props: { children: ReactNode }) {
     return (
-        <main className="pb-24">
+        <main>
             <div className="bg-midnight pt-20">
                 <div className="container">
                     <Link href="/" className="text-secondary text-sm -ml-5 block w-max">
