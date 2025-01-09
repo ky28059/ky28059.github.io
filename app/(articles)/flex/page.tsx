@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description: 'Quick tutorial for flexbox, CSS\'s greatest invention since z-index.'
 }
 
-export default function Drought() {
+export default function Flex() {
     return (
         <>
             <div className="bg-gradient-to-br from-pink-500 via-red-500 to-orange-500 fixed inset-0 -z-10" />
