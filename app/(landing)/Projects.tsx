@@ -122,7 +122,7 @@ const projects: ProjectGroupData[] = [
         gh: "https://github.com/MITRacecarNeo",
         projects: [{
             name: "RACECAR Neo Library",
-            desc: 'The onboard library and documentation for MIT BWSI RACECAR.',
+            desc: 'Onboard library and autodocs for MIT BWSI RACECAR.',
             src: "/assets/projects/racecar-library-3.jpg",
             langs: ['py'],
             tags: ['opencv', 'numpy', 'sphinx'],
@@ -130,7 +130,7 @@ const projects: ProjectGroupData[] = [
             web: "https://mitracecarneo.github.io/racecar-neo-library/"
         }, {
             name: "Dynamic Obstacles 2024",
-            desc: 'Arduino code for the dynamic obstacles as part of the 2024 RACECAR Grand Prix.',
+            desc: 'Arduino code for the dynamic obstacles featured in the 2024 RACECAR Grand Prix.',
             src: "/assets/projects/dynamic-obstacles.jpg",
             langs: ['cpp'],
             tags: ['arduino'],
@@ -142,7 +142,7 @@ const projects: ProjectGroupData[] = [
         gh: "https://github.com/b01lers",
         projects: [{
             name: "bctf",
-            desc: 'The new website for b01lers CTF!',
+            desc: 'A custom rCTF frontend framework for b01lers CTF.',
             src: "/assets/projects/b01lers-ctf-3.jpg",
             langs: ['ts', 'css'],
             tags: ['nextjs', 'tailwindcss'],
@@ -157,7 +157,7 @@ const projects: ProjectGroupData[] = [
             gh: "https://github.com/b01lers/rctf-deploy-action"
         }, {
             name: "b01lers-bot",
-            desc: 'An upgraded discord bot for the b01lers CTF team server.',
+            desc: 'Upgraded discord bot for the b01lers CTF team server.',
             src: "/assets/projects/b01lers-bot.jpg",
             langs: ['rust'],
             tags: ['serenity', 'poise', 'sqlx'],
@@ -169,14 +169,14 @@ const projects: ProjectGroupData[] = [
         gh: 'https://github.com/Purdue-eCTF',
         projects: [{
             name: "MITRE eCTF 2024",
-            desc: 'Secure protocol implementation for the MITRE embedded CTF 2024.',
+            desc: 'Secure medical device protocol implementation for the MITRE embedded CTF 2024.',
             src: "/assets/projects/ectf-24.jpg",
             langs: ['rust'],
             tags: ['MAX78000FTHR'],
             gh: "https://github.com/Purdue-eCTF/2024-ectf-secure-example"
         }, {
             name: "scrape-bot",
-            desc: 'Scoreboard scraper and automated attack / testing pipeline for eCTF 2024.',
+            desc: 'Scoreboard scraper and automated attack / CI / testing pipeline for eCTF.',
             src: "/assets/projects/scrape-bot.jpg",
             langs: ['ts'],
             tags: ['discord.js', 'express', 'PortalBot framework'],
@@ -207,7 +207,7 @@ const projects: ProjectGroupData[] = [
             gh: "https://github.com/ky28059/GRTWebsite2.0",
             web: "https://www.gunnrobotics.com"
         }, {
-            desc: "FRC team 192 code for 2023 FIRST Robotics Competition, Charged Up.",
+            desc: "FRC team 192 code for the 2023 FIRST Robotics Competition, Charged Up.",
             name: "GRT2023",
             src: "/assets/projects/grt-23-3.JPG",
             langs: ["java"],
