@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import plugin from 'tailwindcss/plugin';
 
 import headlessuiPlugin from '@headlessui/tailwindcss';
 
@@ -34,7 +35,14 @@ const config: Config = {
             }
         }
     },
-    plugins: [headlessuiPlugin],
+    plugins: [
+        headlessuiPlugin,
+        plugin(({ addVariant }) => {
+            addVariant('slider-thumb', ['&::-webkit-slider-thumb', '&::-moz-range-thumb']);
+            addVariant('scrollbar', ['&::-webkit-scrollbar']);
+            addVariant('scrollbar-thumb', ['&::-webkit-scrollbar-thumb']);
+        })
+    ],
 }
 
 export default config;

@@ -2,18 +2,14 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 // Components
-import PageHeading from '../../components/PageHeading';
+import LandingHeader from './LandingHeader';
 import Section, { SectionHeading } from '../../components/Section';
 import CodeBlock from '../../components/CodeBlock';
-import ThemeToggle from '../../components/ThemeToggle';
 import Projects from './Projects';
 import MockPage from './MockPage';
-import ConceptsCard from './ConceptsCard';
-import GithubContributionChart from './GithubContributionChart';
 
 // Icons
-import { BsDiscord, BsGithub, BsLinkedin } from 'react-icons/bs';
-import { FaEnvelope } from 'react-icons/fa6';
+import { BsGithub } from 'react-icons/bs';
 import { PiFlagPennantFill } from 'react-icons/pi';
 
 
@@ -25,40 +21,7 @@ export const metadata: Metadata = {
 export default function Home() {
     return (
         <div>
-            {/* TODO: responsive design */}
-            <header className="bg-white dark:bg-midnight">
-                <div className="container relative pl-48 pt-24 pb-10 pr-4">
-                    <ThemeToggle className="absolute top-8 right-8 text-xl" />
-
-                    <div className="relative">
-                        <img src="/pfp.png" alt="Profile picture" className="absolute -left-32 -top-10 h-24 w-24 rounded-full" />
-                        <PageHeading className="mb-5">kevin yu.</PageHeading>
-                        <p className="mb-3 max-w-3xl text-primary">
-                            Gunn High School graduate and second-year student studying Computer Science at Purdue University.
-                            Interested in art, web development, and robotics.
-                        </p>
-                        <p className="mb-3.5 text-primary">
-                            My resume can be found <a href="/Resume.pdf">here</a>.
-                        </p>
-                        <div className="text-2xl flex gap-4">
-                            <a href="https://github.com/ky28059" target="_blank" rel="noopener noreferrer" className="text-inherit">
-                                <BsGithub />
-                            </a>
-                            <a href="https://www.linkedin.com/in/kevin-yu-66198128b/" target="_blank" rel="noopener noreferrer" className="text-inherit">
-                                <BsLinkedin />
-                            </a>
-                            <a href="mailto:kevinyu567+website@gmail.com" className="text-inherit">
-                                <FaEnvelope />
-                            </a>
-                            {/*
-                            <a href="..." target="_blank" rel="noopener noreferrer" className="text-inherit">
-                                <BsDiscord />
-                            </a>
-                            */}
-                        </div>
-                    </div>
-                </div>
-            </header>
+            <LandingHeader />
 
             <Section secondary className="flex gap-12 justify-center">
                 <MockPage />
@@ -81,8 +44,6 @@ export default function Home() {
                     </div>
                 </div>
             </Section>
-
-            <GithubContributionChart />
 
             <Projects />
 
