@@ -4,6 +4,7 @@ import GithubContributionChart from './GithubContributionChart';
 // Icons
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import { FaEnvelope } from 'react-icons/fa6';
+import { SiNpm } from 'react-icons/si';
 
 
 export default function LandingHeader() {
@@ -31,16 +32,17 @@ export default function LandingHeader() {
                         My resume can be found <a href="/Resume.pdf">here</a>.
                     </p>
                     <div className="text-2xl flex gap-4">
-                        <a href="https://github.com/ky28059" target="_blank" rel="noopener noreferrer"
-                           className="text-inherit">
+                        <a href="https://github.com/ky28059" target="_blank" rel="noopener noreferrer" className="text-inherit">
                             <BsGithub />
                         </a>
-                        <a href="https://www.linkedin.com/in/kevin-yu-66198128b/" target="_blank"
-                           rel="noopener noreferrer" className="text-inherit">
+                        <a href="https://www.linkedin.com/in/kevin-yu-66198128b/" target="_blank" rel="noopener noreferrer" className="text-inherit">
                             <BsLinkedin />
                         </a>
                         <a href="mailto:kevinyu567+website@gmail.com" className="text-inherit">
                             <FaEnvelope />
+                        </a>
+                        <a href="https://www.npmjs.com/~ky28059" target="_blank" rel="noopener noreferrer" className="text-inherit">
+                            <SiNpm />
                         </a>
                     </div>
                 </div>
