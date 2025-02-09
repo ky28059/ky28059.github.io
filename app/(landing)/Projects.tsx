@@ -123,7 +123,7 @@ const projects: ProjectGroupData[] = [
         projects: [{
             name: "RACECAR Neo Library",
             desc: 'Onboard library and autodocs for MIT BWSI RACECAR.',
-            src: "/assets/projects/racecar-library-3.jpg",
+            src: "/assets/projects/racecar-library-4.jpg",
             langs: ['py'],
             tags: ['opencv', 'numpy', 'sphinx'],
             gh: "https://github.com/MITRacecarNeo/racecar-neo-library",
