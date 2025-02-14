@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function PurdueHousing() {
     return (
         <>
-            <SectionHeading>Purdue Housing</SectionHeading>
+            <SectionHeading>Purdue Housing 2023</SectionHeading>
 
             <p className="mb-3">
                 This is a script to automatically search for open housing spots on the Purdue housing portal.

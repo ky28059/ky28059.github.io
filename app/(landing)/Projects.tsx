@@ -68,8 +68,7 @@ export default function Projects() {
                 <ProjectsHeaderSection>
                     <SectionHeading>Gists</SectionHeading>
                     <p className="text-primary">
-                        GitHub gists, educational resources, and other articles about programming concepts, cool
-                        languages / technologies, and more.
+                        GitHub gists, educational resources, cool programming things, and more.
                     </p>
                 </ProjectsHeaderSection>
 
@@ -80,6 +79,21 @@ export default function Projects() {
                         src="/assets/projects/vercel.jpg"
                     >
                         A guide on how to deploy an organization repository to Vercel for free.
+                    </Gist>
+                    <Gist
+                        name="Flex"
+                        href="/flex"
+                        src="/assets/projects/flex.jpg"
+                    >
+                        Yet another CSS flexbox tutorial.
+                    </Gist>
+                    <Gist
+                        name="Purdue Housing 2023"
+                        href="/purdue-housing"
+                        src="/assets/projects/purdue-housing-2023.jpg"
+                    >
+                        Purdue Housing Portal scraper to search for available rooms in the midst of a crashing
+                        website.
                     </Gist>
                     <Gist
                         name="Short circuit evaluation"
