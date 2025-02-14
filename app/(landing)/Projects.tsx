@@ -179,6 +179,20 @@ const projects: ProjectGroupData[] = [
             langs: ['rust'],
             tags: ['serenity', 'poise', 'sqlx'],
             gh: "https://github.com/Athryx/b01lers-bot"
+        }, {
+            name: 'b01lers-ctf-2024',
+            desc: 'Challenge source for b01lers CTF 2024. Authored: `use-cache`, `bash cat with pipe`.',
+            src: '/assets/projects/b01lers-ctf-2024-2.jpg',
+            langs: ['ts', 'sh'],
+            tags: ['nextjs', 'bash'],
+            gh: 'https://github.com/b01lers/b01lers-ctf-2024-public'
+        }, {
+            name: 'bootcamp-ctf-2024',
+            desc: 'Challenge source for b01lers bootcamp CTF 2024. Authored: `>>=jail 0-3`, `lazy debugger`, `class-struggle`.',
+            src: '/assets/projects/bootcamp-ctf-2024-2.jpg',
+            langs: ['js', 'haskell', 'c'],
+            tags: ['hint'],
+            web: 'https://bootcamp.b01lersc.tf/'
         }]
     },
     {
