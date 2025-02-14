@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { langToColor, LanguageKey } from '../../(landing)/ProjectImageCard';
+import { langToColor, LanguageKey } from '../../(landing)/Project';
 
 // Icons
 import { BsDiscord, BsGithub } from 'react-icons/bs';

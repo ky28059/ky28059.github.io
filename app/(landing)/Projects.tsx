@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 // Components
 import Section, { SectionHeading } from '../../components/Section';
-import ProjectImageCard, { langToColor, langToFullName, LanguageKey, ProjectData } from './ProjectImageCard';
+import Project, { langToColor, langToFullName, LanguageKey, ProjectData } from './Project';
 import Gist from './Gist';
 
 // Icons
@@ -57,7 +57,7 @@ export default function Projects() {
                     {projects.map((g) => (
                         <ProjectGroup name={g.name} gh={g.gh} key={g.name}>
                             {g.projects.map((p) => (
-                                <ProjectImageCard {...p} key={p.name} />
+                                <Project {...p} key={p.name} />
                             ))}
                         </ProjectGroup>
                     ))}
@@ -68,30 +68,33 @@ export default function Projects() {
                 <ProjectsHeaderSection>
                     <SectionHeading>Gists</SectionHeading>
                     <p className="text-primary">
-                        GitHub gists about specific programming concepts, cool programming languages / technologies,
-                        and more.
+                        GitHub gists, educational resources, and other articles about programming concepts, cool
+                        languages / technologies, and more.
                     </p>
                 </ProjectsHeaderSection>
 
-                <ProjectsCardGrid>
+                <ProjectsCardGrid className="pl-14">
+                    <Gist
+                        name="Deploying to Vercel"
+                        href="https://gist.github.com/ky28059/1c9af929a9030105da8cf00006b50484"
+                        src="/assets/projects/vercel.jpg"
+                    >
+                        A guide on how to deploy an organization repository to Vercel for free.
+                    </Gist>
                     <Gist
                         name="Short circuit evaluation"
-                        url="https://gist.github.com/ky28059/84f33cee7cec0066390f79ee3629021e"
+                        href="https://gist.github.com/ky28059/84f33cee7cec0066390f79ee3629021e"
+                        src="/assets/projects/short-circuit-2.jpg"
                     >
                         An explanation of short circuit lazy evaluation in boolean expressions, and its relevance in
                         weakly typed languages.
                     </Gist>
                     <Gist
                         name="Lambdas in Java"
-                        url="https://gist.github.com/ky28059/566596eb93ac863332783182ec356e82"
+                        href="https://gist.github.com/ky28059/566596eb93ac863332783182ec356e82"
+                        src="/assets/projects/lambdas.jpg"
                     >
                         A guide to lambda expressions in Java 17.
-                    </Gist>
-                    <Gist
-                        name="Deploying to Vercel"
-                        url="https://gist.github.com/ky28059/1c9af929a9030105da8cf00006b50484"
-                    >
-                        A guide on how to deploy an organization repository to Vercel for free.
                     </Gist>
                 </ProjectsCardGrid>
             </ProjectsLayout>
@@ -177,7 +180,7 @@ const projects: ProjectGroupData[] = [
         }, {
             name: "scrape-bot",
             desc: 'Scoreboard scraper and automated attack / CI / testing pipeline for eCTF.',
-            src: "/assets/projects/scrape-bot.jpg",
+            src: "/assets/projects/scrape-bot-2.jpg",
             langs: ['ts'],
             tags: ['discord.js', 'express', 'PortalBot framework'],
             gh: "https://github.com/Purdue-eCTF/scrape-bot"
@@ -376,9 +379,9 @@ function ProjectsHeaderSection(props: { children: ReactNode }) {
     )
 }
 
-function ProjectsCardGrid(props: { children: ReactNode }) {
+function ProjectsCardGrid(props: { className?: string, children: ReactNode }) {
     return (
-        <div className="flex flex-wrap justify-center md:justify-start gap-5 w-full">
+        <div className={'flex flex-wrap justify-center md:justify-start gap-5 w-full' + (props.className ? ` ${props.className}` : '')}>
             {props.children}
         </div>
     )

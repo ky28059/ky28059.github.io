@@ -4,16 +4,25 @@ import HoverCard from './HoverCard';
 
 type GistProps = {
     name: string,
-    url: string,
+    href: string,
+    src: string,
     children: ReactNode
 }
 export default function Gist(props: GistProps) {
-    const { name, url, children } = props;
-
     return (
-        <HoverCard href={url}>
-            <h3 className="text-xl font-semibold mb-2">{name}</h3>
-            <p className="text-sm">{children}</p>
-        </HoverCard>
+        <div className="group rounded-md overflow-hidden border border-white/25 hover:border-white/50 transition duration-150 relative w-96">
+            <a href={props.href} target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-10" />
+
+            <img
+                src={props.src}
+                alt={props.name}
+                className="w-full h-20 object-cover transition duration-150"
+            />
+
+            <div className="px-5 pt-3.5 pb-4">
+                <h3 className="font-semibold mb-2">{props.name}</h3>
+                <p className="text-xs text-primary">{props.children}</p>
+            </div>
+        </div>
     )
 }

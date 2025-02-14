@@ -10,7 +10,7 @@ export type ProjectData = {
     discord?: string,
     web?: string
 }
-export default function ProjectImageCard(props: ProjectData) {
+export default function Project(props: ProjectData) {
     // TODO: display all links on hover
     const href = props.web ?? props.gh;
 
