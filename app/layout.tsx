@@ -7,8 +7,8 @@ import '../styles/index.scss';
 
 export const metadata: Metadata = {
     title: {
-        template: '%s | ky28059.github.io',
-        default: 'ky28059.github.io'
+        template: '%s | kevin.fish',
+        default: 'kevin.fish'
     }
 }
 
