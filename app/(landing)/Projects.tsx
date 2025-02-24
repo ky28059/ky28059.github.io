@@ -290,7 +290,8 @@ const projects: ProjectGroupData[] = [
             gh: "https://github.com/united-computations/GunnHacks7.0",
             web: "https://7.0.gunnhacks.com"
         }]
-    }, {
+    },
+    {
         name: "G'Floats",
         projects: [{
             desc: "Python scripts for the Raspberry Pi radio + hatch mechanism + fog machine in the 2022 Senior float.",
@@ -311,16 +312,24 @@ const projects: ProjectGroupData[] = [
     {
         name: "Personal / other",
         projects: [{
-            desc: "A student-made schedule app for Purdue University!",
+            name: "Keep Typing And Nobody Explodes",
+            desc: "Boilermake 2025 submission.",
+            src: "/assets/projects/ktane.jpg",
+            langs: ['ts', 'css', 'py'],
+            tags: ['nextjs', 'tailwindcss', 'fastapi', 'nsjail'],
+            gh: "https://github.com/ky28059/ktane",
+            web: "https://ktane.kevin.fish/"
+        }, {
             name: "Pyrite",
+            desc: "A student-made schedule app for Purdue University!",
             src: "/assets/projects/pyrite.png",
             langs: ["ts", "css"],
             tags: ["nextjs", "tailwindcss", "firebase"],
             gh: "https://github.com/ky28059/pyrite",
             web: "https://pyrite-pwl.vercel.app/"
         }, {
-            desc: "Gunn schedule app and UGWA successor.",
             name: "WATT",
+            desc: "Gunn schedule app used by 1300+ students.",
             src: "/assets/projects/watt.png",
             langs: ["ts", "html", "scss"],
             tags: ["create-react-app", "tailwindcss", "firebase"],
