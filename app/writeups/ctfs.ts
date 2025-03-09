@@ -8,6 +8,26 @@ type CTFData = {
 
 export const ctfs: CTFData[] = [
     {
+        name: 'Hack the Madness CTF Round 2 (Purdue vs. KSU)',
+        writeups: [{
+            href: 'https://gist.github.com/ky28059/55b783ecf750b20dfd3d58cf58530ecd',
+            name: 'broken production',
+            type: 'web',
+            tags: ['lfi'],
+            src: '/assets/writeups/htb-logo.jpg'
+        }]
+    },
+    {
+        name: 'PwnMe CTF Quals 2025',
+        writeups: [{
+            href: 'https://gist.github.com/ky28059/0d9af500fb0b9923022eaad055fc7b7c',
+            name: 'Hack the bot 1',
+            type: 'web',
+            tags: ['xss'],
+            src: '/assets/writeups/hackthebot1.jpg'
+        }]
+    },
+    {
         name: 'm0leCon Beginner CTF 2024',
         writeups: [{
             href: 'https://gist.github.com/ky28059/fdf7379fc3c90ee601f38bff211ab8eb',
@@ -127,6 +147,7 @@ export const ctfs: CTFData[] = [
             type: 'web',
             href: 'https://gist.github.com/ky28059/5af97a38d168d540bda2e5b3ae1324bf',
             name: 'trendz(zz)?',
+            tags: ['htmx', 'xss'],
             src: '/assets/writeups/trendz.jpg'
         }]
     },
