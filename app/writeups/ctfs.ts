@@ -33,6 +33,7 @@ export const ctfs: CTFData[] = [
             href: 'https://gist.github.com/ky28059/fdf7379fc3c90ee601f38bff211ab8eb',
             name: 'PIETcture',
             type: 'misc',
+            tags: ['esolang'],
             src: '/assets/writeups/pietcture.png'
         }]
     },
@@ -117,6 +118,7 @@ export const ctfs: CTFData[] = [
             name: 'jellyjail',
             // src: 'https://gist.github.com/user-attachments/assets/39b2cd25-132a-43bf-84a4-a7b29b78a38a'
             // src: '/assets/writeups/jellyjail.jpg'
+            tags: ['esolang'],
             src: 'https://gist.github.com/user-attachments/assets/c76f30bc-7abd-46fc-ae5b-bb5b697e2515'
         }]
     },
