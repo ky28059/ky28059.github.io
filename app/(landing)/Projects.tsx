@@ -207,10 +207,10 @@ const projects: ProjectGroupData[] = [
             gh: "https://github.com/Purdue-eCTF/2024-ectf-secure-example"
         }, {
             name: "scrape-bot",
-            desc: 'Scoreboard scraper and automated attack / CI / testing pipeline for eCTF.',
+            desc: 'Scoreboard scraper and automated attack / CI / testing suite for MITRE eCTF.',
             src: "/assets/projects/scrape-bot-2.jpg",
             langs: ['ts'],
-            tags: ['discord.js', 'express', 'PortalBot framework'],
+            tags: ['discord.js', 'express', 'slack-bolt'],
             gh: "https://github.com/Purdue-eCTF/scrape-bot"
         }]
     },

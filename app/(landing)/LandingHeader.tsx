@@ -35,7 +35,7 @@ export default function LandingHeader() {
                         <a href="https://github.com/ky28059" target="_blank" rel="noopener noreferrer" className="text-inherit">
                             <BsGithub />
                         </a>
-                        <a href="https://www.linkedin.com/in/kevin-yu-66198128b/" target="_blank" rel="noopener noreferrer" className="text-inherit">
+                        <a href="https://www.linkedin.com/in/~kevin-yu/" target="_blank" rel="noopener noreferrer" className="text-inherit">
                             <BsLinkedin />
                         </a>
                         <a href="mailto:kevinyu567+website@gmail.com" className="text-inherit">
