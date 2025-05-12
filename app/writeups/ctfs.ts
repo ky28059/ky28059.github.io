@@ -8,6 +8,15 @@ type CTFData = {
 
 export const ctfs: CTFData[] = [
     {
+        name: 'SDCTF 2025',
+        writeups: [{
+            href: 'https://gist.github.com/ky28059/5ffffe2d75240def2e2d77c7e8243229',
+            name: 'triglot',
+            type: 'misc',
+            tags: ['polyglot']
+        }]
+    },
+    {
         name: 'Hack the Madness CTF Round 2 (Purdue vs. KSU)',
         writeups: [{
             href: 'https://gist.github.com/ky28059/55b783ecf750b20dfd3d58cf58530ecd',
@@ -210,7 +219,7 @@ export const ctfs: CTFData[] = [
         }]
     },
     {
-        name: "San Diego CTF 2024",
+        name: "SDCTF 2024",
         writeups: [{
             name: "impossible-golf",
             type: "misc",
