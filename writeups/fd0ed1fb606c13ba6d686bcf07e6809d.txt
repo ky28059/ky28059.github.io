@@ -1,0 +1,146 @@
+1:"$Sreact.fragment"
+2:I[87555,[],""]
+3:I[31295,[],""]
+4:I[6874,["874","static/chunks/874-c62c375efd21db20.js","319","static/chunks/app/writeups/layout-6eb8da7f54d57912.js"],""]
+6:I[59665,[],"MetadataBoundary"]
+8:I[59665,[],"OutletBoundary"]
+b:I[74911,[],"AsyncMetadataOutlet"]
+d:I[59665,[],"ViewportBoundary"]
+f:I[26614,[],""]
+:HL["/_next/static/media/a34f9d1faa5f3315-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/f67679a4dcf042a1.css","style"]
+0:{"P":null,"b":"LXc6w6ftcfUymS_FwiDab","p":"","c":["","writeups","fd0ed1fb606c13ba6d686bcf07e6809d"],"i":false,"f":[[["",{"children":["writeups",{"children":[["id","fd0ed1fb606c13ba6d686bcf07e6809d","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/f67679a4dcf042a1.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"className":"dark scroll-smooth","children":[["$","head",null,{"children":["$","meta",null,{"charSet":"utf-8"}]}],["$","body",null,{"className":"text-dark dark:text-white dark:bg-midnight","style":{"fontFamily":"'Inter', 'Inter Fallback'","fontStyle":"normal"},"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"h-screen flex items-center justify-center","children":["$","main",null,{"className":"relative pl-14","children":[["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 512 512","className":"absolute left-0 top-2 text-5xl text-grapefruit","children":["$undefined",[["$","path","0",{"d":"M256 48C140.559 48 48 140.559 48 256c0 115.436 92.559 208 208 208 115.435 0 208-92.564 208-208 0-115.441-92.564-208-208-208zm104.002 282.881l-29.12 29.117L256 285.117l-74.881 74.881-29.121-29.117L226.881 256l-74.883-74.881 29.121-29.116L256 226.881l74.881-74.878 29.12 29.116L285.119 256l74.883 74.881z","children":"$undefined"}]]],"style":{"color":"$undefined"},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}],["$","h1",null,{"className":"font-bold text-7xl underline decoration-grapefruit mb-5","children":"404."}],["$","p",null,{"children":"Your requested page was not found."}],["$","$L4",null,{"href":"/","className":"font-medium text-inherit","children":"Return to home →"}]]}]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":["writeups",["$","$1","c",{"children":[null,["$","main",null,{"className":"container pt-20 pb-24","children":[["$","$L4",null,{"href":"/","className":"text-secondary text-sm mb-10 -ml-5 block w-max","children":"← Back to home"}],["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]]}],{"children":[["id","fd0ed1fb606c13ba6d686bcf07e6809d","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",["$","$L6",null,{"children":"$L7"}],null,["$","$L8",null,{"children":["$L9","$La",["$","$Lb",null,{"promise":"$@c"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","TG_Yol2VYZMAqdmJP2CMS",{"children":[["$","$Ld",null,{"children":"$Le"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],null]}],false]],"m":"$undefined","G":["$f","$undefined"],"s":false,"S":true}
+10:"$Sreact.suspense"
+11:I[74911,[],"AsyncMetadata"]
+7:["$","$10",null,{"fallback":null,"children":["$","$L11",null,{"promise":"$@12"}]}]
+a:null
+e:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+9:null
+12:{"metadata":[["$","title","0",{"children":"kevin.fish"}]],"error":null,"digest":"$undefined"}
+c:{"metadata":"$12:metadata","error":null,"digest":"$undefined"}
+13:I[50674,["325","static/chunks/325-8cc74193b249521f.js","134","static/chunks/app/writeups/%5Bid%5D/page-b6fc1eb85fdc5690.js"],"default"]
+14:T4cf,import re
+
+import numpy as np
+import pwn
+
+conn = pwn.remote('krusty-katering.ctf.umasscybersec.org', 1337)
+
+
+def time_match_to_secs(n: str | None, t: str | None) -> int:
+    if n is None:
+        return 0
+    return int(n) * (1 if t == 's' else 60 if t == 'm' else 3600)
+
+
+def time_str_to_secs(s: str) -> int:
+    groups = re.search(r'(\d+)([hms])(?:(\d+)([hms]))?(?:(\d+)([hms]))?', s).groups()
+    return sum(time_match_to_secs(groups[i], groups[i + 1]) for i in range(0, 6, 2))
+
+
+allotted = [0] * 10
+
+try:
+    for i in range(7):
+        conn.recvuntil(f'Day {i + 1}. Time to beat: '.encode())
+        print(f'Time to beat for day {i + 1}:', time_str_to_secs(conn.recvline().decode().rstrip()))
+
+        for _ in range(1000):
+            conn.recvuntil(b'Order ')
+            print(conn.recvline().decode().rstrip(), allotted)
+
+            conn.recvuntil('└── Estimated time to cook: '.encode())
+
+            time_raw = conn.recvline().decode().rstrip()
+            ts = time_str_to_secs(time_raw)
+
+            min_index = np.argmin(allotted)
+            allotted[min_index] += ts
+
+            conn.sendline(str(min_index + 1).encode())
+
+        allotted = [0] * 10
+except EOFError:
+    pass
+
+print(conn.recvall().decode())15:T67f,import re
+
+import numpy as np
+import pwn
+
+conn = pwn.remote('krusty-katering.ctf.umasscybersec.org', 1337)
+
+
+def time_match_to_secs(n: str | None, t: str | None) -> int:
+    if n is None:
+        return 0
+    return int(n) * (1 if t == 's' else 60 if t == 'm' else 3600)
+
+
+def time_str_to_secs(s: str) -> int:
+    groups = re.search(r'(\d+)([hms])(?:(\d+)([hms]))?(?:(\d+)([hms]))?', s).groups()
+    return sum(time_match_to_secs(groups[i], groups[i + 1]) for i in range(0, 6, 2))
+
+
+allotted = [0] * 10
+
+try:
+    for i in range(7):
+        conn.recvuntil(f'Day {i + 1}. Time to beat: '.encode())
+        print(f'Time to beat for day {i + 1}:', time_str_to_secs(conn.recvline().decode().rstrip()))
+
+        for _ in range(1000):
+            conn.recvuntil(b'Order ')
+            print(conn.recvline().decode().rstrip(), allotted)
+
+            conn.recvuntil('└── Estimated time to cook: '.encode())
+
+            time_raw = conn.recvline().decode().rstrip()
+            ts = time_str_to_secs(time_raw)
+
+            # Semi-greedy algorithm: for some input x, for all buckets find the maximum one that when you add x to it
+            # does not change the current answer. If there are none, add to the minimum one, i.e. greedy.
+            max_bucket = np.max(allotted)
+            for j in range(10):
+                if allotted[j] + ts <= max_bucket:
+                    min_index = j
+                    break
+            else:
+                min_index = np.argmin(allotted)
+
+            allotted[min_index] += ts
+
+            conn.sendline(str(min_index + 1).encode())
+
+        allotted = [0] * 10
+except EOFError:
+    pass
+
+print(conn.recvall().decode())16:T67c,...
+#987: Banana [31430, 31700, 31260, 31215, 31230, 31420, 31450, 31440, 31730, 31630]
+#988: Holographic Meatloaf [31445, 31700, 31260, 31215, 31230, 31420, 31450, 31440, 31730, 31630]
+#989: Holographic Meatloaf [31445, 31700, 31260, 31765, 31230, 31420, 31450, 31440, 31730, 31630]
+#990: Pretty Patty Combo [31445, 31700, 31260, 31765, 31780, 31420, 31450, 31440, 31730, 31630]
+#991: Krabby Fries [31445, 31700, 31780, 31765, 31780, 31420, 31450, 31440, 31730, 31630]
+#992: SpongeBob's Sundae [31445, 31700, 31780, 31765, 31780, 31870, 31450, 31440, 31730, 31630]
+#993: Fried Oyster Skins [31815, 31700, 31780, 31765, 31780, 31870, 31450, 31440, 31730, 31630]
+#994: Krabby Fries [31815, 31820, 31780, 31765, 31780, 31870, 31450, 31440, 31730, 31630]
+#995: SpongeBob's Sundae [31815, 31820, 31780, 31765, 31780, 31870, 31450, 31890, 31730, 31630]
+#996: Bran Flakes [31815, 31820, 31780, 31765, 31780, 31870, 31820, 31890, 31730, 31630]
+#997: Banana [31845, 31820, 31780, 31765, 31780, 31870, 31820, 31890, 31730, 31630]
+#998: Banana [31860, 31820, 31780, 31765, 31780, 31870, 31820, 31890, 31730, 31630]
+#999: Holographic Meatloaf [31875, 31820, 31780, 31765, 31780, 31870, 31820, 31890, 31730, 31630]
+#1000: Aged Patty [31875, 31820, 31780, 31765, 31780, 31870, 31820, 31890, 31730, 32180]
+[x] Receiving all data
+[x] Receiving all data: 208B
+[+] Receiving all data: Done (208B)
+[*] Closed connection to krusty-katering.ctf.umasscybersec.org port 1337
+
+
+Which cook should handle this job? [1-10]
+
+Your time: 8h58m50s
+You did 17.8% better than Team Chum Bucket.
+Good work, come back tomorrow.
+
+You're hired, one could say that you're no UMASS{subst@nd@rd_c00k}5:["$","div",null,{"children":["$","main",null,{"className":"text-sm [&_h1]:text-5xl [&_h1]:font-semibold [&_h1]:mb-8 [&_blockquote]:text-secondary [&_blockquote]:space-y-3 [&_blockquote]:border-l-4 [&_blockquote]:border-secondary [&_blockquote]:pl-5 [&_blockquote]:mb-5 [&>_p]:my-3 [&_img]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&>p>code]:bg-black/20 [&>p>code]:text-secondary [&>p>code]:px-2 [&>p>code]:py-1 [&>p>code]:rounded","children":[["$","h1","h1-0",{"children":"UMass CTF 2024 — Krusty Katering"}],"\n",["$","blockquote","blockquote-0",{"children":["\n",["$","p","p-0",{"children":"Krusty Katering is hemorrhaging money, and Mr. Krabs has brought you in to fix it. You have 10 line cooks, and while they're okay at making Krabby patties, they can't agree on who cooks what and when. To make matters worse, Squidward (trying to keep his job) refuses to give you the list of orders, and will only tell you them one by one. Each time Squidward tells you a job, you get to add it to a cook's schedule for the day. Cooks cannot trade jobs, once it's on the schedule, it stays there. You want to ensure the last order finishes as soon as possible so that Mr. Krabs can close and count his profits. The competing Plankton's Provisions assigns their jobs randomly. So long as your crew is 20% more efficient than Team Chum Bucket every day this week, you're hired. Can you save Mr. Krabs' business?"}],"\n",["$","p","p-1",{"children":["$","code","code-0",{"children":"nc krusty-katering.ctf.umasscybersec.org 1337"}]}],"\n"]}],"\n",["$","p","p-0",{"children":"We're given a terminal prompt that looks like this:"}],"\n",["$","p","p-1",{"children":["$","img","img-0",{"src":"https://gist.github.com/assets/60120929/58a78bb3-8459-4bb1-a0cd-68f1e4491451","alt":"image"}]}],"\n",["$","p","p-2",{"children":"The essence of the problem statement is as follows:"}],"\n",["$","ul","ul-0",{"children":["\n",["$","li","li-0",{"children":"We're given integers one-by-one to store in one of 10 \"buckets\" (e.g. you must add an integer to a bucket before receiving another one)."}],"\n",["$","li","li-1",{"children":"We want to minimize the max value among our buckets."}],"\n"]}],"\n",["$","p","p-3",{"children":"If we can write an algorithm that beats Plankton's randomized approach by 10% for 7 days of 1000 orders each, we get the flag."}],"\n",["$","p","p-4",{"children":"Because of the one-by-one nature of this problem, at first glance it looks like the most optimal algorithm can't do much better than greedy. Writing a script with the simplest greedy algorithm of \"store each integer in the lowest-value bucket\","}],"\n",["$","$L13","pre-0",{"className":"my-4","children":"$14","language":"py"}],"\n",["$","p","p-5",{"children":"But this script is a bit inconsistent. If we're being lazy, however, because of the random nature of the problem running this a few times will eventually get us the flag."}],"\n",["$","p","p-6",{"children":"We can also optimize the algorithm a little bit by, for each integer:"}],"\n",["$","ol","ol-0",{"children":["\n",["$","li","li-0",{"children":"If there exists a bucket that you can add this integer to that does not change the maximum bucket value, add it to the largest bucket that satisfies that."}],"\n",["$","li","li-1",{"children":"Otherwise, revert to the previous greedy algorithm and add the integer to the lowest-value bucket."}],"\n"]}],"\n",["$","$L13","pre-1",{"className":"my-4","children":"$15","language":"py"}],"\n",["$","p","p-7",{"children":"While there are still cases where this fails, this algorithm is more consistent than the aforementioned greedy approach and reliably gets the flag:"}],"\n",["$","$L13","pre-2",{"className":"my-4","children":"$16","language":"$undefined"}]]}]}]

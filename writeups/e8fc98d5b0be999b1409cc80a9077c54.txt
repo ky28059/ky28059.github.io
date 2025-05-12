@@ -1,0 +1,209 @@
+1:"$Sreact.fragment"
+2:I[87555,[],""]
+3:I[31295,[],""]
+4:I[6874,["874","static/chunks/874-c62c375efd21db20.js","319","static/chunks/app/writeups/layout-6eb8da7f54d57912.js"],""]
+6:I[59665,[],"MetadataBoundary"]
+8:I[59665,[],"OutletBoundary"]
+b:I[74911,[],"AsyncMetadataOutlet"]
+d:I[59665,[],"ViewportBoundary"]
+f:I[26614,[],""]
+:HL["/_next/static/media/a34f9d1faa5f3315-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/f67679a4dcf042a1.css","style"]
+0:{"P":null,"b":"LXc6w6ftcfUymS_FwiDab","p":"","c":["","writeups","e8fc98d5b0be999b1409cc80a9077c54"],"i":false,"f":[[["",{"children":["writeups",{"children":[["id","e8fc98d5b0be999b1409cc80a9077c54","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/f67679a4dcf042a1.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"className":"dark scroll-smooth","children":[["$","head",null,{"children":["$","meta",null,{"charSet":"utf-8"}]}],["$","body",null,{"className":"text-dark dark:text-white dark:bg-midnight","style":{"fontFamily":"'Inter', 'Inter Fallback'","fontStyle":"normal"},"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"h-screen flex items-center justify-center","children":["$","main",null,{"className":"relative pl-14","children":[["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 512 512","className":"absolute left-0 top-2 text-5xl text-grapefruit","children":["$undefined",[["$","path","0",{"d":"M256 48C140.559 48 48 140.559 48 256c0 115.436 92.559 208 208 208 115.435 0 208-92.564 208-208 0-115.441-92.564-208-208-208zm104.002 282.881l-29.12 29.117L256 285.117l-74.881 74.881-29.121-29.117L226.881 256l-74.883-74.881 29.121-29.116L256 226.881l74.881-74.878 29.12 29.116L285.119 256l74.883 74.881z","children":"$undefined"}]]],"style":{"color":"$undefined"},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}],["$","h1",null,{"className":"font-bold text-7xl underline decoration-grapefruit mb-5","children":"404."}],["$","p",null,{"children":"Your requested page was not found."}],["$","$L4",null,{"href":"/","className":"font-medium text-inherit","children":"Return to home →"}]]}]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":["writeups",["$","$1","c",{"children":[null,["$","main",null,{"className":"container pt-20 pb-24","children":[["$","$L4",null,{"href":"/","className":"text-secondary text-sm mb-10 -ml-5 block w-max","children":"← Back to home"}],["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]]}],{"children":[["id","e8fc98d5b0be999b1409cc80a9077c54","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",["$","$L6",null,{"children":"$L7"}],null,["$","$L8",null,{"children":["$L9","$La",["$","$Lb",null,{"promise":"$@c"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","h0GE8hF7aD0j1n14Pgy4F",{"children":[["$","$Ld",null,{"children":"$Le"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],null]}],false]],"m":"$undefined","G":["$f","$undefined"],"s":false,"S":true}
+10:"$Sreact.suspense"
+11:I[74911,[],"AsyncMetadata"]
+7:["$","$10",null,{"fallback":null,"children":["$","$L11",null,{"promise":"$@12"}]}]
+a:null
+e:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+9:null
+12:{"metadata":[["$","title","0",{"children":"kevin.fish"}]],"error":null,"digest":"$undefined"}
+c:{"metadata":"$12:metadata","error":null,"digest":"$undefined"}
+13:I[50674,["325","static/chunks/325-8cc74193b249521f.js","134","static/chunks/app/writeups/%5Bid%5D/page-b6fc1eb85fdc5690.js"],"default"]
+14:T98e,import { serveDir, serveFile } from 'jsr:@std/http/file-server'
+import { parse } from './expression_parser.ts'
+
+const decoder = new TextDecoder()
+const resultTemplate = await Deno.readTextFile('./result.html')
+
+Deno.serve({ port: 8080 }, async (req: Request) => {
+  try {
+    const pathname = new URL(req.url).pathname
+
+    if (pathname === '/' && req.method === 'GET') {
+      return serveFile(req, './static/index.html')
+    }
+
+    if (pathname === '/' && req.method === 'POST') {
+      const body = await req.formData()
+      const expression = body.get('expression')
+      if (typeof expression !== 'string') {
+        return new Response('400 expression should be string', {
+          status: 400
+        })
+      }
+
+      const parsed = parse(expression)
+      if (!parsed) {
+        new Response(
+          resultTemplate
+            .replace('{success}', 'failure')
+            .replace('{result}', 'syntax error'),
+          {
+            headers: {
+              'Content-Type': 'text/html'
+            }
+          }
+        )
+      }
+
+      let success = false
+      let output = ''
+
+      const result = await new Deno.Command('python3.11', {
+        args: ['calculate.py', JSON.stringify(parsed)]
+      }).output()
+      const error = decoder.decode(result.stderr).trim()
+      const json = decoder.decode(result.stdout).trim()
+      if (error.length > 0) {
+        output = error
+      } else if (json.startsWith('{') && json.endsWith('}')) {
+        try {
+          output = JSON.parse(json).result
+          success = true
+        } catch (error) {
+          output = `wtf!!1! this shouldnt ever happen\n\n${
+            error.stack
+          }\n\nheres the flag as compensation: ${
+            Deno.env.get('GZCTF_FLAG') ?? 'sdctf{...}'
+          }`
+        }
+      } else {
+        output = 'python borked'
+      }
+
+      return new Response(
+        resultTemplate
+          .replace('{success}', success ? 'successful' : 'failure')
+          .replace('{result}', () => output),
+        {
+          headers: {
+            'Content-Type': 'text/html'
+          }
+        }
+      )
+    }
+
+    if (pathname.startsWith('/static/') && req.method === 'GET') {
+      return serveDir(req, {
+        fsRoot: 'static',
+        urlRoot: 'static'
+      })
+    }
+
+    return new Response('404 :(', {
+      status: 404
+    })
+  } catch (error) {
+    return new Response('500 embarassment\n\n' + error.stack, {
+      status: 500
+    })
+  }
+})15:Ta0b,import { assertEquals } from 'https://deno.land/std@0.224.0/assert/mod.ts'
+
+export type Expression =
+  | { op: '+' | '-' | '*' | '/'; a: Expression; b: Expression }
+  | { value: number }
+
+type ParseResult = Generator<{ expr: Expression; string: string }>
+
+function * parseFloat (string: string): ParseResult {
+  for (const regex of [
+    /[-+](?:\d+\.?|\d*\.\d+)(?:e[-+]?\d+)?$/,
+    /(?:\d+\.?|\d*\.\d+)(?:e[-+]?\d+)?$/
+  ]) {
+    const match = string.match(regex)
+    if (!match) {
+      continue
+    }
+    const number = +match[0]
+    if (Number.isFinite(number)) {
+      yield {
+        expr: { value: number },
+        string: string.slice(0, -match[0].length)
+      }
+    }
+  }
+}
+function * parseLitExpr (string: string): ParseResult {
+  yield * parseFloat(string)
+  if (string[string.length - 1] === ')') {
+    for (const result of parseAddExpr(string.slice(0, -1))) {
+      if (result.string[result.string.length - 1] === '(') {
+        yield { ...result, string: result.string.slice(0, -1) }
+      }
+    }
+  }
+}
+function * parseMulExpr (string: string): ParseResult {
+  for (const right of parseLitExpr(string)) {
+    const op = right.string[right.string.length - 1]
+    if (op === '*' || op === '/') {
+      for (const left of parseMulExpr(right.string.slice(0, -1))) {
+        yield { ...left, expr: { op, a: left.expr, b: right.expr } }
+      }
+    }
+  }
+  yield * parseLitExpr(string)
+}
+function * parseAddExpr (string: string): ParseResult {
+  for (const right of parseMulExpr(string)) {
+    const op = right.string[right.string.length - 1]
+    if (op === '+' || op === '-') {
+      for (const left of parseAddExpr(right.string.slice(0, -1))) {
+        yield { ...left, expr: { op, a: left.expr, b: right.expr } }
+      }
+    }
+  }
+  yield * parseMulExpr(string)
+}
+export function parse (expression: string): Expression | null {
+  for (const result of parseAddExpr(expression.replace(/\s/g, ''))) {
+    if (result.string === '') {
+      return result.expr
+    }
+  }
+  return null
+}
+
+Deno.test({
+  name: 'expression_parser',
+  fn () {
+    assertEquals(parse('3 + 2'), {
+      op: '+',
+      a: { value: 3 },
+      b: { value: 2 }
+    })
+    assertEquals(parse('3 + 2 + 1'), {
+      op: '+',
+      a: {
+        op: '+',
+        a: { value: 3 },
+        b: { value: 2 }
+      },
+      b: { value: 1 }
+    })
+    assertEquals(parse('3 * (4 - 5) + 2'), {
+      op: '+',
+      a: {
+        op: '*',
+        a: { value: 3 },
+        b: {
+          op: '-',
+          a: { value: 4 },
+          b: { value: 5 }
+        }
+      },
+      b: { value: 2 }
+    })
+  }
+})5:["$","div",null,{"children":["$","main",null,{"className":"text-sm [&_h1]:text-5xl [&_h1]:font-semibold [&_h1]:mb-8 [&_blockquote]:text-secondary [&_blockquote]:space-y-3 [&_blockquote]:border-l-4 [&_blockquote]:border-secondary [&_blockquote]:pl-5 [&_blockquote]:mb-5 [&>_p]:my-3 [&_img]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&>p>code]:bg-black/20 [&>p>code]:text-secondary [&>p>code]:px-2 [&>p>code]:py-1 [&>p>code]:rounded","children":[["$","h1","h1-0",{"children":"San Diego CTF 2024 — calculator"}],"\n",["$","blockquote","blockquote-0",{"children":["\n",["$","p","p-0",{"children":"I made a calculator! I'm using Python to do the math since I heard it's strongly typed, so my calculator should be pretty safe. Download the source code by clicking the download button above!"}],"\n"]}],"\n",["$","p","p-0",{"children":"We're given a TS server and expression parser looking like this:"}],"\n",["$","$L13","pre-0",{"className":"my-4","children":"$14","language":"ts"}],"\n",["$","$L13","pre-1",{"className":"my-4","children":"$15","language":"ts"}],"\n",["$","p","p-1",{"children":"The server sends the parsed expression to a simple Python \"calculator\", sending back the result in JSON format:"}],"\n",["$","$L13","pre-2",{"className":"my-4","children":"import json\nimport sys\n\n\ndef evaluate(expression):\n    if \"value\" in expression:\n        return expression[\"value\"]\n    match expression[\"op\"]:\n        case \"+\":\n            return evaluate(expression[\"a\"]) + evaluate(expression[\"b\"])\n        case \"-\":\n            return evaluate(expression[\"a\"]) - evaluate(expression[\"b\"])\n        case \"*\":\n            return evaluate(expression[\"a\"]) * evaluate(expression[\"b\"])\n        case \"/\":\n            return evaluate(expression[\"a\"]) / evaluate(expression[\"b\"])\n\n\nprint(json.dumps({\"result\": evaluate(json.loads(sys.argv[1]))}))","language":"py"}],"\n",["$","p","p-2",{"children":"If we can get this Python result to be invalid JSON, the server will give us the flag:"}],"\n",["$","$L13","pre-3",{"className":"my-4","children":"        try {\n          output = JSON.parse(json).result\n          success = true\n        } catch (error) {\n          output = `wtf!!1! this shouldnt ever happen\\n\\n${\n            error.stack\n          }\\n\\nheres the flag as compensation: ${\n            Deno.env.get('GZCTF_FLAG') ?? 'sdctf{...}'\n          }`\n        }","language":"ts"}],"\n",["$","p","p-3",{"children":["This challenge is pretty trivial if you know about how Python's ",["$","code","code-0",{"children":"json.dumps"}]," is JSON spec noncompliant. In particular, Python will successfully serialize ",["$","code","code-1",{"children":"NaN"}]," and ",["$","code","code-2",{"children":"Infinity"}],","]}],"\n",["$","$L13","pre-4",{"className":"my-4","children":">>> json.dumps({\"a\": float('nan')})\n'{\"a\": NaN}'\n>>> json.dumps({\"a\": float('inf')})\n'{\"a\": Infinity}'","language":"py"}],"\n",["$","p","p-4",{"children":"despite neither of those values being valid JSON."}],"\n",["$","$L13","pre-5",{"className":"my-4","children":"> JSON.parse('{\"a\": NaN}')\nUncaught SyntaxError: Unexpected token 'N', \"{\"a\": NaN}\" is not valid JSON\n> JSON.parse('{\"a\": Infinity}')\nUncaught SyntaxError: Unexpected token 'I', \"{\"a\": Infinity}\" is not valid JSON","language":"js"}],"\n",["$","p","p-5",{"children":["Then, we just need to get the calculator to parse either ",["$","code","code-0",{"children":"NaN"}]," or ",["$","code","code-1",{"children":"Infinity"}]," to get the flag."]}],"\n",["$","p","p-6",{"children":"Unfortunately, the TS server only parses a number literal if it is finite, so a simple"}],"\n",["$","$L13","pre-6",{"className":"my-4","children":"1e400 - 1e400","language":"js"}],"\n",["$","p","p-7",{"children":"payload won't work:"}],"\n",["$","$L13","pre-7",{"className":"my-4","children":"    if (Number.isFinite(number)) {\n      yield {\n        expr: { value: number },\n        string: string.slice(0, -match[0].length)\n      }\n    }","language":"ts"}],"\n",["$","p","p-8",{"children":["$","img","img-0",{"src":"https://gist.github.com/assets/60120929/95c7d910-8738-45a5-a338-a74ec3ad3eab","alt":"image"}]}],"\n",["$","p","p-9",{"children":"Luckily, we can just get infinity with"}],"\n",["$","$L13","pre-8",{"className":"my-4","children":"1e200 * 1e200","language":"js"}],"\n",["$","p","p-10",{"children":"instead. Using a similar payload (I did"}],"\n",["$","$L13","pre-9",{"className":"my-4","children":"1e200 * 1e200 - 1e200 * 1e200","language":"js"}],"\n",["$","p","p-11",{"children":["to get ",["$","code","code-0",{"children":"NaN"}],"), we get the flag."]}],"\n",["$","p","p-12",{"children":["$","img","img-0",{"src":"https://gist.github.com/assets/60120929/cdbbed41-fe11-4c67-8718-8086f42389d8","alt":"image"}]}]]}]}]

@@ -1,0 +1,63 @@
+1:"$Sreact.fragment"
+2:I[87555,[],""]
+3:I[31295,[],""]
+4:I[6874,["874","static/chunks/874-c62c375efd21db20.js","319","static/chunks/app/writeups/layout-6eb8da7f54d57912.js"],""]
+6:I[59665,[],"MetadataBoundary"]
+8:I[59665,[],"OutletBoundary"]
+b:I[74911,[],"AsyncMetadataOutlet"]
+d:I[59665,[],"ViewportBoundary"]
+f:I[26614,[],""]
+:HL["/_next/static/media/a34f9d1faa5f3315-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/f67679a4dcf042a1.css","style"]
+0:{"P":null,"b":"LXc6w6ftcfUymS_FwiDab","p":"","c":["","writeups","467d31ff2f536b79f517da4f85229be4"],"i":false,"f":[[["",{"children":["writeups",{"children":[["id","467d31ff2f536b79f517da4f85229be4","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/f67679a4dcf042a1.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"className":"dark scroll-smooth","children":[["$","head",null,{"children":["$","meta",null,{"charSet":"utf-8"}]}],["$","body",null,{"className":"text-dark dark:text-white dark:bg-midnight","style":{"fontFamily":"'Inter', 'Inter Fallback'","fontStyle":"normal"},"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"h-screen flex items-center justify-center","children":["$","main",null,{"className":"relative pl-14","children":[["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 512 512","className":"absolute left-0 top-2 text-5xl text-grapefruit","children":["$undefined",[["$","path","0",{"d":"M256 48C140.559 48 48 140.559 48 256c0 115.436 92.559 208 208 208 115.435 0 208-92.564 208-208 0-115.441-92.564-208-208-208zm104.002 282.881l-29.12 29.117L256 285.117l-74.881 74.881-29.121-29.117L226.881 256l-74.883-74.881 29.121-29.116L256 226.881l74.881-74.878 29.12 29.116L285.119 256l74.883 74.881z","children":"$undefined"}]]],"style":{"color":"$undefined"},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}],["$","h1",null,{"className":"font-bold text-7xl underline decoration-grapefruit mb-5","children":"404."}],["$","p",null,{"children":"Your requested page was not found."}],["$","$L4",null,{"href":"/","className":"font-medium text-inherit","children":"Return to home →"}]]}]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":["writeups",["$","$1","c",{"children":[null,["$","main",null,{"className":"container pt-20 pb-24","children":[["$","$L4",null,{"href":"/","className":"text-secondary text-sm mb-10 -ml-5 block w-max","children":"← Back to home"}],["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]]}],{"children":[["id","467d31ff2f536b79f517da4f85229be4","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",["$","$L6",null,{"children":"$L7"}],null,["$","$L8",null,{"children":["$L9","$La",["$","$Lb",null,{"promise":"$@c"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","BUZFlcaRXsCGMqaulUIXU",{"children":[["$","$Ld",null,{"children":"$Le"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],null]}],false]],"m":"$undefined","G":["$f","$undefined"],"s":false,"S":true}
+10:"$Sreact.suspense"
+11:I[74911,[],"AsyncMetadata"]
+7:["$","$10",null,{"fallback":null,"children":["$","$L11",null,{"promise":"$@12"}]}]
+a:null
+e:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+9:null
+12:{"metadata":[["$","title","0",{"children":"kevin.fish"}]],"error":null,"digest":"$undefined"}
+c:{"metadata":"$12:metadata","error":null,"digest":"$undefined"}
+13:I[50674,["325","static/chunks/325-8cc74193b249521f.js","134","static/chunks/app/writeups/%5Bid%5D/page-b6fc1eb85fdc5690.js"],"default"]
+14:T47e,import numpy as np
+import cv2
+import random
+from datetime import datetime
+
+img = cv2.imread('flag.png')
+size_x, size_y = img.shape[:2]
+
+enc_negpos = np.zeros_like(img)
+
+random.seed(datetime.now().timestamp())
+
+for i in range(size_x):
+    for j in range(size_y):
+        for rgb in range(3):
+            negpos = random.random()
+            if negpos < 0.5:
+                enc_negpos[i, j, rgb] = img[i, j, rgb]
+            else:
+                enc_negpos[i, j, rgb] = img[i, j, rgb] ^ 255
+
+
+enc_shuffle = enc_negpos.copy()
+
+for i in range(size_x):
+    for j in range(size_y):
+        shuffle = random.randint(1, 6)
+        if shuffle == 1:
+            enc_shuffle[i, j] = enc_negpos[i, j]
+        elif shuffle == 2:
+            enc_shuffle[i, j] = enc_negpos[i, j][[0, 2, 1]]
+        elif shuffle == 3:
+            enc_shuffle[i, j] = enc_negpos[i, j][[1, 0, 2]]
+        elif shuffle == 4:
+            enc_shuffle[i, j] = enc_negpos[i, j][[1, 2, 0]]
+        elif shuffle == 5:
+            enc_shuffle[i, j] = enc_negpos[i, j][[2, 0, 1]]
+        else:
+            enc_shuffle[i, j] = enc_negpos[i, j][[2, 1, 0]]
+
+
+cv2.imwrite('enc.png', enc_shuffle)5:["$","div",null,{"children":["$","main",null,{"className":"text-sm [&_h1]:text-5xl [&_h1]:font-semibold [&_h1]:mb-8 [&_blockquote]:text-secondary [&_blockquote]:space-y-3 [&_blockquote]:border-l-4 [&_blockquote]:border-secondary [&_blockquote]:pl-5 [&_blockquote]:mb-5 [&>_p]:my-3 [&_img]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&>p>code]:bg-black/20 [&>p>code]:text-secondary [&>p>code]:px-2 [&>p>code]:py-1 [&>p>code]:rounded","children":[["$","h1","h1-0",{"children":"CyberSpace CTF 2024 — SKK?"}],"\n",["$","blockquote","blockquote-0",{"children":["\n",["$","p","p-0",{"children":"What have you done to my flag?"}],"\n"]}],"\n",["$","p","p-0",{"children":"We're given an encoded image of the flag"}],"\n",["$","p","p-1",{"children":["$","img","img-0",{"src":"https://gist.github.com/user-attachments/assets/bf06c677-2a64-4164-bd7a-9ea8417151f4","alt":"enc"}]}],"\n",["$","p","p-2",{"children":"and an encoder script that looks like this:"}],"\n",["$","$L13","pre-0",{"className":"my-4","children":"$14","language":"py"}],"\n",["$","p","p-3",{"children":"At first glance, it looks like the image encoding is done in two steps:"}],"\n",["$","ol","ol-0",{"children":["\n",["$","li","li-0",{"children":"Randomly XOR random channels of each pixel in the image with 255."}],"\n",["$","li","li-1",{"children":"Randomly swap channels for each pixel."}],"\n"]}],"\n",["$","p","p-4",{"children":["With no further information, there doesn't seem to be a mathematical way to perfectly reverse this encoding. However, we can conjecture that most pixels in the original image are white (e.g. ",["$","code","code-0",{"children":"(255, 255, 255)"}],"). Running these pixels through the series of XORs and swaps should create permutations of channels that are either ",["$","code","code-1",{"children":"0"}]," or ",["$","code","code-2",{"children":"255"}],", and indeed we see the majority of border pixels follow this pattern:"]}],"\n",["$","p","p-5",{"children":["$","img","img-0",{"src":"https://gist.github.com/user-attachments/assets/7f747d6c-d825-4172-ac21-56e590c6102e","alt":"image"}]}],"\n",["$","p","p-6",{"children":"Then, we should filter out all of these background pixels and examine only the gray band in the middle. Here's a Python script that does just that:"}],"\n",["$","$L13","pre-1",{"className":"my-4","children":"import cv2\nimport numpy as np\n\nimg = cv2.imread('./enc.png')\n\nres = np.zeros_like(img)\n\nfor i in range(len(img)):\n    for j in range(len(img[i])):\n        if all(30 < x < 225 for x in img[i, j]):\n            res[i, j] = img[i, j] - 128\n        else:\n            res[i, j] = [255, 255, 255]\n\ncv2.namedWindow('res', cv2.WINDOW_NORMAL)\ncv2.imshow('res', res)\ncv2.waitKey()\n\ncv2.imshow('res', cv2.cvtColor(res, cv2.COLOR_BGR2GRAY))\ncv2.waitKey()","language":"py"}],"\n",["$","p","p-7",{"children":["$","img","img-0",{"src":"https://gist.github.com/user-attachments/assets/dd8f2b1c-70a4-4c52-b899-6f293db1a908","alt":"res"}]}],"\n",["$","$L13","pre-2",{"className":"my-4","children":"CSCTF{why_SKK_image_encryption_sooo.weak?}","language":"$undefined"}],"\n",["$","p","p-8",{"children":["(or a simpler solution using ",["$","code","code-0",{"children":"inRange"}],":"]}],"\n",["$","$L13","pre-3",{"className":"my-4","children":"import cv2\n\nimg = cv2.imread('./enc.png')\nmask = cv2.inRange(img, (20, 20, 20), (235, 235, 235))\n\ncv2.namedWindow('res', cv2.WINDOW_NORMAL)\ncv2.imshow('res', mask)\ncv2.waitKey()","language":"py"}],"\n",["$","p","p-9",{"children":["$","img","img-0",{"src":"https://gist.github.com/user-attachments/assets/c2bc1f12-ce89-4805-bd88-a3902e539636","alt":"res2"}]}]]}]}]

