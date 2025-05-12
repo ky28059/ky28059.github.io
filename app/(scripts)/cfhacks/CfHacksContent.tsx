@@ -40,7 +40,7 @@ export default function CfHacksContent() {
                 className="rounded px-3 py-1 dark:bg-[#2b2b2b] mb-3 w-full border border-secondary/40 placeholder:text-secondary"
             />
 
-            <CopyCodeBlock>
+            <CopyCodeBlock language="js">
                 {script(contest, problem, testCase, count)}
             </CopyCodeBlock>
         </>

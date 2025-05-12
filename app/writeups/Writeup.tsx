@@ -1,3 +1,6 @@
+import Link from 'next/link';
+
+
 type ChallType = 'misc' | 'web' | 'crypto' | 'pwn' | 'rev' | 'osint' | 'apk' | 'forensics'
 
 export type WriteupData = {
@@ -9,11 +12,9 @@ export type WriteupData = {
 }
 export default function Writeup(props: WriteupData & { desc: string }) {
     return (
-        <a
+        <Link
             className="group flex gap-5 relative border rounded overflow-clip hover:no-underline text-primary hover:text-black dark:hover:text-white border-white/25 hover:border-white/50 transition duration-150"
-            href={props.href}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={`/writeups/${props.href.match(/https:\/\/gist\.github\.com\/ky28059\/(.+)/)![1]}`} // TODO
         >
             {props.src ? (
                 <img
@@ -58,6 +59,6 @@ export default function Writeup(props: WriteupData & { desc: string }) {
                     {'>'} {props.desc}
                 </p>
             </div>
-        </a>
+        </Link>
     )
 }

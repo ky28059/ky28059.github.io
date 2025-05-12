@@ -136,7 +136,7 @@ export default function CorpusObfuscatorContent() {
                     First, we need to figure out what tokens we have in the text to work with. We can extract all word
                     matches from the corpus using Regex, giving us the following word counts:
                 </p>
-                <CopyCodeBlock>{JSON.stringify(wordCounts)}</CopyCodeBlock>
+                <CopyCodeBlock language="js">{JSON.stringify(wordCounts)}</CopyCodeBlock>
 
                 <p className="my-4">
                     To prevent saturating the generation process with overly convoluted computations, we first remove
@@ -147,7 +147,7 @@ export default function CorpusObfuscatorContent() {
                 <p className="mt-4 mb-3">
                     Then, the parsed string is tokenized into the following tokens:
                 </p>
-                <CopyCodeBlock>
+                <CopyCodeBlock language="js">
                     {JSON.stringify(tokens)}
                 </CopyCodeBlock>
 

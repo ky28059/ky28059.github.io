@@ -112,7 +112,7 @@ export default function PurdueHousingContent() {
                 </div>
             </div>
 
-            <CopyCodeBlock className="mb-10">
+            <CopyCodeBlock language="js" className="mb-10">
                 {script(lowerRoomRate, upperRoomRate, delay, roomTypeIds, buildingIds)}
             </CopyCodeBlock>
         </>

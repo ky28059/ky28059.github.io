@@ -77,7 +77,7 @@ export default function PurdueHousing() {
                 If you have navigated to the <strong>Initial Selection</strong> page (left) but cannot go further due to
                 there being no available rooms, run the following code in the console to jump to the next page:
             </p>
-            <CopyCodeBlock className="mb-4">
+            <CopyCodeBlock language="js" className="mb-4">
                 {nextPageScript}
             </CopyCodeBlock>
 
@@ -103,7 +103,7 @@ export default function PurdueHousing() {
                 webpage uses) every <code>delay</code> milliseconds. If, for whatever reason, you want to stop sending
                 new requests, you can clear the interval with
             </p>
-            <CopyCodeBlock className="mb-4">
+            <CopyCodeBlock language="js" className="mb-4">
                 clearInterval(id)
             </CopyCodeBlock>
 
@@ -119,10 +119,10 @@ export default function PurdueHousing() {
                 If, during execution, you want to add or remove buildings or room types from your filter,
                 simply mutate the <code>roomTypeIds</code> and <code>buildingIds</code> arrays directly:
             </p>
-            <CopyCodeBlock className="mb-4">
+            <CopyCodeBlock language="js" className="mb-4">
                 buildingIds.push(1) // Add Cary to the building id filter
             </CopyCodeBlock>
-            <CopyCodeBlock className="mb-4">
+            <CopyCodeBlock language="js" className="mb-4">
                 roomTypeIds.splice(i, 1) // Remove one id from the room type filter, where `i` is the index of the element to remove
             </CopyCodeBlock>
 
