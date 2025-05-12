@@ -13,7 +13,8 @@ export const ctfs: CTFData[] = [
             href: 'https://gist.github.com/ky28059/5ffffe2d75240def2e2d77c7e8243229',
             name: 'triglot',
             type: 'misc',
-            tags: ['polyglot']
+            tags: ['polyglot'],
+            src: '/assets/writeups/triglot.webp'
         }]
     },
     {
