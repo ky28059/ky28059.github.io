@@ -124,14 +124,15 @@ type ProjectGroupData = {
 
 const projects: ProjectGroupData[] = [
     {
-        name: 'Campus Ventures',
+        name: 'Jumpseat',
         projects: [{
             name: 'Jumpseat',
             desc: 'Travel engine for college students at Purdue, IU, UIUC, and more.',
             src: '/assets/projects/jumpseat.jpg',
             langs: ['ts', 'css'],
-            tags: ['nextjs', 'tailwindcss'],
-            web: 'https://jumpseatapp.com'
+            tags: ['nextjs', 'tailwindcss', 'prisma'],
+            web: 'https://jumpseat.kevin.fish',
+            gh: 'https://github.com/ky28059/jumpseat-lite'
         }]
     },
     {
