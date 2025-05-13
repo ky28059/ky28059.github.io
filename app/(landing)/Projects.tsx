@@ -24,7 +24,7 @@ export default function Projects() {
     const scale = (1 / 3) * (total / maxCount);
 
     return (
-        <Section className="flex flex-col gap-16">
+        <Section className="flex flex-col gap-16 pt-8">
             <ProjectsLayout>
                 <ProjectsHeaderSection>
                     <SectionHeading>Projects</SectionHeading>

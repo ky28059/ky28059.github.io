@@ -28,12 +28,12 @@ export default function Home() {
                 <MockPage />
                 <div className="max-w-prose">
                     <SectionHeading>About this website</SectionHeading>
-                    <p className="mb-4">
+                    <p className="mb-4 text-primary">
                         This website was originally created to experiment with (at the time) new web technologies to me
                         like Next.js and TailwindCSS. Since then, it has become a personal portfolio site and host for
                         various miscellaneous web tinkering.
                     </p>
-                    <p className="mb-4">
+                    <p className="mb-4 text-primary">
                         The structure and function of this website was largely inspired by{' '}
                         <a href="https://sheeptester.github.io/" target="_blank" rel="noopener noreferrer">sheeptester.github.io</a>.
                         View the source code for this website on GitHub, or a directory of all pages <Link href="/all">here</Link>.
@@ -51,16 +51,16 @@ export default function Home() {
 
                 <div className="max-w-prose">
                     <SectionHeading>CTFs</SectionHeading>
-                    <p className="mb-4">
+                    <p className="mb-4 text-primary">
                         I participate in Capture the Flag (CTF) competitions as part of Purdue's CTF team{' '}
                         <a href="https://ctftime.org/team/11464" target="_blank" rel="noopener noreferrer" className="font-mono">b01lers</a>!
                         I typically solve <InlineCode>web</InlineCode> and <InlineCode>misc</InlineCode> challenges, and
                         we generally rank ~7th in the US on CTFTime.
                     </p>
-                    <p className="mb-4">
+                    <p className="mb-4 text-primary">
                         View an incomplete collection of challenge writeups here:
                     </p>
-                    <Link href="/writeups" className="group font-medium text-primary hover:no-underline w-max mx-auto">
+                    <Link href="/writeups" className="group font-medium text-secondary hover:no-underline w-max mx-auto">
                         CTF writeups
                         <span className="ml-1.5 group-hover:ml-3.5 transition-[margin] duration-100">{'->'}</span>
                     </Link>
@@ -73,6 +73,9 @@ export default function Home() {
                     />
                 </div>
             </Section>
+
+            <div className="h-1 bg-gradient-to-r from-pink-500 via-red-500 to-orange-500" />
+            <div className="h-2 opacity-25 bg-gradient-to-r from-pink-500 via-red-500 to-orange-500" />
 
             <Projects />
 

@@ -9,7 +9,7 @@ type SectionProps = {
 export default function Section(props: SectionProps) {
     const bg =
         props.type === 'secondary' ? 'bg-gray-100 dark:bg-dark'
-        : props.type === 'dark' ? 'bg-black/20'
+        : props.type === 'dark' ? 'bg-gray-100 dark:bg-black/20'
         : 'bg-white dark:bg-midnight';
 
     return (
