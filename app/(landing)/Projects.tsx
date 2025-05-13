@@ -174,6 +174,14 @@ const projects: ProjectGroupData[] = [
             tags: ['GitHub action'],
             gh: "https://github.com/b01lers/rctf-deploy-action"
         }, {
+            name: "ctfd-api",
+            desc: 'NPM package for user-bot interactions with the CTFd API.',
+            src: "/assets/projects/ctfd-api.jpg",
+            langs: ['ts'],
+            tags: ['npm'],
+            gh: "https://github.com/b01lers/ctfd-api",
+            // npm: 'https://www.npmjs.com/package/@b01lers/ctfd-api'
+        }, {
             name: "b01lers-bot",
             desc: 'Upgraded discord bot for the b01lers CTF team server.',
             src: "/assets/projects/b01lers-bot.jpg",
