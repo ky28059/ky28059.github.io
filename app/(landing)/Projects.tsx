@@ -160,7 +160,7 @@ const projects: ProjectGroupData[] = [
         projects: [{
             name: "bctf",
             desc: 'A custom rCTF frontend framework for b01lers CTF.',
-            src: "/assets/projects/b01lers-ctf-3.jpg",
+            src: "/assets/projects/bctf-2.jpg",
             langs: ['ts', 'css'],
             tags: ['nextjs', 'tailwindcss'],
             gh: "https://github.com/ky28059/bctf",
@@ -193,6 +193,13 @@ const projects: ProjectGroupData[] = [
             langs: ['js', 'haskell', 'c'],
             tags: ['hint'],
             web: 'https://bootcamp.b01lersc.tf/'
+        }, {
+            name: 'b01lers-ctf-2025',
+            desc: 'Challenge source for b01lers CTF 2025. Authored: `>>=jail`, `vibe-coding`, `trouble at the spa`.',
+            src: '/assets/projects/b01lers-ctf-2025.jpg',
+            langs: ['ts', 'haskell', 'py'],
+            tags: ['react-router', 'vite', 'hint'],
+            gh: 'https://github.com/b01lers/b01lers-ctf-2025-public'
         }]
     },
     {

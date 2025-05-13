@@ -52,7 +52,8 @@ export default function LandingHeader() {
                         You may know me from:
                     </p>
                     <ul className="text-secondary mb-4">
-                        <li>Webmaster @ b01lers (2023-p.)</li>
+                        <li>President @ b01lers (2025-p.)</li>
+                        <li>Webmaster @ b01lers (2024-25)</li>
                     </ul>
                     <ul className="text-secondary">
                         <li>Controls, webmaster @ GRT (2021-23)</li>
