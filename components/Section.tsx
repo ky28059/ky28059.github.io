@@ -2,13 +2,18 @@ import type { ReactNode } from 'react';
 
 
 type SectionProps = {
-    secondary?: boolean,
+    type?: 'secondary' | 'dark',
     className?: string,
     children: ReactNode
 }
 export default function Section(props: SectionProps) {
+    const bg =
+        props.type === 'secondary' ? 'bg-gray-100 dark:bg-dark'
+        : props.type === 'dark' ? 'bg-black/20'
+        : 'bg-white dark:bg-midnight';
+
     return (
-        <section className={'py-10 my-4 ' + (props.secondary ? 'bg-gray-100 dark:bg-dark' : 'bg-white dark:bg-midnight')}>
+        <section className={'py-14 ' + bg}>
             <div className={'container' + (props.className ? ` ${props.className}` : '')}>
                 {props.children}
             </div>
