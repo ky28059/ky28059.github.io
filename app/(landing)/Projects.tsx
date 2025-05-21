@@ -176,7 +176,7 @@ const projects: ProjectGroupData[] = [
         }, {
             name: "ctfd-api",
             desc: 'NPM package for user-bot interactions with the CTFd API.',
-            src: "/assets/projects/ctfd-api.jpg",
+            src: "/assets/projects/ctfd-api-2.jpg",
             langs: ['ts'],
             tags: ['npm'],
             gh: "https://github.com/b01lers/ctfd-api",
