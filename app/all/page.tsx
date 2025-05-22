@@ -19,6 +19,10 @@ export default async function All() {
 
     return (
         <Section>
+            <Link href="/" className="text-secondary text-sm mb-10 -ml-5 block w-max">
+                ← Back to home
+            </Link>
+
             <SectionHeading className="underline decoration-grapefruit">
                 All
             </SectionHeading>
@@ -29,7 +33,7 @@ export default async function All() {
 
             <section className="flex flex-col gap-2">
                 {paths.map(path => (
-                    <Link href={path} className="text-gray-400" key={path}>
+                    <Link href={path.replaceAll('[', '').replaceAll(']', '')} className="text-gray-400" key={path}>
                         {path}
                     </Link>
                 ))}
