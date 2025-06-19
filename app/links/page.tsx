@@ -54,4 +54,7 @@ const links: LinkData[] = [{
 }, {
     name: 'In-the-Wild Series: Chrome Infinity Bug',
     href: 'https://googleprojectzero.blogspot.com/2021/01/in-wild-series-chrome-infinity-bug.html'
+}, {
+    name: 'The Grug Brained Developer',
+    href: 'https://grugbrain.dev/'
 }]
