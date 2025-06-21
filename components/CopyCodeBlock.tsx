@@ -1,6 +1,6 @@
 'use client'
 
-import { SyntaxHighlighter } from './CodeBlock';
+import SyntaxHighlighter from './SyntaxHighlighter';
 
 
 type ScriptOutputProps = {

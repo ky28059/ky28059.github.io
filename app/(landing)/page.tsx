@@ -4,7 +4,7 @@ import Link from 'next/link';
 // Components
 import LandingHeader from './LandingHeader';
 import Section, { SectionHeading } from '../../components/Section';
-import CodeBlock from '../../components/CodeBlock';
+import PagedCodeBlock from '../../components/PagedCodeBlock';
 import Projects from './Projects';
 import MockPage from './MockPage';
 import { InlineCode } from '../../components/InlineCode';
@@ -80,7 +80,7 @@ export default function Home() {
             <Projects />
 
             <Section type="dark" className="flex flex-wrap-reverse lg:flex-nowrap gap-12 justify-center">
-                <CodeBlock
+                <PagedCodeBlock
                     sources={[
                         'https://raw.githubusercontent.com/ky28059/competitive-programming-club/master/src/USACO2020/ABCs.java',
                         'https://raw.githubusercontent.com/ky28059/competitive-programming-club/master/src/ProCo2021/War.kt',

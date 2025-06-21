@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react';
-import { Prism } from 'react-syntax-highlighter';
+import SyntaxHighlighter from './SyntaxHighlighter';
 
 
 // A multi-page code block component. `props.sources` should be an array of GitHub raw file URLs, which will be
@@ -11,7 +11,7 @@ import { Prism } from 'react-syntax-highlighter';
 type CodeBlockProps = {
     sources: string[]
 }
-export default function CodeBlock(props: CodeBlockProps) {
+export default function PagedCodeBlock(props: CodeBlockProps) {
     const {sources} = props;
 
     const [active, setActive] = useState(0);
@@ -42,18 +42,9 @@ export default function CodeBlock(props: CodeBlockProps) {
     )
 }
 
-type SyntaxHighlighterProps = { language?: string, children: string | string[] };
-export function SyntaxHighlighter(props: SyntaxHighlighterProps) {
-    return (
-        <Prism language={props.language} codeTagProps={{style: {}}} showLineNumbers useInlineStyles={false}>
-            {props.children}
-        </Prism>
-    )
-}
-
 // Returns the name of the language for syntax highlighting given the file ending of the source file.
 // This is used to generate the language supplied to the syntax highlighter from the GitHub URL supplied as
-// props to `CodeBlock`, which contains the filename.
+// props to `PagedCodeBlock`, which contains the filename.
 function parseFileEnding(ending: string | undefined) {
     switch (ending) {
         case 'kt': return 'kotlin';

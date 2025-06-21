@@ -5,7 +5,7 @@ import { useMemo, useState } from 'react';
 // Components
 import AutoResizingTextArea from '../../../components/AutoResizingTextArea';
 import CopyCodeBlock from '../../../components/CopyCodeBlock';
-import { SyntaxHighlighter } from '../../../components/CodeBlock';
+import SyntaxHighlighter from '../../../components/SyntaxHighlighter';
 import { InlineCode } from '../../../components/InlineCode';
 
 
