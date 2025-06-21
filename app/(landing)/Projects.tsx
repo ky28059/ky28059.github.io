@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 
 // Components
-import Section, { SectionHeading } from '../../components/Section';
+import Section, { SectionHeading } from '@/components/Section';
 import Project, { langToColor, langToFullName, LanguageKey, ProjectData } from './Project';
 import Gist from './Gist';
 

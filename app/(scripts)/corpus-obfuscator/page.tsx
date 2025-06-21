@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SectionHeading } from '../../../components/Section';
+import { SectionHeading } from '@/components/Section';
 import CorpusObfuscatorContent from './CorpusObfuscatorContent';
 
 

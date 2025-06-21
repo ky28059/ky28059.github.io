@@ -1,7 +1,7 @@
 'use client'
 
-import { useIsMounted } from '../../hooks/useIsMounted';
 import Confetti from 'react-confetti';
+import { useIsMounted } from '@/hooks/useIsMounted';
 
 
 export default function WinConfetti() {

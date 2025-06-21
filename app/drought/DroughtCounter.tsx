@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { DateTime } from 'luxon';
-import { useIsMounted } from '../../hooks/useIsMounted';
+import { useIsMounted } from '@/hooks/useIsMounted';
+
 
 export default function DroughtCounter() {
     const [time, setTime] = useState(DateTime.now());

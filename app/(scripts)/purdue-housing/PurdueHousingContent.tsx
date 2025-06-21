@@ -3,7 +3,7 @@
 import { ReactNode, useState } from 'react';
 
 // Components
-import CopyCodeBlock from '../../../components/CopyCodeBlock';
+import CopyCodeBlock from '@/components/CopyCodeBlock';
 import LabelledInput from '../LabelledInput';
 
 

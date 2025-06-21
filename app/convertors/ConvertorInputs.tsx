@@ -1,7 +1,7 @@
 'use client'
 
 import { ReactNode, useState } from 'react';
-import AutoResizingTextArea from '../../components/AutoResizingTextArea';
+import AutoResizingTextArea from '@/components/AutoResizingTextArea';
 
 
 export default function ConvertorInputs() {

@@ -2,10 +2,10 @@ import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
 
 // Components
-import { SectionHeading } from '../../../components/Section';
+import { SectionHeading } from '@/components/Section';
 import PurdueHousingContent from './PurdueHousingContent';
-import CopyCodeBlock from '../../../components/CopyCodeBlock';
-import LinkHeading from '../../../components/LinkHeading';
+import CopyCodeBlock from '@/components/CopyCodeBlock';
+import LinkHeading from '@/components/LinkHeading';
 
 
 export const metadata: Metadata = {

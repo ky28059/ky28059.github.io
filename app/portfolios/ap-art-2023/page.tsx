@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
-import LinkHeading from '../../../components/LinkHeading';
+import LinkHeading from '@/components/LinkHeading';
 
 
 export const metadata: Metadata = {

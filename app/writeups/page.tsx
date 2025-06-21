@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 // Components
-import { SectionHeading } from '../../components/Section';
+import { SectionHeading } from '@/components/Section';
 import WriteupsContent from './WriteupsContent';
 
 // Utils

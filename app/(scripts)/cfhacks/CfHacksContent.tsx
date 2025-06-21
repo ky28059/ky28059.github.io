@@ -3,8 +3,8 @@
 import { useState } from 'react';
 
 // Components
-import AutoResizingTextArea from '../../../components/AutoResizingTextArea';
-import CopyCodeBlock from '../../../components/CopyCodeBlock';
+import AutoResizingTextArea from '@/components/AutoResizingTextArea';
+import CopyCodeBlock from '@/components/CopyCodeBlock';
 import LabelledInput from '../LabelledInput';
 
 

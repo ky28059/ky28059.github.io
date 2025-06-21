@@ -3,11 +3,11 @@ import Link from 'next/link';
 
 // Components
 import LandingHeader from './LandingHeader';
-import Section, { SectionHeading } from '../../components/Section';
-import PagedCodeBlock from '../../components/PagedCodeBlock';
+import Section, { SectionHeading } from '@/components/Section';
+import PagedCodeBlock from '@/components/PagedCodeBlock';
 import Projects from './Projects';
 import MockPage from './MockPage';
-import { InlineCode } from '../../components/InlineCode';
+import { InlineCode } from '@/components/InlineCode';
 
 // Icons
 import { BsGithub } from 'react-icons/bs';

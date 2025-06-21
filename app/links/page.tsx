@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 // Components
-import Section, { SectionHeading } from '../../components/Section';
+import Section, { SectionHeading } from '@/components/Section';
 
 
 type LinkData = {
