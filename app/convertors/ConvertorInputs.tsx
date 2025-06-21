@@ -22,7 +22,7 @@ export default function ConvertorInputs() {
                 </p>
             </section>
 
-            <section className="flex-grow basis-1/2 flex flex-col gap-2">
+            <section className="flex-grow basis-1/2 flex flex-col gap-2 min-w-0">
                 <LabelledOutput label="Plain text">
                     {input}
                 </LabelledOutput>
@@ -48,6 +48,21 @@ export default function ConvertorInputs() {
                 <LabelledOutput label="Upside down">
                     {upsideDown(input)}
                 </LabelledOutput>
+                <LabelledOutput label="To base64">
+                    {btoa(input)}
+                </LabelledOutput>
+                <LabelledOutput label="To hex bytes">
+                    {[...input].map((s) => s.charCodeAt(0).toString(16)).join(' ')}
+                </LabelledOutput>
+                <LabelledOutput label="To hex bytes (escape sequence)">
+                    {[...input].map((s) => '\\x' + s.charCodeAt(0).toString(16)).join('')}
+                </LabelledOutput>
+                <LabelledOutput label="To octal bytes">
+                    {[...input].map((s) => s.charCodeAt(0).toString(8)).join(' ')}
+                </LabelledOutput>
+                <LabelledOutput label="To octal bytes (escape sequence)">
+                    {[...input].map((s) => '\\' + s.charCodeAt(0).toString(8)).join('')}
+                </LabelledOutput>
             </section>
         </div>
     )
@@ -57,7 +72,7 @@ function LabelledOutput(props: {label: string, children: ReactNode}) {
     return (
         <div>
             <p className="text-sm mb-1 text-gray-400 dark:text-gray-100/40">{props.label}</p>
-            <div className="whitespace-pre-wrap rounded px-3 py-1 dark:bg-[#2b2b2b] mb-3 w-full border border-gray-400/50 dark:border-gray-100/10 placeholder:text-gray-400 placeholder:dark:text-gray-100/40">
+            <div className="whitespace-pre-wrap break-words rounded px-3 py-1 dark:bg-[#2b2b2b] mb-3 w-full border border-gray-400/50 dark:border-gray-100/10 placeholder:text-gray-400 placeholder:dark:text-gray-100/40">
                 {props.children}
             </div>
         </div>
