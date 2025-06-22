@@ -11,7 +11,7 @@ export default function ConvertorInputs() {
 
     return (
         <div className="flex gap-8 xl:gap-12 flex-wrap lg:flex-nowrap">
-            <section className="flex-grow basis-1/2">
+            <section className="flex-grow basis-1/2 lg:sticky lg:top-8 h-max">
                 <p className="text-sm mb-1 text-gray-400 dark:text-gray-100/40">Input</p>
                 <AutoResizingTextArea
                     placeholder="Type input..."
@@ -90,6 +90,9 @@ const convertors: ConvertorData[] = [{
 }, {
     name: 'To binary bytes',
     transform: (s) => [...s].map((c) => c.charCodeAt(0).toString(2).padStart(8, '0')).join(' ')
+}, {
+    name: 'To unicode',
+    transform: (s) => [...s].map((c) => '\\u' + c.charCodeAt(0).toString(16).padStart(4, '0')).join('')
 }]
 
 function LabelledOutput(props: {label: string, children: ReactNode}) {
