@@ -93,6 +93,12 @@ const convertors: ConvertorData[] = [{
 }, {
     name: 'To unicode',
     transform: (s) => [...s].map((c) => '\\u' + c.charCodeAt(0).toString(16).padStart(4, '0')).join('')
+}, {
+    name: 'URI encoded',
+    transform: encodeURIComponent
+}, {
+    name: 'URI encoded (full)',
+    transform: (s) => [...s].map((c) => '%' + c.charCodeAt(0).toString(16).padStart(2, '0')).join('')
 }]
 
 function LabelledOutput(props: {label: string, children: ReactNode}) {
