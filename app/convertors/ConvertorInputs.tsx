@@ -87,6 +87,9 @@ const convertors: ConvertorData[] = [{
 }, {
     name: 'To octal bytes (escape sequence)',
     transform: (s) => [...s].map((c) => '\\' + c.charCodeAt(0).toString(8)).join('')
+}, {
+    name: 'To binary bytes',
+    transform: (s) => [...s].map((c) => c.charCodeAt(0).toString(2).padStart(8, '0')).join(' ')
 }]
 
 function LabelledOutput(props: {label: string, children: ReactNode}) {
