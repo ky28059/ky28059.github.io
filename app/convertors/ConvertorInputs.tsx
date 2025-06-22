@@ -7,6 +7,8 @@ import AutoResizingTextArea from '@/components/AutoResizingTextArea';
 export default function ConvertorInputs() {
     const [input, setInput] = useState('To the red country and part of the gray country of Oklahoma, the last rains came gently and they did not cut the scarred earth.');
 
+    const [query, setQuery] = useState('');
+
     return (
         <div className="flex gap-8 xl:gap-12 flex-wrap lg:flex-nowrap">
             <section className="flex-grow basis-1/2">
@@ -17,56 +19,75 @@ export default function ConvertorInputs() {
                     onChange={(e) => setInput(e.target.value)}
                     className="rounded px-3 py-1 h-24 dark:bg-[#2b2b2b] mb-2 w-full border border-gray-400/50 dark:border-gray-100/10 placeholder:text-gray-400 placeholder:dark:text-gray-100/40"
                 />
-                <p className="text-xs mb-1 text-gray-400 dark:text-gray-100/40">
+                <p className="text-xs mb-6 text-gray-400 dark:text-gray-100/40">
                     Length: {input.length} characters | {input.length && input.trim().split(/\s+/).length} words
                 </p>
+
+                <h2 className="text-sm font-semibold mb-1">Filter converters:</h2>
+                <input
+                    className="w-full dark:bg-[#2b2b2b] px-3 py-1.5 border border-tertiary rounded"
+                    placeholder="Search query here..."
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                />
             </section>
 
             <section className="flex-grow basis-1/2 flex flex-col gap-2 min-w-0">
-                <LabelledOutput label="Plain text">
-                    {input}
-                </LabelledOutput>
-                <LabelledOutput label="Capitalized">
-                    {input.toUpperCase()}
-                </LabelledOutput>
-                <LabelledOutput label="Lowercase">
-                    {input.toLowerCase()}
-                </LabelledOutput>
-                <LabelledOutput label="Alternating case">
-                    {alternatingCase(input)}
-                </LabelledOutput>
-                <LabelledOutput label="rot13">
-                    {rot(input, 13)}
-                </LabelledOutput>
-                {/* TODO: arbitrary rot value */}
-                <LabelledOutput label="Reversed">
-                    {reverse(input)}
-                </LabelledOutput>
-                <LabelledOutput label="Upside down (reversed)">
-                    {reverse(upsideDown(input))}
-                </LabelledOutput>
-                <LabelledOutput label="Upside down">
-                    {upsideDown(input)}
-                </LabelledOutput>
-                <LabelledOutput label="To base64">
-                    {btoa(input)}
-                </LabelledOutput>
-                <LabelledOutput label="To hex bytes">
-                    {[...input].map((s) => s.charCodeAt(0).toString(16)).join(' ')}
-                </LabelledOutput>
-                <LabelledOutput label="To hex bytes (escape sequence)">
-                    {[...input].map((s) => '\\x' + s.charCodeAt(0).toString(16)).join('')}
-                </LabelledOutput>
-                <LabelledOutput label="To octal bytes">
-                    {[...input].map((s) => s.charCodeAt(0).toString(8)).join(' ')}
-                </LabelledOutput>
-                <LabelledOutput label="To octal bytes (escape sequence)">
-                    {[...input].map((s) => '\\' + s.charCodeAt(0).toString(8)).join('')}
-                </LabelledOutput>
+                {convertors.filter((c) => c.name.toLowerCase().includes(query.toLowerCase())).map(({ name, transform }) => (
+                    <LabelledOutput label={name} key={name}>
+                        {transform(input)}
+                    </LabelledOutput>
+                ))}
             </section>
         </div>
     )
 }
+
+type ConvertorData = {
+    name: string,
+    transform: (s: string) => string
+}
+
+const convertors: ConvertorData[] = [{
+    name: 'Plain text',
+    transform: (s) => s
+}, {
+    name: 'Capitalized',
+    transform: (s) => s.toUpperCase(),
+}, {
+    name: 'Lowercase',
+    transform: (s) => s.toLowerCase(),
+}, {
+    name: 'Alternating case',
+    transform: alternatingCase
+}, {
+    name: 'rot13',
+    transform: (s) => rot(s, 13)
+}, {
+    name: 'Reversed',
+    transform: (s) => reverse(s)
+}, {
+    name: 'Upside down (reversed)',
+    transform: (s) => reverse(upsideDown(s))
+}, {
+    name: 'Upside down',
+    transform: (s) => upsideDown(s)
+}, {
+    name: 'To base64',
+    transform: btoa
+}, {
+    name: 'To hex bytes',
+    transform: (s) => [...s].map((c) => c.charCodeAt(0).toString(16)).join(' ')
+}, {
+    name: 'To hex bytes (escape sequence)',
+    transform: (s) => [...s].map((c) => '\\x' + c.charCodeAt(0).toString(16)).join('')
+}, {
+    name: 'To octal bytes',
+    transform: (s) => [...s].map((c) => c.charCodeAt(0).toString(8)).join(' ')
+}, {
+    name: 'To octal bytes (escape sequence)',
+    transform: (s) => [...s].map((c) => '\\' + c.charCodeAt(0).toString(8)).join('')
+}]
 
 function LabelledOutput(props: {label: string, children: ReactNode}) {
     return (
