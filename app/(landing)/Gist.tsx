@@ -9,7 +9,7 @@ type GistProps = {
 }
 export default function Gist(props: GistProps) {
     return (
-        <div className="group rounded-md overflow-hidden border border-white/25 hover:border-white/50 transition duration-150 relative w-96">
+        <div className="group rounded-md overflow-hidden border border-white/25 hover:border-white/50 transition duration-150 relative w-full">
             <a href={props.href} target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-10" />
 
             <img

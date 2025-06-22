@@ -53,7 +53,7 @@ export default function Projects() {
                     ))}
                 </ProjectsHeaderSection>
 
-                <section className="flex flex-col gap-6">
+                <section className="flex flex-col gap-6 w-full">
                     {projects.map((g) => (
                         <ProjectGroup name={g.name} gh={g.gh} key={g.name}>
                             {g.projects.map((p) => (
@@ -328,6 +328,14 @@ const projects: ProjectGroupData[] = [
     {
         name: "Personal / other",
         projects: [{
+            name: 'react-free-transform',
+            desc: 'A NPM library for free transform of arbitrary HTML elements in React.',
+            src: '/assets/projects/react-free-transform.jpg',
+            langs: ['ts'],
+            tags: ['react', 'vite'],
+            gh: 'https://github.com/ky28059/react-free-transform',
+            web: 'https://react-free-transform.kevin.fish/',
+        }, {
             name: "Keep Typing And Nobody Explodes",
             desc: "Boilermake 2025 submission.",
             src: "/assets/projects/ktane.jpg",
@@ -434,7 +442,7 @@ function ProjectsHeaderSection(props: { children: ReactNode }) {
 
 function ProjectsCardGrid(props: { className?: string, children: ReactNode }) {
     return (
-        <div className={'flex flex-wrap justify-center md:justify-start gap-5 w-full' + (props.className ? ` ${props.className}` : '')}>
+        <div className={'grid grid-cols-[repeat(auto-fill,_minmax(22rem,_1fr))] gap-5 w-full' + (props.className ? ` ${props.className}` : '')}>
             {props.children}
         </div>
     )

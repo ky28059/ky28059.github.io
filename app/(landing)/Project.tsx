@@ -15,7 +15,7 @@ export default function Project(props: ProjectData) {
     const href = props.web ?? props.gh;
 
     return (
-        <div className="group rounded-md overflow-hidden border border-white/25 hover:border-white/50 transition duration-150 relative w-96">
+        <div className="group rounded-md overflow-hidden border border-white/25 hover:border-white/50 transition duration-150 relative w-full">
             <a href={href} target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-10" />
 
             <img
