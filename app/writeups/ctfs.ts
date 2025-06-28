@@ -97,6 +97,7 @@ export const ctfs: CTFData[] = [
             href: 'https://gist.github.com/ky28059/b5f47ad77ea136d07cfaf15980fedf4c',
             name: 'dojo',
             type: 'web',
+            tags: ['highlight'],
             src: 'https://gist.github.com/user-attachments/assets/1f28d421-8fe1-45a5-9271-4fad8c6897bb'
         }]
     },
