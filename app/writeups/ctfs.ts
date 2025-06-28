@@ -13,7 +13,7 @@ export const ctfs: CTFData[] = [
             href: 'https://gist.github.com/ky28059/5ffffe2d75240def2e2d77c7e8243229',
             name: 'triglot',
             type: 'misc',
-            tags: ['polyglot'],
+            tags: ['highlight', 'polyglot'],
             src: '/assets/writeups/triglot.webp'
         }]
     },
@@ -168,7 +168,9 @@ export const ctfs: CTFData[] = [
         writeups: [{
             type: 'pwn',
             href: 'https://gist.github.com/ky28059/850fe47a2d02422cae230ff311db4b84',
-            name: 'recurse'
+            name: 'recurse',
+            src: 'https://hackaday.com/wp-content/uploads/2017/05/gnu-contract-featured.jpg',
+            tags: ['highlight']
         }]
     },
     {
@@ -178,7 +180,7 @@ export const ctfs: CTFData[] = [
             href: 'https://gist.github.com/ky28059/2f279fff831a5be3d6b5fbb8a6d86057',
             name: 'msfrogofwar3',
             src: '/assets/writeups/msfrogofwar3.jpg',
-            tags: ['stockfish', 'ssti']
+            tags: ['highlight', 'stockfish', 'ssti']
         }]
     },
     {
