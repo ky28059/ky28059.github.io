@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 // Components
 import { SectionHeading } from '@/components/Section';
@@ -38,6 +39,10 @@ export default async function Writeups() {
 
     return (
         <>
+            <Link href="/" className="text-secondary text-sm mb-10 -ml-5 block w-max">
+                ← Back to home
+            </Link>
+
             <SectionHeading>CTF Writeups</SectionHeading>
 
             <WriteupsContent
