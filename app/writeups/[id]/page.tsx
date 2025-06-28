@@ -1,11 +1,28 @@
+import type { Metadata } from 'next';
 import { ctfs } from '../ctfs';
 import Markdown from 'react-markdown';
 
 // Components
-import CopyCodeBlock from '../../../components/CopyCodeBlock';
-import LinkHeading from '../../../components/LinkHeading';
-import { InlineCode } from '../../../components/InlineCode';
+import CopyCodeBlock from '@/components/CopyCodeBlock';
+import LinkHeading from '@/components/LinkHeading';
+import { InlineCode } from '@/components/InlineCode';
 
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+    const { id } = await params;
+    const raw = await (await fetch(`https://gist.githubusercontent.com/ky28059/${id}/raw/`)).text();
+
+    const [, title, description] = raw.match(/# (.+?)\s+> (.+)/)!;
+
+    return {
+        title,
+        description,
+        openGraph: {
+            title,
+            description,
+        }
+    }
+}
 
 export default async function WriteupPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
