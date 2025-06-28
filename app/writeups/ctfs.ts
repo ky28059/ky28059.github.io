@@ -222,12 +222,21 @@ export const ctfs: CTFData[] = [
         }]
     },
     {
-        name: "SDCTF 2024",
+        name: 'TJCTF 2024',
         writeups: [{
+            type: 'misc',
+            href: 'https://gist.github.com/ky28059/c5cdfd92faf2b3938497dfcf6bb219dd',
+            name: 'golf-hard',
+            tags: ['highlight', 'regex']
+        }]
+    },
+    {
+        name: "SDCTF 2024",
+        writeups: [/* {
             name: "impossible-golf",
             type: "misc",
             href: "https://gist.github.com/ky28059/dcd9fcad9f92264d79708255e6f15e70"
-        }, {
+        }, */ {
             name: "Chill Beats",
             type: "osint",
             href: "https://gist.github.com/ky28059/9b5dc250b9b0ddb51e05b9e690a82432",
