@@ -255,7 +255,7 @@ function IdTableCell(props: { children: ReactNode }) {
 
 function IdTableHeaderCell(props: { children: ReactNode }) {
     return (
-        <th className="text-sm text-left font-medium px-4 py-2 border border-tertiary bg-gray-100 dark:bg-dark">
+        <th className="text-sm text-left font-medium px-4 py-2 border border-tertiary bg-gray-100 dark:bg-white/5">
             {props.children}
         </th>
     )

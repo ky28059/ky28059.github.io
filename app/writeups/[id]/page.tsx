@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { ctfs } from '../ctfs';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 
 // Components
 import CopyCodeBlock from '@/components/CopyCodeBlock';
@@ -34,6 +35,7 @@ export default async function WriteupPage({ params }: { params: Promise<{ id: st
             <main className="text-pretty max-w-5xl mx-auto text-sm [&_h1]:text-5xl [&_h1]:font-semibold [&_h1]:mb-8 [&_blockquote]:text-secondary [&_blockquote]:space-y-3 [&_blockquote]:border-l-4 [&_blockquote]:border-secondary [&_blockquote]:pl-5 [&_blockquote]:mb-5 [&>_p]:my-3 [&_img]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_img]:rounded [&_li]:my-2">
                 <Markdown
                     remarkPlugins={[remarkGfm]}
+                    rehypePlugins={[rehypeRaw]}
                     components={{
                         pre(props) {
                             const { children, node, ...rest } = props;
