@@ -13,7 +13,7 @@ export default function WinConfetti() {
             initialVelocityX={{ min: -4, max: 4 }}
             initialVelocityY={{ min: 1, max: 4 }}
             recycle={false}
-            style={{ position: 'fixed' }}
+            style={{ position: 'fixed', width: 'max(1504px, 100vw)', height: '100vh', zIndex: 60 }}
         />
     )
 }
