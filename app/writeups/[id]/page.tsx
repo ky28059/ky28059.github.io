@@ -32,7 +32,7 @@ export default async function WriteupPage({ params }: { params: Promise<{ id: st
 
     return (
         <div>
-            <main className="text-pretty max-w-5xl mx-auto text-sm [&_h1]:text-5xl [&_h1]:font-semibold [&_h1]:mb-8 [&_blockquote]:text-secondary [&_blockquote]:space-y-3 [&_blockquote]:border-l-4 [&_blockquote]:border-secondary [&_blockquote]:pl-5 [&_blockquote]:mb-5 [&>_p]:my-3 [&_img]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_img]:rounded [&_li]:my-2">
+            <main className="text-pretty max-w-5xl mx-auto text-sm [&_h1]:text-5xl [&_h1]:font-semibold [&_h1]:mb-8 [&_blockquote]:text-secondary [&_blockquote]:space-y-3 [&_blockquote]:border-l-4 [&_blockquote]:border-secondary [&_blockquote]:pl-5 [&_blockquote]:mb-5 [&>_p]:my-4 [&_img]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_img]:rounded [&_li]:my-2">
                 <Markdown
                     remarkPlugins={[remarkGfm]}
                     rehypePlugins={[rehypeRaw]}
@@ -45,7 +45,7 @@ export default async function WriteupPage({ params }: { params: Promise<{ id: st
                                 const match = /language-(\w+)/.exec(className || '')
                                 return (
                                     <CopyCodeBlock
-                                        className="my-4"
+                                        className="my-2"
                                         children={String(grandChildren).replace(/\n$/, '')}
                                         language={match?.[1]}
                                     />

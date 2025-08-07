@@ -8,6 +8,16 @@ type CTFData = {
 
 export const ctfs: CTFData[] = [
     {
+        name: 'UIUCTF 2025',
+        writeups: [{
+            href: 'https://gist.github.com/ky28059/8096bd32165fc11285468e3ee1a3997c',
+            name: 'Upload, Upload, and Away!',
+            type: 'web',
+            tags: ['highlight', 'typescript'],
+            src: '/assets/writeups/uploads_and_away.svg'
+        }]
+    },
+    {
         name: 'SDCTF 2025',
         writeups: [{
             href: 'https://gist.github.com/ky28059/5ffffe2d75240def2e2d77c7e8243229',
@@ -36,7 +46,7 @@ export const ctfs: CTFData[] = [
             tags: ['xss'],
             src: '/assets/writeups/hackthebot1.jpg'
         }]
-    },
+    }, /*
     {
         name: 'm0leCon Beginner CTF 2024',
         writeups: [{
@@ -46,14 +56,14 @@ export const ctfs: CTFData[] = [
             tags: ['esolang'],
             src: '/assets/writeups/pietcture.png'
         }]
-    },
+    }, */
     {
         name: 'LakeCTF \'24-\'25 Quals',
         writeups: [{
             href: 'https://gist.github.com/ky28059/b99b68a576fef8f91fcb950aa5c394bb',
             name: 'VerySusOrganization',
             type: 'misc',
-            src: '/assets/writeups/verysusorganization.jpg',
+            src: '/assets/writeups/verysusorganization2.jpg',
             tags: ['github', 'npm']
         }]
     },
@@ -69,12 +79,12 @@ export const ctfs: CTFData[] = [
             name: 'Trackdown 2',
             type: 'osint',
             src: '/assets/writeups/trackdown2.jpg'
-        }, {
+        }, /* {
             href: 'https://gist.github.com/ky28059/91df12b57366ef5ab356fb09239eb4d8',
             name: 'Pizza Paradise',
             type: 'web',
             src: '/assets/writeups/pizza-paradise.jpg'
-        }, {
+        }, */ {
             href: 'https://gist.github.com/ky28059/1eef81c26836b44b96856b2c564067ff',
             name: 'Private Github Repository',
             type: 'osint',
@@ -209,7 +219,9 @@ export const ctfs: CTFData[] = [
         }, {
             type: 'web',
             href: 'https://gist.github.com/ky28059/6f7ef0a073b142a9ed5d460a930a9d1c',
-            name: 'Log Action'
+            name: 'Log Action',
+            src: '/assets/writeups/log-action.jpg',
+            tags: ['next']
         }]
     },
     {
@@ -218,8 +230,8 @@ export const ctfs: CTFData[] = [
             type: 'web',
             href: 'https://gist.github.com/ky28059/0c4ecb3e46bccbd295151d6d30c110d4',
             name: 'Letter to the editor',
-            // src: '/assets/writeups/letter-to-the-editor.jpg'
-            src: 'https://gist.github.com/assets/60120929/baae2b59-e268-4aaa-af1e-fcfb460a0537'
+            src: '/assets/writeups/letter-to-the-editor-2.png'
+            // src: 'https://gist.github.com/assets/60120929/baae2b59-e268-4aaa-af1e-fcfb460a0537'
         }]
     },
     {
@@ -388,7 +400,8 @@ export const ctfs: CTFData[] = [
             name: "typescrip",
             type: "misc",
             href: "https://gist.github.com/ky28059/a851fdabc90d887a61af81c071f6f0ce",
-            src: 'https://user-images.githubusercontent.com/60120929/271787201-15c1a765-7c83-4eb0-b2de-f48a37f15e57.png'
+            src: 'https://user-images.githubusercontent.com/60120929/271787201-15c1a765-7c83-4eb0-b2de-f48a37f15e57.png',
+            tags: ['typescript']
         }]
     }
 ]
