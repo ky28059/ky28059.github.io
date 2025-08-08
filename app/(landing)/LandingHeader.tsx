@@ -66,6 +66,7 @@ export default function LandingHeader() {
                         Other affiliations:
                     </p>
                     <ul className="text-secondary">
+                        <li>Contractor @ CAIS (2025)</li>
                         <li>UTA @ Purdue CS (2025)</li>
                         <li>TA @ MIT BWSI (2024)</li>
                         <li>Intern @ Stanford GLAM (2023)</li>
