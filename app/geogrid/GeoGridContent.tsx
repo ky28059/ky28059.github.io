@@ -67,6 +67,20 @@ export default function GeoGridContent() {
                         <GridBooleanLabel label="Touches Sahara" />
                         <GridBooleanLabel label="Touches equator" />
                         <GridBooleanLabel label="Touches Eur. steppe" />
+                        <GridBooleanLabel label="Hosted F1" />
+                        <GridBooleanLabel label="Hosted olympics" />
+                        <GridBooleanLabel label="Hosted MWC" />
+                        <GridBooleanLabel label="Played MWC" />
+                        <GridBooleanLabel label="Won MWC" />
+                        <GridBooleanLabel label="T20 WHS" />
+                        <GridBooleanLabel label="T20 tourism" />
+                        <GridBooleanLabel label="T20 rail" />
+                        <GridBooleanLabel label="T20 pop. density" />
+                        <GridBooleanLabel label="B20 pop. density" />
+                        <GridBooleanLabel label="T20 wheat" />
+                        <GridBooleanLabel label="T20 oil" />
+                        <GridBooleanLabel label="T20 ren. energy" />
+                        <GridBooleanLabel label="T10 lakes" />
                     </div>
 
                     {countries.map((c) => {
@@ -133,6 +147,20 @@ export default function GeoGridContent() {
                                 <GridBooleanCell value={details?.geographyInfo.touchesSahara} />
                                 <GridBooleanCell value={details?.geographyInfo.touchesEquator} />
                                 <GridBooleanCell value={details?.geographyInfo.touchesEurasionSteppe} />
+                                <GridBooleanCell value={details?.sportsInfo.hostedF1} />
+                                <GridBooleanCell value={details?.sportsInfo.hostedOlympics} />
+                                <GridBooleanCell value={details?.sportsInfo.hostedMensWorldCup} />
+                                <GridBooleanCell value={details?.sportsInfo.playedMensWorldCup} />
+                                <GridBooleanCell value={details?.sportsInfo.wonMensWorldCup} />
+                                <GridBooleanCell value={details?.factsInfo.top20WorldHeritageSites} />
+                                <GridBooleanCell value={details?.factsInfo.top20TourismRate} />
+                                <GridBooleanCell value={details?.factsInfo.top20RailSize} />
+                                <GridBooleanCell value={details?.factsInfo.top20PopulationDensity} />
+                                <GridBooleanCell value={details?.factsInfo.bottom20PopulationDensity} />
+                                <GridBooleanCell value={details?.economicInfo.top20WheatProduction} />
+                                <GridBooleanCell value={details?.economicInfo.top20OilProduction} />
+                                <GridBooleanCell value={details?.economicInfo.top20RenewableElectricityProduction} />
+                                <GridBooleanCell value={details?.geographyInfo.top10Lakes} />
                             </div>
                         )
                     })}
