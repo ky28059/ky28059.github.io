@@ -23,70 +23,141 @@ export default function GeoGridContent() {
         <div className="bg-black/25 divide-y divide-tertiary overflow-y-auto flex flex-col">
             {!countries ? (
                 <div>...</div>
-            ) : countries.map((c) => {
-                const details = countryDetails[c.code];
-
-                return (
-                    <div
-                        className="flex text-sm items-center hover:bg-tertiary/30"
-                        key={c.code}
-                    >
-                        <img
-                            className="max-h-12 w-16 flex-none object-contain object-right py-0.5 mr-3"
-                            src={getFlagUrl(c.code)}
-                            alt={c.name}
-                        />
-                        <div className="w-36 flex-none mr-3 text-pretty">
-                            {c.name} <span className="text-secondary">({c.code})</span>
+            ) : (
+                <>
+                    <div className="sticky top-0 bg-midnight border-b border-tertiary flex text-xs text-primary items-center break-words">
+                        <div className="ml-[4.75rem] w-36 flex-none mr-3">
+                            Name / code
                         </div>
-                        <GridCell
-                            className="w-12"
-                            value={details?.economicInfo.HDI}
-                        />
-                        <GridCell
-                            className="w-12"
-                            value={details?.politicalInfo.CPI}
-                        />
-                        <GridCell
-                            className="w-16"
-                            value={details?.economicInfo.GDPPerCapita}
-                            prefix="$"
-                        />
-                        <GridCell
-                            className="w-20"
-                            value={details?.geographyInfo.coastlineLength}
-                            unit="km"
-                        />
-                        <GridCell
-                            className="w-24"
-                            value={details?.factsInfo.airPollution}
-                            unit="μg/m³"
-                        />
-                        <GridCell
-                            className="w-24"
-                            value={details?.factsInfo.co2Emissions}
-                            unit="tCO₂/y"
-                        />
-                        <GridCell
-                            className="w-12"
-                            value={details?.sportsInfo.olympicMedals}
-                        />
-                        <GridBooleanCell value={details?.geographyInfo.landlocked} />
-                        <GridBooleanCell value={details?.geographyInfo.islandNation} />
-                        <GridBooleanCell value={details?.politicalInfo.isMonarchy} />
-                        <GridBooleanCell value={details?.politicalInfo.inEU} />
-                        <GridBooleanCell value={details?.politicalInfo.inCommonwealth} />
-                        <GridBooleanCell value={details?.politicalInfo.wasUSSR} />
-                        <GridBooleanCell value={details?.economicInfo.producesNuclearPower} />
-                        <GridBooleanCell value={details?.politicalInfo.hasNuclearWeapons} />
-                        <GridBooleanCell value={details?.politicalInfo.observesDST} />
-                        <GridBooleanCell value={details?.politicalInfo.sameSexMarriageLegal} />
-                        <GridBooleanCell value={details?.politicalInfo.sameSexActivitiesIllegal} />
-                        <GridBooleanCell value={details?.factsInfo.drivesLeft} />
-                        <GridBooleanCell value={details?.factsInfo.hasAlcoholBan} />
+
+                        <div className="w-12 flex-none mr-3">
+                            HDI
+                        </div>
+                        <div className="w-12 flex-none mr-3">
+                            CPI
+                        </div>
+                        <div className="w-16 flex-none mr-3">
+                            GDP / capita
+                        </div>
+                        <div className="w-20 flex-none mr-3">
+                            Coastline length
+                        </div>
+                        <div className="w-24 flex-none mr-3">
+                            Air pollution
+                        </div>
+                        <div className="w-24 flex-none mr-3">
+                            CO₂ emissions / capita
+                        </div>
+                        <div className="w-12 flex-none mr-3">
+                            Olympic medals
+                        </div>
+                        <div className="w-12 flex-none">
+                            Landlocked
+                        </div>
+                        <div className="w-12 flex-none">
+                            Island nation
+                        </div>
+                        <div className="w-12 flex-none">
+                            Monarchy
+                        </div>
+                        <div className="w-12 flex-none">
+                            EU
+                        </div>
+                        <div className="w-12 flex-none">
+                            Cmlth.
+                        </div>
+                        <div className="w-12 flex-none">
+                            USSR
+                        </div>
+                        <div className="w-12 flex-none">
+                            Nuc. power
+                        </div>
+                        <div className="w-12 flex-none">
+                            Nuc. weapons
+                        </div>
+                        <div className="w-12 flex-none">
+                            DST
+                        </div>
+                        <div className="w-12 flex-none">
+                            SSM legal
+                        </div>
+                        <div className="w-12 flex-none">
+                            SSA illegal
+                        </div>
+                        <div className="w-12 flex-none">
+                            Drives left
+                        </div>
+                        <div className="w-12 flex-none">
+                            Alc. ban
+                        </div>
                     </div>
-                )
-            })}
+
+                    {countries.map((c) => {
+                        const details = countryDetails[c.code];
+
+                        return (
+                            <div
+                                className="flex text-sm items-center hover:bg-tertiary/30"
+                                key={c.code}
+                            >
+                                <img
+                                    className="max-h-12 w-16 flex-none object-contain object-right py-0.5 mr-3"
+                                    src={getFlagUrl(c.code)}
+                                    alt={c.name}
+                                />
+                                <div className="w-36 flex-none mr-3 text-pretty">
+                                    {c.name} <span className="text-secondary">({c.code})</span>
+                                </div>
+                                <GridCell
+                                    className="w-12"
+                                    value={details?.economicInfo.HDI}
+                                />
+                                <GridCell
+                                    className="w-12"
+                                    value={details?.politicalInfo.CPI}
+                                />
+                                <GridCell
+                                    className="w-16"
+                                    value={details?.economicInfo.GDPPerCapita}
+                                    prefix="$"
+                                />
+                                <GridCell
+                                    className="w-20"
+                                    value={details?.geographyInfo.coastlineLength}
+                                    unit="km"
+                                />
+                                <GridCell
+                                    className="w-24"
+                                    value={details?.factsInfo.airPollution}
+                                    unit="μg/m³"
+                                />
+                                <GridCell
+                                    className="w-24"
+                                    value={details?.factsInfo.co2Emissions}
+                                    unit="tCO₂/y"
+                                />
+                                <GridCell
+                                    className="w-12"
+                                    value={details?.sportsInfo.olympicMedals}
+                                />
+                                <GridBooleanCell value={details?.geographyInfo.landlocked} />
+                                <GridBooleanCell value={details?.geographyInfo.islandNation} />
+                                <GridBooleanCell value={details?.politicalInfo.isMonarchy} />
+                                <GridBooleanCell value={details?.politicalInfo.inEU} />
+                                <GridBooleanCell value={details?.politicalInfo.inCommonwealth} />
+                                <GridBooleanCell value={details?.politicalInfo.wasUSSR} />
+                                <GridBooleanCell value={details?.economicInfo.producesNuclearPower} />
+                                <GridBooleanCell value={details?.politicalInfo.hasNuclearWeapons} />
+                                <GridBooleanCell value={details?.politicalInfo.observesDST} />
+                                <GridBooleanCell value={details?.politicalInfo.sameSexMarriageLegal} />
+                                <GridBooleanCell value={details?.politicalInfo.sameSexActivitiesIllegal} />
+                                <GridBooleanCell value={details?.factsInfo.drivesLeft} />
+                                <GridBooleanCell value={details?.factsInfo.hasAlcoholBan} />
+                            </div>
+                        )
+                    })}
+                </>
+            )}
         </div>
     )
 }
