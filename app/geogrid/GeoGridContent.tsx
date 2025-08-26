@@ -51,6 +51,12 @@ export default function GeoGridContent() {
                         <div className="w-12 flex-none mr-3">
                             Olympic medals
                         </div>
+                        <div className="w-20 flex-none mr-3">
+                            River systems
+                        </div>
+                        <div className="w-20 flex-none mr-3">
+                            Official langs
+                        </div>
                         <GridBooleanLabel label="Landlocked" />
                         <GridBooleanLabel label="Island nation" />
                         <GridBooleanLabel label="Monarchy" />
@@ -130,6 +136,14 @@ export default function GeoGridContent() {
                                 <GridCell
                                     className="w-12"
                                     value={details?.sportsInfo.olympicMedals}
+                                />
+                                <GridArrayCell
+                                    className="w-20 text-xs"
+                                    value={details?.geographyInfo.rivers}
+                                />
+                                <GridArrayCell
+                                    className="w-20 text-xs"
+                                    value={details?.politicalInfo.officialLanguageCodes}
                                 />
                                 <GridBooleanCell value={details?.geographyInfo.landlocked} />
                                 <GridBooleanCell value={details?.geographyInfo.islandNation} />
@@ -216,6 +230,24 @@ function GridBooleanCell(props: GridBooleanCellProps) {
     )
 }
 
+type GridArrayCellProps = {
+    value: string[] | undefined,
+    className: string
+}
+function GridArrayCell(props: GridArrayCellProps) {
+    if (!props.value || props.value.length === 0) return (
+        <div className={`${props.className} text-secondary mr-3 flex-none`}>
+            —
+        </div>
+    )
+
+    return (
+        <div className={`${props.className} text-xs mr-3 flex-none`}>
+            {props.value.join(', ')}
+        </div>
+    )
+}
+
 type GridBooleanLabelProps = {
     label: string
 }
@@ -268,7 +300,7 @@ type CountryDetails = {
         hasNuclearWeapons: boolean,
         wasUSSR: boolean,
         inCommonwealth: boolean,
-        officialLanguageCodes: string[],
+        officialLanguageCodes?: string[],
         timeZones: string[],
         observesDST: boolean,
         sameSexMarriageLegal: boolean,
