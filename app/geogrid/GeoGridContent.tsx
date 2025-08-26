@@ -20,7 +20,7 @@ export default function GeoGridContent() {
     }, []);
 
     return (
-        <div className="divide-y divide-tertiary">
+        <div className="bg-black/25 divide-y divide-tertiary overflow-y-auto flex flex-col">
             {!countries ? (
                 <div>...</div>
             ) : countries.map((c) => {
@@ -28,15 +28,15 @@ export default function GeoGridContent() {
 
                 return (
                     <div
-                        className="flex gap-3 py-0.5 text-sm items-center hover:bg-tertiary/30"
+                        className="flex text-sm items-center hover:bg-tertiary/30"
                         key={c.code}
                     >
                         <img
-                            className="max-h-10 w-16 object-contain object-right"
+                            className="max-h-12 w-16 flex-none object-contain object-right py-0.5 mr-3"
                             src={getFlagUrl(c.code)}
                             alt={c.name}
                         />
-                        <div className="w-32">
+                        <div className="w-36 flex-none mr-3 text-pretty">
                             {c.name} <span className="text-secondary">({c.code})</span>
                         </div>
                         <GridCell
@@ -71,6 +71,19 @@ export default function GeoGridContent() {
                             className="w-12"
                             value={details?.sportsInfo.olympicMedals}
                         />
+                        <GridBooleanCell value={details?.geographyInfo.landlocked} />
+                        <GridBooleanCell value={details?.geographyInfo.islandNation} />
+                        <GridBooleanCell value={details?.politicalInfo.isMonarchy} />
+                        <GridBooleanCell value={details?.politicalInfo.inEU} />
+                        <GridBooleanCell value={details?.politicalInfo.inCommonwealth} />
+                        <GridBooleanCell value={details?.politicalInfo.wasUSSR} />
+                        <GridBooleanCell value={details?.economicInfo.producesNuclearPower} />
+                        <GridBooleanCell value={details?.politicalInfo.hasNuclearWeapons} />
+                        <GridBooleanCell value={details?.politicalInfo.observesDST} />
+                        <GridBooleanCell value={details?.politicalInfo.sameSexMarriageLegal} />
+                        <GridBooleanCell value={details?.politicalInfo.sameSexActivitiesIllegal} />
+                        <GridBooleanCell value={details?.factsInfo.drivesLeft} />
+                        <GridBooleanCell value={details?.factsInfo.hasAlcoholBan} />
                     </div>
                 )
             })}
@@ -86,18 +99,40 @@ type GridCellProps = {
 }
 function GridCell(props: GridCellProps) {
     if (props.value === undefined || props.value === null) return (
-        <div className={`${props.className} text-secondary`}>
+        <div className={`${props.className} text-secondary mr-3 flex-none`}>
             —
         </div>
     )
 
     return (
-        <div className={props.className}>
+        <div className={`${props.className} mr-3 flex-none`}>
             {props.prefix}
             {props.value}
             {props.unit && (
                 <span className="text-secondary ml-1">{props.unit}</span>
             )}
+        </div>
+    )
+}
+
+type GridBooleanCellProps = {
+    value: boolean | null | undefined
+}
+function GridBooleanCell(props: GridBooleanCellProps) {
+    if (props.value === undefined || props.value === null) return (
+        <div className="w-12 flex-none text-secondary">
+            —
+        </div>
+    )
+
+    return (
+        <div className={'w-12 flex-none self-stretch flex items-center justify-center ' + (props.value ? 'bg-lime-500/30' : 'bg-red-500/25')}>
+            <input
+                disabled
+                readOnly
+                type="checkbox"
+                checked={props.value}
+            />
         </div>
     )
 }
@@ -131,8 +166,8 @@ type CountryDetails = {
         top10Lakes: boolean
     },
     economicInfo: {
-        HDI: number,
-        GDPPerCapita: number,
+        HDI?: number,
+        GDPPerCapita?: number,
         top20WheatProduction: boolean,
         top20OilProduction: boolean,
         top20RenewableElectricityProduction: boolean,
@@ -149,7 +184,7 @@ type CountryDetails = {
         observesDST: boolean,
         sameSexMarriageLegal: boolean,
         sameSexActivitiesIllegal: boolean,
-        CPI: number,
+        CPI: number | null,
         isTerritory: boolean
     },
     sportsInfo: {
