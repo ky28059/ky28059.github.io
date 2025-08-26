@@ -25,7 +25,7 @@ export default function GeoGridContent() {
                 <div>...</div>
             ) : (
                 <>
-                    <div className="sticky top-0 bg-midnight border-b border-tertiary flex text-xs text-primary items-center break-words">
+                    <div className="w-max sticky top-0 bg-midnight border-b border-tertiary flex text-xs text-primary items-center break-words">
                         <div className="ml-[4.75rem] w-36 flex-none mr-3">
                             Name / code
                         </div>
@@ -51,45 +51,22 @@ export default function GeoGridContent() {
                         <div className="w-12 flex-none mr-3">
                             Olympic medals
                         </div>
-                        <div className="w-12 flex-none">
-                            Landlocked
-                        </div>
-                        <div className="w-12 flex-none">
-                            Island nation
-                        </div>
-                        <div className="w-12 flex-none">
-                            Monarchy
-                        </div>
-                        <div className="w-12 flex-none">
-                            EU
-                        </div>
-                        <div className="w-12 flex-none">
-                            Cmlth.
-                        </div>
-                        <div className="w-12 flex-none">
-                            USSR
-                        </div>
-                        <div className="w-12 flex-none">
-                            Nuc. power
-                        </div>
-                        <div className="w-12 flex-none">
-                            Nuc. weapons
-                        </div>
-                        <div className="w-12 flex-none">
-                            DST
-                        </div>
-                        <div className="w-12 flex-none">
-                            SSM legal
-                        </div>
-                        <div className="w-12 flex-none">
-                            SSA illegal
-                        </div>
-                        <div className="w-12 flex-none">
-                            Drives left
-                        </div>
-                        <div className="w-12 flex-none">
-                            Alc. ban
-                        </div>
+                        <GridBooleanLabel label="Landlocked" />
+                        <GridBooleanLabel label="Island nation" />
+                        <GridBooleanLabel label="Monarchy" />
+                        <GridBooleanLabel label="EU" />
+                        <GridBooleanLabel label="Cmlth." />
+                        <GridBooleanLabel label="USSR" />
+                        <GridBooleanLabel label="Nuc. power" />
+                        <GridBooleanLabel label="Nuc. weapons" />
+                        <GridBooleanLabel label="DST" />
+                        <GridBooleanLabel label="SSM legal" />
+                        <GridBooleanLabel label="SSA illegal" />
+                        <GridBooleanLabel label="Drives left" />
+                        <GridBooleanLabel label="Alc. ban" />
+                        <GridBooleanLabel label="Touches Sahara" />
+                        <GridBooleanLabel label="Touches equator" />
+                        <GridBooleanLabel label="Touches Eur. steppe" />
                     </div>
 
                     {countries.map((c) => {
@@ -97,7 +74,7 @@ export default function GeoGridContent() {
 
                         return (
                             <div
-                                className="flex text-sm items-center hover:bg-tertiary/30"
+                                className="w-max flex text-sm items-center hover:bg-tertiary/30"
                                 key={c.code}
                             >
                                 <img
@@ -153,6 +130,9 @@ export default function GeoGridContent() {
                                 <GridBooleanCell value={details?.politicalInfo.sameSexActivitiesIllegal} />
                                 <GridBooleanCell value={details?.factsInfo.drivesLeft} />
                                 <GridBooleanCell value={details?.factsInfo.hasAlcoholBan} />
+                                <GridBooleanCell value={details?.geographyInfo.touchesSahara} />
+                                <GridBooleanCell value={details?.geographyInfo.touchesEquator} />
+                                <GridBooleanCell value={details?.geographyInfo.touchesEurasionSteppe} />
                             </div>
                         )
                     })}
@@ -191,13 +171,13 @@ type GridBooleanCellProps = {
 }
 function GridBooleanCell(props: GridBooleanCellProps) {
     if (props.value === undefined || props.value === null) return (
-        <div className="w-12 flex-none text-secondary">
+        <div className="w-14 flex-none text-secondary">
             —
         </div>
     )
 
     return (
-        <div className={'w-12 flex-none self-stretch flex items-center justify-center ' + (props.value ? 'bg-lime-500/30' : 'bg-red-500/25')}>
+        <div className={'w-14 flex-none self-stretch flex items-center justify-center ' + (props.value ? 'bg-lime-500/30' : 'bg-red-500/25')}>
             <input
                 disabled
                 readOnly
@@ -208,6 +188,16 @@ function GridBooleanCell(props: GridBooleanCellProps) {
     )
 }
 
+type GridBooleanLabelProps = {
+    label: string
+}
+function GridBooleanLabel(props: GridBooleanLabelProps) {
+    return (
+        <div className="w-14 flex-none text-center">
+            {props.label}
+        </div>
+    )
+}
 
 type CountryInfo = {
     code: string,
