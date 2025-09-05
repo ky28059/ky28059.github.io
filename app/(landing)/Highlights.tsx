@@ -1,4 +1,5 @@
 import Section, { SectionHeading } from "@/components/Section";
+import Highlight from '@/app/(landing)/Highlight';
 
 
 export default function Highlights() {
@@ -14,17 +15,26 @@ export default function Highlights() {
                     />
                 ))}
             </div>
-            <p className="text-primary mb-8">
+            <p className="text-primary">
                 Selected projects that [...]
             </p>
 
-            <section className="flex gap-12">
-                ...
-
-                <div>
-
-                </div>
-            </section>
+            <Highlight
+                name="Jumpseat"
+                date="2024"
+            >
+                <p className="mb-4">
+                    Jumpseat is a travel engine for college students that pairs flights with airport shuttles
+                    to find the optimal travel itinerary to and from Purdue, UIUC, and more.
+                </p>
+                <p className="mb-4">
+                    Originally a student startup, a fork of Jumpseat is now hosted and maintained by [...]
+                </p>
+                <p>
+                    Jumpseat is built using TypeScript, Tailwind CSS, and Next.js, and stores user preferences
+                    / breaks via Prisma + Postgres.
+                </p>
+            </Highlight>
         </Section>
     )
 }
