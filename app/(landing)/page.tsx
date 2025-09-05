@@ -6,6 +6,7 @@ import LandingHeader from './LandingHeader';
 import Section, { SectionHeading } from '@/components/Section';
 import PagedCodeBlock from '@/components/PagedCodeBlock';
 import Projects from './Projects';
+import Highlights from '@/app/(landing)/Highlights';
 import MockPage from './MockPage';
 import { InlineCode } from '@/components/InlineCode';
 
@@ -76,6 +77,8 @@ export default function Home() {
 
             <div className="h-1 bg-gradient-to-r from-pink-500 via-red-500 to-orange-500" />
             <div className="h-2 opacity-25 bg-gradient-to-r from-pink-500 via-red-500 to-orange-500" />
+
+            <Highlights />
 
             <Projects />
 
