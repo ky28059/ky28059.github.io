@@ -6,7 +6,8 @@ import { InlineCode } from '@/components/InlineCode';
 export default function Highlights() {
     return (
         <Section type="dark">
-            <SectionHeading>Highlights</SectionHeading>
+            {/* <SectionHeading>Highlights</SectionHeading> */}
+
             <div className="flex gap-1 mt-2 mb-4">
                 {icons.map((u) => (
                     <img
@@ -51,8 +52,9 @@ export default function Highlights() {
                 </p>
                 <p className="mb-4">
                     Along with a Next.js frontend, the repository contains several scripts to manage image conversion
-                    (HEIC {'->'} WEBP with minimal color loss), optimization, and S3 uploading. The project supports
-                    grouping photos into albums, linking / embedding images, and more.
+                    (<InlineCode>HEIC</InlineCode> {'->'} <InlineCode>WEBP</InlineCode> with minimal color loss),
+                    optimization, and S3 uploading. The project supports grouping photos into albums, linking /
+                    embedding images, and more.
                 </p>
                 <p>
                     [...]
@@ -93,6 +95,7 @@ const photosContent = (
 )
 
 const icons = [
+    '/assets/logos/c.png',
     '/assets/logos/js.svg',
     '/assets/logos/ts.svg',
     '/assets/logos/kt.png',
@@ -104,4 +107,7 @@ const icons = [
     '/assets/logos/vue.svg',
     '/assets/logos/svelte.svg',
     '/assets/logos/tailwind.svg',
+    '/assets/logos/postgres.svg',
+    '/assets/logos/prisma.png',
+    '/assets/logos/docker.png',
 ]

@@ -26,7 +26,7 @@ export default function LandingHeader() {
 
                     <p className="mb-3 max-w-3xl text-primary">
                         Gunn High School graduate and second-year student studying Computer Science @ Purdue
-                        University. Interested in art, web development, and robotics.
+                        University. Interested in art, photography, web development, and robotics.
                     </p>
                     <p className="mb-3.5 text-primary">
                         My resume can be found <a href="/Resume.pdf">here</a>.
@@ -47,7 +47,7 @@ export default function LandingHeader() {
                     </div>
                 </div>
 
-                <div>
+                <div className="hidden lg:block">
                     <p className="text-tertiary text-sm">
                         You may know me from:
                     </p>

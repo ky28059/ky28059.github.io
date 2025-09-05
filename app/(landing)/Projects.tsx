@@ -171,7 +171,7 @@ const projects: ProjectGroupData[] = [
             desc: 'A custom rCTF frontend framework for b01lers CTF.',
             src: "/assets/projects/bctf-2.jpg",
             langs: ['ts', 'css'],
-            tags: ['nextjs', 'tailwindcss'],
+            tags: ['nextjs', 'tailwindcss', 'rctf'],
             gh: "https://github.com/ky28059/bctf",
             web: "https://b01lersc.tf"
         }, {

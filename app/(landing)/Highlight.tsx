@@ -48,7 +48,7 @@ export default function Highlight(props: HighlightProps) {
                     </a>
                 </div>
 
-                <div className="text-sm text-primary mt-6">
+                <div className="text-primary mt-6">
                     {props.children}
                 </div>
             </div>
