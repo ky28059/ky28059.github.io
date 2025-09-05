@@ -8,21 +8,16 @@ type HighlightProps = {
     date: string,
     tags: string[],
     gh: string,
+    flipped?: boolean,
+    content: ReactNode,
     children: ReactNode
 }
 
 export default function Highlight(props: HighlightProps) {
     return (
-        <section className="flex gap-12 mt-24">
-            <div className="w-[32rem] -ml-8 flex-none">
-                <img
-                    src="/assets/projects/jumpseat.jpg"
-                    className="relative -ml-6 w-[28rem] shadow-lg rounded-lg -rotate-6"
-                />
-                <img
-                    src="/assets/projects/jumpseat2.jpg"
-                    className="relative ml-16 -mt-16 w-[28rem] shadow-lg rounded-lg rotate-3"
-                />
+        <section className={'flex gap-x-20 mt-24' + (props.flipped ? ' flex-row-reverse' : '')}>
+            <div className={'relative w-[32rem] flex-none ' + (props.flipped ? '-mr-12' : '-ml-12')}>
+                {props.content}
             </div>
 
             <div className="w-full">
@@ -35,7 +30,7 @@ export default function Highlight(props: HighlightProps) {
                         {props.date}
                     </p>
                 </div>
-                <div className="flex gap-1 mb-3">
+                <div className="flex gap-1 mb-4">
                     {props.tags.map((tag) => (
                         <ProjectTag key={tag}>
                             {tag}
