@@ -25,7 +25,7 @@ export default function Project(props: ProjectData) {
             />
 
             <div className="px-5 pt-3.5 pb-4">
-                <section className="flex flex-wrap items-center gap-1 mb-2">
+                <div className="flex flex-wrap items-center gap-1 mb-2">
                     <h3 className="text-sm font-semibold mr-2">{props.name}</h3>
 
                     {props.langs.map(lang => <ProjectTag lang={lang} key={lang} />)}
@@ -34,7 +34,7 @@ export default function Project(props: ProjectData) {
                             {tag}
                         </span>
                     ))}
-                </section>
+                </div>
 
                 <p className="text-xs text-primary">
                     {props.desc}

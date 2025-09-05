@@ -112,6 +112,26 @@ export default function Projects() {
                     </Gist>
                 </ProjectsCardGrid>
             </ProjectsLayout>
+
+            <ProjectsLayout>
+                <ProjectsHeaderSection>
+                    <SectionHeading>Schoolwork</SectionHeading>
+                    <p className="text-primary">
+                        Programming assignments and projects for high school and college.
+                    </p>
+                </ProjectsHeaderSection>
+
+                <ProjectsCardGrid className="pl-14">
+                    <Gist
+                        name="AP CSA"
+                        href="https://github.com/ky28059/AP-CSA"
+                        // src="/assets/projects/ap-csa.jpg"
+                        langs={['rkt']}
+                    >
+                        Assignments from the first (scheme) semester of Gunn's AP CSA.
+                    </Gist>
+                </ProjectsCardGrid>
+            </ProjectsLayout>
         </Section>
     )
 }
@@ -413,13 +433,6 @@ const projects: ProjectGroupData[] = [
             tags: [],
             gh: "https://github.com/ky28059/competitive-programming-club",
             desc: "Repository of competitive programming solutions from various competitions and events."
-        }, {
-            desc: "Repository of assignments from the first (scheme) semester of Gunn's AP CSA.",
-            name: "AP CSA",
-            src: "/assets/projects/ap-csa.jpg",
-            langs: ["rkt"],
-            tags: [],
-            gh: "https://github.com/ky28059/AP-CSA"
         }]
     }
 ]
