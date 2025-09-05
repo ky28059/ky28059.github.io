@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { LanguageKey, ProjectTag } from '@/app/(landing)/Project';
+import { LanguageKey, ProjectLang } from '@/app/(landing)/Project';
 
 
 type GistProps = {
@@ -27,7 +27,7 @@ export default function Gist(props: GistProps) {
 
                 {props.langs && (
                     <div className="flex flex-wrap items-center gap-1">
-                        {props.langs.map(lang => <ProjectTag lang={lang} key={lang} />)}
+                        {props.langs.map(lang => <ProjectLang lang={lang} key={lang} />)}
                     </div>
                 )}
 

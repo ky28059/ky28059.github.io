@@ -1,3 +1,6 @@
+import ProjectTag from '@/app/(landing)/ProjectTag';
+
+
 export type ProjectData = {
     name: string,
     src: string
@@ -28,11 +31,11 @@ export default function Project(props: ProjectData) {
                 <div className="flex flex-wrap items-center gap-1 mb-2">
                     <h3 className="text-sm font-semibold mr-2">{props.name}</h3>
 
-                    {props.langs.map(lang => <ProjectTag lang={lang} key={lang} />)}
+                    {props.langs.map(lang => <ProjectLang lang={lang} key={lang} />)}
                     {props.tags.map(tag => (
-                        <span className="rounded-full bg-blue-500/20 text-blue-400 px-2.5 py-0.5 text-xs" key={tag}>
+                        <ProjectTag key={tag}>
                             {tag}
-                        </span>
+                        </ProjectTag>
                     ))}
                 </div>
 
@@ -47,7 +50,7 @@ export default function Project(props: ProjectData) {
 export type LanguageKey = 'html' | 'js' | 'ts' | 'css' | 'scss' | 'svelte' | 'py' | 'c' | 'cpp' | 'c#' | 'q#'
     | 'java' | 'kt' | 'rkt' | 'elixir' | 'rust' | 'go' | 'haskell' | 'sh'
 
-export function ProjectTag(props: { lang: LanguageKey }) {
+export function ProjectLang(props: { lang: LanguageKey }) {
     const color = langToColor(props.lang);
     return (
         <div

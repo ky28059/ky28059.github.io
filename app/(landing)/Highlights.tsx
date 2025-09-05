@@ -15,13 +15,12 @@ export default function Highlights() {
                     />
                 ))}
             </div>
-            <p className="text-primary">
-                Selected projects that [...]
-            </p>
 
             <Highlight
                 name="Jumpseat"
                 date="2024"
+                tags={['nextjs', 'tailwindcss', 'prisma', 'aws-rds']}
+                gh="https://github.com/ky28059/jumpseat-lite"
             >
                 <p className="mb-4">
                     Jumpseat is a travel engine for college students that pairs flights with airport shuttles
