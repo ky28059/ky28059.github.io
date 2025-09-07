@@ -8,20 +8,11 @@ export default function Highlights() {
         <Section type="dark">
             {/* <SectionHeading>Highlights</SectionHeading> */}
 
-            <div className="flex gap-1 mt-2 mb-4">
-                {icons.map((u) => (
-                    <img
-                        className="h-7 max-w-12 object-center object-contain"
-                        src={u}
-                        key={u}
-                    />
-                ))}
-            </div>
-
             <Highlight
                 name="Jumpseat"
                 date="2024"
                 tags={['nextjs', 'tailwindcss', 'prisma', 'aws-rds']}
+                langs={['ts', 'css']}
                 gh="https://github.com/ky28059/jumpseat-lite"
                 content={jumpseatContent}
             >
@@ -43,12 +34,13 @@ export default function Highlights() {
                 name="Photo host"
                 date="2025"
                 tags={['nextjs', 'tailwindcss', 'sharp', 'aws-s3']}
+                langs={['ts', 'css']}
                 gh="https://github.com/ky28059/image-utils"
                 content={photosContent}
             >
                 <p className="mb-4">
-                    <InlineCode>image-utils</InlineCode> is a custom photo host built to address usability
-                    issues with Microsoft OneDrive and cost concerns with other photo sites.
+                    <InlineCode>image-utils</InlineCode> is a custom photo host built to address usability / cost
+                    issues with Microsoft OneDrive and other photo sites.
                 </p>
                 <p className="mb-4">
                     Along with a Next.js frontend, the repository contains several scripts to manage image conversion
@@ -93,21 +85,3 @@ const photosContent = (
         />
     </>
 )
-
-const icons = [
-    '/assets/logos/c.png',
-    '/assets/logos/js.svg',
-    '/assets/logos/ts.svg',
-    '/assets/logos/kt.png',
-    '/assets/logos/py.svg',
-    '/assets/logos/go.svg',
-    '/assets/logos/hs.svg',
-    '/assets/logos/elixir.png',
-    '/assets/logos/react.svg',
-    '/assets/logos/vue.svg',
-    '/assets/logos/svelte.svg',
-    '/assets/logos/tailwind.svg',
-    '/assets/logos/postgres.svg',
-    '/assets/logos/prisma.png',
-    '/assets/logos/docker.png',
-]

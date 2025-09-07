@@ -22,6 +22,15 @@ const config: Config = {
                 primary: 'rgb(var(--primary) / <alpha-value>)',
                 secondary: 'rgb(var(--secondary) / <alpha-value>)',
                 tertiary: 'rgb(var(--tertiary) / <alpha-value>)'
+            },
+            keyframes: {
+                "loop-scroll": {
+                    from: { transform: "translateX(0)" },
+                    to: { transform: "translateX(-1838.56px)" },
+                },
+            },
+            animation: {
+                "loop-scroll": "loop-scroll 20s linear infinite",
             }
         },
         container: {

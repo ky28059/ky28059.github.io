@@ -8,6 +8,7 @@ import PagedCodeBlock from '@/components/PagedCodeBlock';
 import Projects from './Projects';
 import Highlights from '@/app/(landing)/Highlights';
 import MockPage from './MockPage';
+import IconScroller from '@/app/(landing)/IconScroller';
 import { InlineCode } from '@/components/InlineCode';
 
 // Icons
@@ -47,6 +48,15 @@ export default function Home() {
                 </div>
             </Section>
 
+            {/*
+            <div className="h-1 bg-gradient-to-r from-pink-500 via-red-500 to-orange-500" />
+            <div className="h-2 opacity-25 bg-gradient-to-r from-pink-500 via-red-500 to-orange-500" />
+            */}
+
+            <IconScroller />
+
+            <Highlights />
+
             <Section type="dark" className="flex gap-12 justify-center">
                 <TbFlag3Filled className="text-5xl text-grapefruit" />
 
@@ -74,11 +84,6 @@ export default function Home() {
                     />
                 </div>
             </Section>
-
-            <div className="h-1 bg-gradient-to-r from-pink-500 via-red-500 to-orange-500" />
-            <div className="h-2 opacity-25 bg-gradient-to-r from-pink-500 via-red-500 to-orange-500" />
-
-            <Highlights />
 
             <Projects />
 

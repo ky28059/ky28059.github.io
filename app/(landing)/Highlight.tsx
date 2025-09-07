@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import ProjectTag from '@/app/(landing)/ProjectTag';
+import { LanguageKey, ProjectLang } from '@/app/(landing)/Project';
 import { BsGithub } from 'react-icons/bs';
 
 
@@ -7,6 +8,7 @@ type HighlightProps = {
     name: string,
     date: string,
     tags: string[],
+    langs: LanguageKey[],
     gh: string,
     flipped?: boolean,
     content: ReactNode,
@@ -15,7 +17,7 @@ type HighlightProps = {
 
 export default function Highlight(props: HighlightProps) {
     return (
-        <section className={'flex gap-x-20 mt-24' + (props.flipped ? ' flex-row-reverse' : '')}>
+        <section className={'flex flex-col gap-x-20 mt-24 ' + (props.flipped ? 'md:flex-row-reverse' : 'md:flex-row')}>
             <div className={'relative w-[32rem] flex-none ' + (props.flipped ? '-mr-12' : '-ml-12')}>
                 {props.content}
             </div>
@@ -50,6 +52,9 @@ export default function Highlight(props: HighlightProps) {
 
                 <div className="text-primary mt-6">
                     {props.children}
+                </div>
+                <div className="flex gap-1 flex-wrap mt-6">
+                    {props.langs.map(lang => <ProjectLang lang={lang} key={lang} />)}
                 </div>
             </div>
         </section>
