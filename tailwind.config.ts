@@ -26,11 +26,11 @@ const config: Config = {
             keyframes: {
                 "loop-scroll": {
                     from: { transform: "translateX(0)" },
-                    to: { transform: "translateX(-1838.56px)" },
+                    to: { transform: "translateX(-1800px)" },
                 },
             },
             animation: {
-                "loop-scroll": "loop-scroll 20s linear infinite",
+                "loop-scroll": "loop-scroll 120s linear infinite",
             }
         },
         container: {
