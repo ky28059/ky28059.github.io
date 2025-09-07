@@ -228,7 +228,7 @@ const projects: ProjectGroupData[] = [
             src: "/assets/projects/ectf-24.jpg",
             langs: ['rust'],
             tags: ['MAX78000FTHR'],
-            gh: "https://github.com/Purdue-eCTF/2024-ectf-secure-example"
+            gh: "https://github.com/Purdue-eCTF/2024-eCTF-design"
         }, {
             name: "scrape-bot",
             desc: 'Scoreboard scraper and automated attack / CI / testing suite for MITRE eCTF.',
