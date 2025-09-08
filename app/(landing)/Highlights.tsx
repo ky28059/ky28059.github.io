@@ -21,7 +21,8 @@ export default function Highlights() {
                     to find the optimal travel itinerary to and from Purdue, UIUC, and more.
                 </p>
                 <p className="mb-4">
-                    Originally a student startup, a fork of Jumpseat is now hosted and maintained by [...]
+                    Originally a student startup, a lightweight fork of Jumpseat is now hosted and maintained by me at{' '}
+                    <a href="https://jumpseat.kevin.fish/" target="_blank" rel="noopener noreferrer">jumpseat.kevin.fish</a>.
                 </p>
                 <p>
                     Jumpseat is built using TypeScript, Tailwind CSS, and Next.js, and stores user preferences
@@ -48,9 +49,11 @@ export default function Highlights() {
                     optimization, and S3 uploading. The project supports grouping photos into albums, linking /
                     embedding images, and more.
                 </p>
+                {/*
                 <p>
                     [...]
                 </p>
+                */}
             </Highlight>
         </Section>
     )
