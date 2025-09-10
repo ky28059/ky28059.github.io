@@ -32,7 +32,7 @@ export default function Highlight(props: HighlightProps) {
                         {props.date}
                     </p>
                 </div>
-                <div className="flex gap-1 mb-4">
+                <div className="flex flex-wrap gap-1 mb-4">
                     {props.tags.map((tag) => (
                         <ProjectTag key={tag}>
                             {tag}
