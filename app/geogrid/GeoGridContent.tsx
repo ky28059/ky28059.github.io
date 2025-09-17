@@ -1,16 +1,22 @@
 'use client'
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState, useTransition } from 'react';
 
 
 export default function GeoGridContent() {
-    const [countries, setCountries] = useState<CountryInfo[] | null>(null);
+    const countryRef = useRef<CountryInfo[] | null>(null);
     const [countryDetails, setCountryDetails] = useState<{ [code: string]: CountryDetails }>({});
+
+    const [filtered, setFiltered] = useState<CountryInfo[] | null>(null);
+    const [pending, startTransition] = useTransition();
+
+    const [query, setQuery] = useState('');
 
     useEffect(() => {
         async function fetchData() {
             const countries = await fetchCountries();
-            setCountries(countries);
+            countryRef.current = countries;
+            setFiltered(countries);
 
             const details = await Promise.all(countries.map(c => fetchCountryDetails(c.code)))
             setCountryDetails(Object.fromEntries(details.map((d, i) => [countries[i].code, d])));
@@ -19,82 +25,103 @@ export default function GeoGridContent() {
         void fetchData();
     }, []);
 
-    return (
-        <div className="bg-black/25 divide-y divide-tertiary overflow-y-auto flex flex-col">
-            {!countries ? (
-                <div>...</div>
-            ) : (
-                <>
-                    <div className="w-max sticky top-0 bg-midnight border-b border-tertiary flex text-xs text-primary items-center break-words">
-                        <div className="ml-[4.75rem] w-36 flex-none mr-3">
-                            Name / code
-                        </div>
+    function updateQuery(query: string) {
+        setQuery(query);
+        startTransition(() => {
+            if (!countryRef.current) return;
+            setFiltered(countryRef.current.filter(c => c.name.toLowerCase().includes(query.toLowerCase())));
+        })
+    }
 
-                        <div className="w-12 flex-none mr-3">
-                            HDI
-                        </div>
-                        <div className="w-12 flex-none mr-3">
-                            CPI
-                        </div>
-                        <div className="w-16 flex-none mr-3">
-                            GDP / capita
-                        </div>
-                        <div className="w-20 flex-none mr-3">
-                            Coastline length
-                        </div>
-                        <div className="w-24 flex-none mr-3">
-                            Air pollution
-                        </div>
-                        <div className="w-24 flex-none mr-3">
-                            CO₂ emissions / capita
-                        </div>
-                        <div className="w-12 flex-none mr-3">
-                            Olympic medals
-                        </div>
-                        <div className="w-20 flex-none mr-3">
-                            River systems
-                        </div>
-                        <div className="w-20 flex-none mr-3">
-                            Official langs
-                        </div>
-                        <GridBooleanLabel label="Landlocked" />
-                        <GridBooleanLabel label="Island nation" />
-                        <GridBooleanLabel label="Monarchy" />
-                        <GridBooleanLabel label="EU" />
-                        <GridBooleanLabel label="Cmlth." />
-                        <GridBooleanLabel label="USSR" />
-                        <GridBooleanLabel label="Nuc. power" />
-                        <GridBooleanLabel label="Nuc. weapons" />
-                        <GridBooleanLabel label="DST" />
-                        <GridBooleanLabel label="SSM legal" />
-                        <GridBooleanLabel label="SSA illegal" />
-                        <GridBooleanLabel label="Drives left" />
-                        <GridBooleanLabel label="Alc. ban" />
-                        <GridBooleanLabel label="Touches Sahara" />
-                        <GridBooleanLabel label="Touches equator" />
-                        <GridBooleanLabel label="Touches Eur. steppe" />
-                        <GridBooleanLabel label="Hosted F1" />
-                        <GridBooleanLabel label="Hosted olympics" />
-                        <GridBooleanLabel label="Hosted MWC" />
-                        <GridBooleanLabel label="Played MWC" />
-                        <GridBooleanLabel label="Won MWC" />
-                        <GridBooleanLabel label="T20 WHS" />
-                        <GridBooleanLabel label="T20 tourism" />
-                        <GridBooleanLabel label="T20 rail" />
-                        <GridBooleanLabel label="T20 pop. density" />
-                        <GridBooleanLabel label="B20 pop. density" />
-                        <GridBooleanLabel label="T20 wheat" />
-                        <GridBooleanLabel label="T20 oil" />
-                        <GridBooleanLabel label="T20 ren. energy" />
-                        <GridBooleanLabel label="T10 lakes" />
+    return (
+        <>
+            <div className="container mb-6">
+                <input
+                    className="rounded px-3.5 py-1.5 text-sm border border-tertiary focus:outline-none focus:ring-2"
+                    value={query}
+                    onChange={(e) => updateQuery(e.target.value)}
+                    placeholder="Filter by country"
+                />
+            </div>
+
+            <div className="flex-grow overflow-x-auto flex flex-col">
+                <div className="w-max border-b border-tertiary flex text-xs text-primary items-center break-words">
+                    <div className="ml-[4.75rem] w-36 flex-none mr-3">
+                        Name / code
                     </div>
 
-                    {countries.map((c) => {
+                    <div className="w-12 flex-none mr-3">
+                        HDI
+                    </div>
+                    <div className="w-12 flex-none mr-3">
+                        CPI
+                    </div>
+                    <div className="w-16 flex-none mr-3">
+                        GDP / capita
+                    </div>
+                    <div className="w-20 flex-none mr-3">
+                        Coastline length
+                    </div>
+                    <div className="w-24 flex-none mr-3">
+                        Air pollution
+                    </div>
+                    <div className="w-24 flex-none mr-3">
+                        CO₂ emissions / capita
+                    </div>
+                    <div className="w-12 flex-none mr-3">
+                        Olympic medals
+                    </div>
+                    <div className="w-20 flex-none mr-3">
+                        River systems
+                    </div>
+                    <div className="w-20 flex-none mr-3">
+                        Official langs
+                    </div>
+                    <GridBooleanLabel label="Landlocked" />
+                    <GridBooleanLabel label="Island nation" />
+                    <GridBooleanLabel label="Monarchy" />
+                    <GridBooleanLabel label="EU" />
+                    <GridBooleanLabel label="Cmlth." />
+                    <GridBooleanLabel label="USSR" />
+                    <GridBooleanLabel label="Nuc. power" />
+                    <GridBooleanLabel label="Nuc. weapons" />
+                    <GridBooleanLabel label="DST" />
+                    <GridBooleanLabel label="SSM legal" />
+                    <GridBooleanLabel label="SSA illegal" />
+                    <GridBooleanLabel label="Drives left" />
+                    <GridBooleanLabel label="Alc. ban" />
+                    <GridBooleanLabel label="Touches Sahara" />
+                    <GridBooleanLabel label="Touches equator" />
+                    <GridBooleanLabel label="Touches Eur. steppe" />
+                    <GridBooleanLabel label="Hosted F1" />
+                    <GridBooleanLabel label="Hosted olympics" />
+                    <GridBooleanLabel label="Hosted MWC" />
+                    <GridBooleanLabel label="Played MWC" />
+                    <GridBooleanLabel label="Won MWC" />
+                    <GridBooleanLabel label="T20 WHS" />
+                    <GridBooleanLabel label="T20 tourism" />
+                    <GridBooleanLabel label="T20 rail" />
+                    <GridBooleanLabel label="T20 pop. density" />
+                    <GridBooleanLabel label="B20 pop. density" />
+                    <GridBooleanLabel label="T20 wheat" />
+                    <GridBooleanLabel label="T20 oil" />
+                    <GridBooleanLabel label="T20 ren. energy" />
+                    <GridBooleanLabel label="T10 lakes" />
+                    <GridBooleanLabel label="50 skyscrapers" />
+                    <GridBooleanLabel label="T20 obesity" />
+                    <GridBooleanLabel label="T20 alcohol" />
+                    <GridBooleanLabel label="T20 choc." />
+                </div>
+
+                <div className={'flex-grow w-max bg-black/25 flex flex-col overflow-y-auto divide-y divide-tertiary transition duration-200' + (pending ? ' opacity-50' : '')}>
+                    {!filtered ? (
+                        <div>...</div>
+                    ) : filtered.map((c) => {
                         const details = countryDetails[c.code];
 
                         return (
                             <div
-                                className="w-max flex text-sm items-center hover:bg-tertiary/30"
+                                className="flex text-sm items-center hover:bg-tertiary/30"
                                 key={c.code}
                             >
                                 <img
@@ -175,12 +202,16 @@ export default function GeoGridContent() {
                                 <GridBooleanCell value={details?.economicInfo.top20OilProduction} />
                                 <GridBooleanCell value={details?.economicInfo.top20RenewableElectricityProduction} />
                                 <GridBooleanCell value={details?.geographyInfo.top10Lakes} />
+                                <GridBooleanCell value={details?.factsInfo.has50Skyscrapers} />
+                                <GridBooleanCell value={details?.factsInfo.top20ObesityRate} />
+                                <GridBooleanCell value={details?.factsInfo.top20AlcoholConsumption} />
+                                <GridBooleanCell value={details?.factsInfo.top20ChocolateConsumption} />
                             </div>
                         )
                     })}
-                </>
-            )}
-        </div>
+                </div>
+            </div>
+        </>
     )
 }
 

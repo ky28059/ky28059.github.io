@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function GeoGridReview() {
     return (
         <main className="flex flex-col h-screen">
-            <section className="container pt-12 pb-8 flex-none">
+            <section className="container pt-12 pb-4 flex-none">
                 <h1 className="text-3xl font-bold">GeoGrid data sheet</h1>
             </section>
 
