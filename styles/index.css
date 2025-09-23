@@ -5,38 +5,41 @@
 @layer base {
     a {
         @apply text-grapefruit;
-        &:hover {
-            @apply underline;
-        }
+    }
+
+    a:hover {
+        @apply underline;
     }
 
     :root {
         --primary: 117 117 117; // #757575
         --secondary: 117 117 117; // #757575
         --tertiary: 209 213 219; // #d1d5db
+    }
 
-        &.dark {
-            color-scheme: dark;
+    :root.dark {
+        color-scheme: dark;
 
-            --primary: 186 186 186; // #BABABA
-            --secondary: 119 119 119; // #777777
-            --tertiary: 64 64 64; // #404040
-        }
+        --primary: 186 186 186; // #BABABA
+        --secondary: 119 119 119; // #777777
+        --tertiary: 64 64 64; // #404040
     }
 }
 
-// Overrides for code block syntax highlighting
+/* Overrides for code block syntax highlighting */
 pre.prismjs {
     @apply p-4 bg-[#2b2b2b] h-full overflow-auto;
 
     &::-webkit-scrollbar {
         @apply w-2 h-2;
-        &-thumb {
-            @apply bg-[#484a4a];
-        }
-        &-corner {
-            @apply hidden;
-        }
+    }
+
+    &::-webkit-scrollbar-thumb {
+        @apply bg-[#484a4a];
+    }
+
+    &::-webkit-scrollbar-corner {
+        @apply hidden;
     }
 
     code {
@@ -90,20 +93,21 @@ pre.prismjs {
         .deleted {
             @apply bg-[#484a4a];
         }
-        &.language-css {
-            .token.property {
-                @apply text-[#a9b7c6];
-                + .token.punctuation {
-                    @apply text-[#a9b7c6]
-                }
+    }
+
+    code.language-css {
+        .token.property {
+            @apply text-[#a9b7c6];
+            + .token.punctuation {
+                @apply text-[#a9b7c6]
             }
-            .token.id {
+        }
+        .token.id {
+            @apply text-[#ffc66d];
+        }
+        .token.selector {
+            > .token.class, > .token.attribute, > .token.pseudo-class, > .token.pseudo-element {
                 @apply text-[#ffc66d];
-            }
-            .token.selector {
-                > .token.class, > .token.attribute, > .token.pseudo-class, > .token.pseudo-element {
-                    @apply text-[#ffc66d];
-                }
             }
         }
     }
