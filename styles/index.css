@@ -1,28 +1,33 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+    --color-primary: var(--primary);
+    --color-secondary: var(--secondary);
+    --color-tertiary: var(--tertiary);
+
+    --color-midnight: #1B1B1B;
+    --color-dark: #26252C;
+    --color-light: #FFF8E8;
+    --color-grapefruit: #FF6347;
+    --color-pomegranate: #E03C31;
+}
 
 @layer base {
-    a {
-        @apply text-grapefruit;
-    }
-
-    a:hover {
-        @apply underline;
-    }
+    a { @apply text-grapefruit; }
+    a:hover { @apply underline; }
 
     :root {
-        --primary: 117 117 117; // #757575
-        --secondary: 117 117 117; // #757575
-        --tertiary: 209 213 219; // #d1d5db
+        --primary: #757575;
+        --secondary: #757575;
+        --tertiary: #d1d5db;
     }
 
     :root.dark {
         color-scheme: dark;
 
-        --primary: 186 186 186; // #BABABA
-        --secondary: 119 119 119; // #777777
-        --tertiary: 64 64 64; // #404040
+        --primary: #BABABA;
+        --secondary: #777777;
+        --tertiary: #404040;
     }
 }
 
