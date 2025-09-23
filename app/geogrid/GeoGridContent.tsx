@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState, useTransition } from 'react';
+import CenteredModal from '@/components/CenteredModal';
 
 
 export default function GeoGridContent() {
@@ -12,6 +13,9 @@ export default function GeoGridContent() {
     const [pending, startTransition] = useTransition();
 
     const [query, setQuery] = useState('');
+
+    // The ID of the country for which we are displaying the border modal
+    const [selectedBorders, setSelectedBorders] = useState<string | null>(null);
 
     useEffect(() => {
         async function fetchData() {
@@ -60,8 +64,11 @@ export default function GeoGridContent() {
                     <div className="w-24 flex-none mr-3">
                         Population
                     </div>
-                    <div className="w-24 flex-none mr-3">
+                    <div className="w-28 flex-none mr-3">
                         Size
+                    </div>
+                    <div className="w-28 flex-none mr-3">
+                        Borders
                     </div>
                     <div className="w-12 flex-none mr-3">
                         HDI
@@ -151,10 +158,24 @@ export default function GeoGridContent() {
                                     value={commonDetails?.population}
                                 />
                                 <GridCell
-                                    className="w-24"
+                                    className="w-28"
                                     value={commonDetails?.size}
                                     unit="km²"
                                 />
+                                {(geogridDetails?.geographyInfo.borderCountOverride !== undefined || geogridDetails?.geographyInfo.islandNation) ? (
+                                    <GridCell
+                                        className="w-28"
+                                        value={geogridDetails?.geographyInfo.borderCountOverride ?? 0}
+                                    />
+                                ) : (
+                                    <button
+                                        className="w-28 text-sm mr-3 flex-none bg-white/10 hover:bg-white/15 transition duration-150 rounded-full px-2.5 py-1 text-left"
+                                        onClick={() => setSelectedBorders(c.code)}
+                                    >
+                                        {commonDetails.borders.length}{' '}
+                                        <span className="text-secondary text-xs">(view all)</span>
+                                    </button>
+                                )}
                                 <GridCell
                                     className="w-12"
                                     value={geogridDetails?.economicInfo.HDI}
@@ -234,6 +255,35 @@ export default function GeoGridContent() {
                     })}
                 </div>
             </div>
+
+            <CenteredModal
+                isOpen={selectedBorders !== null}
+                close={() => setSelectedBorders(null)}
+                className="relative w-full max-w-xl bg-midnight rounded-md overflow-clip pt-6"
+            >
+                {selectedBorders !== null && (
+                    <>
+                        <h1 className="text-xl font-semibold px-8 mb-3">
+                            Borders of {commonDataRef.current[selectedBorders].name}
+                        </h1>
+
+                        <div className="flex flex-col divide-y divide-tertiary">
+                            {[...new Set(commonDataRef.current[selectedBorders].borders)].map((code) => (
+                                <div className="flex items-center gap-3.5" key={code}>
+                                    <img
+                                        src={getFlagUrl(code)}
+                                        className="max-w-12"
+                                    />
+                                    <p className="py-1.5 text-sm">
+                                        {commonDataRef.current[code.toUpperCase()]?.name}{' '}
+                                        <span className="text-secondary">({code.toUpperCase()})</span>
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </>
+                )}
+            </CenteredModal>
         </>
     )
 }
@@ -397,18 +447,11 @@ type CommonCountryDetails = {
     continent: string[],
     borders: string[], // Country codes
     autoUpdateBorders: true,
-    links: [
-        {
-            type: "Wikipedia",
-            url: "https://${cc}.wikipedia.org/wiki/France",
-            languageCode: "en"
-        },
-        {
-            type: "GoogleMaps",
-            url: "https://www.google.com/maps/place/France/@46.227638,2.213749,11z&hl=${cc}",
-            languageCode: "en"
-        }
-    ],
+    links: {
+        type: 'GoogleMaps' | 'Wikipedia',
+        url: string, // Includes ${cc}
+        languageCode: "en"
+    }[],
     currencyData: {
         code: string,
         name: string,
@@ -417,12 +460,7 @@ type CommonCountryDetails = {
     population: number,
     size: number,
     languageData: {
-        languageSources: [
-            {
-                title: "The World Factbook",
-                url: "https://www.cia.gov/the-world-factbook/field/languages/"
-            }
-        ],
+        languageSources: { title: string, url: string }[],
         languages: { languageCode: string, percentage: number }[]
     },
     productData: {
@@ -435,7 +473,7 @@ type CommonCountryDetails = {
     },
     borderMode: "bordering",
     images: { imageCode: number, sourceLink: number }[],
-    difficulty: "easy"
+    difficulty: 'easy' | 'hard'
 }
 
 async function fetchCountries(): Promise<CountryInfo[]> {
