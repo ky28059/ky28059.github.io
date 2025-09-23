@@ -91,11 +91,14 @@ export default function GeoGridContent() {
                     <div className="w-12 flex-none mr-3">
                         Olympic medals
                     </div>
+                    <div className="w-14 flex-none mr-3">
+                        Continent(s)
+                    </div>
                     <div className="w-20 flex-none mr-3">
                         River systems
                     </div>
                     <div className="w-20 flex-none mr-3">
-                        Official langs
+                        Official lang(s)
                     </div>
                     <GridBooleanLabel label="Landlocked" />
                     <GridBooleanLabel label="Island nation" />
@@ -169,7 +172,7 @@ export default function GeoGridContent() {
                                     />
                                 ) : (
                                     <button
-                                        className="w-28 text-sm mr-3 flex-none bg-white/10 hover:bg-white/15 transition duration-150 rounded-full px-2.5 py-1 text-left"
+                                        className="w-28 text-sm mr-3 flex-none bg-white/10 hover:bg-white/15 transition duration-150 rounded-full px-2.5 py-1 text-left my-0.5"
                                         onClick={() => setSelectedBorders(c.code)}
                                     >
                                         {commonDetails.borders.length}{' '}
@@ -207,6 +210,10 @@ export default function GeoGridContent() {
                                 <GridCell
                                     className="w-12"
                                     value={geogridDetails?.sportsInfo.olympicMedals}
+                                />
+                                <GridArrayCell
+                                    className="w-14 text-xs"
+                                    value={commonDetails?.continent}
                                 />
                                 <GridArrayCell
                                     className="w-20 text-xs"
@@ -272,7 +279,7 @@ export default function GeoGridContent() {
                                 <div className="flex items-center gap-3.5" key={code}>
                                     <img
                                         src={getFlagUrl(code)}
-                                        className="max-w-12"
+                                        className="w-14 max-h-12 object-contain object-right"
                                     />
                                     <p className="py-1.5 text-sm">
                                         {commonDataRef.current[code.toUpperCase()]?.name}{' '}
