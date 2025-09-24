@@ -12,8 +12,8 @@ export default function IconScroller() {
 
         const observer = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) return;
-            resetAnimation(scroll1.current!);
-            resetAnimation(scroll2.current!);
+            resetAnimation(scroll1.current);
+            resetAnimation(scroll2.current);
         });
         observer.observe(scroll1.current);
     }, [scroll1.current]);
@@ -50,7 +50,8 @@ export default function IconScroller() {
 }
 
 // https://stackoverflow.com/questions/6268508/restart-animation-in-css3-any-better-way-than-removing-the-element
-function resetAnimation(el: HTMLElement) {
+function resetAnimation(el: HTMLElement | null) {
+    if (!el) return;
     el.style.animation = 'none';
     el.offsetHeight;
     // @ts-ignore
