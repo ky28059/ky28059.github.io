@@ -55,9 +55,9 @@ export default function GeoGridContent() {
                 />
             </div>
 
-            <div className="flex-grow overflow-x-auto flex flex-col">
+            <div className="grow overflow-x-auto flex flex-col">
                 <div className="w-max border-b border-tertiary flex text-xs text-primary items-center break-words">
-                    <div className="ml-[4.75rem] w-36 flex-none mr-3">
+                    <div className="ml-19 w-36 flex-none mr-3">
                         Name / code
                     </div>
 
@@ -136,7 +136,7 @@ export default function GeoGridContent() {
                     <GridBooleanLabel label="T20 choc." />
                 </div>
 
-                <div className={'flex-grow w-max bg-black/25 flex flex-col overflow-y-auto divide-y divide-tertiary transition duration-200' + (pending ? ' opacity-50' : '')}>
+                <div className={'grow w-max bg-black/25 flex flex-col overflow-y-auto divide-y divide-tertiary transition duration-200' + (pending ? ' opacity-50' : '')}>
                     {!filtered ? (
                         <div>...</div>
                     ) : filtered.map((c) => {

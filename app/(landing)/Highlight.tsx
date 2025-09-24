@@ -18,7 +18,7 @@ type HighlightProps = {
 export default function Highlight(props: HighlightProps) {
     return (
         <section className={'flex flex-col gap-x-20 mt-24 ' + (props.flipped ? 'md:flex-row-reverse' : 'md:flex-row')}>
-            <div className={'relative w-[32rem] flex-none ' + (props.flipped ? '-mr-12' : '-ml-12')}>
+            <div className={'relative w-lg flex-none ' + (props.flipped ? '-mr-12' : '-ml-12')}>
                 {props.content}
             </div>
 

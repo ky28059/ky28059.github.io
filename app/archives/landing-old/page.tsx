@@ -17,12 +17,12 @@ export const metadata: Metadata = {
 
 export default function Home() {
     return (
-        <div className="dark:text-white bg-gray-100 dark:bg-gradient-to-r dark:from-black dark:to-gray-900 selection:bg-blue-500 selection:text-white">
+        <div className="dark:text-white bg-gray-100 dark:bg-linear-to-r dark:from-black dark:to-gray-900 selection:bg-blue-500 selection:text-white">
             <ArchivedHeader />
 
             <section className="bg-white dark:bg-gray-900 pt-14 pb-2 mb-10">
                 <div className="text-center py-4">
-                    <div className="w-full mx-auto h-56 -z-10 bg-gradient-to-r from-green-400 to-blue-500 transform -skew-y-3 flex flex-row">
+                    <div className="w-full mx-auto h-56 -z-10 bg-linear-to-r from-green-400 to-blue-500 transform -skew-y-3 flex flex-row">
                         <div className="transform skew-y-3 m-auto bg-white rounded-2xl p-8 shadow-lg text-gray-900">
                             <h1 className="text-5xl font-bold">About</h1>
                             <p>I am a teenager that goes to Gunn High School.</p>

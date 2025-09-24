@@ -38,7 +38,7 @@ export default function Projects() {
                         Statistics
                     </h2>
                     {Object.entries(counts).sort(([, a], [, b]) => b - a).map(([lang, count]) => (
-                        <div key={lang} className="group flex gap-3 items-center mb-0.5 !hidden">
+                        <div key={lang} className="group flex gap-3 items-center mb-0.5 hidden!">
                             <div
                                 className="rounded-full size-3 ring-2 mx-0.5 ring-black ring-opacity-75 dark:ring-opacity-50"
                                 style={{
@@ -443,7 +443,7 @@ function ProjectsHeaderSection(props: { children: ReactNode }) {
 
 function ProjectsCardGrid(props: { className?: string, children: ReactNode }) {
     return (
-        <div className={'grid grid-cols-[repeat(auto-fill,_minmax(22rem,_1fr))] gap-5 w-full' + (props.className ? ` ${props.className}` : '')}>
+        <div className={'grid grid-cols-[repeat(auto-fill,minmax(22rem,1fr))] gap-5 w-full' + (props.className ? ` ${props.className}` : '')}>
             {props.children}
         </div>
     )

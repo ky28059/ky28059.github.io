@@ -49,8 +49,8 @@ export default function Home() {
             </Section>
 
             {/*
-            <div className="h-1 bg-gradient-to-r from-pink-500 via-red-500 to-orange-500" />
-            <div className="h-2 opacity-25 bg-gradient-to-r from-pink-500 via-red-500 to-orange-500" />
+            <div className="h-1 bg-linear-to-r from-pink-500 via-red-500 to-orange-500" />
+            <div className="h-2 opacity-25 bg-linear-to-r from-pink-500 via-red-500 to-orange-500" />
             */}
 
             <IconScroller />

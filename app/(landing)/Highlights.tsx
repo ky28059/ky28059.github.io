@@ -63,11 +63,11 @@ const jumpseatContent = (
     <>
         <img
             src="/assets/projects/jumpseat.jpg"
-            className="relative -ml-2 w-[28rem] shadow-lg rounded-lg -rotate-6"
+            className="relative -ml-2 w-md shadow-lg rounded-lg -rotate-6"
         />
         <img
             src="/assets/projects/jumpseat2.jpg"
-            className="relative ml-20 -mt-16 w-[28rem] shadow-lg rounded-lg rotate-3"
+            className="relative ml-20 -mt-16 w-md shadow-lg rounded-lg rotate-3"
         />
     </>
 )
@@ -76,7 +76,7 @@ const photosContent = (
     <>
         <img
             src="https://ky-photos-preview.s3.us-east-1.amazonaws.com/2025-05-20@23+Carlsbad,+UCSD,+La+Jolla/IMG_E5688-preview.webp"
-            className="relative -ml-2 mt-12 w-[14rem] shadow-xl rounded-md -rotate-12"
+            className="relative -ml-2 mt-12 w-56 shadow-xl rounded-md -rotate-12"
         />
         <img
             src="https://ky-photos-preview.s3.us-east-1.amazonaws.com/2025-04-10@14+Pwnme,+Paris/IMG_E5234-preview.webp"
@@ -84,7 +84,7 @@ const photosContent = (
         />
         <img
             src="https://ky-photos-preview.s3.us-east-1.amazonaws.com/2025-07-09@12+Dice+Finals,+NYC/IMG_E6389-preview.webp"
-            className="absolute ml-[20rem] top-20 w-[14rem] shadow-xl rounded-lg rotate-12"
+            className="absolute ml-80 top-20 w-56 shadow-xl rounded-lg rotate-12"
         />
     </>
 )

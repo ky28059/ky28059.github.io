@@ -84,7 +84,7 @@ export default function Landing() {
 type TextbookContainerProps = {name: string, src: string, children: ReactNode}
 function TextbookContainer(props: TextbookContainerProps) {
     return (
-        <div className="flex basis-[48rem] flex-grow gap-16">
+        <div className="flex basis-3xl grow gap-16">
             <img
                 src={props.src}
                 alt="GAtM Cover"

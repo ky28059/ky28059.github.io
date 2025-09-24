@@ -1,18 +1,37 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@custom-variant slider-thumb (&::-webkit-slider-thumb);
+@custom-variant scrollbar (&::-webkit-scrollbar);
+@custom-variant scrollbar-thumb (&::-webkit-scrollbar-thumb);
 
 @theme {
     --color-primary: var(--primary);
     --color-secondary: var(--secondary);
     --color-tertiary: var(--tertiary);
 
-    --color-midnight: #1B1B1B;
-    --color-dark: #26252C;
-    --color-light: #FFF8E8;
-    --color-grapefruit: #FF6347;
-    --color-pomegranate: #E03C31;
+    --color-midnight: #1b1b1b;
+    --color-dark: #26252c;
+    --color-light: #fff8e8;
+    --color-grapefruit: #ff6347;
+    --color-pomegranate: #e03c31;
+
+    --animate-loop-scroll: loop-scroll 120s linear infinite;
+
+    @keyframes loop-scroll {
+        0% { transform: translateX(0) }
+        100% { transform: translateX(-1800px) }
+    }
+}
+
+@utility container {
+    @apply px-8 sm:px-12 lg:px-16 xl:px-20 2xl:px-32;
+    margin: 0 auto;
 }
 
 @layer base {
+    button { @apply cursor-pointer; }
     a { @apply text-grapefruit; }
     a:hover { @apply underline; }
 
@@ -35,20 +54,8 @@
 pre.prismjs {
     @apply p-4 bg-[#2b2b2b] h-full overflow-auto;
 
-    &::-webkit-scrollbar {
-        @apply w-2 h-2;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        @apply bg-[#484a4a];
-    }
-
-    &::-webkit-scrollbar-corner {
-        @apply hidden;
-    }
-
     code {
-        @apply font-[Consolas,_Monaco,_'Andale_Mono',_monospace] text-[#a9b7c6] leading-[1.5em];
+        @apply font-[Consolas,Monaco,'Andale_Mono',monospace] text-[#a9b7c6] leading-[1.5em];
 
         .comment, .prolog, .cdata {
             @apply text-[#808080];
@@ -116,4 +123,16 @@ pre.prismjs {
             }
         }
     }
+}
+
+pre.prismjs::-webkit-scrollbar {
+    @apply w-2 h-2;
+}
+
+pre.prismjs::-webkit-scrollbar-thumb {
+    @apply bg-[#484a4a];
+}
+
+pre.prismjs::-webkit-scrollbar-corner {
+    @apply hidden;
 }

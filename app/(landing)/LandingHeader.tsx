@@ -11,7 +11,7 @@ export default function LandingHeader() {
     // TODO: responsive design
     return (
         <header className="bg-white dark:bg-midnight h-screen flex flex-col">
-            <div className="container relative pl-56 pt-24 pb-10 pr-4 flex-grow flex justify-between items-center">
+            <div className="container relative pl-56 pt-24 pb-10 pr-4 grow flex justify-between items-center">
                 <ThemeToggle className="absolute top-8 right-8 text-xl" />
 
                 <div className="relative pt-6">

@@ -31,7 +31,7 @@ export default function WriteupsContent(props: WriteupsContentProps) {
 
     return (
         <div className="flex gap-8 pt-2">
-            <section className="flex-grow flex flex-col gap-4 pl-4">
+            <section className="grow flex flex-col gap-4 pl-4">
                 {filtered.map((c) => (
                     <CTF name={c.name} key={c.name}>
                         {c.writeups.map((w) => (

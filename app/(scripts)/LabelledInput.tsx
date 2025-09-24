@@ -5,7 +5,7 @@ type LabelledInputProps = {
 export default function LabelledInput(props: LabelledInputProps) {
     const { value, setValue, label } = props;
     return (
-        <div className="flex flex-col gap-1 flex-grow">
+        <div className="flex flex-col gap-1 grow">
             <label className="text-xs text-secondary">{label}</label>
             <input
                 type="text"

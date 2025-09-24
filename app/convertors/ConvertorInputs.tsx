@@ -11,7 +11,7 @@ export default function ConvertorInputs() {
 
     return (
         <div className="flex gap-8 xl:gap-12 flex-wrap lg:flex-nowrap">
-            <section className="flex-grow basis-1/2 lg:sticky lg:top-8 h-max">
+            <section className="grow basis-1/2 lg:sticky lg:top-8 h-max">
                 <p className="text-sm mb-1 text-gray-400 dark:text-gray-100/40">Input</p>
                 <AutoResizingTextArea
                     placeholder="Type input..."
@@ -32,7 +32,7 @@ export default function ConvertorInputs() {
                 />
             </section>
 
-            <section className="flex-grow basis-1/2 flex flex-col gap-2 min-w-0">
+            <section className="grow basis-1/2 flex flex-col gap-2 min-w-0">
                 {convertors.filter((c) => c.name.toLowerCase().includes(query.toLowerCase())).map(({ name, transform }) => (
                     <LabelledOutput label={name} key={name}>
                         {transform(input)}

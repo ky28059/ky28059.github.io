@@ -23,11 +23,11 @@ export default function PagedCodeBlock(props: CodeBlockProps) {
     }, [])
 
     return (
-        <div className="flex flex-col rounded-lg overflow-hidden w-[36rem] h-[36rem] max-w-full flex-none text-xs bg-[#2b2b2b] border border-gray-100/20">
+        <div className="flex flex-col rounded-lg overflow-hidden w-xl h-144 max-w-full flex-none text-xs bg-[#2b2b2b] border border-gray-100/20">
             <div className="flex bg-[#484a4a]/50">
                 {sources.map((source, i) => (
                     <button
-                        className={'px-3.5 py-1.5 font-[Consolas,_Monaco,_\'Andale_Mono\',_monospace] text-[#a9b7c6]' + (active === i ? ' bg-[#2b2b2b]' : '')}
+                        className={'px-3.5 py-1.5 font-[Consolas,Monaco,\'Andale_Mono\',monospace] text-[#a9b7c6]' + (active === i ? ' bg-[#2b2b2b]' : '')}
                         onClick={() => setActive(i)}
                         key={source}
                     >

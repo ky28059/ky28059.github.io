@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function Flex() {
     return (
         <>
-            <div className="bg-gradient-to-br from-pink-500 via-red-500 to-orange-500 fixed inset-0 -z-10" />
+            <div className="bg-linear-to-br from-pink-500 via-red-500 to-orange-500 fixed inset-0 -z-10" />
 
             <TextSection>
                 <h1 className="text-5xl font-bold mb-4">Flex(box)</h1>
@@ -492,7 +492,7 @@ export default function Flex() {
             </TextSection>
             <section className="container my-12 flex flex-col gap-12 items-center">
                 <nav className="bg-white px-3.5 py-2 rounded shadow-lg w-full max-w-2xl">
-                    <FlexWhitespaceDemoContainer className="flex items-center justify-between [&>*]:bg-white [&>*]:border [&>*]:border-blue-500/50">
+                    <FlexWhitespaceDemoContainer className="flex items-center justify-between *:bg-white *:border *:border-blue-500/50">
                         <img src="/pfp.png" className="rounded-full size-12" />
 
                         <div className="flex text-black/70 font-medium gap-4">
@@ -513,7 +513,7 @@ export default function Flex() {
             <section className="container my-12 flex flex-col gap-12 items-center">
                 <div className="bg-white px-8 py-6 rounded shadow-lg w-full max-w-xl text-black">
                     <h3 className="text-lg font-bold mb-1">Shopping list:</h3>
-                    <FlexWhitespaceDemoContainer className="text-sm flex flex-col gap-2 border-y-white [&>*]:bg-white [&>*]:border-y [&>*]:border-blue-500/50">
+                    <FlexWhitespaceDemoContainer className="text-sm flex flex-col gap-2 border-y-white *:bg-white *:border-y *:border-blue-500/50">
                         <li>Roma tomatoes</li>
                         <li>Sourdough bread</li>
                         <li>13.75mm (1/2") ThunderHex 0.875" OD x 0.280" WD Flanged Bearing</li>
@@ -555,7 +555,7 @@ function FlexDemoContainer(props: { children: ReactNode, className: string, labe
 
 function FlexWhitespaceDemoContainer(props: { children: ReactNode, className: string, label?: string }) {
     return (
-        <div className={`relative ${props.className} border border-blue-500/50 bg-[linear-gradient(135deg,#0ea5e980_10%,#0000_0,#0000_50%,#0ea5e980_0,#0ea5e980_60%,#0000_0,#0000)] bg-[length:7.07px_7.07px]`}>
+        <div className={`relative ${props.className} border border-blue-500/50 bg-[linear-gradient(135deg,#0ea5e980_10%,#0000_0,#0000_50%,#0ea5e980_0,#0ea5e980_60%,#0000_0,#0000)] bg-size-[7.07px_7.07px]`}>
             {props.children}
 
             {props.label && (

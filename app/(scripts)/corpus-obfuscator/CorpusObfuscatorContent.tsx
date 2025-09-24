@@ -121,7 +121,7 @@ export default function CorpusObfuscatorContent() {
 
     return (
         <div className="flex gap-6 flex-col-reverse xl:flex-row">
-            <div className="flex-grow [&>pre]:h-max min-w-0">
+            <div className="grow [&>pre]:h-max min-w-0">
                 <p className="my-4">
                     The main idea goal of this obfuscator is being able to format any C program into a given block of
                     English text using <InlineCode>#define</InlineCode> macros and other tricks to get there.
@@ -269,7 +269,7 @@ export default function CorpusObfuscatorContent() {
                 </CopyCodeBlock>
             </div>
 
-            <div className="xl:w-[26rem] flex-none xl:sticky top-8 h-max">
+            <div className="xl:w-104 flex-none xl:sticky top-8 h-max">
                 <h5 className="text-secondary text-sm mb-1">
                     Corpus
                 </h5>
@@ -294,7 +294,7 @@ export default function CorpusObfuscatorContent() {
 // TODO
 function CodeBlock(props: { children: string }) {
     return (
-        <div className="rounded-lg overflow-hidden text-sm [&>pre]:!py-3 mt-1">
+        <div className="rounded-lg overflow-hidden text-sm [&>pre]:py-3! mt-1">
             <SyntaxHighlighter language="c">
                 {props.children}
             </SyntaxHighlighter>
