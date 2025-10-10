@@ -336,6 +336,13 @@ const projects: ProjectGroupData[] = [
     {
         name: "Personal / other",
         projects: [{
+            name: 'markov',
+            desc: 'A variety of silly Markov-chain models trained on b01lers server messages.',
+            src: '/assets/projects/markov.jpg',
+            langs: ['ts'],
+            tags: ['discord.js'],
+            gh: 'https://github.com/ky28059/markov'
+        }, {
             name: 'react-free-transform',
             desc: 'A NPM library for free transform of arbitrary HTML elements in React.',
             src: '/assets/projects/react-free-transform.jpg',
