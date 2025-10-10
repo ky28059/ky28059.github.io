@@ -229,13 +229,6 @@ const projects: ProjectGroupData[] = [
             langs: ['rust'],
             tags: ['MAX78000FTHR'],
             gh: "https://github.com/Purdue-eCTF/2024-eCTF-design"
-        }, {
-            name: "scrape-bot",
-            desc: 'Scoreboard scraper and automated attack / CI / testing suite for MITRE eCTF.',
-            src: "/assets/projects/scrape-bot-2.jpg",
-            langs: ['ts'],
-            tags: ['discord.js', 'express', 'slack-bolt'],
-            gh: "https://github.com/Purdue-eCTF/scrape-bot"
         }]
     },
     {

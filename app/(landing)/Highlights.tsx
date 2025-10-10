@@ -49,11 +49,40 @@ export default function Highlights() {
                     optimization, and S3 uploading. The project supports grouping photos into albums, linking /
                     embedding images, and more.
                 </p>
-                {/*
-                <p>
-                    [...]
+            </Highlight>
+
+            <Highlight
+                name="Scrape bot (Tom Scott)"
+                date="2024-2025"
+                tags={['discord.js', 'express', 'slack-bolt']}
+                langs={['ts']}
+                gh="https://github.com/Purdue-eCTF/scrape-bot"
+                content={scrapeBotContent}
+            >
+                <p className="mb-4">
+                    <InlineCode>scrape-bot</InlineCode>, affectionately called Tom Scott, is the central system
+                    coordinating the attack/dev pipeline for the Purdue team @ MITRE eCTF 2025.
                 </p>
-                */}
+                <p>Tom consists of a Discord / Slack bot that, during dev phase</p>
+                <ul className="list-disc list-outside pl-6 text-sm mt-1">
+                    <li>tracks and summarizes the eCTF scoreboard into daily reports,</li>
+                    <li>integrates with the build CI to maintain the current build status and alert on build failures.</li>
+                </ul>
+                <p className="mt-2">and during attack phase</p>
+                <ul className="list-disc list-outside pl-6 text-sm mt-1">
+                    <li>listens on the Slack <InlineCode>#targets</InlineCode> channel to detect teams entering attack phase,</li>
+                    <li>unzips and pushes new targets to the targets GitHub repository,</li>
+                    <li>
+                        distributes new targets to the build server / attack queueing system to run automated attacks
+                        (incl. dispatching the special "pesky neighbor" attack via Slack userbot),
+                    </li>
+                    <li>logs attack script output in Discord,</li>
+                    <li>and automatically submits any flags found to the CTFd backend.</li>
+                </ul>
+                <p className="mt-3">
+                    See Tom Scott at the eCTF awards ceremony{' '}
+                    <a href="https://www.youtube.com/watch?v=eRyhWwiq71M&t=4627s" target="_blank" rel="noopener noreferrer">here</a>!
+                </p>
             </Highlight>
         </Section>
     )
@@ -85,6 +114,15 @@ const photosContent = (
         <img
             src="https://ky-photos-preview.s3.us-east-1.amazonaws.com/2025-07-09@12+Dice+Finals,+NYC/IMG_E6389-preview.webp"
             className="absolute ml-80 top-20 w-56 shadow-xl rounded-lg rotate-12"
+        />
+    </>
+)
+
+const scrapeBotContent = (
+    <>
+        <img
+            src="/assets/projects/scrape-bot-2.jpg"
+            className="rounded-lg shadow-xl"
         />
     </>
 )
