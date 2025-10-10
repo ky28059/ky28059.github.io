@@ -50,13 +50,13 @@ export default function Project(props: ProjectData) {
 }
 
 export type LanguageKey = 'html' | 'js' | 'ts' | 'css' | 'scss' | 'svelte' | 'py' | 'c' | 'cpp' | 'c#' | 'q#'
-    | 'java' | 'kt' | 'rkt' | 'elixir' | 'rust' | 'go' | 'haskell' | 'sh'
+    | 'java' | 'kt' | 'rkt' | 'elixir' | 'rust' | 'go' | 'haskell' | 'sh' | 'dockerfile'
 
 export function ProjectLang(props: { lang: LanguageKey }) {
     const color = langToColor(props.lang);
     return (
         <div
-            className="rounded-full size-3 ring-2 mx-0.5 ring-black ring-opacity-75 dark:ring-opacity-50"
+            className="rounded-full size-3 ring-2 mx-0.25 ring-black/10 dark:ring-black/50 ring-opacity-75 dark:ring-opacity-50"
             style={{ backgroundColor: color }}
         />
     )
@@ -85,6 +85,7 @@ export function langToColor(lang: LanguageKey) {
         case 'go': return '#00ADD8';
         case 'haskell': return '#5e5086';
         case 'sh': return '#89e051';
+        case 'dockerfile': return '#384d54';
         default: return '#fff';
     }
 }
@@ -108,6 +109,8 @@ export function langToFullName(lang: LanguageKey) {
         case 'rust': return 'Rust';
         case 'go': return 'Go';
         case 'haskell': return 'Haskell';
+        case 'sh': return 'Shell';
+        case 'dockerfile': return 'Dockerfile';
         default: return 'Unknown';
     }
 }

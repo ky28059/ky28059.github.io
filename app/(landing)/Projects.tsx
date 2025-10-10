@@ -170,7 +170,7 @@ const projects: ProjectGroupData[] = [
             name: "bctf",
             desc: 'A custom rCTF frontend framework for b01lers CTF.',
             src: "/assets/projects/bctf-2.jpg",
-            langs: ['ts', 'css'],
+            langs: ['ts', 'css', 'dockerfile'],
             tags: ['nextjs', 'tailwindcss', 'rctf'],
             gh: "https://github.com/ky28059/bctf",
             web: "https://b01lersc.tf"
@@ -200,21 +200,21 @@ const projects: ProjectGroupData[] = [
             name: 'b01lers-ctf-2024',
             desc: 'Challenge source for b01lers CTF 2024. Authored: `use-cache`, `bash cat with pipe`.',
             src: '/assets/projects/b01lers-ctf-2024-2.jpg',
-            langs: ['ts', 'sh'],
+            langs: ['ts', 'sh', 'dockerfile'],
             tags: ['nextjs', 'bash'],
             gh: 'https://github.com/b01lers/b01lers-ctf-2024-public'
         }, {
             name: 'bootcamp-ctf-2024',
             desc: 'Challenge source for b01lers bootcamp CTF 2024. Authored: `>>=jail 0-3`, `lazy debugger`, `class-struggle`.',
             src: '/assets/projects/bootcamp-ctf-2024-2.jpg',
-            langs: ['js', 'haskell', 'c'],
+            langs: ['js', 'haskell', 'c', 'dockerfile'],
             tags: ['hint'],
             web: 'https://bootcamp.b01lersc.tf/'
         }, {
             name: 'b01lers-ctf-2025',
             desc: 'Challenge source for b01lers CTF 2025. Authored: `>>=jail`, `vibe-coding`, `trouble at the spa`.',
             src: '/assets/projects/b01lers-ctf-2025.jpg',
-            langs: ['ts', 'haskell', 'py'],
+            langs: ['ts', 'haskell', 'py', 'dockerfile'],
             tags: ['react-router', 'vite', 'hint'],
             gh: 'https://github.com/b01lers/b01lers-ctf-2025-public'
         }]
@@ -332,7 +332,7 @@ const projects: ProjectGroupData[] = [
             name: 'markov',
             desc: 'A variety of silly Markov-chain models trained on b01lers server messages.',
             src: '/assets/projects/markov.jpg',
-            langs: ['ts'],
+            langs: ['ts', 'dockerfile'],
             tags: ['discord.js'],
             gh: 'https://github.com/ky28059/markov'
         }, {
@@ -370,8 +370,8 @@ const projects: ProjectGroupData[] = [
         }, {
             name: "kevin-yu",
             src: "/assets/projects/kevin-yu.jpg",
-            langs: ['ts'],
-            tags: ['discord.js', 'PortalBot framework'],
+            langs: ['ts', 'dockerfile'],
+            tags: ['discord.js', 'cron'],
             gh: "https://github.com/ky28059/kevin-yu",
             desc: "Fun discord bot for personal servers."
         }, {
@@ -403,7 +403,7 @@ const projects: ProjectGroupData[] = [
             name: "PortalBot",
             src: "/assets/projects/PortalBot.jpg",
             langs: ["ts"],
-            tags: ["discord.js", "PortalBot framework"],
+            tags: ["discord.js"],
             gh: "https://github.com/ky28059/PortalBot",
             discord: "https://discord.com/oauth2/authorize?client_id=827738852902043698&scope=bot+applications.commands&permissions=8"
         }, {

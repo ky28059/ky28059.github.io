@@ -55,7 +55,7 @@ export default function Highlights() {
                 name="Scrape bot (Tom Scott)"
                 date="2024-2025"
                 tags={['discord.js', 'express', 'slack-bolt']}
-                langs={['ts']}
+                langs={['ts', 'dockerfile']}
                 gh="https://github.com/Purdue-eCTF/scrape-bot"
                 content={scrapeBotContent}
             >
