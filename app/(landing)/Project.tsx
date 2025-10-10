@@ -3,7 +3,7 @@ import ProjectTag from '@/app/(landing)/ProjectTag';
 
 export type ProjectData = {
     name: string,
-    src: string
+    src?: string
     desc: string,
     img?: string,
     langs: LanguageKey[],
@@ -21,11 +21,13 @@ export default function Project(props: ProjectData) {
         <div className="group rounded-md overflow-hidden border border-white/25 hover:border-white/50 transition duration-150 relative w-full">
             <a href={href} target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-10" />
 
-            <img
-                src={props.src}
-                alt={props.name}
-                className="w-full h-44 object-cover transition duration-150"
-            />
+            {props.src && (
+                <img
+                    src={props.src}
+                    alt={props.name}
+                    className="w-full h-44 object-cover transition duration-150"
+                />
+            )}
 
             <div className="px-5 pt-3.5 pb-4">
                 <div className="flex flex-wrap items-center gap-1 mb-2">

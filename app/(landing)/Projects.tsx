@@ -292,7 +292,7 @@ const projects: ProjectGroupData[] = [
         projects: [{
             desc: "Website for GunnHacks 9.0, the ninth iteration of Gunn's annual hackathon.",
             name: "GunnHacks 9.0",
-            src: "/assets/projects/gunnhacks-9.0.png",
+            // src: "/assets/projects/gunnhacks-9.0.png",
             langs: ["ts", "css"],
             tags: ["nextjs", "tailwindcss"],
             gh: "https://github.com/united-computations/GunnHacks9.0",
@@ -300,7 +300,7 @@ const projects: ProjectGroupData[] = [
         }, {
             desc: "Website for GunnHacks 8.0, the eighth iteration of Gunn's annual hackathon.",
             name: "GunnHacks 8.0",
-            src: "/assets/projects/gunnhacks-8.0.jpg",
+            // src: "/assets/projects/gunnhacks-8.0.jpg",
             langs: ["svelte", "html", "css"],
             tags: ["sveltekit"],
             gh: "https://github.com/united-computations/GunnHacks8.0",
@@ -308,7 +308,7 @@ const projects: ProjectGroupData[] = [
         }, {
             desc: "Website for GunnHacks 7.0, the seventh iteration of Gunn's annual hackathon.",
             name: "GunnHacks 7.0",
-            src: "/assets/projects/gunnhacks-7.0.jpg",
+            // src: "/assets/projects/gunnhacks-7.0.jpg",
             langs: ["js", "html", "scss"],
             tags: [],
             gh: "https://github.com/united-computations/GunnHacks7.0",
