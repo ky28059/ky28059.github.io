@@ -36,7 +36,7 @@
     a:hover { @apply underline; }
 
     :root {
-        --primary: #757575;
+        --primary: #656565;
         --secondary: #757575;
         --tertiary: #d1d5db;
     }

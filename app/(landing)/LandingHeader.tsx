@@ -11,16 +11,16 @@ export default function LandingHeader() {
     // TODO: responsive design
     return (
         <header className="bg-white dark:bg-midnight h-screen flex flex-col">
-            <div className="container relative pl-56 pt-24 pb-10 pr-4 grow flex justify-between items-center">
+            <div className="container relative pl-36 sm:pl-56 pt-24 pb-10 pr-4 grow flex justify-between items-center">
                 <ThemeToggle className="absolute top-8 right-8 text-xl" />
 
                 <div className="relative pt-6">
                     <img
                         src="/pfp.png"
                         alt="Profile picture"
-                        className="absolute -left-40 -top-10 size-32 rounded-full"
+                        className="absolute -left-32 sm:-left-40 -top-10 size-28 sm:size-32 rounded-full"
                     />
-                    <h1 className="font-bold text-8xl underline decoration-grapefruit mb-5">
+                    <h1 className="font-bold text-7xl sm:text-8xl underline decoration-grapefruit mb-5">
                         kevin yu.
                     </h1>
 

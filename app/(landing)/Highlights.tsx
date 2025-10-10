@@ -61,15 +61,12 @@ export default function Highlights() {
             >
                 <p className="mb-4">
                     <InlineCode>scrape-bot</InlineCode>, affectionately called Tom Scott, is the central system
-                    coordinating the attack/dev pipeline for the Purdue team @ MITRE eCTF 2025.
+                    coordinating the attack/dev CI pipeline for the Purdue team @ MITRE eCTF 2025.
                 </p>
-                <p>Tom consists of a Discord / Slack bot that, during dev phase</p>
+                <p>Tom consists of a Discord / Slack bot that</p>
                 <ul className="list-disc list-outside pl-6 text-sm mt-1">
                     <li>tracks and summarizes the eCTF scoreboard into daily reports,</li>
-                    <li>integrates with the build CI to maintain the current build status and alert on build failures.</li>
-                </ul>
-                <p className="mt-2">and during attack phase</p>
-                <ul className="list-disc list-outside pl-6 text-sm mt-1">
+                    <li>integrates with the build CI to maintain the current build status and alert on build failures,</li>
                     <li>listens on the Slack <InlineCode>#targets</InlineCode> channel to detect teams entering attack phase,</li>
                     <li>unzips and pushes new targets to the targets GitHub repository,</li>
                     <li>

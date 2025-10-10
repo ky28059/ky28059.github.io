@@ -58,7 +58,7 @@ export default function Home() {
             <Highlights />
 
             <Section type="dark" className="flex gap-12 justify-center">
-                <TbFlag3Filled className="text-5xl text-grapefruit" />
+                <TbFlag3Filled className="text-5xl text-grapefruit flex-none" />
 
                 <div className="max-w-prose">
                     <SectionHeading>CTFs</SectionHeading>
@@ -77,7 +77,7 @@ export default function Home() {
                     </Link>
                 </div>
 
-                <div className="opacity-70 px-4 -my-6">
+                <div className="opacity-70 px-4 -my-6 hidden md:block">
                     <img
                         src="/assets/b01lers.png"
                         className="max-w-52 drop-shadow-[0_0px_4px_#ff1e1e]"
