@@ -8,6 +8,7 @@ export default async function GithubContributionChart() {
 
     let curr = start;
     const weeks: ContributionWeek[] = [];
+    let total = 0;
 
     // Calculate contribution history one year at a time.
     while (curr < end) {
@@ -16,6 +17,8 @@ export default async function GithubContributionChart() {
             curr,
             next > end ? end : next.minus({ day: 1 })
         );
+
+        total += res.data.user.contributionsCollection.contributionCalendar.totalContributions;
 
         // Push newly fetched contributions, merging fetch boundaries when they arise.
         const newWeeks = res.data.user.contributionsCollection.contributionCalendar.weeks;
@@ -45,8 +48,9 @@ export default async function GithubContributionChart() {
                 </div>
             ))}
 
-            <span className="font-mono flex-none text-secondary [writing-mode:vertical-lr] text-center py-4">
-                {end.toLocaleString(DateTime.DATE_FULL)}
+            <span className="flex-none text-secondary [writing-mode:vertical-rl] py-4">
+                <p className="font-mono">{end.toLocaleString(DateTime.DATE_FULL)}</p>
+                <p className="text-sm text-secondary/50">{total} commits total</p>
             </span>
             {/*
             <div className="pl-2 text-sm italic text-gray-500 w-36">
