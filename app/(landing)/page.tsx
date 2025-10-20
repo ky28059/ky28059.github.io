@@ -57,6 +57,8 @@ export default function Home() {
 
             <Highlights />
 
+            <Projects />
+
             <Section type="dark" className="flex gap-12 justify-center">
                 <TbFlag3Filled className="text-5xl text-grapefruit flex-none" />
 
@@ -66,7 +68,7 @@ export default function Home() {
                         I participate in Capture the Flag (CTF) competitions as part of Purdue's CTF team{' '}
                         <a href="https://ctftime.org/team/11464" target="_blank" rel="noopener noreferrer" className="font-mono">b01lers</a>!
                         I typically solve <InlineCode>web</InlineCode> and <InlineCode>misc</InlineCode> challenges, and
-                        we generally rank ~7th in the US on CTFTime.
+                        we rank ~5th in the US on CTFTime.
                     </p>
                     <p className="mb-4 text-primary">
                         View an incomplete collection of challenge writeups here:
@@ -84,8 +86,6 @@ export default function Home() {
                     />
                 </div>
             </Section>
-
-            <Projects />
 
             <Section type="dark" className="flex flex-wrap-reverse lg:flex-nowrap gap-12 justify-center">
                 <PagedCodeBlock
