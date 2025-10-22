@@ -17,11 +17,11 @@
     --color-grapefruit: #ff6347;
     --color-pomegranate: #e03c31;
 
-    --animate-loop-scroll: loop-scroll 120s linear infinite;
+    --animate-loop-scroll: loop-scroll 40s linear infinite;
 
     @keyframes loop-scroll {
         0% { transform: translateX(0) }
-        100% { transform: translateX(-1800px) }
+        100% { transform: translateX(calc(-100%/3)) }
     }
 }
 
