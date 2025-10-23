@@ -1,17 +1,22 @@
 export default function IconScroller() {
     return (
-        <div className="flex gap-1.5 px-1.5 group pt-8 bg-gray-100 dark:bg-black/20 animate-loop-scroll hover:[animation-play-state:paused] w-max">
-            {[0,1,2].map((_,i)=> <div key={i}
-                className="flex gap-1.5 w-max"
-            >
-                {icons.map((u) => (
-                    <img
-                        className="h-8 max-w-12 object-center object-contain"
-                        src={u}
-                        key={u}
-                    />
+        <div className="overflow-hidden bg-gray-100 dark:bg-black/20 pt-8">
+            <div className="flex gap-1.5 px-1.5 animate-loop-scroll hover:[animation-play-state:paused] w-max">
+                {Array(3).fill(0).map((_,i)=> (
+                    <div
+                        key={i}
+                        className="flex gap-1.5 w-max"
+                    >
+                        {icons.map((u) => (
+                            <img
+                                className="h-8 max-w-12 object-center object-contain"
+                                src={u}
+                                key={u}
+                            />
+                        ))}
+                    </div>
                 ))}
-            </div>)}
+            </div>
         </div>
     )
 }
