@@ -1,28 +1,8 @@
-'use client'
-
-import { useEffect, useRef } from 'react';
-
-
 export default function IconScroller() {
-    const scroll1 = useRef<HTMLDivElement>(null);
-    const scroll2 = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        if (!scroll1.current) return;
-
-        const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) return;
-            resetAnimation(scroll1.current);
-            resetAnimation(scroll2.current);
-        });
-        observer.observe(scroll1.current);
-    }, [scroll1.current]);
-
     return (
-        <div className="flex group pt-8 bg-gray-100 dark:bg-black/20 overflow-hidden">
-            <div
-                className="flex gap-1.5 w-max animate-loop-scroll group-hover:[animation-play-state:paused]"
-                ref={scroll1}
+        <div className="flex gap-1.5 px-1.5 group pt-8 bg-gray-100 dark:bg-black/20 animate-loop-scroll hover:[animation-play-state:paused] w-max">
+            {[0,1,2].map((_,i)=> <div key={i}
+                className="flex gap-1.5 w-max"
             >
                 {icons.map((u) => (
                     <img
@@ -31,31 +11,9 @@ export default function IconScroller() {
                         key={u}
                     />
                 ))}
-            </div>
-            <div
-                className="flex gap-1.5 w-max pl-1.5 animate-loop-scroll group-hover:[animation-play-state:paused]"
-                aria-hidden
-                ref={scroll2}
-            >
-                {icons.map((u) => (
-                    <img
-                        className="h-8 max-w-12 object-center object-contain"
-                        src={u}
-                        key={u}
-                    />
-                ))}
-            </div>
+            </div>)}
         </div>
     )
-}
-
-// https://stackoverflow.com/questions/6268508/restart-animation-in-css3-any-better-way-than-removing-the-element
-function resetAnimation(el: HTMLElement | null) {
-    if (!el) return;
-    el.style.animation = 'none';
-    el.offsetHeight;
-    // @ts-ignore
-    el.style.animation = null;
 }
 
 const icons = [
