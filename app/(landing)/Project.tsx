@@ -41,7 +41,7 @@ export default function Project(props: ProjectData) {
                     ))}
                 </div>
 
-                <p className="text-xs text-primary">
+                <p className="text-xs text-primary text-pretty">
                     {props.desc}
                 </p>
             </div>

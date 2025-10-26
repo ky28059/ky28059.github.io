@@ -8,6 +8,16 @@ type CTFData = {
 
 export const ctfs: CTFData[] = [
     {
+        name: 'm0leCon Teaser CTf 2025',
+        writeups: [{
+            href: 'https://gist.github.com/ky28059/3e798b904548e506707607d0012b2c11',
+            name: 'Precipice',
+            type: 'misc',
+            tags: ['highlight', 'scripting'],
+            src: '/assets/writeups/precipice.jpg'
+        }]
+    },
+    {
         name: 'UIUCTF 2025',
         writeups: [{
             href: 'https://gist.github.com/ky28059/8096bd32165fc11285468e3ee1a3997c',
