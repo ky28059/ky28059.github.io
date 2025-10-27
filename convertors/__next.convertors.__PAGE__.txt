@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[35922,["/_next/static/chunks/401c13133b9bf7e5.js"],"default"]
+3:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"buildId":"QiRS6Sx9Ttvp1BSl4xu2I","rsc":["$","$1","c",{"children":[["$","main",null,{"className":"container py-24","children":[["$","h1",null,{"className":"text-4xl font-bold mb-4","children":"Convertors"}],["$","p",null,{"className":"mb-6","children":"Type your text into the input box on the left, and copy the desired output from the corresponding output box on the right."}],["$","$L2",null,{}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/401c13133b9bf7e5.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
+5:null

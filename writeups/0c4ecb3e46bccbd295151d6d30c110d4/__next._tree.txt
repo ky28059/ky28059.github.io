@@ -1,0 +1,13 @@
+1:"$Sreact.fragment"
+2:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"ViewportBoundary"]
+4:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"MetadataBoundary"]
+5:"$Sreact.suspense"
+:HL["/_next/static/chunks/3c1b2f4e7e90f1ff.css","style"]
+:HL["/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["https://gist.github.com/assets/60120929/6ec32800-c9c9-4060-8925-c4cf550fbd5b","image"]
+:HL["https://gist.github.com/assets/60120929/baae2b59-e268-4aaa-af1e-fcfb460a0537","image"]
+:HL["https://gist.github.com/assets/60120929/ceaafc72-0440-4017-9d59-c2189679c084","image"]
+:HL["https://gist.github.com/assets/60120929/e194b998-5ae2-4fa8-b41f-fd13851c147e","image"]
+0:{"buildId":"QiRS6Sx9Ttvp1BSl4xu2I","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"writeups","paramType":null,"paramKey":"writeups","hasRuntimePrefetch":false,"slots":{"children":{"name":"id","paramType":"d","paramKey":"0c4ecb3e46bccbd295151d6d30c110d4","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"head":["$","$1","h",{"children":[null,["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isHeadPartial":false,"staleTime":300}
+3:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+6:[["$","title","0",{"children":"GPN CTF 2024 — Letter to the editor | kevin.fish"}],["$","meta","1",{"name":"description","content":"Old software, good software:"}],["$","meta","2",{"property":"og:title","content":"GPN CTF 2024 — Letter to the editor"}],["$","meta","3",{"property":"og:description","content":"Old software, good software:"}],["$","meta","4",{"name":"twitter:card","content":"summary"}],["$","meta","5",{"name":"twitter:title","content":"GPN CTF 2024 — Letter to the editor"}],["$","meta","6",{"name":"twitter:description","content":"Old software, good software:"}]]

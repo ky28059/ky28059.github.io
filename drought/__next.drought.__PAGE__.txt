@@ -1,0 +1,7 @@
+1:"$Sreact.fragment"
+2:I[95819,["/_next/static/chunks/86fe4300ec575211.js","/_next/static/chunks/9f9f02bc866c2147.js"],"default"]
+3:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+:HL["/assets/drought/desert.png","image"]
+0:{"buildId":"QiRS6Sx9Ttvp1BSl4xu2I","rsc":["$","$1","c",{"children":[["$","div",null,{"className":"h-screen flex items-center justify-center","children":[["$","img",null,{"src":"/assets/drought/desert.png","alt":"desert","className":"fixed inset-0 w-full h-full object-cover object-center"}],["$","div",null,{"className":"fixed inset-0 bg-black/20"}],["$","main",null,{"className":"relative text-white text-center","children":[["$","$L2",null,{}],["$","h2",null,{"className":"text-xl md:text-4xl lg:text-5xl font-medium","children":"since Obi-Wan's last commit to WATT."}]]}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/86fe4300ec575211.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/9f9f02bc866c2147.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
+5:null

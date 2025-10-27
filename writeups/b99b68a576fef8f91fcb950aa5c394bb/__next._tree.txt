@@ -1,0 +1,14 @@
+1:"$Sreact.fragment"
+2:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"ViewportBoundary"]
+4:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"MetadataBoundary"]
+5:"$Sreact.suspense"
+:HL["/_next/static/chunks/3c1b2f4e7e90f1ff.css","style"]
+:HL["/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["https://gist.github.com/user-attachments/assets/3425dc3f-0249-4488-8eb0-eeaf69e74e8b","image"]
+:HL["https://gist.github.com/user-attachments/assets/b485a0f8-79a2-4463-a1dc-ce62e3911a93","image"]
+:HL["https://gist.github.com/user-attachments/assets/c51e8aa9-18e9-484a-ae91-4a855984b3bf","image"]
+:HL["https://gist.github.com/user-attachments/assets/7aee9de6-94e5-4d15-b046-e2e25861c27b","image"]
+:HL["https://gist.github.com/user-attachments/assets/b8a22ecd-3f78-4b09-a9ae-ceb4a3be0b78","image"]
+0:{"buildId":"QiRS6Sx9Ttvp1BSl4xu2I","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"writeups","paramType":null,"paramKey":"writeups","hasRuntimePrefetch":false,"slots":{"children":{"name":"id","paramType":"d","paramKey":"b99b68a576fef8f91fcb950aa5c394bb","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"head":["$","$1","h",{"children":[null,["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isHeadPartial":false,"staleTime":300}
+3:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+6:[["$","title","0",{"children":"LakeCTF '24-'25 Quals — VerySusOrganization | kevin.fish"}],["$","meta","1",{"name":"description","content":"You have been hired to contribute to a very suspicious project. Follow the link below to get onboard."}],["$","meta","2",{"property":"og:title","content":"LakeCTF '24-'25 Quals — VerySusOrganization"}],["$","meta","3",{"property":"og:description","content":"You have been hired to contribute to a very suspicious project. Follow the link below to get onboard."}],["$","meta","4",{"name":"twitter:card","content":"summary"}],["$","meta","5",{"name":"twitter:title","content":"LakeCTF '24-'25 Quals — VerySusOrganization"}],["$","meta","6",{"name":"twitter:description","content":"You have been hired to contribute to a very suspicious project. Follow the link below to get onboard."}]]

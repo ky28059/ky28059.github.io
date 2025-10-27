@@ -1,0 +1,221 @@
+1:"$Sreact.fragment"
+2:I[10453,["/_next/static/chunks/b9afcb09c56609a6.js","/_next/static/chunks/59d5dd52dd9fcb16.js","/_next/static/chunks/0eb309e820c00a6d.js","/_next/static/chunks/239c8c4944a9f036.js","/_next/static/chunks/39b99946d2be6a43.js"],"default"]
+1f:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"OutletBoundary"]
+20:"$Sreact.suspense"
+:HL["https://gist.github.com/assets/60120929/95c7d910-8738-45a5-a338-a74ec3ad3eab","image"]
+:HL["https://gist.github.com/assets/60120929/cdbbed41-fe11-4c67-8718-8086f42389d8","image"]
+3:T98e,import { serveDir, serveFile } from 'jsr:@std/http/file-server'
+import { parse } from './expression_parser.ts'
+
+const decoder = new TextDecoder()
+const resultTemplate = await Deno.readTextFile('./result.html')
+
+Deno.serve({ port: 8080 }, async (req: Request) => {
+  try {
+    const pathname = new URL(req.url).pathname
+
+    if (pathname === '/' && req.method === 'GET') {
+      return serveFile(req, './static/index.html')
+    }
+
+    if (pathname === '/' && req.method === 'POST') {
+      const body = await req.formData()
+      const expression = body.get('expression')
+      if (typeof expression !== 'string') {
+        return new Response('400 expression should be string', {
+          status: 400
+        })
+      }
+
+      const parsed = parse(expression)
+      if (!parsed) {
+        new Response(
+          resultTemplate
+            .replace('{success}', 'failure')
+            .replace('{result}', 'syntax error'),
+          {
+            headers: {
+              'Content-Type': 'text/html'
+            }
+          }
+        )
+      }
+
+      let success = false
+      let output = ''
+
+      const result = await new Deno.Command('python3.11', {
+        args: ['calculate.py', JSON.stringify(parsed)]
+      }).output()
+      const error = decoder.decode(result.stderr).trim()
+      const json = decoder.decode(result.stdout).trim()
+      if (error.length > 0) {
+        output = error
+      } else if (json.startsWith('{') && json.endsWith('}')) {
+        try {
+          output = JSON.parse(json).result
+          success = true
+        } catch (error) {
+          output = `wtf!!1! this shouldnt ever happen\n\n${
+            error.stack
+          }\n\nheres the flag as compensation: ${
+            Deno.env.get('GZCTF_FLAG') ?? 'sdctf{...}'
+          }`
+        }
+      } else {
+        output = 'python borked'
+      }
+
+      return new Response(
+        resultTemplate
+          .replace('{success}', success ? 'successful' : 'failure')
+          .replace('{result}', () => output),
+        {
+          headers: {
+            'Content-Type': 'text/html'
+          }
+        }
+      )
+    }
+
+    if (pathname.startsWith('/static/') && req.method === 'GET') {
+      return serveDir(req, {
+        fsRoot: 'static',
+        urlRoot: 'static'
+      })
+    }
+
+    return new Response('404 :(', {
+      status: 404
+    })
+  } catch (error) {
+    return new Response('500 embarassment\n\n' + error.stack, {
+      status: 500
+    })
+  }
+})0:{"buildId":"QiRS6Sx9Ttvp1BSl4xu2I","rsc":["$","$1","c",{"children":[["$","div",null,{"children":["$","main",null,{"className":"text-pretty max-w-5xl mx-auto text-sm [&_h1]:text-5xl [&_h1]:font-semibold [&_h1]:mb-8 [&_blockquote]:text-secondary [&_blockquote]:space-y-3 [&_blockquote]:border-l-4 [&_blockquote]:border-secondary [&_blockquote]:pl-5 [&_blockquote]:mb-5 [&>_p]:my-4 [&_img]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_img]:rounded [&_li]:my-2","children":[["$","h1","h1-0",{"children":"San Diego CTF 2024 — calculator"}],"\n",["$","blockquote","blockquote-0",{"children":["\n",["$","p","p-0",{"children":"I made a calculator! I'm using Python to do the math since I heard it's strongly typed, so my calculator should be pretty safe. Download the source code by clicking the download button above!"}],"\n"]}],"\n",["$","p","p-0",{"children":"We're given a TS server and expression parser looking like this:"}],"\n",["$","$L2","pre-0",{"className":"my-2","children":"$3","language":"ts"}],"\n","$L4","\n","$L5","\n","$L6","\n","$L7","\n","$L8","\n","$L9","\n","$La","\n","$Lb","\n","$Lc","\n","$Ld","\n","$Le","\n","$Lf","\n","$L10","\n","$L11","\n","$L12","\n","$L13","\n","$L14","\n","$L15","\n","$L16","\n","$L17","\n","$L18"]}]}],["$L19","$L1a","$L1b","$L1c"],"$L1d"]}],"loading":null,"isPartial":false}
+1e:Ta0b,import { assertEquals } from 'https://deno.land/std@0.224.0/assert/mod.ts'
+
+export type Expression =
+  | { op: '+' | '-' | '*' | '/'; a: Expression; b: Expression }
+  | { value: number }
+
+type ParseResult = Generator<{ expr: Expression; string: string }>
+
+function * parseFloat (string: string): ParseResult {
+  for (const regex of [
+    /[-+](?:\d+\.?|\d*\.\d+)(?:e[-+]?\d+)?$/,
+    /(?:\d+\.?|\d*\.\d+)(?:e[-+]?\d+)?$/
+  ]) {
+    const match = string.match(regex)
+    if (!match) {
+      continue
+    }
+    const number = +match[0]
+    if (Number.isFinite(number)) {
+      yield {
+        expr: { value: number },
+        string: string.slice(0, -match[0].length)
+      }
+    }
+  }
+}
+function * parseLitExpr (string: string): ParseResult {
+  yield * parseFloat(string)
+  if (string[string.length - 1] === ')') {
+    for (const result of parseAddExpr(string.slice(0, -1))) {
+      if (result.string[result.string.length - 1] === '(') {
+        yield { ...result, string: result.string.slice(0, -1) }
+      }
+    }
+  }
+}
+function * parseMulExpr (string: string): ParseResult {
+  for (const right of parseLitExpr(string)) {
+    const op = right.string[right.string.length - 1]
+    if (op === '*' || op === '/') {
+      for (const left of parseMulExpr(right.string.slice(0, -1))) {
+        yield { ...left, expr: { op, a: left.expr, b: right.expr } }
+      }
+    }
+  }
+  yield * parseLitExpr(string)
+}
+function * parseAddExpr (string: string): ParseResult {
+  for (const right of parseMulExpr(string)) {
+    const op = right.string[right.string.length - 1]
+    if (op === '+' || op === '-') {
+      for (const left of parseAddExpr(right.string.slice(0, -1))) {
+        yield { ...left, expr: { op, a: left.expr, b: right.expr } }
+      }
+    }
+  }
+  yield * parseMulExpr(string)
+}
+export function parse (expression: string): Expression | null {
+  for (const result of parseAddExpr(expression.replace(/\s/g, ''))) {
+    if (result.string === '') {
+      return result.expr
+    }
+  }
+  return null
+}
+
+Deno.test({
+  name: 'expression_parser',
+  fn () {
+    assertEquals(parse('3 + 2'), {
+      op: '+',
+      a: { value: 3 },
+      b: { value: 2 }
+    })
+    assertEquals(parse('3 + 2 + 1'), {
+      op: '+',
+      a: {
+        op: '+',
+        a: { value: 3 },
+        b: { value: 2 }
+      },
+      b: { value: 1 }
+    })
+    assertEquals(parse('3 * (4 - 5) + 2'), {
+      op: '+',
+      a: {
+        op: '*',
+        a: { value: 3 },
+        b: {
+          op: '-',
+          a: { value: 4 },
+          b: { value: 5 }
+        }
+      },
+      b: { value: 2 }
+    })
+  }
+})4:["$","$L2","pre-1",{"className":"my-2","children":"$1e","language":"ts"}]
+5:["$","p","p-1",{"children":"The server sends the parsed expression to a simple Python \"calculator\", sending back the result in JSON format:"}]
+6:["$","$L2","pre-2",{"className":"my-2","children":"import json\nimport sys\n\n\ndef evaluate(expression):\n    if \"value\" in expression:\n        return expression[\"value\"]\n    match expression[\"op\"]:\n        case \"+\":\n            return evaluate(expression[\"a\"]) + evaluate(expression[\"b\"])\n        case \"-\":\n            return evaluate(expression[\"a\"]) - evaluate(expression[\"b\"])\n        case \"*\":\n            return evaluate(expression[\"a\"]) * evaluate(expression[\"b\"])\n        case \"/\":\n            return evaluate(expression[\"a\"]) / evaluate(expression[\"b\"])\n\n\nprint(json.dumps({\"result\": evaluate(json.loads(sys.argv[1]))}))","language":"py"}]
+7:["$","p","p-2",{"children":"If we can get this Python result to be invalid JSON, the server will give us the flag:"}]
+8:["$","$L2","pre-3",{"className":"my-2","children":"        try {\n          output = JSON.parse(json).result\n          success = true\n        } catch (error) {\n          output = `wtf!!1! this shouldnt ever happen\\n\\n${\n            error.stack\n          }\\n\\nheres the flag as compensation: ${\n            Deno.env.get('GZCTF_FLAG') ?? 'sdctf{...}'\n          }`\n        }","language":"ts"}]
+9:["$","p","p-3",{"children":["This challenge is pretty trivial if you know about how Python's ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"json.dumps"}]," is JSON spec noncompliant. In particular, Python will successfully serialize ",["$","code","code-1",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"NaN"}]," and ",["$","code","code-2",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"Infinity"}],","]}]
+a:["$","$L2","pre-4",{"className":"my-2","children":">>> json.dumps({\"a\": float('nan')})\n'{\"a\": NaN}'\n>>> json.dumps({\"a\": float('inf')})\n'{\"a\": Infinity}'","language":"py"}]
+b:["$","p","p-4",{"children":"despite neither of those values being valid JSON."}]
+c:["$","$L2","pre-5",{"className":"my-2","children":"> JSON.parse('{\"a\": NaN}')\nUncaught SyntaxError: Unexpected token 'N', \"{\"a\": NaN}\" is not valid JSON\n> JSON.parse('{\"a\": Infinity}')\nUncaught SyntaxError: Unexpected token 'I', \"{\"a\": Infinity}\" is not valid JSON","language":"js"}]
+d:["$","p","p-5",{"children":["Then, we just need to get the calculator to parse either ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"NaN"}]," or ",["$","code","code-1",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"Infinity"}]," to get the flag."]}]
+e:["$","p","p-6",{"children":"Unfortunately, the TS server only parses a number literal if it is finite, so a simple"}]
+f:["$","$L2","pre-6",{"className":"my-2","children":"1e400 - 1e400","language":"js"}]
+10:["$","p","p-7",{"children":"payload won't work:"}]
+11:["$","$L2","pre-7",{"className":"my-2","children":"    if (Number.isFinite(number)) {\n      yield {\n        expr: { value: number },\n        string: string.slice(0, -match[0].length)\n      }\n    }","language":"ts"}]
+12:["$","p","p-8",{"children":["$","img","img-0",{"src":"https://gist.github.com/assets/60120929/95c7d910-8738-45a5-a338-a74ec3ad3eab","alt":"image"}]}]
+13:["$","p","p-9",{"children":"Luckily, we can just get infinity with"}]
+14:["$","$L2","pre-8",{"className":"my-2","children":"1e200 * 1e200","language":"js"}]
+15:["$","p","p-10",{"children":"instead. Using a similar payload (I did"}]
+16:["$","$L2","pre-9",{"className":"my-2","children":"1e200 * 1e200 - 1e200 * 1e200","language":"js"}]
+17:["$","p","p-11",{"children":["to get ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"NaN"}],"), we get the flag."]}]
+18:["$","p","p-12",{"children":["$","img","img-0",{"src":"https://gist.github.com/assets/60120929/cdbbed41-fe11-4c67-8718-8086f42389d8","alt":"image"}]}]
+19:["$","script","script-0",{"src":"/_next/static/chunks/59d5dd52dd9fcb16.js","async":true}]
+1a:["$","script","script-1",{"src":"/_next/static/chunks/0eb309e820c00a6d.js","async":true}]
+1b:["$","script","script-2",{"src":"/_next/static/chunks/239c8c4944a9f036.js","async":true}]
+1c:["$","script","script-3",{"src":"/_next/static/chunks/39b99946d2be6a43.js","async":true}]
+1d:["$","$L1f",null,{"children":["$","$20",null,{"name":"Next.MetadataOutlet","children":"$@21"}]}]
+21:null

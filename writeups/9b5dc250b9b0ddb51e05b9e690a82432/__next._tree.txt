@@ -1,0 +1,19 @@
+1:"$Sreact.fragment"
+2:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"ViewportBoundary"]
+4:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"MetadataBoundary"]
+5:"$Sreact.suspense"
+:HL["/_next/static/chunks/3c1b2f4e7e90f1ff.css","style"]
+:HL["/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["https://gist.github.com/assets/60120929/27ef132d-9b5b-440c-8afc-d5d63869a800","image"]
+:HL["https://gist.github.com/assets/60120929/fdf558a5-7fd3-4a54-8e94-6309aaa0a399","image"]
+:HL["https://gist.github.com/assets/60120929/331469c3-534a-47d2-9e2b-2e66bd2d0ba9","image"]
+:HL["https://gist.github.com/assets/60120929/88a80a29-5ebe-42b6-b7e6-344a843b6429","image"]
+:HL["https://gist.github.com/assets/60120929/6c8b7a08-7d67-4d15-abdd-d4dd0abb44d2","image"]
+:HL["https://gist.github.com/assets/60120929/8840c2cf-9a51-43cd-9dc9-cf5f7762c55e","image"]
+:HL["https://gist.github.com/assets/60120929/aef2329f-d063-48cd-9cf8-5af271985e2b","image"]
+:HL["https://gist.github.com/assets/60120929/4a7334a5-9904-43a5-b941-f201de9bb707","image"]
+:HL["https://gist.github.com/assets/60120929/c16dcbb4-dd50-4eeb-8ac1-bde3e05bc9a8","image"]
+:HL["https://gist.github.com/assets/60120929/2f12ba25-2094-4657-9c9c-6a3943f369b8","image"]
+0:{"buildId":"QiRS6Sx9Ttvp1BSl4xu2I","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"writeups","paramType":null,"paramKey":"writeups","hasRuntimePrefetch":false,"slots":{"children":{"name":"id","paramType":"d","paramKey":"9b5dc250b9b0ddb51e05b9e690a82432","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"head":["$","$1","h",{"children":[null,["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isHeadPartial":false,"staleTime":300}
+3:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+6:[["$","title","0",{"children":"San Diego CTF 2024 — Chill Beats | kevin.fish"}],["$","meta","1",{"name":"description","content":"Why don’t we all just take a break from hacking and enjoy some music on my webpage? https://0xcafe.neocities.org/"}],["$","meta","2",{"property":"og:title","content":"San Diego CTF 2024 — Chill Beats"}],["$","meta","3",{"property":"og:description","content":"Why don’t we all just take a break from hacking and enjoy some music on my webpage? https://0xcafe.neocities.org/"}],["$","meta","4",{"name":"twitter:card","content":"summary"}],["$","meta","5",{"name":"twitter:title","content":"San Diego CTF 2024 — Chill Beats"}],["$","meta","6",{"name":"twitter:description","content":"Why don’t we all just take a break from hacking and enjoy some music on my webpage? https://0xcafe.neocities.org/"}]]

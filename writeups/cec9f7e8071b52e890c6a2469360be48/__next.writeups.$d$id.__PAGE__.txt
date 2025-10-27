@@ -1,0 +1,120 @@
+1:"$Sreact.fragment"
+2:I[10453,["/_next/static/chunks/b9afcb09c56609a6.js","/_next/static/chunks/59d5dd52dd9fcb16.js","/_next/static/chunks/0eb309e820c00a6d.js","/_next/static/chunks/239c8c4944a9f036.js","/_next/static/chunks/39b99946d2be6a43.js"],"default"]
+16:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"OutletBoundary"]
+17:"$Sreact.suspense"
+3:T459,    package com.tarek.myvault;
+
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import d.m;
+import i.c;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+
+public class MainActivity extends m {
+    public final void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView((int) R.layout.activity_main);
+        File file = new File(getCacheDir() + "/vault.enc");
+        if (!file.exists()) {
+            try {
+                InputStream open = getAssets().open("vault.enc");
+                byte[] bArr = new byte[open.available()];
+                open.read(bArr);
+                open.close();
+                FileOutputStream fileOutputStream = new FileOutputStream(file);
+                fileOutputStream.write(bArr);
+                fileOutputStream.close();
+                ((Button) findViewById(R.id.btnSubmit)).setOnClickListener(new c(this, (EditText) findViewById(R.id.editTextOTP), 2));
+            } catch (Exception e3) {
+                throw new RuntimeException(e3);
+            }
+        }
+    }
+}4:T435,kevin@ky28059:/mnt/c/users/kevin/Downloads$ xxd vault.enc
+00000000: 3797 080e c05e 8e05 90f0 9c57 bf4e d622  7....^.....W.N."
+00000010: 6c56 fd13 e3c9 52b3 21ec 1871 fb08 b3a2  lV....R.!..q....
+00000020: 23de 50c3 a027 4a15 0fd9 2251 0703 c3e2  #.P..'J..."Q....
+00000030: 37c6 7ce3 0414 2328 cb24 ca12 1520 6d1e  7.|...#(.$... m.
+00000040: ba4d 692a b1e3 cacb 847b a957 df74 9896  .Mi*.....{.W.t..
+00000050: 578c 67b8 b837 cf6c 4993 df21 3728 e001  W.g..7.lI..!7(..
+00000060: e357 9a89 b1a5 2624 57e9 d093 0242 c0e9  .W....&$W....B..
+00000070: dd42 4cb7 4c77 7c8f 1c93 17c4 184a 1cb9  .BL.Lw|......J..
+00000080: cb02 d559 b5db d990 6c73 7ae0 7e50 3b6b  ...Y....lsz.~P;k
+00000090: 7255 8c0b fe25 3c08 39e9 205a bb09 3531  rU...%<.9. Z..51
+000000a0: 00cc 6330 d44e f54c 4d8d 44f7 18c7 cdad  ..c0.N.LM.D.....
+000000b0: 370d 48ed 2635 7b00 e492 2354 474e e616  7.H.&5{...#TGN..
+000000c0: 35dc 780c 9e21 f756 0bcb 451e 7b64 cbd4  5.x..!.V..E.{d..
+000000d0: fe95 bab6 fda9 9c26 08b5 c17c dd85 c421  .......&...|...!
+000000e0: 0eaa 5e78 7512 8829 2331 8fd0 2be6 7401  ..^xu..)#1..+.t.0:{"buildId":"QiRS6Sx9Ttvp1BSl4xu2I","rsc":["$","$1","c",{"children":[["$","div",null,{"children":["$","main",null,{"className":"text-pretty max-w-5xl mx-auto text-sm [&_h1]:text-5xl [&_h1]:font-semibold [&_h1]:mb-8 [&_blockquote]:text-secondary [&_blockquote]:space-y-3 [&_blockquote]:border-l-4 [&_blockquote]:border-secondary [&_blockquote]:pl-5 [&_blockquote]:mb-5 [&>_p]:my-4 [&_img]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_img]:rounded [&_li]:my-2","children":[["$","h1","h1-0",{"children":"0xL4ugh CTF 2024 — MyVault"}],"\n",["$","blockquote","blockquote-0",{"children":["\n",["$","p","p-0",{"children":"Welcome to our secure vault !"}],"\n"]}],"\n",["$","p","p-0",{"children":"We're given an APK file that decompiles to, among other things,"}],"\n",["$","$L2","pre-0",{"className":"my-2","children":"$3","language":"java"}],"\n",["$","p","p-1",{"children":["The main activity reads bytes from the encoded ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"vault.enc"}]," file, then sets up a click listener via ",["$","code","code-1",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"new c()"}],"."]}],"\n",["$","$L2","pre-1",{"className":"my-2","children":"$4"}],"\n","$L5","\n","$L6","\n","$L7","\n","$L8","\n","$L9","\n","$La","\n","$Lb","\n","$Lc","\n","$Ld","\n","$Le","\n","$Lf"]}]}],["$L10","$L11","$L12","$L13"],"$L14"]}],"loading":null,"isPartial":false}
+5:["$","p","p-2",{"children":["Looking in ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"i.c"}],","]}]
+15:T7b5,    package i;
+
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.Window;
+import android.widget.EditText;
+import android.widget.Toast;
+import com.tarek.myvault.MainActivity;
+import h.a;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+
+public final class c implements View.OnClickListener {
+
+    // ...
+
+    public final void onClick(View view) {
+        // ...
+        switch (i3) {
+            // ...
+            default:
+                String obj3 = ((EditText) obj2).getText().toString();
+                MainActivity mainActivity = (MainActivity) obj;
+                mainActivity.getClass();
+                try {
+                    String sb = new StringBuilder(obj3).reverse().toString();
+                    File file = new File(mainActivity.getCacheDir(), "vault.txt");
+                    File file2 = new File(mainActivity.getCacheDir(), "vault.enc");
+                    SecretKeySpec secretKeySpec = new SecretKeySpec((obj3 + sb + obj3 + sb).getBytes(), "AES");
+                    Cipher instance = Cipher.getInstance("AES");
+                    instance.init(2, secretKeySpec);
+                    FileInputStream fileInputStream = new FileInputStream(file2);
+                    byte[] bArr = new byte[((int) file2.length())];
+                    fileInputStream.read(bArr);
+                    byte[] doFinal = instance.doFinal(bArr);
+                    FileOutputStream fileOutputStream = new FileOutputStream(file);
+                    fileOutputStream.write(doFinal);
+                    fileInputStream.close();
+                    fileOutputStream.close();
+                    str = "Congrats!";
+                } catch (Exception unused) {
+                    str = "Incorrect OTP";
+                }
+                Toast.makeText(mainActivity, str, 0).show();
+                return;
+        }
+    }
+
+    // ...
+}6:["$","$L2","pre-2",{"className":"my-2","children":"$15","language":"java"}]
+7:["$","p","p-3",{"children":"On click, the handler pulls a string from a text input, creating an AES key equal to"}]
+8:["$","$L2","pre-3",{"className":"my-2","children":"{string}{reversed string}{string}{reversed string}"}]
+9:["$","p","p-4",{"children":["and uses it to attempt to decrypt the vault. On success, it writes the result to ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"vault.txt"}],"."]}]
+a:["$","$L2","pre-4",{"className":"my-2","children":"String obj3 = ((EditText) obj2).getText().toString();\nString sb = new StringBuilder(obj3).reverse().toString();\n\n// ...\n\nSecretKeySpec secretKeySpec = new SecretKeySpec((obj3 + sb + obj3 + sb).getBytes(), \"AES\");\nCipher instance = Cipher.getInstance(\"AES\");\ninstance.init(2, secretKeySpec);\n\n// ...\n\nbyte[] doFinal = instance.doFinal(bArr);","language":"java"}]
+b:["$","p","p-5",{"children":"Because we know the key is the same string repeated (and reversed) 4 times, we only need to find the first fourth of the key to get the flag."}]
+c:["$","p","p-6",{"children":["Unfortunately, there doesn't appear to be any other path forward than sheer brute force. AES accepts keys of ",["$","a","a-0",{"href":"https://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#Cipher","children":"128, 192, and 256 bits"}]," — 16, 24, and 32 bytes, or 4, 6, and 8 bytes for us to guess. Assuming the smallest key size, here's a Kotlin script that brute forces just that:"]}]
+d:["$","$L2","pre-5",{"className":"my-2","children":"import java.io.File\nimport java.nio.ByteBuffer\nimport javax.crypto.Cipher\nimport javax.crypto.spec.SecretKeySpec\n\nfun main() {\n    val encBytes = File(\"./vault.enc\").readBytes()\n\n    for (i in 0u..UInt.MAX_VALUE) {\n        val bytes = i.toInt().toByteArray()\n\n        val key = bytes + bytes.reversed() + bytes + bytes.reversed()\n        if (i % 100000u == 0u) println(\"key (${key.size} bytes): ${key.toList()}\")\n\n        val spec = SecretKeySpec(key, \"AES\")\n        val cipher = Cipher.getInstance(\"AES\")\n        cipher.init(2, spec)\n\n        try {\n            val res = cipher.doFinal(encBytes).toString(Charsets.UTF_8)\n            if (res.contains(\"0xL4ugh\")) {\n                println(res)\n                break\n            }\n        } catch (e: Exception) {\n            // println(\"Decryption failed\")\n        }\n    }\n}\n\nfun Int.toByteArray(): ByteArray {\n    val buffer = ByteBuffer.allocate(Int.SIZE_BYTES)\n    buffer.putInt(this)\n    return buffer.array()\n}","language":"kt"}]
+e:["$","p","p-7",{"children":"After a few hours, we get the flag:"}]
+f:["$","$L2","pre-6",{"className":"my-2","children":"key (16 bytes): [55, 46, -106, 64, 64, -106, 46, 55, 55, 46, -106, 64, 64, -106, 46, 55]\nkey (16 bytes): [55, 48, 28, -32, -32, 28, 48, 55, 55, 48, 28, -32, -32, 28, 48, 55]\nkey (16 bytes): [55, 49, -93, -128, -128, -93, 49, 55, 55, 49, -93, -128, -128, -93, 49, 55]\nkey (16 bytes): [55, 51, 42, 32, 32, 42, 51, 55, 55, 51, 42, 32, 32, 42, 51, 55]\n{\n  \"vault\": [\n    {\n      \"id\": 0,\n      \"name\": \"Mohamed Tarek\",\n      \"content\": \"I hope You enjoyed with me!\"\n    },\n    {\n      \"id\": 1337,\n      \"name\": \"flag\",\n      \"content\": \"0xL4ugh{Y0u_Ar3_FoRceR_Like_A_H0uRc3}\"\n    }\n  ]\n}"}]
+10:["$","script","script-0",{"src":"/_next/static/chunks/59d5dd52dd9fcb16.js","async":true}]
+11:["$","script","script-1",{"src":"/_next/static/chunks/0eb309e820c00a6d.js","async":true}]
+12:["$","script","script-2",{"src":"/_next/static/chunks/239c8c4944a9f036.js","async":true}]
+13:["$","script","script-3",{"src":"/_next/static/chunks/39b99946d2be6a43.js","async":true}]
+14:["$","$L16",null,{"children":["$","$17",null,{"name":"Next.MetadataOutlet","children":"$@18"}]}]
+18:null

@@ -1,0 +1,206 @@
+1:"$Sreact.fragment"
+2:I[10453,["/_next/static/chunks/b9afcb09c56609a6.js","/_next/static/chunks/59d5dd52dd9fcb16.js","/_next/static/chunks/0eb309e820c00a6d.js","/_next/static/chunks/239c8c4944a9f036.js","/_next/static/chunks/39b99946d2be6a43.js"],"default"]
+21:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"OutletBoundary"]
+22:"$Sreact.suspense"
+3:T79e,#!/usr/local/bin/python3.11
+
+import regex  # le duh
+import os
+import tomllib
+from tabulate import tabulate
+from importlib import import_module
+from itertools import zip_longest as zp
+
+
+def check_regex(pattern, matches, nonmatches):
+    try:
+        re = regex.compile(pattern, flags=regex.V1)
+    except:
+        print("nope")
+        return False
+
+    for text in matches:
+        if not re.search(text):
+            print(f"whoops, didn't match on {text}")
+            return False
+
+    for text in nonmatches:
+        if re.search(text):
+            print(f"whoops, matched on {text}")
+            return False
+
+    return True
+
+
+def main():
+    for dir in sorted(os.listdir("challenges")):
+        tomlpath = os.sep.join(["challenges", dir, "info.toml"])
+        with open(tomlpath, "rb") as f:
+            info = tomllib.load(f)
+
+        matches = info["matches"]
+        nonmatches = info["nonmatches"]
+        length = info["length"]
+
+        print(info["description"])
+        print(
+            tabulate(
+                zp(matches, nonmatches),
+                [
+                    "Match on all of these:",
+                    "But none of these:    ",
+                ],
+                disable_numparse=True,
+                tablefmt="simple",
+            )
+        )
+        print(f"\nMaximum allowable length is {length}\n")
+
+        # include some test cases that may be inconvenient to display
+        # only some challenges have extra tests
+        # fear not, the intended pattern will remain the same
+        ext = import_module(f"challenges.{dir}.extensions")
+        matches.extend(ext.more_matches())
+        nonmatches.extend(ext.more_nonmatches())
+
+        pattern = input("> ")
+        if len(pattern) > length:
+            print(f"whoops, too long")
+            return
+
+        if not check_regex(pattern, matches, nonmatches):
+            return
+
+    print(open("flag.txt").read())
+
+
+if __name__ == "__main__":
+    main()0:{"buildId":"QiRS6Sx9Ttvp1BSl4xu2I","rsc":["$","$1","c",{"children":[["$","div",null,{"children":["$","main",null,{"className":"text-pretty max-w-5xl mx-auto text-sm [&_h1]:text-5xl [&_h1]:font-semibold [&_h1]:mb-8 [&_blockquote]:text-secondary [&_blockquote]:space-y-3 [&_blockquote]:border-l-4 [&_blockquote]:border-secondary [&_blockquote]:pl-5 [&_blockquote]:mb-5 [&>_p]:my-4 [&_img]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_img]:rounded [&_li]:my-2","children":[["$","h1","h1-0",{"children":"TJCTF 2024 — golf-hard"}],"\n",["$","blockquote","blockquote-0",{"children":["\n",["$","p","p-0",{"children":"regex below par? note that this challenge has five levels."}],"\n",["$","p","p-1",{"children":["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"nc tjc.tf 31627"}]}],"\n"]}],"\n",["$","p","p-0",{"children":"We're given a Regex \"quiz\" with 5 levels. After passing all 5, we get the flag."}],"\n",["$","$L2","pre-0",{"className":"my-2","children":"$3","language":"py"}],"\n",["$","p","p-1",{"children":["Since the server compiles regex using ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"regex"}]," instead of ",["$","code","code-1",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"re"}],", we can use fancier regular expression extensions like ",["$","a","a-0",{"href":"https://pypi.org/project/regex/#recursive-patterns-hg-issue-27","children":"recursion"}],"."]}],"\n","$L4","\n","$L5","\n","$L6","\n","$L7","\n","$L8","\n","$L9","\n","$La","\n","$Lb","\n","$Lc","\n","$Ld","\n","$Le","\n","$Lf","\n","$L10","\n","$L11","\n","$L12","\n","$L13","\n","$L14","\n","$L15","\n","$L16","\n","$L17","\n","$L18"]}]}],["$L19","$L1a","$L1b","$L1c"],"$L1d"]}],"loading":null,"isPartial":false}
+4:["$","div","h3-0",{"className":"relative","children":[["$","span",null,{"id":"warmup","className":"absolute -top-16"}],["$","a",null,{"className":"group flex gap-2 items-center text-inherit hover:underline decoration-1 underline-offset-4 decoration-secondary decoration-dotted text-3xl font-bold mt-10 mb-4 ","href":"#warmup","children":[["$","h2",null,{"children":"Warmup"}],["$","svg",null,{"stroke":"currentColor","fill":"none","strokeWidth":"2","viewBox":"0 0 24 24","strokeLinecap":"round","strokeLinejoin":"round","className":"hidden group-hover:block text-xl absolute pt-0.5 -left-7 stroke-[1.5px] text-secondary","children":["$undefined",[["$","path","0",{"d":"M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71","children":[]}],["$","path","1",{"d":"M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71","children":[]}]]],"style":{},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}]]}]]}]
+5:["$","p","p-2",{"children":["We just want to match all words starting with ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"a"}],". This is pretty simple; just use ",["$","code","code-1",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"^"}]," to force the match to start at the start of the string, then look for the first ",["$","code","code-2",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"a"}],":"]}]
+6:["$","$L2","pre-1",{"className":"my-2","children":"^a"}]
+7:["$","$L2","pre-2",{"className":"my-2","children":"1. \"Warmup\"\n    This one's pretty straightforward.\n\nMatch on all of these:    But none of these:\n------------------------  ------------------------\nampasimenite              jasmone\nanchorable                decisivenesses\naconic                    backoff\nantistrophic              whitebark\nabrade                    physogastrism\narroya                    shavee\napoplex                   hanoverian\nayahs                     weatherstripped\narock                     naturalize\nanconoid                  lophotrichous\nanglophile                nonprecedential\nacalephan                 tjctf\namaze                     shepherdia\nadelphe                   waymark\nanno                      picnicker\namiable                   bottleholder\naliquid                   porule\nachromatin                diagraming\naircheck                  solifuge\nantigenically             phrenetically\n\nMaximum allowable length is 2\n\n> ^a"}]
+8:["$","div","h3-1",{"className":"relative","children":[["$","span",null,{"id":"subtraction","className":"absolute -top-16"}],["$","a",null,{"className":"group flex gap-2 items-center text-inherit hover:underline decoration-1 underline-offset-4 decoration-secondary decoration-dotted text-3xl font-bold mt-10 mb-4 ","href":"#subtraction","children":[["$","h2",null,{"children":"Subtraction"}],["$","svg",null,{"stroke":"currentColor","fill":"none","strokeWidth":"2","viewBox":"0 0 24 24","strokeLinecap":"round","strokeLinejoin":"round","className":"hidden group-hover:block text-xl absolute pt-0.5 -left-7 stroke-[1.5px] text-secondary","children":["$undefined",[["$","path","0",{"d":"M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71","children":[]}],["$","path","1",{"d":"M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71","children":[]}]]],"style":{},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}]]}]]}]
+9:["$","p","p-3",{"children":["The first regex relying on PCRE-style group-insertion shenanigans. We can take some inspiration from ",["$","a","a-0",{"href":"https://stackoverflow.com/questions/66813185/regex-to-validate-subtract-equations-like-abc-b-ac","children":"this StackOverflow"}],": essentially, we can split the first string of ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"x"}],"'s into two captured groups, with the second string of ",["$","code","code-1",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"x"}],"s being the first group and the resulting sum being the second."]}]
+a:["$","$L2","pre-3",{"className":"my-2","children":"^(.*)(.*)-\\1=\\2$"}]
+1e:T7bd,2. "Subtraction"
+    Think addition, but not.
+
+Match on all of these:                    But none of these:
+----------------------------------------  -------------------------------------------
+xxxxxxxxxxxxx-xxx=xxxxxxxxxx              xxx-xxxx=xxxxxxxxxx
+xxxxxxx-x=xxxxxx                          xxxxxxxxxxxx-xxxxxxxxx=xx
+xxxxxxxxxxxxxxxx-xxxxxxxxxxxxx=xxx        xxxx-xxxxxxxxxxxxx=
+x-x=                                      xxxxxxxxxxxxxxx-xxxxxxx=xxxxxxx
+xxxx-xxxx=                                xxxxxxxxxxx-xxxxxxx=xxxxxxxxxxxxxx
+xx-=xx                                    xxxxxxxxxxxxxx-xxx=xxxxxxxxxxxx
+xxxxxxxxxxx-xxxxx=xxxxxx                  xxxx-xxxx=xxxxxxxxxxxxxxxxxx
+xxxxxxxxxx-xxxxx=xxxxx                    xxxxxxxxxxxxxxx-xxx=xxxxxxxxxxx
+-=                                        xxxxxxxxxxxxx-xxxxxxx=
+xxxxxxxxxxxxxxxxx-xxxxxxxxxxx=xxxxxx      xxxxxxx-xxxxxxxx=xxxxxxxxxxx
+xxxxxxxxxxxxx-xxxxxxxxxxxxx=              x-xxxxxxxxxxxxxxxxxxxx=
+xxxxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx=xxx    xxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx=xxxxxxxxxx
+xxxxxxxxxxx-xxxxxxxxxxx=                  xxxxx-xxxxxxxxxx=xx
+xxxxxxxxxxxxxxxxx-xxxxx=xxxxxxxxxxxx      xxxxxxxxxxx-xxxxxxxxxxxxxx=xxxxxx
+xxxxxxxxx-xx=xxxxxxx                      xxxxxxxxxxxxx-=xxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxx-xxxxxxxxxxxx=xxxxxx    xxxxxxxx-xxxxxxxxxx=xxxxxxxxxxxxxxxxx
+x-=x                                      xxxxxxx-xxxxxxx=xxxxxxxxxxxxxx
+xxxxxxxx-xxxxx=xxx                        -xxxxxxxxxxxxxxxxxxxx=
+xxxxxxxxxx-xxxxxx=xxxx                    xxxxxxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxxx=x
+xxxxxxxxxxxxxx-xxxxxx=xxxxxxxx            xxxxxxxx-xxxxxxxx=xxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxx-xxxxxxxxxxxxx=xxxxx    xxxxxx-xxxxxxxxxxxxxxxxxxx=xxxxxxxx
+xxxxxxxxxxxxxxx-xxxx=xxxxxxxxxxx          xx-xxxxxxxxxxxxxxx=xx
+xxxxxxxxxxxxxxxx-xxxxxxx=xxxxxxxxx        xxxxxxxx-xxxxxxxxxxxxxxxxxxxx=xxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxx-x=xxxxxxxxxxxxxxxxxx  xxxxxxxxx-xx=xxxxxxxxxxxxxxxxx
+
+Maximum allowable length is 16
+
+> ^(.*)(.*)-\1=\2$b:["$","$L2","pre-4",{"className":"my-2","children":"$1e"}]
+c:["$","div","h3-2",{"className":"relative","children":[["$","span",null,{"id":"parity","className":"absolute -top-16"}],["$","a",null,{"className":"group flex gap-2 items-center text-inherit hover:underline decoration-1 underline-offset-4 decoration-secondary decoration-dotted text-3xl font-bold mt-10 mb-4 ","href":"#parity","children":[["$","h2",null,{"children":"Parity"}],["$","svg",null,{"stroke":"currentColor","fill":"none","strokeWidth":"2","viewBox":"0 0 24 24","strokeLinecap":"round","strokeLinejoin":"round","className":"hidden group-hover:block text-xl absolute pt-0.5 -left-7 stroke-[1.5px] text-secondary","children":["$undefined",[["$","path","0",{"d":"M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71","children":[]}],["$","path","1",{"d":"M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71","children":[]}]]],"style":{},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}]]}]]}]
+d:["$","p","p-4",{"children":["The first regex relying on PCRE recursion shenanigans. We can again take inspiration from ",["$","a","a-0",{"href":"https://stackoverflow.com/questions/546433/regular-expression-to-match-balanced-parentheses","children":"a StackOverflow post"}]," for this: ignoring the .NET solution using balancing groups, we can edit the recursive solution to use angled brackets and ignore text between brackets to trim down its length."]}]
+e:["$","$L2","pre-5",{"className":"my-2","children":"^(<(?1)*>)+$"}]
+1f:T8e9,3. "Parity"
+    This one's supposed to be impossible in the general case.
+    The tests will enforce a solution for the general case.
+
+Match on all of these:                            But none of these:
+------------------------------------------------  ------------------------------------------------
+<>                                                <
+<<>>                                              >
+<><>                                              <>>
+<<><>>                                            >><>>
+<<<<>>>>                                          <><><<
+<<<>>><>                                          <<>>><>
+<<><><<>>>                                        <<>>>>><
+<><<<><>>>                                        >><>>>><<
+<<<><><>>>                                        <>><<>><><<<<>>><<
+<<<<<>>><>>>                                      <<>>>>><>><<>><<><<
+<<<<<<>>>>>>                                      >>>>><><><><<<>>><>>
+<<<<<<<>>>>>>>                                    ><><<<><><>>>>>><<><<
+<<<>><><<<>>>>                                    <<<<<><<<><>><>>><>>>><>>>
+<<<<<<<<<<>>>>>>>>>>                              >>>><>>><><><<<<<>>><>><<><>>><><<>
+<<<<<<<<<<>>>>>>>>>><>                            <>><><>><>><<><>><>>><><>>><><>><><>><
+<><<<>><<>>><<<<>><>>>                            <<<><>>>>><<><<><><<<<>>><<<>>>>>>><>>>
+<<><><><<<<<><<>>>>>><>>                          ><<>><<<<><><<<><>><<>><<><>>><>>>>>><<>
+<<<<><>>><><><>><><><><>                          >>><<<<<<<<<<>>>><<<><<><>><<<><><><<<<>>
+<<>><<>><<>><<<<<<<>>>>><>>>                      <<><>><<>><>>>>><>><><<><>>><<<<<><>><<<<><>
+<<<<<<>>>>>><<<<<<<>>><>>>>>                      <>><<<><<><<<<<>>><><<<<<<<><><<>><><><<>>>>
+<<<<>><><>>><<><<>><<<<>>><>>>                    ><><<<>>><<><<><>>><<<<>><>><><<>>><><<><<<<
+<<<><<>><<<>><<<>>><>>>><<<>><>>                  ><><<<<><<<<<>><<><<><>>>><><<><><><>><<<><><
+<><<><><><<<>>><<<>><>>><<<<><>>>>                >>><<>>><><<<<><><><<<<>>>><<<>>><>><<<<<<<<<>
+<<<<<<>>><>><><><>><>><<<>><><<<>>>>              <>><><>>><<>>><>>><>>><<<<>>>><>>><<<<<>><>><>><
+<<<>><><>><><<><><<<>>>><<<>>><<<><<>>>><><<<>>>  <>>>><<<><>><<><<<><<<><>>>>>><>>><>>>>><<<><<<>
+
+Maximum allowable length is 12
+
+> ^(<(?1)*>)+$f:["$","$L2","pre-6",{"className":"my-2","children":"$1f"}]
+10:["$","div","h3-3",{"className":"relative","children":[["$","span",null,{"id":"topsy-turvy","className":"absolute -top-16"}],["$","a",null,{"className":"group flex gap-2 items-center text-inherit hover:underline decoration-1 underline-offset-4 decoration-secondary decoration-dotted text-3xl font-bold mt-10 mb-4 ","href":"#topsy-turvy","children":[["$","h2",null,{"children":"Topsy Turvy"}],["$","svg",null,{"stroke":"currentColor","fill":"none","strokeWidth":"2","viewBox":"0 0 24 24","strokeLinecap":"round","strokeLinejoin":"round","className":"hidden group-hover:block text-xl absolute pt-0.5 -left-7 stroke-[1.5px] text-secondary","children":["$undefined",[["$","path","0",{"d":"M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71","children":[]}],["$","path","1",{"d":"M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71","children":[]}]]],"style":{},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}]]}]]}]
+11:["$","p","p-5",{"children":["Another recursive regex, this time finding palindromes. Because this is a well known / solved problem, we can just use the solution from ",["$","a","a-0",{"href":"https://stackoverflow.com/a/233326","children":"this StackOverflow answer"}]," to pass."]}]
+12:["$","$L2","pre-7",{"className":"my-2","children":"^((.)(?1)\\2|.?)$"}]
+13:["$","$L2","pre-8",{"className":"my-2","children":"4. \"Topsy Turvy\"\n    This one's another famously impossible regex challenge.\n    Have fun solving it!\n\nMatch on all of these:     But none of these:\n-------------------------  ------------------------\ni                          cashew\ndad                        hamleteer\nabba                       electromagnetic\nkayak                      zimbabwe\nrefer                      xerox\ncivic                      epiphanizing\npullup                     detected\nracecar                    tahinis\nrotator                    foolproof\ndetartrated                sailboat\nwassamassaw                racecars\ntattarrattat               redeemer\nsatireveritas              woodrow\ndogeeseseegod              bathtub\nneveroddoreven             butterfly\nmadaminedenimadam          scarabs\nanutforajaroftuna          alabama\nwasitacaroracatisaw        yamaha\namanaplanacanalpanama      engage\nsatorarepotenetoperarotas  nonattributiveness\n\nMaximum allowable length is 18\n\n> ^((.)(?1)\\2|.?)$"}]
+14:["$","div","h3-4",{"className":"relative","children":[["$","span",null,{"id":"multiplication","className":"absolute -top-16"}],["$","a",null,{"className":"group flex gap-2 items-center text-inherit hover:underline decoration-1 underline-offset-4 decoration-secondary decoration-dotted text-3xl font-bold mt-10 mb-4 ","href":"#multiplication","children":[["$","h2",null,{"children":"Multiplication"}],["$","svg",null,{"stroke":"currentColor","fill":"none","strokeWidth":"2","viewBox":"0 0 24 24","strokeLinecap":"round","strokeLinejoin":"round","className":"hidden group-hover:block text-xl absolute pt-0.5 -left-7 stroke-[1.5px] text-secondary","children":["$undefined",[["$","path","0",{"d":"M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71","children":[]}],["$","path","1",{"d":"M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71","children":[]}]]],"style":{},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}]]}]]}]
+15:["$","p","p-6",{"children":"Since this isn't exactly a \"well known regex problem\", we'll have to cook up a solution ourselves. We can leverage PCRE capture groups and recursion to capture the first operand, then \"paste\" it on the right of the equals for each character in the second. After a bit of fanagling, we can come up with"}]
+16:["$","$L2","pre-9",{"className":"my-2","children":"^(x*)\\*(x(?2)\\1|=)$"}]
+17:["$","p","p-7",{"children":"and get the flag:"}]
+20:T801,5. "Multiplication"
+    Seems self-explanatory.
+
+Match on all of these:                       But none of these:
+-------------------------------------------  ------------------------------------------
+xxx*xxxxx=xxxxxxxxxxxxxxx                    x*x=xx
+xxxxx*xxxx=xxxxxxxxxxxxxxxxxxxx              xxxxxxxx*xxxx=xxxxxxxx
+xxxxx*xxx=xxxxxxxxxxxxxxx                    x*xxxxxxxx=xxxxxxx
+xx*xx=xxxx                                   xxxxxxx*xxxxx=xxxxxxxxx
+xx*xxxx=xxxxxxxx                             xxxxxxxx*xxx=xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxx*xxxxxx=xxxxxxxxxxxxxxxxxx                xxxxx*xxxxx=xxxxxxxxxxxxxx
+xxx*xxxxx=xxxxxxxxxxxxxxx                    xxx*xxxxxx=xxxx
+xx*xxxxx=xxxxxxxxxx                          xx*xxxx=xxxxxxxxxx
+xx*xxx=xxxxxx                                xxxx*xxxxx=xx
+xxxxx*xxxxxx=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  xxx*xxx=xxx
+x*xx=xx                                      xxxx*xxxxxxxx=xxxxxxxxxxxxxxxxxxxx
+xxxxxx*xxxx=xxxxxxxxxxxxxxxxxxxxxxxx         *x=x
+x*x=x                                        xxxxxx*xxxxxxx=xxxxxxxxxxxxxxxxxxxxxxxxx
+xxx*xxx=xxxxxxxxx                            xx*xxxxxx=xxxxxxxxx
+xxxx*xxxxxx=xxxxxxxxxxxxxxxxxxxxxxxx         xxxxxxxx*xxxxxx=xxxxxxxxxxxxxxxxxxxxxx
+xxxx*xx=xxxxxxxx                             xxxx*xxxxxxx=xxxxxxxxxxxxxxxxxxxxxxxxxx
+*x=                                          xxxxxxxx*xx=xxxxxxxxxxxxxxx
+xxxxx*xxxxxx=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  x*xxxxxxx=x
+xxx*xx=xxxxxx                                xx*x=x
+xxxx*xxxxxx=xxxxxxxxxxxxxxxxxxxxxxxx         xx*xxxxx=xxxxxx
+
+Maximum allowable length is 20
+
+> ^(x*)\*(x(?2)\1|=)$
+
+
+From the moment I understood the weakness of my code, it disgusted me. I craved the strength and certainty of ascii. I aspired to the purity of the Blessed Regex.
+
+Your kind cling to your code, as if it will not have bugs and fail you. One day the crude boilerplate you call a script will wither, and you will beg my kind to save you. But I am already saved, for the Regex is immortal...
+
+tjctf{even_in_death_I_serve_the_PCRE_Standard_3ceb7afc}18:["$","$L2","pre-10",{"className":"my-2","children":"$20"}]
+19:["$","script","script-0",{"src":"/_next/static/chunks/59d5dd52dd9fcb16.js","async":true}]
+1a:["$","script","script-1",{"src":"/_next/static/chunks/0eb309e820c00a6d.js","async":true}]
+1b:["$","script","script-2",{"src":"/_next/static/chunks/239c8c4944a9f036.js","async":true}]
+1c:["$","script","script-3",{"src":"/_next/static/chunks/39b99946d2be6a43.js","async":true}]
+1d:["$","$L21",null,{"children":["$","$22",null,{"name":"Next.MetadataOutlet","children":"$@23"}]}]
+23:null

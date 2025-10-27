@@ -1,0 +1,91 @@
+1:"$Sreact.fragment"
+2:I[10453,["/_next/static/chunks/b9afcb09c56609a6.js","/_next/static/chunks/59d5dd52dd9fcb16.js","/_next/static/chunks/0eb309e820c00a6d.js","/_next/static/chunks/239c8c4944a9f036.js","/_next/static/chunks/39b99946d2be6a43.js"],"default"]
+1b:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"OutletBoundary"]
+1c:"$Sreact.suspense"
+:HL["https://gist.github.com/assets/60120929/498dea08-696d-4f31-ad8c-387738aec7f4","image"]
+:HL["https://gist.github.com/assets/60120929/822f3710-b8c1-4986-900f-14902caca46b","image"]
+:HL["https://gist.github.com/assets/60120929/e4abd511-7cbc-4ed3-ada8-e7b529276d2e","image"]
+:HL["https://gist.github.com/assets/60120929/43a907d7-a646-41df-8261-37797dd67963","image"]
+:HL["https://gist.github.com/assets/60120929/3476550b-1706-404f-b3f4-a22c015c7ae4","image"]
+:HL["https://gist.github.com/assets/60120929/94c2c5a6-439d-46ad-9ab3-9397945cac53","image"]
+:HL["https://gist.github.com/assets/60120929/e3ca9bf1-50e2-4746-8e01-7c5e1af23d35","image"]
+:HL["https://gist.github.com/assets/60120929/49b0a335-2e33-47ac-aad2-b7a529afa24d","image"]
+:HL["https://gist.github.com/assets/60120929/8d0bbb81-fdb4-4863-9e90-7e7d52603301","image"]
+:HL["https://gist.github.com/assets/60120929/1520c457-59a6-4215-95de-5965778692a0","image"]
+:HL["https://gist.github.com/assets/60120929/67a294ce-2880-41e7-a270-30c04085bd70","image"]
+:HL["https://gist.github.com/assets/60120929/2104ef6f-6b84-468a-8f47-7c87a0cdba2b","image"]
+3:T489,import cv2
+import numpy as np
+
+import matplotlib
+import matplotlib.pyplot as plt
+
+matplotlib.use('tkagg')
+
+use_cv2_hist = False
+
+
+def make_histogram(img: np.ndarray, title: str, n: int, lim: int = 256):
+    dims = len(img.shape)
+    channel = n - 1 if dims == 3 else 0
+
+    if n != -1:
+        plt.subplot(3, 1, n)
+
+    if use_cv2_hist:
+        plt.plot(cv2.calcHist([img], [channel], None, [lim], [0, lim]))
+    else:
+        data = img[:, :, channel].ravel() if dims == 3 else img.ravel()
+        plt.hist(data, bins=256, range=(0, 255))
+
+    plt.ylabel('Occurrences')
+    plt.xlim([0, lim])
+    plt.title(title)
+
+
+def show_img(img: np.ndarray):
+    make_histogram(img, "Reds", 1)
+    make_histogram(img, "Greens", 2)
+    make_histogram(img, "Blues", 3)
+    plt.show()
+
+    img2 = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
+
+    make_histogram(img2, "Hues", 1, lim=180)
+    make_histogram(img2, "Saturations", 2)
+    make_histogram(img2, "Values", 3)
+    plt.show()
+
+    img3 = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+
+    make_histogram(img3, "Intensities", -1)
+    plt.show()
+
+
+img = cv2.imread('invite.bmp')
+img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+show_img(img)0:{"buildId":"QiRS6Sx9Ttvp1BSl4xu2I","rsc":["$","$1","c",{"children":[["$","div",null,{"children":["$","main",null,{"className":"text-pretty max-w-5xl mx-auto text-sm [&_h1]:text-5xl [&_h1]:font-semibold [&_h1]:mb-8 [&_blockquote]:text-secondary [&_blockquote]:space-y-3 [&_blockquote]:border-l-4 [&_blockquote]:border-secondary [&_blockquote]:pl-5 [&_blockquote]:mb-5 [&>_p]:my-4 [&_img]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_img]:rounded [&_li]:my-2","children":[["$","h1","h1-0",{"children":"iCTF 2023 — IslandParty"}],"\n",["$","blockquote","blockquote-0",{"children":["\n",["$","p","p-0",{"children":"You open your mailbox and find a strange postcard (invite.bmp). Flipping it around, you squint your eyes and try to decipher the wobbly handwriting:"}],"\n",["$","p","p-1",{"children":"..."}],"\n",["$","p","p-2",{"children":"MYSTERIOUS INVITE: 'Generative AI is all the rage this days, so I couldn't pass up the opportunity to use it for this year's invite. Have you heard models like Google's Imagen will include a hidden watermark on AI generated images? I might not have algorithms quite as fancy as Google's, but I've also encoded a little something into this invite--the address! Decode it, and you'll be more than welcome to attend.'"}],"\n",["$","p","p-3",{"children":"..."}],"\n",["$","p","p-4",{"children":"MYSTERIOUS INVITE: 'One last piece of advice. All great thing come in three. Three sides to a triangle, three wise monkeys, three lights in a stoplight. Let the number three guide you, and you shall find my island.'"}],"\n"]}],"\n",["$","p","p-0",{"children":"We're given the following image, within which is encoded data about the flag:"}],"\n",["$","p","p-1",{"align":"center","children":["\n  ",["$","img","img-0",{"src":"https://gist.github.com/assets/60120929/498dea08-696d-4f31-ad8c-387738aec7f4","width":"600px"}],"\n"]}],"\n",["$","h6","h6-0",{"children":["(the above image has been converted from a ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":".bmp"}]," to a ",["$","code","code-1",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":".jpg"}]," for GitHub, and likely won't work with the rest of this writeup)"]}],"\n",["$","p","p-2",{"children":"Examining the histograms for this image yield some interesting results:"}],"\n",["$","$L2","pre-0",{"className":"my-2","children":"$3","language":"py"}],"\n","$L4","\n","$L5","\n","$L6","\n","$L7","\n","$L8","\n","$L9","\n","$La","\n","$Lb","\n","$Lc","\n","$Ld","\n","$Le","\n","$Lf","\n","$L10","\n","$L11","\n","$L12","\n","$L13","\n","$L14","\n","$L15"]}]}],["$L16","$L17","$L18","$L19"],"$L1a"]}],"loading":null,"isPartial":false}
+4:["$","p","p-3",{"children":[["$","img","img-0",{"src":"https://gist.github.com/assets/60120929/822f3710-b8c1-4986-900f-14902caca46b","alt":"Figure_d3"}],"\n",["$","img","img-1",{"src":"https://gist.github.com/assets/60120929/e4abd511-7cbc-4ed3-ada8-e7b529276d2e","alt":"Figure_d2"}]]}]
+5:["$","p","p-4",{"children":["A clue is that the invite image features the ",["$","a","a-0",{"href":"https://en.m.wikipedia.org/wiki/File:DALL-E_2_Signature.svg","children":"DALL-E 2 signature"}],", telling us what\nit was generated with. Going to the ",["$","a","a-1",{"href":"https://labs.openai.com/","children":"DALL-E 2 website"}]," (you'll need to sign in) and scrolling down the list of examples,\nwe find the original \"otter with pearl earring\" image:"]}]
+6:["$","img","img-0",{"width":1248,"alt":"image (11)","src":"https://gist.github.com/assets/60120929/43a907d7-a646-41df-8261-37797dd67963"}]
+7:["$","p","p-5",{"align":"center","children":["\n  ",["$","img","img-0",{"src":"https://gist.github.com/assets/60120929/3476550b-1706-404f-b3f4-a22c015c7ae4","width":"600px"}],"\n"]}]
+8:["$","h6","h6-1",{"children":["(the above image has been converted from a ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":".webp"}]," to a ",["$","code","code-1",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":".jpg"}]," for GitHub, and might not work with the rest of this writeup)"]}]
+9:["$","p","p-6",{"children":"Now that we have the original, we can compare its histograms to those of our invite; notice how the semi-periodic dips in RGB are gone."}]
+a:["$","p","p-7",{"children":["$","img","img-0",{"src":"https://gist.github.com/assets/60120929/94c2c5a6-439d-46ad-9ab3-9397945cac53","alt":"Figure_g"}]}]
+b:["$","p","p-8",{"children":"This hints that we should taking the diff between the two images. Doing so yields this vibrant mess:"}]
+c:["$","$L2","pre-1",{"className":"my-2","children":"img = cv2.imread('original.webp')\n# img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)\n# show_img(img)\n\nimg2 = cv2.imread('invite.bmp')\n# img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2RGB)\n# show_img(img2)\n\ndiff = img2 - img\ncv2.imwrite('invite_diff.jpg', diff)\n# show_img(diff)","language":"py"}]
+d:["$","p","p-9",{"children":["$","img","img-0",{"src":"https://gist.github.com/assets/60120929/e3ca9bf1-50e2-4746-8e01-7c5e1af23d35","alt":"invite_diff"}]}]
+e:["$","h6","h6-2",{"children":"(can you make out some digits already? :eyes:)"}]
+f:["$","p","p-10",{"children":"The challenge description mentioned groups of 3, which might just be related to the 3 channels of a color image.\nSplitting this diff into its R, G, and B channels gives"}]
+10:["$","p","p-11",{"align":"center","children":["\n  ",["$","img","img-0",{"src":"https://gist.github.com/assets/60120929/49b0a335-2e33-47ac-aad2-b7a529afa24d","width":"290px"}]," ",["$","img","img-1",{"src":"https://gist.github.com/assets/60120929/8d0bbb81-fdb4-4863-9e90-7e7d52603301","width":"290px"}]," ",["$","img","img-2",{"src":"https://gist.github.com/assets/60120929/1520c457-59a6-4215-95de-5965778692a0","width":"290px"}],"\n"]}]
+11:["$","p","p-12",{"children":"and summing these channels with overflow results in the following:"}]
+12:["$","p","p-13",{"children":["$","img","img-0",{"src":"https://gist.github.com/assets/60120929/67a294ce-2880-41e7-a270-30c04085bd70","alt":"invite_diff_combined"}]}]
+13:["$","p","p-14",{"children":"From here, the encoded pattern becomes slightly more discernable. You can make use of the fact that the pattern seems to repeat every\n2 rows and columns to disambiguate noisy characters. Inspecting this pattern carefully gives the coordinates of the island:"}]
+14:["$","$L2","pre-2",{"className":"my-2","children":"22.441N\n74.220W"}]
+15:["$","img","img-1",{"width":1083,"alt":"image","src":"https://gist.github.com/assets/60120929/2104ef6f-6b84-468a-8f47-7c87a0cdba2b"}]
+16:["$","script","script-0",{"src":"/_next/static/chunks/59d5dd52dd9fcb16.js","async":true}]
+17:["$","script","script-1",{"src":"/_next/static/chunks/0eb309e820c00a6d.js","async":true}]
+18:["$","script","script-2",{"src":"/_next/static/chunks/239c8c4944a9f036.js","async":true}]
+19:["$","script","script-3",{"src":"/_next/static/chunks/39b99946d2be6a43.js","async":true}]
+1a:["$","$L1b",null,{"children":["$","$1c",null,{"name":"Next.MetadataOutlet","children":"$@1d"}]}]
+1d:null

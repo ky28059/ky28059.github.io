@@ -1,0 +1,15 @@
+1:"$Sreact.fragment"
+2:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"ViewportBoundary"]
+4:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"MetadataBoundary"]
+5:"$Sreact.suspense"
+:HL["/_next/static/chunks/3c1b2f4e7e90f1ff.css","style"]
+:HL["/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["https://gist.github.com/assets/60120929/6a9bf2cd-d535-433a-97ff-8e06dc0ef929","image"]
+:HL["https://gist.github.com/assets/60120929/d5c4010e-1a33-4414-80cf-d81e9a9145af","image"]
+:HL["https://gist.github.com/assets/60120929/8cfc9bb1-cc7e-44a6-9aad-3b263591119e","image"]
+:HL["https://gist.github.com/assets/60120929/3f7391b9-15c4-4f22-bcae-80c6b0a68bcc","image"]
+:HL["https://gist.github.com/assets/60120929/b492965d-82e0-41a2-a108-e5d99c889d3f","image"]
+:HL["https://gist.github.com/assets/60120929/aa076026-6077-4b5f-94f1-b2cb50ac9a96","image"]
+0:{"buildId":"QiRS6Sx9Ttvp1BSl4xu2I","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"writeups","paramType":null,"paramKey":"writeups","hasRuntimePrefetch":false,"slots":{"children":{"name":"id","paramType":"d","paramKey":"11ade1fe6eaaf1a864f60291a6ca3764","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"head":["$","$1","h",{"children":[null,["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isHeadPartial":false,"staleTime":300}
+3:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+6:[["$","title","0",{"children":"UIUCTF 2024 — The Weakest Link | kevin.fish"}],["$","meta","1",{"name":"description","content":"LISA and the secret business partner have a secret Spotify collaboration planned together. Unfortunately, neither of them have the opsec to keep it private. See if you can figure out what it is!"}],["$","meta","2",{"property":"og:title","content":"UIUCTF 2024 — The Weakest Link"}],["$","meta","3",{"property":"og:description","content":"LISA and the secret business partner have a secret Spotify collaboration planned together. Unfortunately, neither of them have the opsec to keep it private. See if you can figure out what it is!"}],["$","meta","4",{"name":"twitter:card","content":"summary"}],["$","meta","5",{"name":"twitter:title","content":"UIUCTF 2024 — The Weakest Link"}],["$","meta","6",{"name":"twitter:description","content":"LISA and the secret business partner have a secret Spotify collaboration planned together. Unfortunately, neither of them have the opsec to keep it private. See if you can figure out what it is!"}]]

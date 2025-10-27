@@ -1,0 +1,187 @@
+1:"$Sreact.fragment"
+2:I[10453,["/_next/static/chunks/b9afcb09c56609a6.js","/_next/static/chunks/59d5dd52dd9fcb16.js","/_next/static/chunks/0eb309e820c00a6d.js","/_next/static/chunks/239c8c4944a9f036.js","/_next/static/chunks/39b99946d2be6a43.js"],"default"]
+10:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"OutletBoundary"]
+11:"$Sreact.suspense"
+3:Tfd7,from basement_of_rin import NanakuraRin, flag, generate_graph
+
+import time
+from random import Random
+
+def Server(m):
+	print("Server> " + m)
+
+def Rin(m):
+	print("Rin> " + m)
+
+def check_subset(_subset, set):
+	subset = sorted(_subset)
+	assert len(subset) != 0
+	for i in range(len(subset) - 1):
+		subset[i] < subset[i + 1]
+	for x in subset:
+		assert x in set
+
+class disjoint_set:
+	def __init__(self, n):
+		self.n = n
+		self.p = [-1] * self.n
+	def root(self, u):
+		if self.p[u] < 0:
+			return u
+		self.p[u] = self.root(self.p[u])
+		return self.p[u]
+	def share(self, u, v):
+		return self.root(u) == self.root(v)
+	def merge(self, u, v):
+		u, v = self.root(u), self.root(v)
+		if u == v:
+			return False
+		if self.p[u] > self.p[v]:
+			u, v = v, u
+		self.p[u] += self.p[v]
+		self.p[v] = u
+		return True
+	def clear(self):
+		self.p = [-1] * self.n
+
+def check_tree(subset, V, edges):
+	assert len(subset) == V - 1
+	ds = disjoint_set(V)
+	for i in subset:
+		assert isinstance(i, int) and 0 <= i < len(edges)
+		u, v, w = edges[i]
+		assert ds.merge(u, v)
+
+def determine_the_winner(piles):
+	# https://en.wikipedia.org/wiki/Nim
+	# Rin-chan is perfect, so she'll always make the optimal move.
+	# You're perfect too, so you'll always make the perfect move as well.
+	# Let's fast-forward the game to the end :)
+	nim = 0
+	for x in piles:
+		nim ^= x
+	return "first" if nim != 0 else "second"
+
+class You:
+	def __init__(self, V, edges):
+		Server(f"{V = }")
+		Server(f"{edges = }")
+	def first_move(self):
+		Server("Please choose S")
+		return sorted(list(map(int, input("You> S = ").strip().split(" "))))
+	def read_first_move(self, S):
+		Rin(f"I choose S = {' '.join([str(i) for i in S])}")
+	def second_move(self):
+		Server("Please choose T")
+		return sorted(list(map(int, input("You> T = ").strip().split(" "))))
+
+Rin("Do you want this flag?")
+Rin("I'll consider giving it to you if you defeat me 200 times :)")
+
+time.sleep(0.5)
+
+Server("-----------------------------------------------------------------------------------------")
+Server("[Round Manual]")
+Server("1. The server generates a set of edges with integer weight on vertices 0 ~ V-1.")
+Server("2. You can either choose to go first or second.")
+Server("3. First player chooses a subset S of edges of size V-1 which forms a tree.")
+Server("( For the definition of tree, see https://en.wikipedia.org/wiki/Tree_(graph_theory) )")
+Server("4. Second player chooses a non-empty subset T of S.")
+Server("5. Add a pile consisting of w stones for each edge (u, v, w) in T.")
+Server("6. Winner of the round is the winner of the nim game on those set of piles.")
+Server("-----------------------------------------------------------------------------------------")
+
+time.sleep(0.5)
+
+Rin("GLHF!")
+
+time.sleep(0.5)
+
+for round_number in range(1, 201):
+	Server(f"Round {round_number}")
+
+	V, edges = generate_graph(round_number)
+	assert isinstance(V, int)
+	assert 30 <= V <= 200
+	assert len(edges) <= 300
+	for u, v, w in edges:
+		assert isinstance(u, int) and isinstance(v, int) and isinstance(w, int)
+		assert 0 <= u < V and 0 <= v < V and 0 <= w < 2**(V-1)
+
+	first, second = You(V, edges), NanakuraRin(V, edges)
+	
+	Rin("Do you want to go [first] or [second]?")
+	resp = input("You> ").strip()
+	if resp not in ["first", "second"]:
+		Rin("That's not an option >:(")
+		exit(0)
+
+	if resp == "first":
+		Rin("Sure, you go first :D")
+	else:
+		Rin("Ok, I go first :D")
+		first, second = second, first
+
+	S = first.first_move()
+	second.read_first_move(S)
+	check_subset(S, [i for i in range(len(edges))])
+	check_tree(S, V, edges)
+
+	if resp == "first":
+		Rin("My turn!")
+	else:
+		Rin("Your turn!")
+
+	T = second.second_move()
+	check_subset(T, S)
+
+	if resp == "first":
+		Rin(f"I choose T = {' '.join([str(i) for i in T])}")
+
+	winner = determine_the_winner([edges[i][2] for i in T])
+
+	r = Random()
+
+	if winner != resp:
+		Rin(r.choice(["Git gud", "Noob", "Easy"]))
+		exit(0)
+
+	Rin(r.choice(["Not like this!", "You won :(", "Ouch!", "You got lucky this time."]))
+
+Rin("GG Well played!")
+Rin("I guess I have no choice but to give you the flag.")
+Rin(f"{flag}")0:{"buildId":"QiRS6Sx9Ttvp1BSl4xu2I","rsc":["$","$1","c",{"children":[["$","div",null,{"children":["$","main",null,{"className":"text-pretty max-w-5xl mx-auto text-sm [&_h1]:text-5xl [&_h1]:font-semibold [&_h1]:mb-8 [&_blockquote]:text-secondary [&_blockquote]:space-y-3 [&_blockquote]:border-l-4 [&_blockquote]:border-secondary [&_blockquote]:pl-5 [&_blockquote]:mb-5 [&>_p]:my-4 [&_img]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_img]:rounded [&_li]:my-2","children":[["$","h1","h1-0",{"children":"CyberSpace CTF 2024 — Game with Rin"}],"\n",["$","blockquote","blockquote-0",{"children":["\n",["$","p","p-0",{"children":"Nanakura Rin, a very skilled gamer, took one of the flags. You need to defeat her 200 times to get the flag back."}],"\n",["$","p","p-1",{"children":["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"nc game-with-rin.challs.csc.tf 1337"}]}],"\n"]}],"\n",["$","p","p-0",{"children":"We're given a Python server that looks like this:"}],"\n",["$","$L2","pre-0",{"className":"my-2","children":"$3","language":"py"}],"\n","$L4","\n","$L5","\n","$L6","\n","$L7","\n","$L8","\n","$L9"]}]}],["$La","$Lb","$Lc","$Ld"],"$Le"]}],"loading":null,"isPartial":false}
+4:["$","p","p-1",{"children":"On paper, the game works as follows:"}]
+5:["$","ul","ul-0",{"children":["\n",["$","li","li-0",{"children":["The server picks a ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"V"}]," and generates random weighted edges between those nodes."]}],"\n",["$","li","li-1",{"children":"We choose whether to go first or second."}],"\n",["$","li","li-2",{"children":["Player 1 chooses a subset of size ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"V - 1"}]," that forms a tree."]}],"\n",["$","li","li-3",{"children":"Player 2 chooses a arbitrary (non-empty) subset of player 1's choice."}],"\n",["$","li","li-4",{"children":["This final subset is translated into ",["$","a","a-0",{"href":"https://en.wikipedia.org/wiki/Nim","children":"Nim piles"}],", and the player who wins Nim wins the round."]}],"\n"]}]
+6:["$","p","p-2",{"children":"Unfortunately, there doesn't seem to be duplicate protection in the subset choosing: we can always go second, and pick the same edge twice to guarantee that XOR of the weights = 0 and we win Nim."}]
+7:["$","p","p-3",{"children":"Here's a script that does just that:"}]
+8:["$","$L2","pre-1",{"className":"my-2","children":"import pwn\n\nconn = pwn.remote('game-with-rin.challs.csc.tf', 1337)\n\n# Solve proof of work\nres = conn.recvuntil(b'Solution?')\nprint(res)\nsol = input('Solution: ')\nconn.sendline(sol.encode())\n\nfor i in range(200):\n    conn.recvuntil(b'Rin> Do you want to go [first] or [second]?')\n    conn.sendline(b'second')\n\n    conn.recvuntil(b'Rin> I choose S = ')\n    first = conn.recvline().decode().split(\" \")[0]\n    conn.sendline(f'{first} {first}'.encode())\n\n    print(i, conn.recvline().strip().decode())\n\nprint(conn.recvall().decode())","language":"py"}]
+f:T49c,[x] Opening connection to game-with-rin.challs.csc.tf on port 1337
+[x] Opening connection to game-with-rin.challs.csc.tf on port 1337: Trying 34.47.157.234
+[+] Opening connection to game-with-rin.challs.csc.tf on port 1337: Done
+b'== proof-of-work: enabled ==\nplease solve a pow first\nYou can run the solver with:\n    python3 <(curl -sSL https://goo.gle/kctf-pow) solve s.AE5X.AAD7HTl9L2wrq2RmljReSe+H\n===================\n\nSolution?'
+Solution: s.AAAO+qBXiJTTaK0jlC9QLDOQlE+eLqJ2cuvjB9Xh6+m49FO/xJpKU+hdTKqF+QKTIlF1pDhU7X3+uSJfkUocg6Pv49kIvWSbuFX7GJg5G4wf+XrZTZCKQcRZMNT9savz2AIKAE4vEYZ3Y5qrj/Uk769dgIGqoa1yC/pkhcRCtBMmS75pFUgsITcvUaJ0j0BZVuLgb+X35Q8uLdC0ktJFX2+O
+0 Rin> Your turn!
+1 Rin> Your turn!
+2 Rin> Your turn!
+...
+196 Rin> Your turn!
+197 Rin> Your turn!
+198 Rin> Your turn!
+199 Rin> Your turn!
+[x] Receiving all data
+[x] Receiving all data: 33B
+[x] Receiving all data: 195B
+[+] Receiving all data: Done (195B)
+[*] Closed connection to game-with-rin.challs.csc.tf port 1337
+Server> Please choose T
+You> T = Rin> You got lucky this time.
+Rin> GG Well played!
+Rin> I guess I have no choice but to give you the flag.
+Rin> CSCTF{I_just_wanted_to_spend_time_with_you_baka!}9:["$","$L2","pre-2",{"className":"my-2","children":"$f"}]
+a:["$","script","script-0",{"src":"/_next/static/chunks/59d5dd52dd9fcb16.js","async":true}]
+b:["$","script","script-1",{"src":"/_next/static/chunks/0eb309e820c00a6d.js","async":true}]
+c:["$","script","script-2",{"src":"/_next/static/chunks/239c8c4944a9f036.js","async":true}]
+d:["$","script","script-3",{"src":"/_next/static/chunks/39b99946d2be6a43.js","async":true}]
+e:["$","$L10",null,{"children":["$","$11",null,{"name":"Next.MetadataOutlet","children":"$@12"}]}]
+12:null

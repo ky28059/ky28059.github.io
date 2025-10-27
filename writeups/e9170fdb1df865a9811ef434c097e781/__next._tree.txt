@@ -1,0 +1,11 @@
+1:"$Sreact.fragment"
+2:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"ViewportBoundary"]
+4:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"MetadataBoundary"]
+5:"$Sreact.suspense"
+:HL["/_next/static/chunks/3c1b2f4e7e90f1ff.css","style"]
+:HL["/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["https://gist.github.com/user-attachments/assets/39b2cd25-132a-43bf-84a4-a7b29b78a38a","image"]
+:HL["https://gist.github.com/user-attachments/assets/c76f30bc-7abd-46fc-ae5b-bb5b697e2515","image"]
+0:{"buildId":"QiRS6Sx9Ttvp1BSl4xu2I","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"writeups","paramType":null,"paramKey":"writeups","hasRuntimePrefetch":false,"slots":{"children":{"name":"id","paramType":"d","paramKey":"e9170fdb1df865a9811ef434c097e781","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"head":["$","$1","h",{"children":[null,["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isHeadPartial":false,"staleTime":300}
+3:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+6:[["$","title","0",{"children":"jailCTF 2024 — jellyjail | kevin.fish"}],["$","meta","1",{"name":"description","content":"how can one golf with jelly if it just explodes when you hit it with a large metal golf club?"}],["$","meta","2",{"property":"og:title","content":"jailCTF 2024 — jellyjail"}],["$","meta","3",{"property":"og:description","content":"how can one golf with jelly if it just explodes when you hit it with a large metal golf club?"}],["$","meta","4",{"name":"twitter:card","content":"summary"}],["$","meta","5",{"name":"twitter:title","content":"jailCTF 2024 — jellyjail"}],["$","meta","6",{"name":"twitter:description","content":"how can one golf with jelly if it just explodes when you hit it with a large metal golf club?"}]]

