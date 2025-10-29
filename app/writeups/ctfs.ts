@@ -8,7 +8,7 @@ type CTFData = {
 
 export const ctfs: CTFData[] = [
     {
-        name: 'm0leCon Teaser CTf 2025',
+        name: 'm0leCon Teaser CTF 2025',
         writeups: [{
             href: 'https://gist.github.com/ky28059/3e798b904548e506707607d0012b2c11',
             name: 'Precipice',
