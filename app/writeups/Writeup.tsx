@@ -27,8 +27,8 @@ export default function Writeup(props: WriteupData & { desc: string }) {
             )}
 
             <div className="py-3.5 pr-4">
-                <div className="flex gap-1 items-center font-mono mb-1">
-                    <p className="font-mono mr-2.5">
+                <div className="flex gap-1 items-center font-jetbrains mb-1">
+                    <p className="mr-2.5">
                         {props.type && (
                             <span className="text-secondary">
                                 {props.type}
@@ -41,13 +41,13 @@ export default function Writeup(props: WriteupData & { desc: string }) {
                     </p>
 
                     {props.type && (
-                        <span className="select-none px-1.5 py-0.5 text-xs rounded-full bg-grapefruit/30 text-grapefruit font-semibold">
+                        <span className="select-none px-1.5 py-0.5 text-xs rounded-full bg-grapefruit/25 text-grapefruit font-semibold">
                             {props.type}
                         </span>
                     )}
                     {props.tags && props.tags.map((s) => (
                         <span
-                            className="select-none px-1.5 py-0.5 text-xs rounded-full bg-grapefruit/30 text-grapefruit font-semibold"
+                            className="select-none px-1.5 py-0.5 text-xs rounded-full bg-grapefruit/25 text-grapefruit font-semibold"
                             key={s}
                         >
                             {s}

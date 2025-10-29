@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
-import { Inter } from 'next/font/google';
+import { Inter, JetBrains_Mono } from 'next/font/google';
 
 import '@/styles/index.css';
 
@@ -16,9 +16,14 @@ const inter = Inter({
     subsets: ['latin']
 });
 
+const jetbrains = JetBrains_Mono({
+    subsets: ['latin'],
+    variable: '--font-jetbrains-mono'
+});
+
 export default function Layout(props: { children: ReactNode }) {
     return (
-        <html className="dark scroll-smooth">
+        <html className={`dark scroll-smooth ${jetbrains.variable}`}>
             <head>
                 <meta charSet="utf-8" />
             </head>

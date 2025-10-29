@@ -7,6 +7,8 @@
 @custom-variant scrollbar-thumb (&::-webkit-scrollbar-thumb);
 
 @theme {
+    --font-jetbrains: var(--font-jetbrains-mono);
+
     --color-primary: var(--primary);
     --color-secondary: var(--secondary);
     --color-tertiary: var(--tertiary);
@@ -55,7 +57,7 @@ pre.prismjs {
     @apply p-4 bg-[#2b2b2b] h-full overflow-auto;
 
     code {
-        @apply font-[Consolas,Monaco,'Andale_Mono',monospace] text-[#a9b7c6] leading-[1.5em];
+        @apply font-jetbrains text-[#a9b7c6] leading-[1.5em];
 
         .comment, .prolog, .cdata {
             @apply text-[#808080];

@@ -35,7 +35,7 @@ export default function FilterCheckbox(props: FilterInputProps) {
                 htmlFor={`category-${props.name}`}
             >
                 {props.name}{' '}
-                <span className="text-xs font-semibold text-grapefruit bg-grapefruit/30 rounded-full px-1.5 py-0.5">
+                <span className="font-jetbrains text-xs font-semibold text-grapefruit bg-grapefruit/25 rounded-full px-1.5 py-0.5">
                     {props.count}
                 </span>
             </label>
