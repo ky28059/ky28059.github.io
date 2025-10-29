@@ -2,7 +2,8 @@
 2:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"ViewportBoundary"]
 4:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"MetadataBoundary"]
 5:"$Sreact.suspense"
-:HL["/_next/static/chunks/3c1b2f4e7e90f1ff.css","style"]
+:HL["/_next/static/chunks/287f55c41d4b73fe.css","style"]
+:HL["/_next/static/media/70bc3e132a0a741e-s.p.15008bfb.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/projects/RBot.png","image"]
 :HL["/projects/watt-white.png","image"]
@@ -10,6 +11,6 @@
 :HL["/projects/PortalBot.jpg","image"]
 :HL["/projects/gunnhacks.png","image"]
 :HL["/projects/Guava.png","image"]
-0:{"buildId":"QiRS6Sx9Ttvp1BSl4xu2I","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"archives","paramType":null,"paramKey":"archives","hasRuntimePrefetch":false,"slots":{"children":{"name":"landing-old","paramType":null,"paramKey":"landing-old","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"head":["$","$1","h",{"children":[null,["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isHeadPartial":false,"staleTime":300}
+0:{"buildId":"DfvEc75fs5QFxpmscM4-K","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"archives","paramType":null,"paramKey":"archives","hasRuntimePrefetch":false,"slots":{"children":{"name":"landing-old","paramType":null,"paramKey":"landing-old","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"head":["$","$1","h",{"children":[null,["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isHeadPartial":false,"staleTime":300}
 3:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
 6:[["$","title","0",{"children":"Home | ky28059.github.io"}],["$","meta","1",{"name":"description","content":"Personal portfolio website and technology testing chamber."}]]

@@ -2,7 +2,8 @@
 2:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"ViewportBoundary"]
 4:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"MetadataBoundary"]
 5:"$Sreact.suspense"
-:HL["/_next/static/chunks/3c1b2f4e7e90f1ff.css","style"]
+:HL["/_next/static/chunks/287f55c41d4b73fe.css","style"]
+:HL["/_next/static/media/70bc3e132a0a741e-s.p.15008bfb.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["https://gist.github.com/user-attachments/assets/b33fa93a-d7bd-49b5-bbe7-98e4b7ecb1ab","image"]
 :HL["https://gist.github.com/user-attachments/assets/824410bb-1d2c-492d-b234-e11324df806b","image"]
@@ -25,6 +26,6 @@
 :HL["https://gist.github.com/user-attachments/assets/3c63f633-5103-49c7-809d-fc2535ddafb1","image"]
 :HL["https://gist.github.com/user-attachments/assets/5d250560-8462-4201-b01f-ec580dd0bc36","image"]
 :HL["https://gist.github.com/user-attachments/assets/a7280d6e-8081-4b20-899d-36ab832b4491","image"]
-0:{"buildId":"QiRS6Sx9Ttvp1BSl4xu2I","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"writeups","paramType":null,"paramKey":"writeups","hasRuntimePrefetch":false,"slots":{"children":{"name":"id","paramType":"d","paramKey":"6c2437fd2e120bad3af82c8fcd36e5a5","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"head":["$","$1","h",{"children":[null,["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isHeadPartial":false,"staleTime":300}
+0:{"buildId":"DfvEc75fs5QFxpmscM4-K","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"writeups","paramType":null,"paramKey":"writeups","hasRuntimePrefetch":false,"slots":{"children":{"name":"id","paramType":"d","paramKey":"6c2437fd2e120bad3af82c8fcd36e5a5","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"head":["$","$1","h",{"children":[null,["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isHeadPartial":false,"staleTime":300}
 3:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
 6:[["$","title","0",{"children":"CSAW'24 Quals — I like it RAW | kevin.fish"}],["$","meta","1",{"name":"description","content":"Seems like medium rare just isn't my taste."}],["$","meta","2",{"property":"og:title","content":"CSAW'24 Quals — I like it RAW"}],["$","meta","3",{"property":"og:description","content":"Seems like medium rare just isn't my taste."}],["$","meta","4",{"name":"twitter:card","content":"summary"}],["$","meta","5",{"name":"twitter:title","content":"CSAW'24 Quals — I like it RAW"}],["$","meta","6",{"name":"twitter:description","content":"Seems like medium rare just isn't my taste."}]]
