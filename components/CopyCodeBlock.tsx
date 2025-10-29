@@ -4,6 +4,7 @@ import SyntaxHighlighter from '@/components/SyntaxHighlighter';
 
 // Icons
 import {
+    SiCss3,
     SiGnubash,
     SiGo,
     SiHtml5,
@@ -28,7 +29,7 @@ export default function CopyCodeBlock(props: ScriptOutputProps) {
 
     return (
         <div className={'border border-white/10 rounded-lg' + (props.className ? ` ${props.className}` : '')}>
-            <p className="flex items-center text-xs rounded-t-lg px-3 py-0.5 text-secondary">
+            <p className="font-jetbrains flex items-center text-xs rounded-t-lg px-3 py-0.5 text-secondary">
                 {Icon ? (
                     <><Icon className="text-sm mr-1.5" /> {props.language}</>
                 ) : (
@@ -74,6 +75,9 @@ function languageToIcon(language?: string) {
 
         case 'html':
             return SiHtml5;
+
+        case 'css':
+            return SiCss3;
 
         case 'perl':
             return SiPerl;

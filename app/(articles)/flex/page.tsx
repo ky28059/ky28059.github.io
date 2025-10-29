@@ -105,8 +105,7 @@ export default function Flex() {
                     {Array(6).fill(0).map((_, i) => (
                         <div
                             className="w-28 sm:w-48 h-28 bg-blue-400 flex items-center justify-center"
-                            // @ts-ignore
-                            style={{ '--tw-bg-opacity': (8 - i) / 12 }}
+                            style={{ opacity: (8 - i) / 12 }}
                             key={i}
                         >
                             {i + 1}
@@ -545,8 +544,8 @@ function FlexDemoContainer(props: { children: ReactNode, className: string, labe
             {props.children}
 
             {props.label && (
-                <code className="text-xs text-white text-left absolute -bottom-5 left-0 font-normal">
-                {props.label}
+                <code className="font-jetbrains text-xs text-white/80 text-left absolute -bottom-5 left-0 font-normal">
+                    {props.label}
                 </code>
             )}
         </div>
@@ -559,7 +558,7 @@ function FlexWhitespaceDemoContainer(props: { children: ReactNode, className: st
             {props.children}
 
             {props.label && (
-                <code className="text-xs text-white text-left absolute -bottom-5 left-0 font-normal">
+                <code className="font-jetbrains text-xs text-white/80 text-left absolute -bottom-5 left-0 font-normal">
                     {props.label}
                 </code>
             )}
