@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 
 // Components
+import { SectionHeading } from '@/components/Section';
 import CTF from './CTF';
 import Writeup from './Writeup';
 import FilterCheckbox from './FilterCheckbox';
@@ -30,8 +31,10 @@ export default function WriteupsContent(props: WriteupsContentProps) {
     }, [categories, tags]);
 
     return (
-        <div className="flex gap-8 pt-2">
+        <div className="flex gap-8">
             <section className="grow flex flex-col gap-4 pl-4">
+                <SectionHeading>CTF Writeups</SectionHeading>
+
                 {filtered.map((c) => (
                     <CTF name={c.name} key={c.name}>
                         {c.writeups.map((w) => (
@@ -45,7 +48,7 @@ export default function WriteupsContent(props: WriteupsContentProps) {
                 ))}
             </section>
 
-            <aside className="pl-8 py-2 rounded h-max sticky top-8 w-60 flex-none border-l border-tertiary">
+            <aside className="pl-8 py-2 mt-4 rounded h-max sticky top-8 w-60 flex-none border-l border-tertiary">
                 <h2 className="font-semibold mb-2 text-sm">
                     Categories
                 </h2>

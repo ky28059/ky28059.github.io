@@ -8,6 +8,24 @@ type CTFData = {
 
 export const ctfs: CTFData[] = [
     {
+        name: 'BuckeyeCTF 2025',
+        writeups: [{
+            href: 'https://gist.github.com/ky28059/e4fd9a90929b465c0c39151e5ea76fdc',
+            name: 'packages',
+            tags: ['sql'],
+            type: 'web',
+            src: '/assets/writeups/packages.jpg'
+        }]
+    },
+    {
+        name: 'Infobahn CTF\'25',
+        writeups: [{
+            href: 'https://gist.github.com/ky28059/5c472714977ab8e82bfff6c8aba5a97f',
+            name: 'Speechless',
+            type: 'misc'
+        }]
+    },
+    {
         name: 'm0leCon Teaser CTF 2025',
         writeups: [{
             href: 'https://gist.github.com/ky28059/3e798b904548e506707607d0012b2c11',
