@@ -4,7 +4,9 @@ import SyntaxHighlighter from '@/components/SyntaxHighlighter';
 
 // Icons
 import {
+    SiC,
     SiCss3,
+    SiDocker,
     SiGnubash,
     SiGo,
     SiHtml5,
@@ -91,6 +93,12 @@ function languageToIcon(language?: string) {
         case 'sh':
         case 'bash':
             return SiGnubash;
+
+        case 'dockerfile':
+            return SiDocker;
+
+        case 'c':
+            return SiC;
 
         case 'diff':
             return MdDifference;
