@@ -21,7 +21,7 @@ export const ctfs: CTFData[] = [
         name: 'Infobahn CTF\'25',
         writeups: [{
             href: 'https://gist.github.com/ky28059/5c472714977ab8e82bfff6c8aba5a97f',
-            name: 'Speechless',
+            name: 'speechless',
             type: 'misc'
         }]
     },
@@ -258,6 +258,7 @@ export const ctfs: CTFData[] = [
             type: 'web',
             href: 'https://gist.github.com/ky28059/0c4ecb3e46bccbd295151d6d30c110d4',
             name: 'Letter to the editor',
+            tags: ['xss'],
             src: '/assets/writeups/letter-to-the-editor-2.png'
             // src: 'https://gist.github.com/assets/60120929/baae2b59-e268-4aaa-af1e-fcfb460a0537'
         }]
