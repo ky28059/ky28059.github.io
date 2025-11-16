@@ -125,10 +125,30 @@ export default function Projects() {
                     <Gist
                         name="AP CSA"
                         href="https://github.com/ky28059/AP-CSA"
-                        // src="/assets/projects/ap-csa.jpg"
                         langs={['rkt']}
                     >
                         Assignments from the first (scheme) semester of Gunn's AP CSA.
+                    </Gist>
+                    <Gist
+                        name="CS 251"
+                        href="https://github.com/ky28059/CS251"
+                        langs={['java']}
+                    >
+                        Java projects for CS 251: Data Structures & Algorithms.
+                    </Gist>
+                    <Gist
+                        name="CS 373"
+                        href="https://github.com/ky28059/CS373"
+                        langs={['py']}
+                    >
+                        Python homeworks for CS 373: Data Mining and Machine Learning.
+                    </Gist>
+                    <Gist
+                        name="CS 471"
+                        href="https://github.com/ky28059/CS471"
+                        langs={['py']}
+                    >
+                        Python homeworks for CS 471: Intro to Artificial Intelligence.
                     </Gist>
                 </ProjectsCardGrid>
             </ProjectsLayout>
