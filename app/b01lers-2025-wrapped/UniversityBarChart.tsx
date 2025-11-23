@@ -11,7 +11,7 @@ export default function UniversityBarChart() {
             spec={{
                 "$schema": "https://vega.github.io/schema/vega/v6.json",
                 "width": 900,
-                "height": 400,
+                "height": 300,
                 "padding": 5,
 
                 "config": {
