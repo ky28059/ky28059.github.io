@@ -71,6 +71,7 @@ export default function LandingHeader() {
                     <ul className="text-secondary">
                         <li>Contractor @ CAIS <AffiliationDate>2025</AffiliationDate></li>
                         <li>UTA @ Purdue CS <AffiliationDate>2025</AffiliationDate></li>
+                        <li>Dev @ Jumpseat <AffiliationDate>2024</AffiliationDate></li>
                         <li>TA @ MIT BWSI <AffiliationDate>2024</AffiliationDate></li>
                         <li>Intern @ Stanford GLAM <AffiliationDate>2023</AffiliationDate></li>
                     </ul>
