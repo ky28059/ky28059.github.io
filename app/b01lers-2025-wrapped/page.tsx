@@ -13,7 +13,7 @@ export default function B01lersWrapped() {
                 [...]?
             </p>
             <p className="text-sm text-secondary mb-20">
-                Data last fetched [...].
+                Data last fetched on <span className="bg-tertiary text-xs text-primary px-1 py-0.5 rounded">2025-11-25</span>.
             </p>
 
             <LinkHeading id="us-univ" className="text-3xl font-bold mb-4">
@@ -33,7 +33,7 @@ export default function B01lersWrapped() {
             </p>
             <UniversityBarChart />
 
-            <LinkHeading id="us-univ" className="text-3xl font-bold mt-12 mb-4">
+            <LinkHeading id="over-the-years" className="text-3xl font-bold mt-12 mb-4">
                 Over the years...
             </LinkHeading>
             <p>

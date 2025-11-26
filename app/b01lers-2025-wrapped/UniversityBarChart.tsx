@@ -1,7 +1,7 @@
 'use client'
 
 import { VegaEmbed } from 'react-vega';
-import { univData } from '@/app/b01lers-2025-wrapped/UniversityMapChart';
+import { univData } from '@/app/b01lers-2025-wrapped/data';
 
 
 export default function UniversityBarChart() {
@@ -31,8 +31,8 @@ export default function UniversityBarChart() {
                         "name": "tooltip",
                         "value": {},
                         "on": [
-                            {"events": "rect:mouseover", "update": "datum"},
-                            {"events": "rect:mouseout",  "update": "{}"}
+                            { "events": "rect:mouseover", "update": "datum" },
+                            { "events": "rect:mouseout",  "update": "{}" }
                         ]
                     }
                 ],
@@ -68,10 +68,10 @@ export default function UniversityBarChart() {
                                 "y2": { "scale": "yscale", "value": 0 }
                             },
                             "update": {
-                                "fill": {"value": "steelblue"}
+                                "fill": { "value": "steelblue" }
                             },
                             "hover": {
-                                "fill": {"value": "red"}
+                                "fill": { "value": "red" }
                             }
                         }
                     },
