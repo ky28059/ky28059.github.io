@@ -16,7 +16,7 @@ async function fetchEvents() {
 }
 
 function parseCTFTable(inner: string) {
-    const matches = inner.matchAll(/<tr><td class="place_ico"><\/td><td class="place">(\d+)<\/td><td><a href="(.+?)">(.+?)<\/a><\/td><td>(\d+\.\d+)<\/td><td>(\d+\.\d+)<\/td><\/tr>/g);
+    const matches = inner.matchAll(/<tr><td class="place_ico"><\/td><td class="place.*?">(\d+)<\/td><td><a href="(.+?)">(.+?)<\/a><\/td><td>(\d+\.\d+)<\/td><td>(\d+\.\d+)<\/td><\/tr>/g);
     return [...matches].map(([, place, url, name, points, rating]) => ({
         place: Number(place),
         url,

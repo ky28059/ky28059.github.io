@@ -154,6 +154,13 @@ export const teamData = [
         "points": 515.513,
         "events": [
             {
+                "place": 1,
+                "url": "/event/2883",
+                "name": "BuckeyeCTF 2025",
+                "points": 10132,
+                "rating": 100
+            },
+            {
                 "place": 174,
                 "url": "/event/2878",
                 "name": "Infobahn CTF 2025",
@@ -566,6 +573,13 @@ export const teamData = [
                 "name": "m0leCon CTF 2025 Teaser",
                 "points": 254,
                 "rating": 6.777
+            },
+            {
+                "place": 1,
+                "url": "/event/2398",
+                "name": "CSAW CTF Qualification Round 2024",
+                "points": 6405,
+                "rating": 43.6
             },
             {
                 "place": 8,
