@@ -80,7 +80,7 @@ export default function UniversityMapChart() {
                         "name": "projection",
                         "type": "albersUsa",
                         "scale": 1200,
-                        "translate": [{ "signal": "width / 2"}, {"signal": "height / 2" }]
+                        "translate": [{ "signal": "width / 2" }, {"signal": "height / 2" }]
                     }
                 ],
                 "scales": [
@@ -119,7 +119,8 @@ export default function UniversityMapChart() {
                             },
                             "update": {
                                 "x": { "field": "x" },
-                                "y": { "field": "y" }
+                                "y": { "field": "y" },
+                                "fill": { "signal": "hover && hover.name == datum.name ? '#ca8a04' : datum.name == 'b01lers' ? '#eab308' : 'steelblue'" }
                             }
                         }
                     },

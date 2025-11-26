@@ -29,7 +29,7 @@ export default function B01lersWrapped() {
 
             <p className="mt-8 mb-3">
                 By the numbers, here's how <span className="font-jetbrains">b01lers</span> compared to other university
-                teams:
+                teams in 2025:
             </p>
             <UniversityBarChart />
 

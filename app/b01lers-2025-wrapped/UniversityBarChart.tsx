@@ -68,10 +68,10 @@ export default function UniversityBarChart() {
                                 "y2": { "scale": "yscale", "value": 0 }
                             },
                             "update": {
-                                "fill": { "value": "steelblue" }
+                                "fill": { "signal": "datum.name == 'b01lers' ? '#eab308' : 'steelblue'" }
                             },
                             "hover": {
-                                "fill": { "value": "red" }
+                                "fill": { "signal": "datum.name == 'b01lers' ? '#ca8a04' : '#075985'" }
                             }
                         }
                     },
