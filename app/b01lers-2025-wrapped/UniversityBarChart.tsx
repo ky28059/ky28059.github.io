@@ -80,9 +80,9 @@ export default function UniversityBarChart() {
                         "interactive": false,
                         "encode": {
                             "enter": {
-                                "align": {"value": "center"},
-                                "baseline": {"value": "bottom"},
-                                "fill": {"value": "#333"}
+                                "align": { "value": "center" },
+                                "baseline": { "value": "bottom" },
+                                "fill": { "value": "#333" }
                             },
                         }
                     }
