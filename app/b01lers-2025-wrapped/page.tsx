@@ -2,6 +2,8 @@ import LinkHeading from '@/components/LinkHeading';
 import UniversityMapChart from '@/app/b01lers-2025-wrapped/UniversityMapChart';
 import UniversityBarChart from '@/app/b01lers-2025-wrapped/UniversityBarChart';
 import TopCTFsTable from '@/app/b01lers-2025-wrapped/TopCTFsTable';
+import MessagesHeatmap from '@/app/b01lers-2025-wrapped/MessagesHeatmap';
+import MessagesByDayHeatmap from '@/app/b01lers-2025-wrapped/MessagesByDayHeatmap';
 
 // Utils
 import { teamData } from '@/app/b01lers-2025-wrapped/data';
@@ -21,6 +23,7 @@ export default function B01lersWrapped() {
                     <li><a href="#us-univ" className="text-inherit">US universities</a></li>
                     <li><a href="#over-the-years" className="text-inherit">Over the years...</a></li>
                     <li><a href="#ctf-statistics" className="text-inherit">CTF statistics</a></li>
+                    <li><a href="#server-statistics" className="text-inherit">Server statistics</a></li>
                 </ul>
             </aside>
 
@@ -94,6 +97,15 @@ export default function B01lersWrapped() {
                 <p className="my-4">
                     [...]
                 </p>
+
+                <LinkHeading id="server-statistics" className="text-3xl font-bold mt-12 mb-4">
+                    Server statistics
+                </LinkHeading>
+                <p className="mb-4">
+                    [...]
+                </p>
+                <MessagesHeatmap />
+                <MessagesByDayHeatmap />
             </div>
         </div>
     )

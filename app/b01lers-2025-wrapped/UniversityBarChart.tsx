@@ -40,7 +40,7 @@ export default function UniversityBarChart() {
                     {
                         "name": "xscale",
                         "type": "band",
-                        "domain": {"data": "teams", "field": "name"},
+                        "domain": { "data": "teams", "field": "name" },
                         "range": "width",
                         "padding": 0.075,
                         "round": true
