@@ -1,3 +1,6 @@
+import { writeFile } from 'node:fs/promises';
+
+
 async function fetchEvents() {
     const raw = await (await fetch('https://ctftime.org/team/11464')).text();
 
@@ -65,6 +68,9 @@ async function getUniversityTeams() {
 }
 
 ;(async () => {
-    const teams = await getUniversityTeams();
-    console.log(teams);
+    // const teams = await getUniversityTeams();
+    // console.log(teams);
+
+    const events = await fetchEvents();
+    await writeFile('./events.json', JSON.stringify(events, null, 4));
 })()
