@@ -1,6 +1,7 @@
 import LinkHeading from '@/components/LinkHeading';
 import UniversityMapChart from '@/app/b01lers-2025-wrapped/UniversityMapChart';
 import UniversityBarChart from '@/app/b01lers-2025-wrapped/UniversityBarChart';
+import TopCTFsTable from '@/app/b01lers-2025-wrapped/TopCTFsTable';
 
 // Utils
 import { teamData } from '@/app/b01lers-2025-wrapped/data';
@@ -19,6 +20,7 @@ export default function B01lersWrapped() {
                 <ul>
                     <li><a href="#us-univ" className="text-inherit">US universities</a></li>
                     <li><a href="#over-the-years" className="text-inherit">Over the years...</a></li>
+                    <li><a href="#ctf-statistics" className="text-inherit">CTF statistics</a></li>
                 </ul>
             </aside>
 
@@ -80,6 +82,17 @@ export default function B01lersWrapped() {
                     This year, <span className="font-jetbrains">b01lers</span> achieved the highest country / global rank
                     and CTFtime score <strong className="text-yellow-500">in the team's history</strong>. Here's a plot
                     of [...] over the years to show how far we've come:
+                </p>
+
+                <LinkHeading id="ctf-statistics" className="text-3xl font-bold mt-12 mb-4">
+                    CTF statistics
+                </LinkHeading>
+                <p className="mb-4">
+                    These were <span className="font-jetbrains">b01lers</span>' top 10 CTF finishes in 2025:
+                </p>
+                <TopCTFsTable />
+                <p className="my-4">
+                    [...]
                 </p>
             </div>
         </div>
