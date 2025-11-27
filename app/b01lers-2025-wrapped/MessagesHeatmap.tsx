@@ -27,23 +27,29 @@ export default function MessagesHeatmap() {
                         "aggregate": [{ "op": "sum", "field": "count", "as": "count" }],
                         "groupby": ["date"]
                     },
-                    { "calculate": "day(datum.date) == 0", "as": "sundays" },
+                    { "calculate": "day(datum.date) == 1", "as": "mondays" },
                     {
-                        "window": [{ "op": "sum", "field": "sundays", "as": "week" }],
+                        "window": [{ "op": "sum", "field": "mondays", "as": "week" }],
                         "sort": "date"
                     }
                 ],
                 "mark": "rect",
                 "encoding": {
                     "y": {
-                        "timeUnit": "day", "field": "date", "type": "ordinal", "title": "Day of Week",
+                        "timeUnit": "day",
+                        "field": "date",
+                        "type": "ordinal",
+                        "title": "Day of Week",
+                        "sort": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
                         "axis": {
                             "labelColor": "#BABABA",
                             "titleColor": "#BABABA"
                         }
                     },
                     "x": {
-                        "field": "week", "type": "ordinal", "title": "Week of year",
+                        "field": "week",
+                        "type": "ordinal",
+                        "title": "Week of year",
                         "axis": {
                             "labelColor": "#BABABA",
                             "titleColor": "#BABABA"
@@ -61,7 +67,11 @@ export default function MessagesHeatmap() {
                             "labelColor": "#BABABA",
                             "titleColor": "#BABABA"
                         }
-                    }
+                    },
+                    "tooltip": [
+                        { "field": "date", "timeUnit": "yearmonthdate", "title": "Date" },
+                        { "field": "count", "aggregate": "sum", "title": "Count" }
+                    ]
                 }
             }}
         />

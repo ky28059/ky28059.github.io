@@ -63,7 +63,7 @@ export default function MessagesByDayHeatmap() {
                     "tooltip": [
                         { "field": "date", "timeUnit": "day", "title": "Day" },
                         { "field": "date", "timeUnit": "hours", "title": "Hour" },
-                        { "field": "count", "aggregate": "sum", "title": "Total Count" }
+                        { "field": "count", "aggregate": "sum", "title": "Count" }
                     ]
                 }
             }}
