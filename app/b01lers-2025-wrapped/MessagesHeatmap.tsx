@@ -13,7 +13,7 @@ export default function MessagesHeatmap() {
                 "height": 200,
                 "background": null,
                 "title": {
-                    "text": "Messages by week of year",
+                    "text": "Messages by day of year",
                     "color": "white"
                 },
 
@@ -39,7 +39,7 @@ export default function MessagesHeatmap() {
                         "timeUnit": "day",
                         "field": "date",
                         "type": "ordinal",
-                        "title": "Day of Week",
+                        "title": "Day of week",
                         "sort": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
                         "axis": {
                             "labelColor": "#BABABA",

@@ -101,11 +101,18 @@ export default function B01lersWrapped() {
                 <LinkHeading id="server-statistics" className="text-3xl font-bold mt-12 mb-4">
                     Server statistics
                 </LinkHeading>
-                <p className="mb-4">
-                    [...]
+                <p className="mb-6">
+                    When was the <span className="font-jetbrains">b01lers</span> server most active this year? Here are
+                    2 heatmaps of aggregate message counts, grouped by day-of-year and hour-of-day, respectively:
                 </p>
                 <MessagesHeatmap />
                 <MessagesByDayHeatmap />
+                <p className="my-4">
+                    (you can see the effect of b01lers CTF 2025 on April 18th - 20th in the day-of-year graph, as well
+                    as the weekly Peppercorns chatter and eCTF / topic sessions shaped hole on Monday in the hour-of-day
+                    chart).
+                </p>
+                [...]
             </div>
         </div>
     )

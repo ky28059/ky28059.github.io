@@ -17,7 +17,7 @@ export default function MessagesByDayHeatmap() {
                 "height": 300,
                 "background": null,
                 "title": {
-                    "text": "Messages by day of week",
+                    "text": "Messages by hour of day",
                     "color": "white"
                 },
 
@@ -27,7 +27,7 @@ export default function MessagesByDayHeatmap() {
                         "field": "date",
                         "type": "temporal",
                         "timeUnit": "day",
-                        "title": "Day of Week",
+                        "title": "Day of week",
                         "axis": {
                             "labelColor": "#BABABA",
                             "titleColor": "#BABABA"
