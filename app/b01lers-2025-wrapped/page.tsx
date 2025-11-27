@@ -63,8 +63,8 @@ export default function B01lersWrapped() {
                 </LinkHeading>
 
                 <p className="mb-2">
-                    This year, <span className="font-jetbrains">b01lers</span> was the <strong className="text-yellow-500">#1 scoring</strong>{' '}
-                    US university-affiliated CTF team. Here's a geospatial chart showing the location of each US university
+                    This year, <span className="font-jetbrains">b01lers</span> was the <strong className="text-yellow-500">#1 scoring
+                    US university-affiliated CTF team</strong>. Here's a geospatial chart showing the location of each US university
                     CTF team, with each circle scaled by their CTFtime rating this year:
                 </p>
                 <UniversityMapChart />
@@ -89,7 +89,7 @@ export default function B01lersWrapped() {
                 </p>
                 <RatingOverTimeChart />
                 <p className="my-4">
-                    [...]
+                    (compared to Sigpwny, in yellow, and PBR in orange). [...]
                 </p>
 
                 <LinkHeading id="ctf-statistics" className="text-3xl font-bold mt-12 mb-4">
@@ -113,9 +113,9 @@ export default function B01lersWrapped() {
                 <MessagesHeatmap />
                 <MessagesByDayHeatmap />
                 <p className="my-4">
-                    (you can see the effect of b01lers CTF 2025 on April 18th - 20th in the day-of-year graph, as well
-                    as the weekly Peppercorns chatter and eCTF / topic sessions shaped hole on Monday in the hour-of-day
-                    chart).
+                    (you can see the effect of b01lers CTF 2025 on April 18-20th in the day-of-year graph, CSAW quals
+                    on September 12th, as well as the weekly Peppercorns chatter and eCTF / topic sessions shaped hole
+                    on Monday in the hour-of-day chart).
                 </p>
                 [...]
             </div>

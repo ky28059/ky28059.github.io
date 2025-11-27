@@ -1,8 +1,8 @@
 import { writeFile } from 'node:fs/promises';
 
 
-async function fetchEvents() {
-    const raw = await (await fetch('https://ctftime.org/team/11464')).text();
+async function fetchEvents(id: string) {
+    const raw = await (await fetch(`https://ctftime.org/team/${id}`)).text();
 
     // @ts-ignore
     const matches = raw.matchAll(/<p align="left">Overall rating place:.*?(\d+).*?with.*?(\d+\.\d+).*?pts in (\d+).*?Country place:.*?(\d+).*?<table class="table table-striped">(.*?)<\/table>/gs);
@@ -71,6 +71,8 @@ async function getUniversityTeams() {
     // const teams = await getUniversityTeams();
     // console.log(teams);
 
-    const events = await fetchEvents();
-    await writeFile('./events.json', JSON.stringify(events, null, 4));
+    for (const id of ['11464', '27763', '186494', '284']) {
+        const events = await fetchEvents(id);
+        await writeFile(`./events-${id}.json`, JSON.stringify(events, null, 4));
+    }
 })()

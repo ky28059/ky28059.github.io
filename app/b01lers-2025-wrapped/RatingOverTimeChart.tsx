@@ -1,7 +1,7 @@
 'use client'
 
 import { VegaEmbed } from 'react-vega';
-import { teamData } from '@/app/b01lers-2025-wrapped/data';
+import { pbrData, pppData, sigpwnyData, teamData } from '@/app/b01lers-2025-wrapped/data';
 
 
 export default function RatingOverTimeChart() {
@@ -23,19 +23,51 @@ export default function RatingOverTimeChart() {
                 },
                 "layer": [
                     {
-                        "mark": { "type": "area", "opacity": 0.5, "color": "#66b3ff" },
+                        "data": { "values": pbrData },
+                        "mark": { "type": "line", "color": "#f97316", "strokeWidth": 2 },
                         "encoding": {
                             "x": { "field": "year", "type": "quantitative" },
                             "y": { "field": "points", "type": "quantitative" }
                         }
                     },
                     {
-                        "mark": { "type": "line", "color": "#004085", "strokeWidth": 2 },
+                        "data": { "values": pbrData },
+                        "mark": { "type": "area", "opacity": 0.4, "color": "#f97316" },
                         "encoding": {
                             "x": { "field": "year", "type": "quantitative" },
                             "y": { "field": "points", "type": "quantitative" }
                         }
-                    }
+                    },
+                    {
+                        "data": { "values": sigpwnyData },
+                        "mark": { "type": "line", "color": "#eab308", "strokeWidth": 2 },
+                        "encoding": {
+                            "x": { "field": "year", "type": "quantitative" },
+                            "y": { "field": "points", "type": "quantitative" }
+                        }
+                    },
+                    {
+                        "data": { "values": sigpwnyData },
+                        "mark": { "type": "area", "opacity": 0.4, "color": "#eab308" },
+                        "encoding": {
+                            "x": { "field": "year", "type": "quantitative" },
+                            "y": { "field": "points", "type": "quantitative" }
+                        }
+                    },
+                    {
+                        "mark": { "type": "area", "opacity": 0.4, "color": "#66b3ff" },
+                        "encoding": {
+                            "x": { "field": "year", "type": "quantitative" },
+                            "y": { "field": "points", "type": "quantitative" }
+                        }
+                    },
+                    {
+                        "mark": { "type": "line", "color": "#66b3ff", "strokeWidth": 2 },
+                        "encoding": {
+                            "x": { "field": "year", "type": "quantitative" },
+                            "y": { "field": "points", "type": "quantitative" }
+                        }
+                    },
                 ],
                 "encoding": {
                     "x": {
@@ -56,7 +88,11 @@ export default function RatingOverTimeChart() {
                             "titleColor": "#BABABA",
                             "gridColor": "#404040"
                         }
-                    }
+                    },
+                    "tooltip": [
+                        { "field": "year", "title": "Year" },
+                        { "field": "points", "title": "Points" }
+                    ]
                 }
             }}
         />
