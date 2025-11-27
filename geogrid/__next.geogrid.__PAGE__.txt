@@ -1,6 +1,6 @@
 1:"$Sreact.fragment"
-2:I[15717,["/_next/static/chunks/00dfb7a3ac193e6d.js","/_next/static/chunks/1a6915d8c3d4484c.js"],"default"]
+2:I[15717,["/_next/static/chunks/00dfb7a3ac193e6d.js","/_next/static/chunks/e3d555503ff78922.js"],"default"]
 3:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"OutletBoundary"]
 4:"$Sreact.suspense"
-0:{"buildId":"1ah2kfoWFtE0pggCB8LRj","rsc":["$","$1","c",{"children":[["$","main",null,{"className":"flex flex-col h-screen","children":[["$","section",null,{"className":"container pt-12 pb-4 flex-none","children":["$","h1",null,{"className":"text-3xl font-bold","children":"GeoGrid data sheet"}]}],["$","$L2",null,{}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/00dfb7a3ac193e6d.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/1a6915d8c3d4484c.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"9VdTV9ruj3bhNnD50ncBg","rsc":["$","$1","c",{"children":[["$","main",null,{"className":"flex flex-col h-screen","children":[["$","section",null,{"className":"container pt-12 pb-4 flex-none","children":["$","h1",null,{"className":"text-3xl font-bold","children":"GeoGrid data sheet"}]}],["$","$L2",null,{}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/00dfb7a3ac193e6d.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/e3d555503ff78922.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
 5:null
