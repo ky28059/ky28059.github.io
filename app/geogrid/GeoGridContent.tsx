@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useTransition } from 'react';
 import CenteredModal from '@/components/CenteredModal';
+import Spinner from '@/components/Spinner';
 
 
 export default function GeoGridContent() {
@@ -48,9 +49,10 @@ export default function GeoGridContent() {
         <>
             <div className="container mb-6">
                 <input
-                    className="rounded px-3.5 py-1.5 text-sm border border-tertiary focus:outline-none focus:ring-2"
+                    className="disabled:opacity-50 transition duration-200 rounded px-3.5 py-1.5 text-sm border border-tertiary focus:outline-none focus:ring-2"
                     value={query}
                     onChange={(e) => updateQuery(e.target.value)}
+                    disabled={!filtered}
                     placeholder="Filter by country"
                 />
             </div>
@@ -136,131 +138,135 @@ export default function GeoGridContent() {
                     <GridBooleanLabel label="T20 choc." />
                 </div>
 
-                <div className={'grow w-max bg-black/25 flex flex-col overflow-y-auto divide-y divide-tertiary transition duration-200' + (pending ? ' opacity-50' : '')}>
-                    {!filtered ? (
-                        <div>...</div>
-                    ) : filtered.map((c) => {
-                        const geogridDetails = geogridDataRef.current[c.code];
-                        const commonDetails = commonDataRef.current[c.code];
+                {!filtered ? (
+                    <div className="w-screen h-full flex items-center justify-center sticky left-0">
+                        <Spinner />
+                    </div>
+                ) : (
+                    <div className={'grow w-max bg-black/25 flex flex-col overflow-y-auto divide-y divide-tertiary transition duration-200' + (pending ? ' opacity-50' : '')}>
+                        {filtered.map((c) => {
+                            const geogridDetails = geogridDataRef.current[c.code];
+                            const commonDetails = commonDataRef.current[c.code];
 
-                        return (
-                            <div
-                                className="flex text-sm items-center hover:bg-tertiary/30"
-                                key={c.code}
-                            >
-                                <img
-                                    className="max-h-12 w-16 flex-none object-contain object-right py-0.5 mr-3"
-                                    src={getFlagUrl(c.code)}
-                                    alt={c.name}
-                                />
-                                <div className="w-36 flex-none mr-3 text-pretty">
-                                    {c.name} <span className="text-secondary">({c.code})</span>
-                                </div>
-                                <GridCell
-                                    className="w-24"
-                                    value={commonDetails?.population}
-                                />
-                                <GridCell
-                                    className="w-28"
-                                    value={commonDetails?.size}
-                                    unit="km²"
-                                />
-                                {(geogridDetails?.geographyInfo.borderCountOverride !== undefined || geogridDetails?.geographyInfo.islandNation) ? (
+                            return (
+                                <div
+                                    className="flex text-sm items-center hover:bg-tertiary/30"
+                                    key={c.code}
+                                >
+                                    <img
+                                        className="max-h-12 w-16 flex-none object-contain object-right py-0.5 mr-3"
+                                        src={getFlagUrl(c.code)}
+                                        alt={c.name}
+                                    />
+                                    <div className="w-36 flex-none mr-3 text-pretty">
+                                        {c.name} <span className="text-secondary">({c.code})</span>
+                                    </div>
+                                    <GridCell
+                                        className="w-24"
+                                        value={commonDetails?.population}
+                                    />
                                     <GridCell
                                         className="w-28"
-                                        value={geogridDetails?.geographyInfo.borderCountOverride ?? 0}
+                                        value={commonDetails?.size}
+                                        unit="km²"
                                     />
-                                ) : (
-                                    <button
-                                        className="w-28 text-sm mr-3 flex-none bg-white/10 hover:bg-white/15 transition duration-150 rounded-full px-2.5 py-1 text-left my-0.5"
-                                        onClick={() => setSelectedBorders(c.code)}
-                                    >
-                                        {commonDetails.borders.length}{' '}
-                                        <span className="text-secondary text-xs">(view all)</span>
-                                    </button>
-                                )}
-                                <GridCell
-                                    className="w-12"
-                                    value={geogridDetails?.economicInfo.HDI}
-                                />
-                                <GridCell
-                                    className="w-12"
-                                    value={geogridDetails?.politicalInfo.CPI}
-                                />
-                                <GridCell
-                                    className="w-16"
-                                    value={geogridDetails?.economicInfo.GDPPerCapita}
-                                    prefix="$"
-                                />
-                                <GridCell
-                                    className="w-20"
-                                    value={geogridDetails?.geographyInfo.coastlineLength}
-                                    unit="km"
-                                />
-                                <GridCell
-                                    className="w-24"
-                                    value={geogridDetails?.factsInfo.airPollution}
-                                    unit="μg/m³"
-                                />
-                                <GridCell
-                                    className="w-24"
-                                    value={geogridDetails?.factsInfo.co2Emissions}
-                                    unit="tCO₂/y"
-                                />
-                                <GridCell
-                                    className="w-12"
-                                    value={geogridDetails?.sportsInfo.olympicMedals}
-                                />
-                                <GridArrayCell
-                                    className="w-14 text-xs"
-                                    value={commonDetails?.continent}
-                                />
-                                <GridArrayCell
-                                    className="w-20 text-xs"
-                                    value={geogridDetails?.geographyInfo.rivers}
-                                />
-                                <GridArrayCell
-                                    className="w-20 text-xs"
-                                    value={geogridDetails?.politicalInfo.officialLanguageCodes}
-                                />
-                                <GridBooleanCell value={geogridDetails?.geographyInfo.landlocked} />
-                                <GridBooleanCell value={geogridDetails?.geographyInfo.islandNation} />
-                                <GridBooleanCell value={geogridDetails?.politicalInfo.isMonarchy} />
-                                <GridBooleanCell value={geogridDetails?.politicalInfo.inEU} />
-                                <GridBooleanCell value={geogridDetails?.politicalInfo.inCommonwealth} />
-                                <GridBooleanCell value={geogridDetails?.politicalInfo.wasUSSR} />
-                                <GridBooleanCell value={geogridDetails?.economicInfo.producesNuclearPower} />
-                                <GridBooleanCell value={geogridDetails?.politicalInfo.hasNuclearWeapons} />
-                                <GridBooleanCell value={geogridDetails?.politicalInfo.observesDST} />
-                                <GridBooleanCell value={geogridDetails?.politicalInfo.sameSexMarriageLegal} />
-                                <GridBooleanCell value={geogridDetails?.politicalInfo.sameSexActivitiesIllegal} />
-                                <GridBooleanCell value={geogridDetails?.factsInfo.drivesLeft} />
-                                <GridBooleanCell value={geogridDetails?.factsInfo.hasAlcoholBan} />
-                                <GridBooleanCell value={geogridDetails?.geographyInfo.touchesSahara} />
-                                <GridBooleanCell value={geogridDetails?.geographyInfo.touchesEquator} />
-                                <GridBooleanCell value={geogridDetails?.geographyInfo.touchesEurasionSteppe} />
-                                <GridBooleanCell value={geogridDetails?.sportsInfo.hostedF1} />
-                                <GridBooleanCell value={geogridDetails?.sportsInfo.hostedOlympics} />
-                                <GridBooleanCell value={geogridDetails?.sportsInfo.hostedMensWorldCup} />
-                                <GridBooleanCell value={geogridDetails?.sportsInfo.playedMensWorldCup} />
-                                <GridBooleanCell value={geogridDetails?.sportsInfo.wonMensWorldCup} />
-                                <GridBooleanCell value={geogridDetails?.factsInfo.top20WorldHeritageSites} />
-                                <GridBooleanCell value={geogridDetails?.factsInfo.top20TourismRate} />
-                                <GridBooleanCell value={geogridDetails?.factsInfo.top20RailSize} />
-                                <GridBooleanCell value={geogridDetails?.factsInfo.top20PopulationDensity} />
-                                <GridBooleanCell value={geogridDetails?.factsInfo.bottom20PopulationDensity} />
-                                <GridBooleanCell value={geogridDetails?.economicInfo.top20WheatProduction} />
-                                <GridBooleanCell value={geogridDetails?.economicInfo.top20OilProduction} />
-                                <GridBooleanCell value={geogridDetails?.economicInfo.top20RenewableElectricityProduction} />
-                                <GridBooleanCell value={geogridDetails?.geographyInfo.top10Lakes} />
-                                <GridBooleanCell value={geogridDetails?.factsInfo.has50Skyscrapers} />
-                                <GridBooleanCell value={geogridDetails?.factsInfo.top20ObesityRate} />
-                                <GridBooleanCell value={geogridDetails?.factsInfo.top20AlcoholConsumption} />
-                                <GridBooleanCell value={geogridDetails?.factsInfo.top20ChocolateConsumption} />
-                            </div>
-                        )
-                    })}
-                </div>
+                                    {(geogridDetails?.geographyInfo.borderCountOverride !== undefined || geogridDetails?.geographyInfo.islandNation) ? (
+                                        <GridCell
+                                            className="w-28"
+                                            value={geogridDetails?.geographyInfo.borderCountOverride ?? 0}
+                                        />
+                                    ) : (
+                                        <button
+                                            className="w-28 text-sm mr-3 flex-none bg-white/10 hover:bg-white/15 transition duration-150 rounded-full px-2.5 py-1 text-left my-0.5"
+                                            onClick={() => setSelectedBorders(c.code)}
+                                        >
+                                            {commonDetails.borders.length}{' '}
+                                            <span className="text-secondary text-xs">(view all)</span>
+                                        </button>
+                                    )}
+                                    <GridCell
+                                        className="w-12"
+                                        value={geogridDetails?.economicInfo.HDI}
+                                    />
+                                    <GridCell
+                                        className="w-12"
+                                        value={geogridDetails?.politicalInfo.CPI}
+                                    />
+                                    <GridCell
+                                        className="w-16"
+                                        value={geogridDetails?.economicInfo.GDPPerCapita}
+                                        prefix="$"
+                                    />
+                                    <GridCell
+                                        className="w-20"
+                                        value={geogridDetails?.geographyInfo.coastlineLength}
+                                        unit="km"
+                                    />
+                                    <GridCell
+                                        className="w-24"
+                                        value={geogridDetails?.factsInfo.airPollution}
+                                        unit="μg/m³"
+                                    />
+                                    <GridCell
+                                        className="w-24"
+                                        value={geogridDetails?.factsInfo.co2Emissions}
+                                        unit="tCO₂/y"
+                                    />
+                                    <GridCell
+                                        className="w-12"
+                                        value={geogridDetails?.sportsInfo.olympicMedals}
+                                    />
+                                    <GridArrayCell
+                                        className="w-14 text-xs"
+                                        value={commonDetails?.continent}
+                                    />
+                                    <GridArrayCell
+                                        className="w-20 text-xs"
+                                        value={geogridDetails?.geographyInfo.rivers}
+                                    />
+                                    <GridArrayCell
+                                        className="w-20 text-xs"
+                                        value={geogridDetails?.politicalInfo.officialLanguageCodes}
+                                    />
+                                    <GridBooleanCell value={geogridDetails?.geographyInfo.landlocked} />
+                                    <GridBooleanCell value={geogridDetails?.geographyInfo.islandNation} />
+                                    <GridBooleanCell value={geogridDetails?.politicalInfo.isMonarchy} />
+                                    <GridBooleanCell value={geogridDetails?.politicalInfo.inEU} />
+                                    <GridBooleanCell value={geogridDetails?.politicalInfo.inCommonwealth} />
+                                    <GridBooleanCell value={geogridDetails?.politicalInfo.wasUSSR} />
+                                    <GridBooleanCell value={geogridDetails?.economicInfo.producesNuclearPower} />
+                                    <GridBooleanCell value={geogridDetails?.politicalInfo.hasNuclearWeapons} />
+                                    <GridBooleanCell value={geogridDetails?.politicalInfo.observesDST} />
+                                    <GridBooleanCell value={geogridDetails?.politicalInfo.sameSexMarriageLegal} />
+                                    <GridBooleanCell value={geogridDetails?.politicalInfo.sameSexActivitiesIllegal} />
+                                    <GridBooleanCell value={geogridDetails?.factsInfo.drivesLeft} />
+                                    <GridBooleanCell value={geogridDetails?.factsInfo.hasAlcoholBan} />
+                                    <GridBooleanCell value={geogridDetails?.geographyInfo.touchesSahara} />
+                                    <GridBooleanCell value={geogridDetails?.geographyInfo.touchesEquator} />
+                                    <GridBooleanCell value={geogridDetails?.geographyInfo.touchesEurasionSteppe} />
+                                    <GridBooleanCell value={geogridDetails?.sportsInfo.hostedF1} />
+                                    <GridBooleanCell value={geogridDetails?.sportsInfo.hostedOlympics} />
+                                    <GridBooleanCell value={geogridDetails?.sportsInfo.hostedMensWorldCup} />
+                                    <GridBooleanCell value={geogridDetails?.sportsInfo.playedMensWorldCup} />
+                                    <GridBooleanCell value={geogridDetails?.sportsInfo.wonMensWorldCup} />
+                                    <GridBooleanCell value={geogridDetails?.factsInfo.top20WorldHeritageSites} />
+                                    <GridBooleanCell value={geogridDetails?.factsInfo.top20TourismRate} />
+                                    <GridBooleanCell value={geogridDetails?.factsInfo.top20RailSize} />
+                                    <GridBooleanCell value={geogridDetails?.factsInfo.top20PopulationDensity} />
+                                    <GridBooleanCell value={geogridDetails?.factsInfo.bottom20PopulationDensity} />
+                                    <GridBooleanCell value={geogridDetails?.economicInfo.top20WheatProduction} />
+                                    <GridBooleanCell value={geogridDetails?.economicInfo.top20OilProduction} />
+                                    <GridBooleanCell value={geogridDetails?.economicInfo.top20RenewableElectricityProduction} />
+                                    <GridBooleanCell value={geogridDetails?.geographyInfo.top10Lakes} />
+                                    <GridBooleanCell value={geogridDetails?.factsInfo.has50Skyscrapers} />
+                                    <GridBooleanCell value={geogridDetails?.factsInfo.top20ObesityRate} />
+                                    <GridBooleanCell value={geogridDetails?.factsInfo.top20AlcoholConsumption} />
+                                    <GridBooleanCell value={geogridDetails?.factsInfo.top20ChocolateConsumption} />
+                                </div>
+                            )
+                        })}
+                    </div>
+                )}
             </div>
 
             <CenteredModal
