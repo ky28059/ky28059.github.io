@@ -4,6 +4,11 @@ import { writeFile } from 'node:fs/promises';
 // @ts-ignore
 const ctftimeTableRegex = /<p align="left">Overall rating place:.*?(\d+).*?with.*?(\d+\.\d+).*?pts in (\d+).*?Country place:.*?(\d+).*?<table class="table table-striped">(.*?)<\/table>/gs;
 
+/**
+ * Fetches the yearly CTFtime performance for a given team.
+ * @param id The id of the team to fetch.
+ * @returns An array of the yearly performance data, as `{ year, globalPlace, countryPlace, points }[]`
+ */
 async function fetchTeamMetadata(id: string) {
     const raw = await (await fetch(`https://ctftime.org/team/${id}`)).text();
 
@@ -16,6 +21,11 @@ async function fetchTeamMetadata(id: string) {
     }));
 }
 
+/**
+ * Fetches the yearly CTFtime performance *and* data about participated-in events for a given team.
+ * @param id The id of the team to fetch.
+ * @returns An array of yearly performance and event data.
+ */
 async function fetchAllEvents(id: string) {
     const raw = await (await fetch(`https://ctftime.org/team/${id}`)).text();
 
