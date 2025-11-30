@@ -82,8 +82,8 @@ async function getUniversityTeams() {
 }
 
 ;(async () => {
-    // const teams = await getUniversityTeams();
-    // console.log(teams);
+    const teams = await getUniversityTeams();
+    console.log(teams);
 
     const events = await fetchAllEvents('11464');
     await writeFile(`./events.json`, JSON.stringify(events, null, 4));
