@@ -2,8 +2,8 @@ import LinkHeading from '@/components/LinkHeading';
 import UniversityMapChart from '@/app/b01lers-2025-wrapped/UniversityMapChart';
 import UniversityBarChart from '@/app/b01lers-2025-wrapped/UniversityBarChart';
 import RatingOverTimeChart from '@/app/b01lers-2025-wrapped/RatingOverTimeChart';
-import CountryPlaceOverTimeChart from '@/app/b01lers-2025-wrapped/CountryPlaceOverTimeChart';
-import GlobalPlaceOverTimeChart from '@/app/b01lers-2025-wrapped/GlobalPlaceOverTimeChart';import TopCTFsTable from '@/app/b01lers-2025-wrapped/TopCTFsTable';
+import PlaceOverTimeChart from '@/app/b01lers-2025-wrapped/PlaceOverTimeChart';
+import TopCTFsTable from '@/app/b01lers-2025-wrapped/TopCTFsTable';
 import MessagesHeatmap from '@/app/b01lers-2025-wrapped/MessagesHeatmap';
 import MessagesByDayHeatmap from '@/app/b01lers-2025-wrapped/MessagesByDayHeatmap';
 
@@ -93,8 +93,8 @@ export default function B01lersWrapped() {
                     (compared to <strong>Sigpwny</strong>, in yellow, and <strong>PBR</strong> in orange).
                     Of course, this has led to the team's highest country and global placements, plotted below:
                 </p>
-                <CountryPlaceOverTimeChart />
-                <GlobalPlaceOverTimeChart />
+                <PlaceOverTimeChart />
+                {/* <GlobalPlaceOverTimeChart /> */}
 
                 <LinkHeading id="ctf-statistics" className="text-3xl font-bold mt-12 mb-4">
                     CTF statistics
