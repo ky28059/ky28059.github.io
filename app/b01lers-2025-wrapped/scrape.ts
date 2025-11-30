@@ -1,11 +1,25 @@
 import { writeFile } from 'node:fs/promises';
 
 
-async function fetchEvents(id: string) {
+// @ts-ignore
+const ctftimeTableRegex = /<p align="left">Overall rating place:.*?(\d+).*?with.*?(\d+\.\d+).*?pts in (\d+).*?Country place:.*?(\d+).*?<table class="table table-striped">(.*?)<\/table>/gs;
+
+async function fetchTeamMetadata(id: string) {
     const raw = await (await fetch(`https://ctftime.org/team/${id}`)).text();
 
-    // @ts-ignore
-    const matches = raw.matchAll(/<p align="left">Overall rating place:.*?(\d+).*?with.*?(\d+\.\d+).*?pts in (\d+).*?Country place:.*?(\d+).*?<table class="table table-striped">(.*?)<\/table>/gs);
+    const matches = raw.matchAll(ctftimeTableRegex);
+    return [...matches].map(([, globalPlace, total, year, countryPlace,]) => ({
+        year,
+        globalPlace: Number(globalPlace),
+        countryPlace: Number(countryPlace),
+        points: Number(total)
+    }));
+}
+
+async function fetchAllEvents(id: string) {
+    const raw = await (await fetch(`https://ctftime.org/team/${id}`)).text();
+
+    const matches = raw.matchAll(ctftimeTableRegex);
     return [...matches].map(([, globalPlace, total, year, countryPlace, inner]) => ({
         year,
         globalPlace: Number(globalPlace),
@@ -71,8 +85,11 @@ async function getUniversityTeams() {
     // const teams = await getUniversityTeams();
     // console.log(teams);
 
-    for (const id of ['11464', '27763', '186494', '284']) {
-        const events = await fetchEvents(id);
+    const events = await fetchAllEvents('11464');
+    await writeFile(`./events.json`, JSON.stringify(events, null, 4));
+
+    for (const id of ['27763', '186494', '284']) {
+        const events = await fetchTeamMetadata(id);
         await writeFile(`./events-${id}.json`, JSON.stringify(events, null, 4));
     }
 })()

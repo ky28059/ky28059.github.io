@@ -36,7 +36,7 @@ export default function B01lersWrapped() {
                     Stats, visualizations, and more to sum up 2025.
                 </p>
                 <p className="text-sm text-secondary mb-8">
-                    Data last fetched on <span className="bg-tertiary text-xs text-primary px-1 py-0.5 rounded">2025-11-25</span>.
+                    Data last fetched on <span className="bg-tertiary text-xs text-primary px-1 py-0.5 rounded">2025-11-29</span>.
                 </p>
 
                 <div className="flex gap-16 mb-16">

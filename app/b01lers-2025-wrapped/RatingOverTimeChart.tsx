@@ -1,7 +1,7 @@
 'use client'
 
 import { VegaEmbed } from 'react-vega';
-import { pbrData, pppData, sigpwnyData, teamData } from '@/app/b01lers-2025-wrapped/data';
+import { teamData } from '@/app/b01lers-2025-wrapped/data';
 
 
 export default function RatingOverTimeChart() {
@@ -23,7 +23,7 @@ export default function RatingOverTimeChart() {
                 },
                 "layer": [
                     {
-                        "data": { "values": pbrData },
+                        "data": { "url": "data/events-186494.json" },
                         "mark": { "type": "line", "color": "#f97316", "strokeWidth": 2 },
                         "encoding": {
                             "x": { "field": "year", "type": "quantitative" },
@@ -31,7 +31,7 @@ export default function RatingOverTimeChart() {
                         }
                     },
                     {
-                        "data": { "values": pbrData },
+                        "data": { "url": "data/events-186494.json" },
                         "mark": { "type": "area", "opacity": 0.4, "color": "#f97316" },
                         "encoding": {
                             "x": { "field": "year", "type": "quantitative" },
@@ -39,7 +39,7 @@ export default function RatingOverTimeChart() {
                         }
                     },
                     {
-                        "data": { "values": sigpwnyData },
+                        "data": { "url": "data/events-27763.json" },
                         "mark": { "type": "line", "color": "#eab308", "strokeWidth": 2 },
                         "encoding": {
                             "x": { "field": "year", "type": "quantitative" },
@@ -47,7 +47,7 @@ export default function RatingOverTimeChart() {
                         }
                     },
                     {
-                        "data": { "values": sigpwnyData },
+                        "data": { "url": "data/events-27763.json" },
                         "mark": { "type": "area", "opacity": 0.4, "color": "#eab308" },
                         "encoding": {
                             "x": { "field": "year", "type": "quantitative" },

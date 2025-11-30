@@ -1,10 +1,17 @@
 [
     {
         "year": "2025",
-        "globalPlace": 34,
+        "globalPlace": 33,
         "countryPlace": 4,
-        "points": 515.513,
+        "points": 526.168,
         "events": [
+            {
+                "place": 25,
+                "url": "/event/2850",
+                "name": "PatriotCTF 2025",
+                "points": 5934,
+                "rating": 38.644
+            },
             {
                 "place": 1,
                 "url": "/event/2883",
@@ -38,7 +45,7 @@
                 "url": "/event/2920",
                 "name": "V1t CTF 2025",
                 "points": 4355,
-                "rating": 10.868
+                "rating": 10.829
             },
             {
                 "place": 10,
