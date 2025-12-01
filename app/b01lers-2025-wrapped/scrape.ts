@@ -26,7 +26,7 @@ async function fetchTeamMetadata(id: string) {
  * @param id The id of the team to fetch.
  * @returns An array of yearly performance and event data.
  */
-async function fetchAllEvents(id: string) {
+async function fetchTeamAndEvents(id: string) {
     const raw = await (await fetch(`https://ctftime.org/team/${id}`)).text();
 
     const matches = raw.matchAll(ctftimeTableRegex);
@@ -48,6 +48,19 @@ function parseCTFTable(inner: string) {
         points: Number(points),
         rating: Number(rating),
     }));
+}
+
+async function fetchEventDetails(url: string) {
+    const resolved = new URL(url, 'https://ctftime.org/');
+    const raw = await (await fetch(resolved)).text();
+
+    const [, start, end, futureWeight, weight,] = raw.match(/<div class="span10">\s+<p>\s+(.+?) &mdash; (.+?)&nbsp;[^]+?Future weight: (\d+\.?\d*)[^]+?Rating weight: (\d+\.?\d*)/)!;
+    return {
+        start: new Date(start),
+        end: new Date(end),
+        futureWeight: Number(futureWeight),
+        weight: Number(weight)
+    };
 }
 
 async function fetchTeams() {
@@ -91,15 +104,29 @@ async function getUniversityTeams() {
         .map((t) => ({ ...t, ...teamData[t.name] }));
 }
 
+function sleep(milliseconds: number) {
+    return new Promise(res => setTimeout(res, milliseconds));
+}
+
 ;(async () => {
-    const teams = await getUniversityTeams();
-    console.log(teams);
+    // const teams = await getUniversityTeams();
+    // console.log(teams);
 
-    const events = await fetchAllEvents('11464');
-    await writeFile(`./events.json`, JSON.stringify(events, null, 4));
+    const years = await fetchTeamAndEvents('11464');
 
-    for (const id of ['27763', '186494', '284']) {
-        const events = await fetchTeamMetadata(id);
-        await writeFile(`./events-${id}.json`, JSON.stringify(events, null, 4));
+    for (const { events } of years) {
+        for (let i = 0; i < events.length; i++) {
+            const event = events[i];
+            console.log('Fetching', event.name);
+
+            const details = await fetchEventDetails(event.url);
+            events[i] = { ...event, ...details }
+        }
     }
+    await writeFile(`./events.json`, JSON.stringify(years, null, 4));
+
+    // for (const id of ['27763', '186494', '284']) {
+    //     const events = await fetchTeamMetadata(id);
+    //     await writeFile(`./events-${id}.json`, JSON.stringify(events, null, 4));
+    // }
 })()

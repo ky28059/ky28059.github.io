@@ -4,6 +4,7 @@ import UniversityBarChart from '@/app/b01lers-2025-wrapped/UniversityBarChart';
 import RatingOverTimeChart from '@/app/b01lers-2025-wrapped/RatingOverTimeChart';
 import PlaceOverTimeChart from '@/app/b01lers-2025-wrapped/PlaceOverTimeChart';
 import TopCTFsTable from '@/app/b01lers-2025-wrapped/TopCTFsTable';
+import CTFRatingChart from '@/app/b01lers-2025-wrapped/CTFRatingChart';
 import MessagesHeatmap from '@/app/b01lers-2025-wrapped/MessagesHeatmap';
 import MessagesByDayHeatmap from '@/app/b01lers-2025-wrapped/MessagesByDayHeatmap';
 
@@ -106,6 +107,14 @@ export default function B01lersWrapped() {
                 <p className="my-4">
                     [...]
                 </p>
+                <p className="my-4">
+                    How is CTF weight correlated with eventual rating gain?
+                </p>
+                <CTFRatingChart index={0} />
+                <p className="my-4">
+                    If we examine historic data across all years,
+                </p>
+                <CTFRatingChart index={-1} />
 
                 <LinkHeading id="server-statistics" className="text-3xl font-bold mt-12 mb-4">
                     Server statistics
