@@ -1,0 +1,582 @@
+1:"$Sreact.fragment"
+2:I[10453,["/_next/static/chunks/b9afcb09c56609a6.js","/_next/static/chunks/59d5dd52dd9fcb16.js","/_next/static/chunks/0eb309e820c00a6d.js","/_next/static/chunks/116d3b69f07f8eb7.js","/_next/static/chunks/39b99946d2be6a43.js"],"default"]
+40:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"OutletBoundary"]
+41:"$Sreact.suspense"
+:HL["https://gist.github.com/user-attachments/assets/855a8a52-0b13-4e63-8bf5-7a538bbc906b","image"]
+:HL["https://gist.github.com/user-attachments/assets/b48b21e0-d52b-49da-b0e2-ac3588c59d54","image"]
+:HL["https://gist.github.com/user-attachments/assets/3e7424f6-d396-4778-9e7f-14b2a8c47c44","image"]
+:HL["https://gist.github.com/user-attachments/assets/d324b702-18b2-4f03-bfb6-e4fdc68b44fd","image"]
+:HL["https://gist.github.com/user-attachments/assets/6c273e82-c48c-495c-98f8-5882a2063fdb","image"]
+:HL["https://gist.github.com/user-attachments/assets/331cebcd-1238-432b-8142-e9998897b7ce","image"]
+:HL["https://gist.github.com/user-attachments/assets/c06783cc-f3c4-4b7a-a6f5-c3e93f25e449","image"]
+:HL["https://gist.github.com/user-attachments/assets/ac29cd97-1dd4-42ab-b135-fc945920cb99","image"]
+3:T1acd,import os
+import secrets
+import sqlite3
+import time
+from functools import wraps
+
+import bcrypt
+import jwt
+from dotenv import load_dotenv
+from flask import (
+    Flask,
+    flash,
+    jsonify,
+    make_response,
+    redirect,
+    render_template,
+    request,
+)
+
+app = Flask(__name__)
+app.static_folder = "static"
+load_dotenv()
+app.config["SECRET_KEY"] = "".join(
+    [secrets.choice("abcdef0123456789") for _ in range(32)]
+)
+FLAG = os.getenv("FLAG")
+
+
+def init_db():
+    conn = sqlite3.connect("database.db")
+    cursor = conn.cursor()
+    cursor.execute("""DROP TABLE IF EXISTS employees;""")
+    cursor.execute("""DROP TABLE IF EXISTS revoked_tokens;""")
+    cursor.execute("""DROP TABLE IF EXISTS users;""")
+    cursor.execute("""CREATE TABLE IF NOT EXISTS users (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        username TEXT UNIQUE NOT NULL,
+                        is_admin BOOL NOT NULL,
+                        password_hash TEXT NOT NULL)""")
+    cursor.execute("""CREATE TABLE IF NOT EXISTS revoked_tokens (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        token TEXT NOT NULL)""")
+    cursor.execute("""CREATE TABLE IF NOT EXISTS employees (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        name TEXT NOT NULL,
+                        email TEXT UNIQUE NOT NULL,
+                        position TEXT NOT NULL,
+                        phone TEXT NOT NULL,
+                        location TEXT NOT NULL)""")
+    conn.commit()
+    conn.close()
+
+
+def get_db_connection():
+    conn = sqlite3.connect("database.db")
+    conn.row_factory = sqlite3.Row
+    return conn
+
+
+def token_required(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        token = request.cookies.get("JWT")
+        if not token:
+            flash("Token is missing!", "error")
+            return redirect("/login")
+
+        try:
+            data = jwt.decode(token, app.config["SECRET_KEY"], algorithms=["HS256"])
+            username = data["username"]
+
+            conn = get_db_connection()
+            user = conn.execute(
+                "SELECT id,is_admin FROM users WHERE username = ?", (username,)
+            ).fetchone()
+            revoked = conn.execute(
+                "SELECT id FROM revoked_tokens WHERE token = ?", (token,)
+            ).fetchone()
+            conn.close()
+
+            if not user or revoked:
+                flash("Invalid or revoked token!", "error")
+                return redirect("/login")
+
+            request.is_admin = user["is_admin"]
+            request.username = username
+
+        except jwt.InvalidTokenError:
+            flash("Invalid token!", "error")
+            return redirect("/login")
+
+        return f(*args, **kwargs)
+
+    return decorated
+
+
+@app.route("/", methods=["GET"])
+def index():
+    token = request.cookies.get("JWT", None)
+    if token is None:
+        return redirect("/login")
+    else:
+        return redirect("/employees")
+
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    if request.method == "GET":
+        return render_template("register.html")
+    elif request.method == "POST":
+        data = request.form
+        username = data.get("username")
+        password = data.get("password")
+
+        if not username or not password:
+            return jsonify({"message": "Username and password required!"}), 400
+
+        password_hash = bcrypt.hashpw(
+            password.encode("utf-8"), bcrypt.gensalt()
+        ).decode("utf-8")
+
+        conn = get_db_connection()
+        try:
+            conn.execute(
+                "INSERT INTO users (username, is_admin, password_hash) VALUES (?, ?, ?)",
+                (username, False, password_hash),
+            )
+            conn.commit()
+        except sqlite3.IntegrityError:
+            flash("User already exists.", "error")
+            return redirect("/register")
+        finally:
+            conn.close()
+
+        flash("User created successfully.", "success")
+        return redirect("/login")
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "GET":
+        return render_template("login.html")
+    elif request.method == "POST":
+        data = request.form
+        username = data.get("username")
+        password = data.get("password")
+
+        conn = get_db_connection()
+        user = conn.execute(
+            "SELECT * FROM users WHERE username = ?", (username,)
+        ).fetchone()
+        conn.close()
+
+        if user and bcrypt.checkpw(
+            password.encode("utf-8"), user["password_hash"].encode("utf-8")
+        ):
+            token = jwt.encode(
+                {
+                    "username": username,
+                    "is_admin": user["is_admin"],
+                    "issued": time.time(),
+                },
+                app.config["SECRET_KEY"],
+                algorithm="HS256",
+            )
+            resp = make_response(redirect("/employees"))
+            resp.set_cookie("JWT", token)
+            return resp
+
+        flash("Invalid credentials.", "error")
+        return redirect("/login")
+
+
+@app.route("/logout", methods=["GET"])
+def logout():
+    token = request.cookies.get("JWT")
+    if token:
+        conn = get_db_connection()
+        conn.execute("INSERT INTO revoked_tokens (token) VALUES (?)", (token,))
+        conn.commit()
+        conn.close()
+    resp = make_response(redirect("/login"))
+    resp.delete_cookie("JWT")
+    return resp
+
+
+@app.route("/employees", methods=["GET"])
+@token_required
+def employees():
+    query = request.args.get("query", "")
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute(
+        f"SELECT id, name, email, position FROM employees WHERE name LIKE '%{query}%'"
+    )
+    results = cursor.fetchall()
+    conn.close()
+    print(request.username)
+    return render_template("employees.html", username=request.username, employees=results, query=query)
+
+
+@app.route("/employee/<int:employee_id>", methods=["GET"])
+@token_required
+def employee_details(employee_id):
+    conn = get_db_connection()
+    employee = conn.execute(
+        "SELECT * FROM employees WHERE id = ?", (employee_id,)
+    ).fetchone()
+    conn.close()
+    print(employee)
+    if not employee:
+        flash("Employee not found", "error")
+        return redirect("/employees")
+    return render_template("employee_details.html", username=request.username, employee=employee)
+
+
+@app.route("/admin", methods=["GET"])
+@token_required
+def admin():
+    is_admin = getattr(request, "is_admin", None)
+    if is_admin:
+        return render_template("admin.html", username=request.username, flag=FLAG)
+
+    flash("You don't have the permission to access this area", "error")
+    return redirect("/employees")
+
+
+if __name__ == "__main__":
+    init_db()
+    app.run(debug=False, host="0.0.0.0", port=5000)0:{"buildId":"kpKO0KowbC4960Citwp7S","rsc":["$","$1","c",{"children":[["$","div",null,{"children":["$","main",null,{"className":"text-pretty max-w-5xl mx-auto text-sm [&_h1]:text-5xl [&_h1]:font-semibold [&_h1]:mb-8 [&_blockquote]:text-secondary [&_blockquote]:space-y-3 [&_blockquote]:border-l-4 [&_blockquote]:border-secondary [&_blockquote]:pl-5 [&_blockquote]:mb-5 [&>_p]:my-4 [&_img]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_img]:rounded [&_li]:my-2","children":[["$","h1","h1-0",{"children":"HeroCTF v7 — Revoked (+ Revenge)"}],"\n",["$","blockquote","blockquote-0",{"children":["\n",["$","p","p-0",{"children":"Your budget request for the new company personnel index has been declined. Instead, the intern has received a very small bonus in exchange for a homemade solution."}],"\n",["$","p","p-1",{"children":"Show them their stinginess could cost them."}],"\n"]}],"\n",["$","blockquote","blockquote-1",{"children":["\n",["$","p","p-0",{"children":"The chall maker forgot to remove a debug account... Here is the revenge challenge without this backdoor!"}],"\n"]}],"\n",["$","p","p-0",{"children":"We're given a Python server that looks like this:"}],"\n",["$","$L2","pre-0",{"className":"my-2","children":"$3","language":"py"}],"\n","$L4","\n","$L5","\n","$L6","\n","$L7","\n","$L8","\n","$L9","\n","$La","\n","$Lb","\n","$Lc","\n","$Ld","\n","$Le","\n","$Lf","\n","$L10","\n","$L11","\n","$L12","\n","$L13","\n","$L14","\n","$L15","\n","$L16","\n","$L17","\n","$L18","\n","$L19","\n","$L1a","\n","$L1b","\n","$L1c","\n","$L1d","\n","$L1e","\n","$L1f","\n","$L20","\n","$L21","\n","$L22","\n","$L23","\n","$L24","\n","$L25","\n","$L26","\n","$L27","\n","$L28","\n","$L29","\n","$L2a","\n","$L2b","\n","$L2c","\n","$L2d","\n","$L2e","\n","$L2f","\n","$L30","\n","$L31","\n","$L32","\n","$L33","\n","$L34"]}]}],["$L35","$L36","$L37","$L38"],"$L39"]}],"loading":null,"isPartial":false}
+4:["$","p","p-1",{"children":["We can see right off the bat that we have SQL injection in the ",["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"/employees"}]," route:"]}]
+5:["$","$L2","pre-1",{"className":"my-2","children":"@app.route(\"/employees\", methods=[\"GET\"])\n@token_required\ndef employees():\n    query = request.args.get(\"query\", \"\")\n    conn = get_db_connection()\n    cursor = conn.cursor()\n    cursor.execute(\n        f\"SELECT id, name, email, position FROM employees WHERE name LIKE '%{query}%'\"\n    )\n    results = cursor.fetchall()\n    conn.close()\n    print(request.username)\n    return render_template(\"employees.html\", username=request.username, employees=results, query=query)","language":"py"}]
+6:["$","p","p-2",{"children":["We can then use ",["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"UNION SELECT"}]," to leak any part of their database. But what's this about revoked tokens?"]}]
+7:["$","p","p-3",{"children":["In their ",["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"token_required"}]," decorator, we can see that our JWT is decoded and properties injected into the request object so long as:"]}]
+8:["$","ul","ul-0",{"children":["\n",["$","li","li-0",{"children":"The JWT is valid."}],"\n",["$","li","li-1",{"children":["The ",["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"username"}]," corresponds to an existing user."]}],"\n",["$","li","li-2",{"children":["The token isn't in the ",["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"revoked_tokens"}]," table."]}],"\n"]}]
+3a:T453,def token_required(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        token = request.cookies.get("JWT")
+        if not token:
+            flash("Token is missing!", "error")
+            return redirect("/login")
+
+        try:
+            data = jwt.decode(token, app.config["SECRET_KEY"], algorithms=["HS256"])
+            username = data["username"]
+
+            conn = get_db_connection()
+            user = conn.execute(
+                "SELECT id,is_admin FROM users WHERE username = ?", (username,)
+            ).fetchone()
+            revoked = conn.execute(
+                "SELECT id FROM revoked_tokens WHERE token = ?", (token,)
+            ).fetchone()
+            conn.close()
+
+            if not user or revoked:
+                flash("Invalid or revoked token!", "error")
+                return redirect("/login")
+
+            request.is_admin = user["is_admin"]
+            request.username = username
+
+        except jwt.InvalidTokenError:
+            flash("Invalid token!", "error")
+            return redirect("/login")
+
+        return f(*args, **kwargs)
+
+    return decorated9:["$","$L2","pre-2",{"className":"my-2","children":"$3a","language":"py"}]
+a:["$","p","p-4",{"children":["So the main idea is this: we can leak the ",["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"revoked_tokens"}]," table and (assumedly) find an admin token there. If we can slightly perturb this token such that it is no longer exactly the same token as before (but the token still decodes correctly), we can become admin and win!"]}]
+b:["$","$L2","pre-3",{"className":"my-2","children":"@app.route(\"/admin\", methods=[\"GET\"])\n@token_required\ndef admin():\n    is_admin = getattr(request, \"is_admin\", None)\n    if is_admin:\n        return render_template(\"admin.html\", username=request.username, flag=FLAG)\n\n    flash(\"You don't have the permission to access this area\", \"error\")\n    return redirect(\"/employees\")","language":"py"}]
+c:["$","p","p-5",{"children":["We can use our simple SQL injection to leak the ",["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"revoked_tokens"}]," table,"]}]
+d:["$","p","p-6",{"children":["$","img","img-0",{"src":"https://gist.github.com/user-attachments/assets/855a8a52-0b13-4e63-8bf5-7a538bbc906b","alt":"image"}]}]
+e:["$","$L2","pre-4",{"className":"my-2","children":"a%'UNION SELECT id,token,token,token FROM revoked_tokens;--","language":"sql"}]
+f:["$","p","p-7",{"children":"and just check tokens until we find one corresponding to an admin (in this case,"}]
+10:["$","$L2","pre-5",{"className":"my-2","children":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaXNfYWRtaW4iOjEsImlzc3VlZCI6MTc2NDY0NjgzOC4zODE5NzgzfQ.5xEmNRYdgbWg77FWf3kPs28Ulcsqm_JimpCYymoCCCk"}]
+11:["$","p","p-8",{"children":["$","img","img-0",{"src":"https://gist.github.com/user-attachments/assets/b48b21e0-d52b-49da-b0e2-ac3588c59d54","alt":"image"}]}]
+12:["$","p","p-9",{"children":["So how do we change this slightly to bypass the ",["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"revoked_tokens"}]," check? What if we simply add an ",["$","code","code-1",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"="}]," to the end of it? (after all, ",["$","code","code-2",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"="}]," is a padding character in base64 each part of the JWT is base64 encoded, right?)"]}]
+13:["$","p","p-10",{"children":"Setting our JWT cookie to"}]
+14:["$","$L2","pre-6",{"className":"my-2","children":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaXNfYWRtaW4iOjEsImlzc3VlZCI6MTc2NDY0NjgzOC4zODE5NzgzfQ.5xEmNRYdgbWg77FWf3kPs28Ulcsqm_JimpCYymoCCCk="}]
+15:["$","p","p-11",{"children":"we get the flag:"}]
+16:["$","p","p-12",{"children":["$","img","img-0",{"src":"https://gist.github.com/user-attachments/assets/3e7424f6-d396-4778-9e7f-14b2a8c47c44","alt":"image"}]}]
+17:["$","p","p-13",{"children":["$","img","img-0",{"src":"https://gist.github.com/user-attachments/assets/d324b702-18b2-4f03-bfb6-e4fdc68b44fd","alt":"image"}]}]
+18:["$","p","p-14",{"children":["(this same solve works on both ",["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"Revoked"}]," and ",["$","code","code-1",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"Revoked Revenge"}],", as we didn't rely on any shenanigans with any \"debug accounts\")."]}]
+19:["$","div","h3-0",{"className":"relative","children":[["$","span",null,{"id":"but-wait-a-second...","className":"absolute -top-16"}],["$","a",null,{"className":"group flex gap-2 items-center text-inherit hover:underline decoration-1 underline-offset-4 decoration-secondary decoration-dotted text-3xl font-bold mt-10 mb-4 ","href":"#but-wait-a-second...","children":[["$","h2",null,{"children":"But wait a second..."}],["$","svg",null,{"stroke":"currentColor","fill":"none","strokeWidth":"2","viewBox":"0 0 24 24","strokeLinecap":"round","strokeLinejoin":"round","className":"hidden group-hover:block text-xl absolute pt-0.5 -left-7 stroke-[1.5px] text-secondary","children":["$undefined",[["$","path","0",{"d":"M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71","children":[]}],["$","path","1",{"d":"M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71","children":[]}]]],"style":{},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}]]}]]}]
+1a:["$","p","p-15",{"children":["Why does this payload actually work? Indeed, if we tried to add an ",["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"="}]," to the JWT on ",["$","code","code-1",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"jwt.io"}],", we'd get the following error message:"]}]
+1b:["$","p","p-16",{"children":["$","img","img-0",{"src":"https://gist.github.com/user-attachments/assets/6c273e82-c48c-495c-98f8-5882a2063fdb","alt":"image"}]}]
+1c:["$","p","p-17",{"children":["The caveat is this: JWT segments aren't base64 encoded, they are ",["$","em","em-0",{"children":"base64url"}]," encoded. And seemingly from reading the ",["$","a","a-0",{"href":"https://developer.mozilla.org/en-US/docs/Glossary/Base64#url_and_filename_safe_base64","children":"MDN documentation"}],","]}]
+1d:["$","blockquote","blockquote-2",{"children":["\n",["$","p","p-0",{"children":["A common variant of this definition allows only characters that are safe to use in filenames and URL values. This version, defined in RFC 4648, section 5, omits the padding and replaces ",["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"+"}]," and ",["$","code","code-1",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"/"}]," with ",["$","code","code-2",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"-"}]," and ",["$","code","code-3",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"_"}],"."]}],"\n"]}]
+1e:["$","p","p-18",{"children":["So if ",["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"base64url"}]," omits the padding ",["$","code","code-1",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"="}]," characters, why did Python's ",["$","code","code-2",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"jwt"}]," decode it anyways? I decided to read the ",["$","a","a-0",{"href":"https://github.com/jpadilla/pyjwt/tree/master","children":"PyJWT source"}]," to find out:"]}]
+3b:T5ac,    def decode(
+        self,
+        jwt: str | bytes,
+        key: AllowedPublicKeys | PyJWK | str | bytes = "",
+        algorithms: Sequence[str] | None = None,
+        options: Options | None = None,
+        # deprecated arg, remove in pyjwt3
+        verify: bool | None = None,
+        # could be used as passthrough to api_jws, consider removal in pyjwt3
+        detached_payload: bytes | None = None,
+        # passthrough arguments to _validate_claims
+        # consider putting in options
+        audience: str | Iterable[str] | None = None,
+        subject: str | None = None,
+        issuer: str | Container[str] | None = None,
+        leeway: float | timedelta = 0,
+        # kwargs
+        **kwargs: Any,
+    ) -> dict[str, Any]:
+        """
+        ...
+        """
+        if kwargs:
+            warnings.warn(
+                "passing additional kwargs to decode() is deprecated "
+                "and will be removed in pyjwt version 3. "
+                f"Unsupported kwargs: {tuple(kwargs.keys())}",
+                RemovedInPyjwt3Warning,
+                stacklevel=2,
+            )
+        decoded = self.decode_complete(
+            jwt,
+            key,
+            algorithms,
+            options,
+            verify=verify,
+            detached_payload=detached_payload,
+            audience=audience,
+            subject=subject,
+            issuer=issuer,
+            leeway=leeway,
+        )
+        return decoded["payload"]1f:["$","$L2","pre-7",{"className":"my-2","children":"$3b","language":"py"}]
+20:["$","p","p-19",{"children":["Seemingly, ",["$","a","a-0",{"href":"https://github.com/jpadilla/pyjwt/blob/master/jwt/api_jwt.py#L286","children":["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"decode(...)"}]}]," just calls ",["$","a","a-1",{"href":"https://github.com/jpadilla/pyjwt/blob/master/jwt/api_jwt.py#L163","children":["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"decode_complete(...)"}]}],":"]}]
+3c:Ta09,    def decode_complete(
+        self,
+        jwt: str | bytes,
+        key: AllowedPublicKeyTypes = "",
+        algorithms: Sequence[str] | None = None,
+        options: Options | None = None,
+        # deprecated arg, remove in pyjwt3
+        verify: bool | None = None,
+        # could be used as passthrough to api_jws, consider removal in pyjwt3
+        detached_payload: bytes | None = None,
+        # passthrough arguments to _validate_claims
+        # consider putting in options
+        audience: str | Iterable[str] | None = None,
+        issuer: str | Container[str] | None = None,
+        subject: str | None = None,
+        leeway: float | timedelta = 0,
+        # kwargs
+        **kwargs: Any,
+    ) -> dict[str, Any]:
+        """
+        ...
+        """
+        if kwargs:
+            warnings.warn(
+                "passing additional kwargs to decode_complete() is deprecated "
+                "and will be removed in pyjwt version 3. "
+                f"Unsupported kwargs: {tuple(kwargs.keys())}",
+                RemovedInPyjwt3Warning,
+                stacklevel=2,
+            )
+
+        if options is None:
+            verify_signature = True
+        else:
+            verify_signature = options.get("verify_signature", True)
+
+        # If the user has set the legacy `verify` argument, and it doesn't match
+        # what the relevant `options` entry for the argument is, inform the user
+        # that they're likely making a mistake.
+        if verify is not None and verify != verify_signature:
+            warnings.warn(
+                "The `verify` argument to `decode` does nothing in PyJWT 2.0 and newer. "
+                "The equivalent is setting `verify_signature` to False in the `options` dictionary. "
+                "This invocation has a mismatch between the kwarg and the option entry.",
+                category=DeprecationWarning,
+                stacklevel=2,
+            )
+
+        sig_options: SigOptions = {"verify_signature": verify_signature}
+        decoded = api_jws.decode_complete(
+            jwt,
+            key=key,
+            algorithms=algorithms,
+            options=sig_options,
+            detached_payload=detached_payload,
+        )
+
+        payload = self._decode_payload(decoded)
+
+        merged_options = self._merge_options(options)
+        self._validate_claims(
+            payload,
+            merged_options,
+            audience=audience,
+            issuer=issuer,
+            leeway=leeway,
+            subject=subject,
+        )
+
+        decoded["payload"] = payload
+        return decoded21:["$","$L2","pre-8",{"className":"my-2","children":"$3c","language":"py"}]
+22:["$","p","p-20",{"children":["and in ",["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"decode_complete()"}],", the decoding of the JWT string is handled by ",["$","a","a-0",{"href":"https://github.com/jpadilla/pyjwt/blob/master/jwt/api_jws.py#L194","children":["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"api_jws.decode_complete(...)"}]}]]}]
+3d:T73f,    def decode_complete(
+        self,
+        jwt: str | bytes,
+        key: AllowedPublicKeys | PyJWK | str | bytes = "",
+        algorithms: Sequence[str] | None = None,
+        options: SigOptions | None = None,
+        detached_payload: bytes | None = None,
+        **kwargs: dict[str, Any],
+    ) -> dict[str, Any]:
+        if kwargs:
+            warnings.warn(
+                "passing additional kwargs to decode_complete() is deprecated "
+                "and will be removed in pyjwt version 3. "
+                f"Unsupported kwargs: {tuple(kwargs.keys())}",
+                RemovedInPyjwt3Warning,
+                stacklevel=2,
+            )
+        merged_options: SigOptions
+        if options is None:
+            merged_options = self.options
+        else:
+            merged_options = {**self.options, **options}
+
+        verify_signature = merged_options["verify_signature"]
+
+        if verify_signature and not algorithms and not isinstance(key, PyJWK):
+            raise DecodeError(
+                'It is required that you pass in a value for the "algorithms" argument when calling decode().'
+            )
+
+        payload, signing_input, header, signature = self._load(jwt)
+
+        if header.get("b64", True) is False:
+            if detached_payload is None:
+                raise DecodeError(
+                    'It is required that you pass in a value for the "detached_payload" argument to decode a message having the b64 header set to false.'
+                )
+            payload = detached_payload
+            signing_input = b".".join([signing_input.rsplit(b".", 1)[0], payload])
+
+        if verify_signature:
+            self._verify_signature(signing_input, header, signature, key, algorithms)
+
+        return {
+            "payload": payload,
+            "header": header,
+            "signature": signature,
+        }23:["$","$L2","pre-9",{"className":"my-2","children":"$3d","language":"py"}]
+24:["$","p","p-21",{"children":["which calls ",["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"_load(...)"}]]}]
+3e:T5a0,    def _load(self, jwt: str | bytes) -> tuple[bytes, bytes, dict[str, Any], bytes]:
+        if isinstance(jwt, str):
+            jwt = jwt.encode("utf-8")
+
+        if not isinstance(jwt, bytes):
+            raise DecodeError(f"Invalid token type. Token must be a {bytes}")
+
+        try:
+            signing_input, crypto_segment = jwt.rsplit(b".", 1)
+            header_segment, payload_segment = signing_input.split(b".", 1)
+        except ValueError as err:
+            raise DecodeError("Not enough segments") from err
+
+        try:
+            header_data = base64url_decode(header_segment)
+        except (TypeError, binascii.Error) as err:
+            raise DecodeError("Invalid header padding") from err
+
+        try:
+            header: dict[str, Any] = json.loads(header_data)
+        except ValueError as e:
+            raise DecodeError(f"Invalid header string: {e}") from e
+
+        if not isinstance(header, dict):
+            raise DecodeError("Invalid header string: must be a json object")
+
+        try:
+            payload = base64url_decode(payload_segment)
+        except (TypeError, binascii.Error) as err:
+            raise DecodeError("Invalid payload padding") from err
+
+        try:
+            signature = base64url_decode(crypto_segment)
+        except (TypeError, binascii.Error) as err:
+            raise DecodeError("Invalid crypto padding") from err
+
+        return (payload, signing_input, header, signature)25:["$","$L2","pre-10",{"className":"my-2","children":"$3e","language":"py"}]
+26:["$","p","p-22",{"children":["which finally calls ",["$","a","a-0",{"href":"https://github.com/jpadilla/pyjwt/blob/master/jwt/utils.py#L25","children":["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"base64url_decode(...)"}]}],":"]}]
+27:["$","$L2","pre-11",{"className":"my-2","children":"def base64url_decode(input: Union[bytes, str]) -> bytes:\n    input_bytes = force_bytes(input)\n\n    rem = len(input_bytes) % 4\n\n    if rem > 0:\n        input_bytes += b\"=\" * (4 - rem)\n\n    return base64.urlsafe_b64decode(input_bytes)\n\n\ndef base64url_encode(input: bytes) -> bytes:\n    return base64.urlsafe_b64encode(input).replace(b\"=\", b\"\")","language":"py"}]
+28:["$","p","p-23",{"children":["which, apart from actually ",["$","em","em-0",{"children":"adding"}]," padding to our input, just hooks into the Python ",["$","a","a-0",{"href":"https://docs.python.org/3/library/base64.html#base64.urlsafe_b64decode","children":["standard library ",["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"urlsafe_b64"}]," method"]}],". Surprisingly, ",["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"base64.urlsafe_b64decode()"}]," makes no mention of omitting padding characters!"]}]
+29:["$","p","p-24",{"children":["$","img","img-0",{"src":"https://gist.github.com/user-attachments/assets/331cebcd-1238-432b-8142-e9998897b7ce","alt":"image"}]}]
+2a:["$","p","p-25",{"children":["Finally, what does the RFC say? According to the linked ",["$","a","a-0",{"href":"https://datatracker.ietf.org/doc/html/rfc4648#section-5","children":"RFC 4648 section 5"}],","]}]
+2b:["$","p","p-26",{"children":["$","img","img-0",{"src":"https://gist.github.com/user-attachments/assets/c06783cc-f3c4-4b7a-a6f5-c3e93f25e449","alt":"image"}]}]
+2c:["$","p","p-27",{"children":["so padding characters ",["$","em","em-0",{"children":"can"}]," be skipped? Sometimes?"]}]
+2d:["$","p","p-28",{"children":["And the padding issue seemingly isn't just an MDN misunderstanding either; if you google \"base64 URL encoder\", many sites (including the somewhat well-known ",["$","a","a-0",{"href":"https://www.base64encode.org/","children":"base64encode.org"}],", but also the ",["$","a","a-1",{"href":"https://base64.guru/standards/base64url/encode","children":"third result on google"}],", this ",["$","a","a-2",{"href":"https://www.npmjs.com/package/base64url","children":"npm library"}],", and this ",["$","a","a-3",{"href":"https://medium.com/@bagdasaryanaleksandr97/understanding-base64-vs-base64-url-encoding-whats-the-difference-31166755bc26","children":"random Medium article I came across"}],") will omit padding characters when encoding base64url:"]}]
+2e:["$","img","img-0",{"width":1434,"height":895,"alt":"image","src":"https://gist.github.com/user-attachments/assets/ac29cd97-1dd4-42ab-b135-fc945920cb99"}]
+2f:["$","p","p-29",{"children":["But others, including the ",["$","a","a-0",{"href":"https://simplycalc.com/base64url-encode.php","children":"first result that happened to come up on google"}],", don't."]}]
+30:["$","$L2","pre-12",{"className":"my-2","children":">>> base64.urlsafe_b64encode(b'aaaaaaa')\nb'YWFhYWFhYQ=='","language":"py"}]
+31:["$","p","p-30",{"children":["Hell, even the C# ",["$","a","a-0",{"href":"https://github.com/dotnet/dotnet/blob/b0f34d51fccc69fd334253924abd8d6853fad7aa/src/aspnetcore/src/Shared/WebEncoders/WebEncoders.cs#L288","children":"standard library for ASP.NET"}]," seems to drop padding characters when encoding:"]}]
+3f:T772,    public static int Base64UrlEncode(byte[] input, int offset, char[] output, int outputOffset, int count)
+    {
+        ArgumentNullThrowHelper.ThrowIfNull(input);
+        ArgumentNullThrowHelper.ThrowIfNull(output);
+
+        ValidateParameters(input.Length, nameof(input), offset, count);
+        ArgumentOutOfRangeThrowHelper.ThrowIfNegative(outputOffset);
+
+        var arraySizeRequired = GetArraySizeRequiredToEncode(count);
+        if (output.Length - outputOffset < arraySizeRequired)
+        {
+            throw new ArgumentException(
+                string.Format(
+                    CultureInfo.CurrentCulture,
+                    EncoderResources.WebEncoders_InvalidCountOffsetOrLength,
+                    nameof(count),
+                    nameof(outputOffset),
+                    nameof(output)),
+                nameof(count));
+        }
+
+#if NETCOREAPP
+        return Base64UrlEncode(input.AsSpan(offset, count), output.AsSpan(outputOffset));
+#else
+        // Special-case empty input.
+        if (count == 0)
+        {
+            return 0;
+        }
+
+        // Use base64url encoding with no padding characters. See RFC 4648, Sec. 5.
+
+        // Start with default Base64 encoding.
+        var numBase64Chars = Convert.ToBase64CharArray(input, offset, count, output, outputOffset);
+
+        // Fix up '+' -> '-' and '/' -> '_'. Drop padding characters.
+        for (var i = outputOffset; i - outputOffset < numBase64Chars; i++)
+        {
+            var ch = output[i];
+            if (ch == '+')
+            {
+                output[i] = '-';
+            }
+            else if (ch == '/')
+            {
+                output[i] = '_';
+            }
+            else if (ch == '=')
+            {
+                // We've reached a padding character; truncate the remainder.
+                return i - outputOffset;
+            }
+        }
+
+        return numBase64Chars;
+#endif
+    }32:["$","$L2","pre-13",{"className":"my-2","children":"$3f","language":"cs"}]
+33:["$","p","p-31",{"children":["(in C#'s ",["$","a","a-0",{"href":"https://github.com/dotnet/dotnet/blob/b0f34d51fccc69fd334253924abd8d6853fad7aa/src/aspnetcore/src/Shared/WebEncoders/WebEncoders.cs#L119","children":["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"Base64UrlDecode"}]}],", a comment says to assume that the input contains no padding characters, though at first glance the method appears to work even if padding exists.)"]}]
+34:["$","p","p-32",{"children":"All this to say, I think it's a bit strange that there's so much differing behavior around this spec."}]
+35:["$","script","script-0",{"src":"/_next/static/chunks/59d5dd52dd9fcb16.js","async":true}]
+36:["$","script","script-1",{"src":"/_next/static/chunks/0eb309e820c00a6d.js","async":true}]
+37:["$","script","script-2",{"src":"/_next/static/chunks/116d3b69f07f8eb7.js","async":true}]
+38:["$","script","script-3",{"src":"/_next/static/chunks/39b99946d2be6a43.js","async":true}]
+39:["$","$L40",null,{"children":["$","$41",null,{"name":"Next.MetadataOutlet","children":"$@42"}]}]
+42:null

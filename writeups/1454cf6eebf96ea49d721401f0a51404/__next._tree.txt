@@ -1,0 +1,18 @@
+1:"$Sreact.fragment"
+2:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"ViewportBoundary"]
+4:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"MetadataBoundary"]
+5:"$Sreact.suspense"
+:HL["/_next/static/chunks/4f9d0fe3eb2953cc.css","style"]
+:HL["/_next/static/media/70bc3e132a0a741e-s.p.15008bfb.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["https://gist.github.com/user-attachments/assets/855a8a52-0b13-4e63-8bf5-7a538bbc906b","image"]
+:HL["https://gist.github.com/user-attachments/assets/b48b21e0-d52b-49da-b0e2-ac3588c59d54","image"]
+:HL["https://gist.github.com/user-attachments/assets/3e7424f6-d396-4778-9e7f-14b2a8c47c44","image"]
+:HL["https://gist.github.com/user-attachments/assets/d324b702-18b2-4f03-bfb6-e4fdc68b44fd","image"]
+:HL["https://gist.github.com/user-attachments/assets/6c273e82-c48c-495c-98f8-5882a2063fdb","image"]
+:HL["https://gist.github.com/user-attachments/assets/331cebcd-1238-432b-8142-e9998897b7ce","image"]
+:HL["https://gist.github.com/user-attachments/assets/c06783cc-f3c4-4b7a-a6f5-c3e93f25e449","image"]
+:HL["https://gist.github.com/user-attachments/assets/ac29cd97-1dd4-42ab-b135-fc945920cb99","image"]
+0:{"buildId":"kpKO0KowbC4960Citwp7S","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"writeups","paramType":null,"paramKey":"writeups","hasRuntimePrefetch":false,"slots":{"children":{"name":"id","paramType":"d","paramKey":"1454cf6eebf96ea49d721401f0a51404","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"head":["$","$1","h",{"children":[null,["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isHeadPartial":false,"staleTime":300}
+3:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+6:[["$","title","0",{"children":"HeroCTF v7 — Revoked (+ Revenge) | kevin.fish"}],["$","meta","1",{"name":"description","content":"Your budget request for the new company personnel index has been declined. Instead, the intern has received a very small bonus in exchange for a homemade solution."}],["$","meta","2",{"property":"og:title","content":"HeroCTF v7 — Revoked (+ Revenge)"}],["$","meta","3",{"property":"og:description","content":"Your budget request for the new company personnel index has been declined. Instead, the intern has received a very small bonus in exchange for a homemade solution."}],["$","meta","4",{"name":"twitter:card","content":"summary"}],["$","meta","5",{"name":"twitter:title","content":"HeroCTF v7 — Revoked (+ Revenge)"}],["$","meta","6",{"name":"twitter:description","content":"Your budget request for the new company personnel index has been declined. Instead, the intern has received a very small bonus in exchange for a homemade solution."}]]
