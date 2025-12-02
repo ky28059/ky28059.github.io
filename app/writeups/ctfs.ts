@@ -8,6 +8,16 @@ type CTFData = {
 
 export const ctfs: CTFData[] = [
     {
+        name: 'HeroCTF v7',
+        writeups: [{
+            href: 'https://gist.github.com/ky28059/1454cf6eebf96ea49d721401f0a51404',
+            name: 'Revoked (+ Revenge)',
+            tags: ['sql', 'jwt'],
+            type: 'web',
+            src: '/assets/writeups/revoked.jpg'
+        }]
+    },
+    {
         name: 'BuckeyeCTF 2025',
         writeups: [{
             href: 'https://gist.github.com/ky28059/e4fd9a90929b465c0c39151e5ea76fdc',
