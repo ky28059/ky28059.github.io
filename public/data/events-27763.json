@@ -1,0 +1,50 @@
+[
+    {
+        "year": "2025",
+        "globalPlace": 60,
+        "countryPlace": 8,
+        "points": 445.628
+    },
+    {
+        "year": "2024",
+        "globalPlace": 88,
+        "countryPlace": 10,
+        "points": 344.702
+    },
+    {
+        "year": "2023",
+        "globalPlace": 107,
+        "countryPlace": 12,
+        "points": 282.13
+    },
+    {
+        "year": "2022",
+        "globalPlace": 49,
+        "countryPlace": 6,
+        "points": 346.02
+    },
+    {
+        "year": "2021",
+        "globalPlace": 97,
+        "countryPlace": 14,
+        "points": 205.071
+    },
+    {
+        "year": "2020",
+        "globalPlace": 136,
+        "countryPlace": 19,
+        "points": 174.389
+    },
+    {
+        "year": "2019",
+        "globalPlace": 300,
+        "countryPlace": 31,
+        "points": 77.673
+    },
+    {
+        "year": "2018",
+        "globalPlace": 411,
+        "countryPlace": 49,
+        "points": 49.859
+    }
+]
