@@ -5,8 +5,8 @@ import RatingOverTimeChart from '@/app/b01lers-2025-wrapped/RatingOverTimeChart'
 import PlaceOverTimeChart from '@/app/b01lers-2025-wrapped/PlaceOverTimeChart';
 import TopCTFsTable from '@/app/b01lers-2025-wrapped/TopCTFsTable';
 import CTFRatingChart from '@/app/b01lers-2025-wrapped/CTFRatingChart';
-import MessagesHeatmap from '@/app/b01lers-2025-wrapped/MessagesHeatmap';
 import MessagesByDayHeatmap from '@/app/b01lers-2025-wrapped/MessagesByDayHeatmap';
+import MessagesByHourHeatmap from '@/app/b01lers-2025-wrapped/MessagesByHourHeatmap';
 
 // Utils
 import { teamData } from '@/app/b01lers-2025-wrapped/data';
@@ -123,8 +123,8 @@ export default function B01lersWrapped() {
                     When was the <span className="font-jetbrains">b01lers</span> server most active this year? Here are
                     2 heatmaps of aggregate message counts, grouped by day-of-year and hour-of-day, respectively:
                 </p>
-                <MessagesHeatmap />
                 <MessagesByDayHeatmap />
+                <MessagesByHourHeatmap />
                 <p className="my-4">
                     (you can see the effect of b01lers CTF 2025 on April 18-20th in the day-of-year graph, CSAW quals
                     on September 12th, as well as the weekly Peppercorns chatter and eCTF / topic sessions shaped hole
