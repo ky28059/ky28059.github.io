@@ -1,0 +1,7 @@
+1:"$Sreact.fragment"
+2:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"ViewportBoundary"]
+4:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"MetadataBoundary"]
+5:"$Sreact.suspense"
+0:{"buildId":"zqQ65ZqR2KwJEYS3qweWW","rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"loading":null,"isPartial":false}
+3:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+6:[["$","title","0",{"children":"UMass CTF 2024 — Stop the voices | kevin.fish"}],["$","meta","1",{"name":"description","content":"Patrick’s been trying to remember the flag, but his vision seems a little blurry and the voices just don't stop..."}],["$","meta","2",{"property":"og:title","content":"UMass CTF 2024 — Stop the voices"}],["$","meta","3",{"property":"og:description","content":"Patrick’s been trying to remember the flag, but his vision seems a little blurry and the voices just don't stop..."}],["$","meta","4",{"name":"twitter:card","content":"summary"}],["$","meta","5",{"name":"twitter:title","content":"UMass CTF 2024 — Stop the voices"}],["$","meta","6",{"name":"twitter:description","content":"Patrick’s been trying to remember the flag, but his vision seems a little blurry and the voices just don't stop..."}]]
