@@ -1,6 +1,6 @@
 1:"$Sreact.fragment"
-2:I[10453,["/_next/static/chunks/44838f11011a9f2d.js","/_next/static/chunks/59d5dd52dd9fcb16.js","/_next/static/chunks/0eb309e820c00a6d.js","/_next/static/chunks/116d3b69f07f8eb7.js","/_next/static/chunks/39b99946d2be6a43.js"],"default"]
-1a:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"OutletBoundary"]
+2:I[10453,["/_next/static/chunks/44838f11011a9f2d.js","/_next/static/chunks/03f4569ba78edab9.js","/_next/static/chunks/44f6ea3170f4e31a.js","/_next/static/chunks/39b99946d2be6a43.js","/_next/static/chunks/116d3b69f07f8eb7.js"],"default"]
+1a:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/d037381d3416c607.js"],"OutletBoundary"]
 1b:"$Sreact.suspense"
 :HL["https://gist.github.com/user-attachments/assets/1f28d421-8fe1-45a5-9271-4fad8c6897bb","image"]
 :HL["https://gist.github.com/user-attachments/assets/c53bedee-58cf-47c3-9f7a-acecaa9c7019","image"]
@@ -338,7 +338,7 @@ func (s *Server) WebsocketHandler(w http.ResponseWriter, r *http.Request) {
 
 	gameState.conn = conn
 	gameState.SyncJSON()
-}0:{"buildId":"zqQ65ZqR2KwJEYS3qweWW","rsc":["$","$1","c",{"children":[["$","div",null,{"children":["$","main",null,{"className":"text-pretty max-w-5xl mx-auto text-sm [&_h1]:text-5xl [&_h1]:font-semibold [&_h1]:mb-8 [&_blockquote]:text-secondary [&_blockquote]:space-y-3 [&_blockquote]:border-l-4 [&_blockquote]:border-secondary [&_blockquote]:pl-5 [&_blockquote]:mb-5 [&>_p]:my-4 [&_img]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_img]:rounded [&_li]:my-2","children":[["$","h1","h1-0",{"children":"BuckeyeCTF 2024 — dojo"}],"\n",["$","blockquote","blockquote-0",{"children":["\n",["$","p","p-0",{"children":"The dojo stores many riches. Can you make it through the gauntlet?"}],"\n",["$","p","p-1",{"children":"dojo.challs.pwnoh.io"}],"\n"]}],"\n",["$","p","p-0",{"children":"We're given a Go server looking like this:"}],"\n",["$","$L2","pre-0",{"className":"my-2","children":"$3","language":"go"}],"\n","$L4","\n","$L5","\n","$L6","\n","$L7","\n","$L8","\n","$L9","\n","$La","\n","$Lb","\n","$Lc","\n","$Ld","\n","$Le","\n","$Lf","\n","$L10","\n","$L11","\n","$L12","\n","$L13","\n","$L14"]}]}],["$L15","$L16","$L17","$L18"],"$L19"]}],"loading":null,"isPartial":false}
+}0:{"buildId":"RvaShh_yya1rXRRsej620","rsc":["$","$1","c",{"children":[["$","div",null,{"children":["$","main",null,{"className":"text-pretty max-w-5xl mx-auto text-sm [&_h1]:text-5xl [&_h1]:font-semibold [&_h1]:mb-8 [&_blockquote]:text-secondary [&_blockquote]:space-y-3 [&_blockquote]:border-l-4 [&_blockquote]:border-secondary [&_blockquote]:pl-5 [&_blockquote]:mb-5 [&>_p]:my-4 [&_img]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_img]:rounded [&_li]:my-2","children":[["$","h1","h1-0",{"children":"BuckeyeCTF 2024 — dojo"}],"\n",["$","blockquote","blockquote-0",{"children":["\n",["$","p","p-0",{"children":"The dojo stores many riches. Can you make it through the gauntlet?"}],"\n",["$","p","p-1",{"children":"dojo.challs.pwnoh.io"}],"\n"]}],"\n",["$","p","p-0",{"children":"We're given a Go server looking like this:"}],"\n",["$","$L2","pre-0",{"className":"my-2","children":"$3","language":"go"}],"\n","$L4","\n","$L5","\n","$L6","\n","$L7","\n","$L8","\n","$L9","\n","$La","\n","$Lb","\n","$Lc","\n","$Ld","\n","$Le","\n","$Lf","\n","$L10","\n","$L11","\n","$L12","\n","$L13","\n","$L14"]}]}],["$L15","$L16","$L17","$L18"],"$L19"]}],"loading":null,"isPartial":false}
 4:["$","p","p-1",{"children":"Our goal is to plunder 800 emeralds, all while defeating the boss and not getting killed in the process."}]
 5:["$","p","p-2",{"children":["$","img","img-0",{"src":"https://gist.github.com/user-attachments/assets/1f28d421-8fe1-45a5-9271-4fad8c6897bb","alt":"image"}]}]
 6:["$","p","p-3",{"children":"Looking at the underlying logic for attacking, dodging, and plundering,"}]
@@ -356,9 +356,9 @@ f:["$","p","p-9",{"children":"Occasionally, forged fetches still fail for whatev
 12:["$","p","p-11",{"children":"Once we've won, all we need to do is check the websocket to get the flag:"}]
 13:["$","p","p-12",{"children":["$","img","img-0",{"src":"https://gist.github.com/user-attachments/assets/c53bedee-58cf-47c3-9f7a-acecaa9c7019","alt":"image"}]}]
 14:["$","$L2","pre-5",{"className":"my-2","children":"bctf{D3FAul7_rA73_l1m17_fUnc710N5_aR3_5caRy}"}]
-15:["$","script","script-0",{"src":"/_next/static/chunks/59d5dd52dd9fcb16.js","async":true}]
-16:["$","script","script-1",{"src":"/_next/static/chunks/0eb309e820c00a6d.js","async":true}]
-17:["$","script","script-2",{"src":"/_next/static/chunks/116d3b69f07f8eb7.js","async":true}]
-18:["$","script","script-3",{"src":"/_next/static/chunks/39b99946d2be6a43.js","async":true}]
+15:["$","script","script-0",{"src":"/_next/static/chunks/03f4569ba78edab9.js","async":true}]
+16:["$","script","script-1",{"src":"/_next/static/chunks/44f6ea3170f4e31a.js","async":true}]
+17:["$","script","script-2",{"src":"/_next/static/chunks/39b99946d2be6a43.js","async":true}]
+18:["$","script","script-3",{"src":"/_next/static/chunks/116d3b69f07f8eb7.js","async":true}]
 19:["$","$L1a",null,{"children":["$","$1b",null,{"name":"Next.MetadataOutlet","children":"$@1c"}]}]
 1c:null

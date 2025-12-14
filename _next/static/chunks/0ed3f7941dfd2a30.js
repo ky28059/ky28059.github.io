@@ -1,0 +1,27 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,40141,e=>{"use strict";var t=e.i(71645),r={color:void 0,size:void 0,className:void 0,style:void 0,attr:void 0},a=t.default.createContext&&t.default.createContext(r),n=["attr","size","title"];function o(){return(o=Object.assign.bind()).apply(this,arguments)}function s(e,t){var r=Object.keys(e);if(Object.getOwnPropertySymbols){var a=Object.getOwnPropertySymbols(e);t&&(a=a.filter(function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable})),r.push.apply(r,a)}return r}function l(e){for(var t=1;t<arguments.length;t++){var r=null!=arguments[t]?arguments[t]:{};t%2?s(Object(r),!0).forEach(function(t){var a,n,o;a=e,n=t,o=r[t],(n=function(e){var t=function(e,t){if("object"!=typeof e||!e)return e;var r=e[Symbol.toPrimitive];if(void 0!==r){var a=r.call(e,t||"default");if("object"!=typeof a)return a;throw TypeError("@@toPrimitive must return a primitive value.")}return("string"===t?String:Number)(e)}(e,"string");return"symbol"==typeof t?t:t+""}(n))in a?Object.defineProperty(a,n,{value:o,enumerable:!0,configurable:!0,writable:!0}):a[n]=o}):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(r)):s(Object(r)).forEach(function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(r,t))})}return e}function c(e){return r=>t.default.createElement(i,o({attr:l({},e.attr)},r),function e(r){return r&&r.map((r,a)=>t.default.createElement(r.tag,l({key:a},r.attr),e(r.child)))}(e.child))}function i(e){var s=r=>{var a,{attr:s,size:c,title:i}=e,u=function(e,t){if(null==e)return{};var r,a,n=function(e,t){if(null==e)return{};var r={};for(var a in e)if(Object.prototype.hasOwnProperty.call(e,a)){if(t.indexOf(a)>=0)continue;r[a]=e[a]}return r}(e,t);if(Object.getOwnPropertySymbols){var o=Object.getOwnPropertySymbols(e);for(a=0;a<o.length;a++)r=o[a],!(t.indexOf(r)>=0)&&Object.prototype.propertyIsEnumerable.call(e,r)&&(n[r]=e[r])}return n}(e,n),f=c||r.size||"1em";return r.className&&(a=r.className),e.className&&(a=(a?a+" ":"")+e.className),t.default.createElement("svg",o({stroke:"currentColor",fill:"currentColor",strokeWidth:"0"},r.attr,s,u,{className:a,style:l(l({color:e.color||r.color},r.style),e.style),height:f,width:f,xmlns:"http://www.w3.org/2000/svg"}),i&&t.default.createElement("title",null,i),e.children)};return void 0!==a?t.default.createElement(a.Consumer,null,e=>s(e)):s(r)}e.s(["GenIcon",()=>c],40141)},20533,e=>{"use strict";var t=e.i(43476),r=e.i(71645);function a(e){let a=(0,r.useRef)(null),{onChange:n,...o}=e;function s(){let e=a.current;e&&(e.style.height="auto",e.style.height=e.scrollHeight+8+"px")}return(0,r.useLayoutEffect)(()=>{s()},[]),(0,t.jsx)("textarea",{ref:a,onChange:e=>{n?.(e),s()},...o})}e.s(["default",()=>a])},1245,e=>{"use strict";var t=e.i(43476);function r(e){let{value:r,setValue:a,label:n}=e;return(0,t.jsxs)("div",{className:"flex flex-col gap-1 grow",children:[(0,t.jsx)("label",{className:"text-xs text-secondary",children:n}),(0,t.jsx)("input",{type:"text",value:r,onChange:e=>a(e.target.value),className:"rounded px-3 py-1 dark:bg-[#2b2b2b] border border-secondary/40"})]})}e.s(["default",()=>r])},91204,e=>{"use strict";var t=e.i(43476),r=e.i(71645),a=e.i(20533),n=e.i(10453),o=e.i(1245);function s(){let[e,s]=(0,r.useState)(1701),[c,i]=(0,r.useState)("A"),[u,f]=(0,r.useState)(""),[d,m]=(0,r.useState)(1e3);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsxs)("div",{className:"flex flex-wrap gap-x-3 gap-y-1.5 mb-6 md:mb-2.5",children:[(0,t.jsx)(o.default,{label:"Contest",value:e,setValue:e=>!isNaN(Number(e))&&s(Number(e))}),(0,t.jsx)(o.default,{label:"Problem",value:c,setValue:i}),(0,t.jsx)(o.default,{label:"Count",value:d,setValue:e=>!isNaN(Number(e))&&m(Number(e))})]}),(0,t.jsx)(a.default,{placeholder:"Test case",value:u,onChange:e=>f(e.target.value),className:"rounded px-3 py-1 dark:bg-[#2b2b2b] mb-3 w-full border border-secondary/40 placeholder:text-secondary"}),(0,t.jsx)(n.default,{language:"js",children:l(e,c,u,d)})]})}let l=(e,t,r,a)=>`const contestId = ${e};
+const problem = '${t.replaceAll(/['\\]/g,"\\$&")}';
+const testCase = \`${r.replaceAll(/[`\\$]/g,"\\$&")}\`;
+const count = ${a};
+
+;(async () => {
+    const submissions = (await (await fetch(\`https://codeforces.com/api/contest.status?contestId=\${contestId}&from=1&count=\${count}\`)).json()).result
+        .filter((submission) => submission.verdict === 'OK' && submission.problem.index === problem);
+
+    for (const submission of submissions) {
+        const raw = await (await fetch(\`https://codeforces.com/contest/1701/challenge/\${submission.id}\`)).text();
+        const [, csrf, body] = raw.match(/<form class="challenge-form".+?action="\\/data\\/challenge\\?csrf_token=(.+?)".*?>([^]+)<\\/form>/);
+
+        const formData = new FormData();
+
+        // Add all hidden fields
+        [...body.matchAll(/<input type="hidden".+?name="(\\w+)".+?value="(\\w+)"\\/>/g)]
+            .forEach(([, name, value]) => formData.append(name, value));
+
+        formData.append('testcase', testCase);
+
+        await fetch(\`https://codeforces.com/data/challenge?csrf_token=\${csrf}\`, {
+            body: formData,
+            method: 'POST'
+        });
+    }
+})();`;e.s(["default",()=>s])}]);

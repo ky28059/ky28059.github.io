@@ -1,6 +1,6 @@
 1:"$Sreact.fragment"
-2:I[10453,["/_next/static/chunks/44838f11011a9f2d.js","/_next/static/chunks/59d5dd52dd9fcb16.js","/_next/static/chunks/0eb309e820c00a6d.js","/_next/static/chunks/116d3b69f07f8eb7.js","/_next/static/chunks/39b99946d2be6a43.js"],"default"]
-1f:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/b71c1cfea9076b4b.js"],"OutletBoundary"]
+2:I[10453,["/_next/static/chunks/44838f11011a9f2d.js","/_next/static/chunks/03f4569ba78edab9.js","/_next/static/chunks/44f6ea3170f4e31a.js","/_next/static/chunks/39b99946d2be6a43.js","/_next/static/chunks/116d3b69f07f8eb7.js"],"default"]
+1f:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/d037381d3416c607.js"],"OutletBoundary"]
 20:"$Sreact.suspense"
 :HL["https://gist.github.com/assets/60120929/95c7d910-8738-45a5-a338-a74ec3ad3eab","image"]
 :HL["https://gist.github.com/assets/60120929/cdbbed41-fe11-4c67-8718-8086f42389d8","image"]
@@ -93,7 +93,7 @@ Deno.serve({ port: 8080 }, async (req: Request) => {
       status: 500
     })
   }
-})0:{"buildId":"zqQ65ZqR2KwJEYS3qweWW","rsc":["$","$1","c",{"children":[["$","div",null,{"children":["$","main",null,{"className":"text-pretty max-w-5xl mx-auto text-sm [&_h1]:text-5xl [&_h1]:font-semibold [&_h1]:mb-8 [&_blockquote]:text-secondary [&_blockquote]:space-y-3 [&_blockquote]:border-l-4 [&_blockquote]:border-secondary [&_blockquote]:pl-5 [&_blockquote]:mb-5 [&>_p]:my-4 [&_img]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_img]:rounded [&_li]:my-2","children":[["$","h1","h1-0",{"children":"San Diego CTF 2024 — calculator"}],"\n",["$","blockquote","blockquote-0",{"children":["\n",["$","p","p-0",{"children":"I made a calculator! I'm using Python to do the math since I heard it's strongly typed, so my calculator should be pretty safe. Download the source code by clicking the download button above!"}],"\n"]}],"\n",["$","p","p-0",{"children":"We're given a TS server and expression parser looking like this:"}],"\n",["$","$L2","pre-0",{"className":"my-2","children":"$3","language":"ts"}],"\n","$L4","\n","$L5","\n","$L6","\n","$L7","\n","$L8","\n","$L9","\n","$La","\n","$Lb","\n","$Lc","\n","$Ld","\n","$Le","\n","$Lf","\n","$L10","\n","$L11","\n","$L12","\n","$L13","\n","$L14","\n","$L15","\n","$L16","\n","$L17","\n","$L18"]}]}],["$L19","$L1a","$L1b","$L1c"],"$L1d"]}],"loading":null,"isPartial":false}
+})0:{"buildId":"RvaShh_yya1rXRRsej620","rsc":["$","$1","c",{"children":[["$","div",null,{"children":["$","main",null,{"className":"text-pretty max-w-5xl mx-auto text-sm [&_h1]:text-5xl [&_h1]:font-semibold [&_h1]:mb-8 [&_blockquote]:text-secondary [&_blockquote]:space-y-3 [&_blockquote]:border-l-4 [&_blockquote]:border-secondary [&_blockquote]:pl-5 [&_blockquote]:mb-5 [&>_p]:my-4 [&_img]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_img]:rounded [&_li]:my-2","children":[["$","h1","h1-0",{"children":"San Diego CTF 2024 — calculator"}],"\n",["$","blockquote","blockquote-0",{"children":["\n",["$","p","p-0",{"children":"I made a calculator! I'm using Python to do the math since I heard it's strongly typed, so my calculator should be pretty safe. Download the source code by clicking the download button above!"}],"\n"]}],"\n",["$","p","p-0",{"children":"We're given a TS server and expression parser looking like this:"}],"\n",["$","$L2","pre-0",{"className":"my-2","children":"$3","language":"ts"}],"\n","$L4","\n","$L5","\n","$L6","\n","$L7","\n","$L8","\n","$L9","\n","$La","\n","$Lb","\n","$Lc","\n","$Ld","\n","$Le","\n","$Lf","\n","$L10","\n","$L11","\n","$L12","\n","$L13","\n","$L14","\n","$L15","\n","$L16","\n","$L17","\n","$L18"]}]}],["$L19","$L1a","$L1b","$L1c"],"$L1d"]}],"loading":null,"isPartial":false}
 1e:Ta0b,import { assertEquals } from 'https://deno.land/std@0.224.0/assert/mod.ts'
 
 export type Expression =
@@ -213,9 +213,9 @@ f:["$","$L2","pre-6",{"className":"my-2","children":"1e400 - 1e400","language":"
 16:["$","$L2","pre-9",{"className":"my-2","children":"1e200 * 1e200 - 1e200 * 1e200","language":"js"}]
 17:["$","p","p-11",{"children":["to get ",["$","code","code-0",{"className":"font-jetbrains opacity-75 bg-black/10 dark:bg-black/30 rounded px-1.5 py-1 text-[0.9em]","children":"NaN"}],"), we get the flag."]}]
 18:["$","p","p-12",{"children":["$","img","img-0",{"src":"https://gist.github.com/assets/60120929/cdbbed41-fe11-4c67-8718-8086f42389d8","alt":"image"}]}]
-19:["$","script","script-0",{"src":"/_next/static/chunks/59d5dd52dd9fcb16.js","async":true}]
-1a:["$","script","script-1",{"src":"/_next/static/chunks/0eb309e820c00a6d.js","async":true}]
-1b:["$","script","script-2",{"src":"/_next/static/chunks/116d3b69f07f8eb7.js","async":true}]
-1c:["$","script","script-3",{"src":"/_next/static/chunks/39b99946d2be6a43.js","async":true}]
+19:["$","script","script-0",{"src":"/_next/static/chunks/03f4569ba78edab9.js","async":true}]
+1a:["$","script","script-1",{"src":"/_next/static/chunks/44f6ea3170f4e31a.js","async":true}]
+1b:["$","script","script-2",{"src":"/_next/static/chunks/39b99946d2be6a43.js","async":true}]
+1c:["$","script","script-3",{"src":"/_next/static/chunks/116d3b69f07f8eb7.js","async":true}]
 1d:["$","$L1f",null,{"children":["$","$20",null,{"name":"Next.MetadataOutlet","children":"$@21"}]}]
 21:null
