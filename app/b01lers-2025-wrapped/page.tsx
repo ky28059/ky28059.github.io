@@ -1,3 +1,6 @@
+import type { Metadata } from 'next';
+
+// Components
 import LinkHeading from '@/components/LinkHeading';
 import UniversityMapChart from '@/app/b01lers-2025-wrapped/UniversityMapChart';
 import UniversityBarChart from '@/app/b01lers-2025-wrapped/UniversityBarChart';
@@ -11,6 +14,11 @@ import MessagesByHourHeatmap from '@/app/b01lers-2025-wrapped/MessagesByHourHeat
 // Utils
 import { teamData } from '@/app/b01lers-2025-wrapped/data';
 
+
+export const metadata: Metadata = {
+    title: 'b01lers 2025 wrapped',
+    description: 'Stats, visualizations, and more to sum up b01lers\' 2025.'
+}
 
 export default function B01lersWrapped() {
     const current = teamData.find((f) => f.year === '2025')!;
@@ -35,7 +43,7 @@ export default function B01lersWrapped() {
                     <span className="font-jetbrains">b01lers</span> 2025 wrapped
                 </h1>
                 <p className="mb-1 text-primary">
-                    Stats, visualizations, and more to sum up 2025.
+                    Stats, visualizations, and more to sum up b01lers' 2025.
                 </p>
                 <p className="text-sm text-secondary mb-8">
                     Data last fetched on <span className="bg-tertiary text-xs text-primary px-1 py-0.5 rounded">2025-11-29</span>.

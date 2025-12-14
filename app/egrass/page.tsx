@@ -1,6 +1,14 @@
+import type { Metadata } from 'next';
+
+// Components
 import MessagesByDayHeatmap from '@/app/egrass/MessagesByDayHeatmap';
 import MessagesByHourHeatmap from '@/app/egrass/MessagesByHourHeatmap';
 
+
+export const metadata: Metadata = {
+    title: 'egrass 2025 wrapped?',
+    description: '(not really)'
+}
 
 export default function EgrassWrapped() {
     return (
