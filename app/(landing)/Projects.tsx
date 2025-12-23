@@ -150,6 +150,20 @@ export default function Projects() {
                     >
                         Python homeworks for CS 471: Intro to Artificial Intelligence.
                     </Gist>
+                    <Gist
+                        name="CS 352"
+                        href="https://github.com/ky28059/CS352"
+                        langs={['cpp']} // 'llvm'
+                    >
+                        LLVM homeworks for CS 352: Compilers.
+                    </Gist>
+                    <Gist
+                        name="CS 456"
+                        href="https://github.com/ky28059/CS456"
+                        langs={['ocaml', 'dune', 'dafny']}
+                    >
+                        OCaml homeworks for CS 456: Programming Languages.
+                    </Gist>
                 </ProjectsCardGrid>
             </ProjectsLayout>
         </Section>
