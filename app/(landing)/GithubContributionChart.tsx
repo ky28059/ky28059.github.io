@@ -36,17 +36,14 @@ export default async function GithubContributionChart() {
                 {start.toLocaleString(DateTime.DATE_FULL)}
             </span>
 
-            {weeks.map((week, i) => (
-                <div className="dark:invert dark:hue-rotate-180 flex flex-col gap-1" key={i}>
-                    {week.contributionDays.map((day) => (
-                        <div
-                            className="rounded-sm size-4"
-                            style={{ backgroundColor: day.color }}
-                            key={day.date}
-                        />
-                    ))}
-                </div>
-            ))}
+            <div className="h-max dark:invert dark:hue-rotate-180 grid grid-rows-7 grid-flow-col gap-1 [&>*]:rounded-sm [&>*]:size-4">
+                {weeks.flatMap((w) => w.contributionDays).map((day, i) => (
+                    <div
+                        style={{ backgroundColor: day.color, gridRowStart: i === 0 ? 4 : undefined }}
+                        key={day.date}
+                    />
+                ))}
+            </div>
 
             <span className="flex-none text-secondary [writing-mode:vertical-rl] py-4">
                 <p className="font-mono">{end.toLocaleString(DateTime.DATE_FULL)}</p>

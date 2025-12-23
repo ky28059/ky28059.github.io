@@ -78,7 +78,8 @@ export default function Projects() {
                         href="https://gist.github.com/ky28059/1c9af929a9030105da8cf00006b50484"
                         src="/assets/projects/vercel.jpg"
                     >
-                        A guide on how to deploy an organization repository to Vercel for free.
+                        A guide on how to deploy an organization repository to Vercel for free
+                        via GitHub actions.
                     </Gist>
                     <Gist
                         name="Flex"
