@@ -10,7 +10,7 @@ export default function MessagesByHourHeatmap() {
             spec={{
                 "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
                 "data": {
-                    "url": "data/heatmap.csv",
+                    "url": "data/heatmap_511675552386777099.csv",
                     "format": { "type": "csv" }
                 },
                 "width": 800,

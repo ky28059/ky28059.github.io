@@ -19,7 +19,7 @@ export default function MessagesByDayHeatmap() {
                 },
 
                 "data": {
-                    "url": "data/heatmap.csv",
+                    "url": "data/heatmap_511675552386777099.csv",
                     "format": { "type": "csv" }
                 },
                 "transform": [
