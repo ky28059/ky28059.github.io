@@ -18,7 +18,7 @@ export default function EgrassWrapped() {
                 <span className="text-primary font-normal text-5xl"> *(preview)</span>
             </h1>
             <p className="text-sm text-secondary mb-8">
-                Data last fetched on <span className="bg-tertiary text-xs text-primary px-1 py-0.5 rounded">2025-12-13</span>.
+                Data last fetched on <span className="bg-tertiary text-xs text-primary px-1 py-0.5 rounded">2025-12-24</span>.
             </p>
 
             <p className="mb-4 text-pretty">

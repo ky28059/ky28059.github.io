@@ -44,7 +44,7 @@ export default function SolvesByCategoryChart(props: { normalize?: boolean, unit
                         "axis": {
                             "labelColor": "#BABABA",
                             "titleColor": "#BABABA",
-                            "format": "%m/%Y"
+                            "format": props.unit === 'year' ? '%Y' : "%m/%Y"
                         }
                     },
                     "color": {
