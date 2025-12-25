@@ -25,7 +25,10 @@ export default function CTFRatingChart(props: { index: number }) {
                 "data": {
                     "values": data
                 },
-                "mark": "circle",
+                "mark": {
+                    "type": "circle",
+                    "tooltip": true
+                },
                 "encoding": {
                     "x": {
                         "bin": { "maxbins": 20 },
@@ -49,8 +52,8 @@ export default function CTFRatingChart(props: { index: number }) {
                     },
                     "size": {
                         "aggregate": "count",
+                        "title": "CTF count",
                         "legend": {
-                            "title": "# CTFs",
                             "labelColor": "#BABABA",
                             "titleColor": "#BABABA"
                         }

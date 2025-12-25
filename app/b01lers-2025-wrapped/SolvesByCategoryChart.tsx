@@ -22,7 +22,7 @@ export default function SolvesByCategoryChart(props: { normalize?: boolean, unit
                     "format": { "type": "csv" }
                 },
                 "mark": {
-                    "type": "area",
+                    "type": "bar",
                     // "line": true,
                     "tooltip": true
                 },
@@ -34,7 +34,8 @@ export default function SolvesByCategoryChart(props: { normalize?: boolean, unit
                         "stack": props.normalize ? "normalize" : undefined,
                         "axis": {
                             "labelColor": "#BABABA",
-                            "titleColor": "#BABABA"
+                            "titleColor": "#BABABA",
+                            "gridColor": props.normalize ? 'transparent' : "#404040"
                         }
                     },
                     "x": {
@@ -44,6 +45,7 @@ export default function SolvesByCategoryChart(props: { normalize?: boolean, unit
                         "axis": {
                             "labelColor": "#BABABA",
                             "titleColor": "#BABABA",
+                            "gridColor": "transparent",
                             "format": props.unit === 'year' ? '%Y' : "%m/%Y"
                         }
                     },
