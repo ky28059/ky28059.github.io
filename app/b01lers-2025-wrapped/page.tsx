@@ -144,7 +144,11 @@ export default function B01lersWrapped() {
                     the bot rewrite on 07/2024. Prior to 07/2024, these solves were included in other categories (mostly
                     misc).
                 </p>
-                [...]
+                <p className="my-4">
+                    If we bin by year instead, we can see that <span className="font-jetbrains">b01lers</span> has
+                    remained relatively consistent over the years (with perhaps a degradation in pwn):
+                </p>
+                <SolvesByCategoryChart normalize unit="year" />
 
                 <LinkHeading id="server-statistics" className="text-3xl font-bold mt-12 mb-4">
                     Server statistics

@@ -3,7 +3,7 @@
 import { VegaEmbed } from 'react-vega';
 
 
-export default function SolvesByCategoryChart(props: { normalize?: boolean }) {
+export default function SolvesByCategoryChart(props: { normalize?: boolean, unit?: string }) {
     return (
         <VegaEmbed
             options={{ actions: false }}
@@ -38,7 +38,7 @@ export default function SolvesByCategoryChart(props: { normalize?: boolean }) {
                         }
                     },
                     "x": {
-                        "timeUnit": "yearmonth",
+                        "timeUnit": props.unit ?? "yearmonth",
                         "field": "date",
                         "title": "Date",
                         "axis": {
