@@ -8,6 +8,7 @@ import RatingOverTimeChart from '@/app/b01lers-2025-wrapped/RatingOverTimeChart'
 import PlaceOverTimeChart from '@/app/b01lers-2025-wrapped/PlaceOverTimeChart';
 import TopCTFsTable from '@/app/b01lers-2025-wrapped/TopCTFsTable';
 import CTFRatingChart from '@/app/b01lers-2025-wrapped/CTFRatingChart';
+import SolvesByCategoryChart from '@/app/b01lers-2025-wrapped/SolvesByCategoryChart';
 import MessagesByDayHeatmap from '@/app/b01lers-2025-wrapped/MessagesByDayHeatmap';
 import MessagesByHourHeatmap from '@/app/b01lers-2025-wrapped/MessagesByHourHeatmap';
 
@@ -26,7 +27,7 @@ export default function B01lersWrapped() {
     return (
         <div className="container pt-24 pb-20 flex gap-12">
             <aside className="hidden sm:block text-right border-r border-tertiary pt-3 pr-10 h-max sticky top-12 w-42 flex-none">
-                <h2 className="font-semibold mb-4 text-lg/5 italic text-primary">
+                <h2 className="font-semibold mb-4 text-base/5 italic text-primary">
                     b01lers 2025 wrapped
                 </h2>
 
@@ -34,6 +35,7 @@ export default function B01lersWrapped() {
                     <li><a href="#us-univ" className="text-inherit">US universities</a></li>
                     <li><a href="#over-the-years" className="text-inherit">Over the years...</a></li>
                     <li><a href="#ctf-statistics" className="text-inherit">CTF statistics</a></li>
+                    <li><a href="#solve-statistics" className="text-inherit">Solve statistics</a></li>
                     <li><a href="#server-statistics" className="text-inherit">Server statistics</a></li>
                 </ul>
             </aside>
@@ -123,6 +125,26 @@ export default function B01lersWrapped() {
                     If we examine historic data across all years,
                 </p>
                 <CTFRatingChart index={-1} />
+                <p className="my-4">
+                    (Seemingly, the only universal correlation is participating in 20-weight CTFs and not
+                    placing well 😅). {/* TODO: placement chart? */}
+                </p>
+
+                <LinkHeading id="solve-statistics" className="text-3xl font-bold mt-12 mb-4">
+                    Solve statistics
+                </LinkHeading>
+                <p className="my-4">
+                    What about individual challenge solves? If we plot an area chart of challenge solves over time
+                    grouped by category (binned by month),
+                </p>
+                <SolvesByCategoryChart />
+                <SolvesByCategoryChart normalize />
+                <p className="text-sm text-secondary my-4">
+                    Disclaimer: the {'{blockchain, jail, osint, programming, welcome}'} categories were introduced with
+                    the bot rewrite on 07/2024. Prior to 07/2024, these solves were included in other categories (mostly
+                    misc).
+                </p>
+                [...]
 
                 <LinkHeading id="server-statistics" className="text-3xl font-bold mt-12 mb-4">
                     Server statistics
