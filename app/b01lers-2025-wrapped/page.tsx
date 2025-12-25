@@ -9,6 +9,7 @@ import PlaceOverTimeChart from '@/app/b01lers-2025-wrapped/PlaceOverTimeChart';
 import TopCTFsTable from '@/app/b01lers-2025-wrapped/TopCTFsTable';
 import CTFRatingChart from '@/app/b01lers-2025-wrapped/CTFRatingChart';
 import SolvesByCategoryChart from '@/app/b01lers-2025-wrapped/SolvesByCategoryChart';
+import SolvesByCategoryAggregateChart from '@/app/b01lers-2025-wrapped/SolvesByCategoryAggregateChart';
 import MessagesByDayHeatmap from '@/app/b01lers-2025-wrapped/MessagesByDayHeatmap';
 import MessagesByHourHeatmap from '@/app/b01lers-2025-wrapped/MessagesByHourHeatmap';
 
@@ -149,6 +150,11 @@ export default function B01lersWrapped() {
                     remained relatively consistent over the years (with perhaps a degradation in pwn):
                 </p>
                 <SolvesByCategoryChart normalize unit="year" />
+                <p className="my-4">
+                    And just for fun, here's <span className="font-jetbrains">b01lers</span>' cumulative solves over
+                    time: (since 2023, we've solved almost 2000 challenges!)
+                </p>
+                <SolvesByCategoryAggregateChart />
 
                 <LinkHeading id="server-statistics" className="text-3xl font-bold mt-12 mb-4">
                     Server statistics
