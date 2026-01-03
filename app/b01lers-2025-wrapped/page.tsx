@@ -7,6 +7,7 @@ import UniversityBarChart from '@/app/b01lers-2025-wrapped/UniversityBarChart';
 import RatingOverTimeChart from '@/app/b01lers-2025-wrapped/RatingOverTimeChart';
 import PlaceOverTimeChart from '@/app/b01lers-2025-wrapped/PlaceOverTimeChart';
 import TopCTFsTable from '@/app/b01lers-2025-wrapped/TopCTFsTable';
+import RatingOverTheYearChart from '@/app/b01lers-2025-wrapped/RatingOverTheYearChart';
 import CTFRatingChart from '@/app/b01lers-2025-wrapped/CTFRatingChart';
 import SolvesByCategoryChart from '@/app/b01lers-2025-wrapped/SolvesByCategoryChart';
 import SolvesByCategoryAggregateChart from '@/app/b01lers-2025-wrapped/SolvesByCategoryAggregateChart';
@@ -116,10 +117,18 @@ export default function B01lersWrapped() {
                 </p>
                 <TopCTFsTable />
                 <p className="my-4">
-                    [...]
+                    Though this data is somewhat spotty, by plotting the sums of <span className="font-jetbrains">b01lers</span>'
+                    top 10 CTFs at each CTF's end timestamp, we can reverse-engineer the team's CTFTime rating throughout
+                    the year:
+                </p>
+                <RatingOverTheYearChart />
+                <p className="my-4">
+                    (If you're wondering why the above chart does not match the team's actual CTFTime rating at the end
+                    of 2025, the chart only counts points gained from competing in CTFs, and doesn't include points
+                    gained from hosting b01lersCTF 2025.)
                 </p>
                 <p className="my-4">
-                    How is CTF weight correlated with eventual rating gain?
+                    How is CTF weight correlated with eventual rating gain? In 2025,
                 </p>
                 <CTFRatingChart index={0} />
                 <p className="my-4">
