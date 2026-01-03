@@ -49,7 +49,7 @@ export default function B01lersWrapped() {
                     Stats, visualizations, and more to sum up b01lers' 2025.
                 </p>
                 <p className="text-sm text-secondary mb-8">
-                    Data last fetched on <span className="bg-tertiary text-xs text-primary px-1 py-0.5 rounded">2025-11-29</span>.
+                    Data last fetched on <span className="bg-tertiary text-xs text-primary px-1 py-0.5 rounded">2026-01-02</span>.
                 </p>
 
                 <div className="flex gap-16 mb-16">
@@ -127,7 +127,7 @@ export default function B01lersWrapped() {
                 </p>
                 <CTFRatingChart index={-1} />
                 <p className="my-4">
-                    (Seemingly, the only universal correlation is participating in 20-weight CTFs and not
+                    (Seemingly, the only universal correlation is participating in 20- and 100-weight CTFs and not
                     placing well 😅). {/* TODO: placement chart? */}
                 </p>
 
@@ -166,9 +166,9 @@ export default function B01lersWrapped() {
                 <MessagesByDayHeatmap />
                 <MessagesByHourHeatmap />
                 <p className="my-4">
-                    (you can see the effect of b01lers CTF 2025 on April 18-20th in the day-of-year graph, CSAW quals
-                    on September 12th, as well as the weekly Peppercorns chatter and eCTF / topic sessions shaped hole
-                    on Monday in the hour-of-day chart).
+                    (you can see the effect of b01lers CTF 2025 on April 18-20th in the day-of-year graph, our first
+                    official Fall meeting on September 5th, CSAW quals on September 12th, as well as the weekly
+                    Peppercorns chatter and eCTF / topic sessions shaped hole on Monday in the hour-of-day chart).
                 </p>
                 [...]
             </div>

@@ -109,8 +109,8 @@ function sleep(milliseconds: number) {
 }
 
 ;(async () => {
-    // const teams = await getUniversityTeams();
-    // console.log(teams);
+    const teams = await getUniversityTeams();
+    await writeFile('./teams.json', JSON.stringify(teams, null, 4));
 
     const years = await fetchTeamAndEvents('11464');
 
@@ -125,8 +125,8 @@ function sleep(milliseconds: number) {
     }
     await writeFile(`./events.json`, JSON.stringify(years, null, 4));
 
-    // for (const id of ['27763', '186494', '284']) {
-    //     const events = await fetchTeamMetadata(id);
-    //     await writeFile(`./events-${id}.json`, JSON.stringify(events, null, 4));
-    // }
+    for (const id of ['27763', '186494', '284']) {
+        const events = await fetchTeamMetadata(id);
+        await writeFile(`./events-${id}.json`, JSON.stringify(events, null, 4));
+    }
 })()
