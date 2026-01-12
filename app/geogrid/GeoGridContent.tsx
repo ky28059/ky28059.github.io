@@ -271,7 +271,7 @@ export default function GeoGridContent() {
 
             <CenteredModal
                 isOpen={selectedBorders !== null}
-                close={() => setSelectedBorders(null)}
+                onClose={() => setSelectedBorders(null)}
                 className="relative w-full max-w-xl bg-midnight rounded-md overflow-clip pt-6"
             >
                 {selectedBorders !== null && (

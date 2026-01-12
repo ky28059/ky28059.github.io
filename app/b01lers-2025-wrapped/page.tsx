@@ -107,7 +107,6 @@ export default function B01lersWrapped() {
                     Of course, this has led to the team's highest country and global placements, plotted below:
                 </p>
                 <PlaceOverTimeChart />
-                {/* <GlobalPlaceOverTimeChart /> */}
 
                 <LinkHeading id="ctf-statistics" className="text-3xl font-bold mt-12 mb-4">
                     CTF statistics
@@ -117,9 +116,9 @@ export default function B01lersWrapped() {
                 </p>
                 <TopCTFsTable />
                 <p className="my-4">
-                    Though this data is somewhat spotty, by plotting the sums of <span className="font-jetbrains">b01lers</span>'
-                    top 10 CTFs at each CTF's end timestamp, we can reverse-engineer the team's CTFTime rating throughout
-                    the year:
+                    Though this method isn't perfect, by plotting the sums of <span className="font-jetbrains">b01lers</span>'
+                    top 10 CTF ratings at each CTF's end timestamp, we can somewhat reverse-engineer the team's CTFTime
+                    rating throughout the year:
                 </p>
                 <RatingOverTheYearChart />
                 <p className="my-4">
@@ -179,7 +178,7 @@ export default function B01lersWrapped() {
                     official Fall meeting on September 5th, CSAW quals on September 12th, as well as the weekly
                     Peppercorns chatter and eCTF / topic sessions shaped hole on Monday in the hour-of-day chart).
                 </p>
-                [...]
+                {/* [...] */}
             </div>
         </div>
     )
