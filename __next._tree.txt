@@ -74,4 +74,4 @@
 :HL["/assets/projects/PortalBot.jpg","image"]
 :HL["/assets/projects/elixirbot.jpg","image"]
 :HL["/assets/projects/competitive-programming-club-2.jpg","image"]
-0:{"buildId":"sdJrv7_XmnxBoagrmkq4p","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"(landing)","paramType":null,"paramKey":"(landing)","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"hiZ3bRh5mDJLwvTw_cHIr","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"(landing)","paramType":null,"paramKey":"(landing)","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
