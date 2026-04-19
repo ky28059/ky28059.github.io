@@ -29,7 +29,7 @@ export default function LandingHeader() {
 
                     <p className="mb-3 max-w-3xl text-primary">
                         Gunn High School graduate and third-year student studying Computer Science @ Purdue
-                        University. Interested in art, photography, web development, and robotics.
+                        University. Interested in art, photography, and all things software.
                     </p>
                     <p className="mb-3.5 text-primary">
                         My resume can be found <a href="/Resume.pdf">here</a>.
@@ -55,8 +55,9 @@ export default function LandingHeader() {
                         You may know me from:
                     </p>
                     <ul className="text-secondary mb-4">
-                        <li>President @ b01lers <AffiliationDate>2025-p.</AffiliationDate></li>
+                        <li>President @ b01lers <AffiliationDate>2025-26</AffiliationDate></li>
                         <li>Webmaster @ b01lers <AffiliationDate>2024-25</AffiliationDate></li>
+                        <li>Infra @ Purdue eCTF <AffiliationDate>2024-26</AffiliationDate></li>
                     </ul>
                     <ul className="text-secondary">
                         <li>Controls, webmaster @ GRT <AffiliationDate>2021-23</AffiliationDate></li>
