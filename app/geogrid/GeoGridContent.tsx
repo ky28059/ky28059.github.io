@@ -52,16 +52,23 @@ export default function GeoGridContent() {
                     const { common, geogrid } = dataRef.current[c];
                     switch (sort.column) {
                         case 'name': return common.name;
-                        case 'population': return common?.population;
-                        case 'size': return common?.size;
-                        case 'borders': return geogrid?.geographyInfo.borderCountOverride ?? (geogrid?.geographyInfo.islandNation ? 0 : common?.borders.length);
-                        case 'hdi': return geogrid?.economicInfo.HDI;
-                        case 'cpi': return geogrid?.politicalInfo.CPI;
-                        case 'gdp': return geogrid?.economicInfo.GDPPerCapita;
-                        case 'coastline': return geogrid?.geographyInfo.coastlineLength;
-                        case 'airPollution': return geogrid?.factsInfo.airPollution;
-                        case 'co2': return geogrid?.factsInfo.co2Emissions;
-                        case 'olympicMedals': return geogrid?.sportsInfo.olympicMedals;
+                        case 'population': return common.population;
+                        case 'size': return common.size;
+                        case 'borders': return geogrid.geographyInfo.borderCountOverride ?? (geogrid.geographyInfo.islandNation ? 0 : common.borders.length);
+                        case 'landBorder': return geogrid.geographyInfo.landBorderLength;
+                        case 'hdi': return geogrid.economicInfo.HDI;
+                        case 'cpi': return geogrid.politicalInfo.CPI;
+                        case 'gdp': return geogrid.economicInfo.GDPPerCapita;
+                        case 'coastline': return geogrid.geographyInfo.coastlineLength;
+                        case 'elevation': return geogrid.geographyInfo.averageElevation;
+                        case 'temp': return geogrid.geographyInfo.averageTemperature;
+                        case 'rainfall': return geogrid.geographyInfo.annualRainfall;
+                        case 'forestCover': return geogrid.geographyInfo.forestCover;
+                        case 'arableLand': return geogrid.geographyInfo.arableLand;
+                        case 'protectedWaters': return geogrid.geographyInfo.protectedWaters;
+                        case 'airPollution': return geogrid.factsInfo.airPollution;
+                        case 'co2': return geogrid.factsInfo.co2Emissions;
+                        case 'olympicMedals': return geogrid.sportsInfo.olympicMedals;
                         default: return null;
                     }
                 };
@@ -104,11 +111,21 @@ export default function GeoGridContent() {
                     <SortableColumnHeader label="CPI" column="cpi" sort={sort} onSort={toggleSort} className="w-12" />
                     <SortableColumnHeader label="GDP / capita" column="gdp" sort={sort} onSort={toggleSort} className="w-16" />
                     <SortableColumnHeader label="Coastline length" column="coastline" sort={sort} onSort={toggleSort} className="w-20" />
+                    <SortableColumnHeader label="Land border" column="landBorder" sort={sort} onSort={toggleSort} className="w-20" />
+                    <SortableColumnHeader label="Average elevation" column="elevation" sort={sort} onSort={toggleSort} className="w-16" />
+                    <SortableColumnHeader label="Average temp" column="temp" sort={sort} onSort={toggleSort} className="w-16" />
+                    <SortableColumnHeader label="Annual rainfall" column="rainfall" sort={sort} onSort={toggleSort} className="w-20" />
+                    <SortableColumnHeader label="Forest cover" column="forestCover" sort={sort} onSort={toggleSort} className="w-16" />
+                    <SortableColumnHeader label="Arable land" column="arableLand" sort={sort} onSort={toggleSort} className="w-16" />
+                    <SortableColumnHeader label="Protected waters" column="protectedWaters" sort={sort} onSort={toggleSort} className="w-16" />
                     <SortableColumnHeader label="Air pollution" column="airPollution" sort={sort} onSort={toggleSort} className="w-24" />
                     <SortableColumnHeader label="CO₂ emissions / capita" column="co2" sort={sort} onSort={toggleSort} className="w-24" />
                     <SortableColumnHeader label="Olympic medals" column="olympicMedals" sort={sort} onSort={toggleSort} className="w-14" />
                     <div className="px-1.5 w-14 flex-none mr-3">
                         Continent(s)
+                    </div>
+                    <div className="px-1.5 w-14 flex-none mr-3">
+                        Hemisphere(s)
                     </div>
                     <div className="px-1.5 w-20 flex-none mr-3">
                         River systems
@@ -118,6 +135,7 @@ export default function GeoGridContent() {
                     </div>
                     <GridBooleanLabel label="Landlocked" />
                     <GridBooleanLabel label="Island nation" />
+                    <GridBooleanLabel label="River border" />
                     <GridBooleanLabel label="Monarchy" />
                     <GridBooleanLabel label="EU" />
                     <GridBooleanLabel label="Cmlth." />
@@ -216,6 +234,41 @@ export default function GeoGridContent() {
                                         unit="km"
                                     />
                                     <GridCell
+                                        className="w-20"
+                                        value={geogrid?.geographyInfo.landBorderLength}
+                                        unit="km"
+                                    />
+                                    <GridCell
+                                        className="w-16"
+                                        value={geogrid?.geographyInfo.averageElevation}
+                                        unit="m"
+                                    />
+                                    <GridCell
+                                        className="w-16"
+                                        value={geogrid?.geographyInfo.averageTemperature}
+                                        unit="°C"
+                                    />
+                                    <GridCell
+                                        className="w-20"
+                                        value={geogrid?.geographyInfo.annualRainfall}
+                                        unit="mm"
+                                    />
+                                    <GridCell
+                                        className="w-16"
+                                        value={geogrid?.geographyInfo.forestCover}
+                                        unit="%"
+                                    />
+                                    <GridCell
+                                        className="w-16"
+                                        value={geogrid?.geographyInfo.arableLand}
+                                        unit="%"
+                                    />
+                                    <GridCell
+                                        className="w-16"
+                                        value={geogrid?.geographyInfo.protectedWaters}
+                                        unit="%"
+                                    />
+                                    <GridCell
                                         className="w-24"
                                         value={geogrid?.factsInfo.airPollution}
                                         unit="μg/m³"
@@ -234,6 +287,10 @@ export default function GeoGridContent() {
                                         value={common?.continent}
                                     />
                                     <GridArrayCell
+                                        className="w-14 text-xs"
+                                        value={geogrid?.geographyInfo.hemisphere}
+                                    />
+                                    <GridArrayCell
                                         className="w-20 text-xs"
                                         value={geogrid?.geographyInfo.rivers}
                                     />
@@ -243,6 +300,7 @@ export default function GeoGridContent() {
                                     />
                                     <GridBooleanCell value={geogrid?.geographyInfo.landlocked} />
                                     <GridBooleanCell value={geogrid?.geographyInfo.islandNation} />
+                                    <GridBooleanCell value={geogrid?.geographyInfo.riverBorder} />
                                     <GridBooleanCell value={geogrid?.politicalInfo.isMonarchy} />
                                     <GridBooleanCell value={geogrid?.politicalInfo.inEU} />
                                     <GridBooleanCell value={geogrid?.politicalInfo.inCommonwealth} />
@@ -301,7 +359,7 @@ export default function GeoGridContent() {
                                         className="w-14 max-h-12 object-contain object-right"
                                     />
                                     <p className="py-1.5 text-sm">
-                                        {dataRef.current[selectedBorders].common?.name}{' '}
+                                        {dataRef.current[code].common?.name}{' '}
                                         <span className="text-secondary">({code.toUpperCase()})</span>
                                     </p>
                                 </div>

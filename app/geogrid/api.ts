@@ -24,15 +24,15 @@ export type GeogridCountryDetails = {
         touchesEurasionSteppe: boolean, //
         touchesEquator: boolean, //
         top10Lakes: boolean, //
-        averageElevation: number,
-        averageTemperature: number,
-        annualRainfall?: number,
-        hemisphere: string[],
-        riverBorder: boolean,
+        averageElevation: number, //
+        averageTemperature: number, //
+        annualRainfall?: number, //
+        hemisphere: string[], //
+        riverBorder: boolean, //
         landBorderLength?: number,
-        forestCover?: number,
-        arableLand?: number,
-        protectedWaters?: number,
+        forestCover?: number, //
+        arableLand?: number, //
+        protectedWaters?: number, //
     },
     economicInfo: {
         HDI?: number, //
