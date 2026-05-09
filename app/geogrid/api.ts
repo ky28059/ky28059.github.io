@@ -19,11 +19,20 @@ export type GeogridCountryDetails = {
         coastlineLength: number, //
         coastline: string[],
         touchesSahara: boolean, //
-        borderCountOverride: number,
+        borderCountOverride?: number,
         rivers: string[], //
         touchesEurasionSteppe: boolean, //
         touchesEquator: boolean, //
-        top10Lakes: boolean //
+        top10Lakes: boolean, //
+        averageElevation: number,
+        averageTemperature: number,
+        annualRainfall?: number,
+        hemisphere: string[],
+        riverBorder: boolean,
+        landBorderLength?: number,
+        forestCover?: number,
+        arableLand?: number,
+        protectedWaters?: number,
     },
     economicInfo: {
         HDI?: number, //
@@ -31,7 +40,8 @@ export type GeogridCountryDetails = {
         top20WheatProduction: boolean, //
         top20OilProduction: boolean, //
         top20RenewableElectricityProduction: boolean, //
-        producesNuclearPower: boolean //
+        producesNuclearPower: boolean, //
+        GDPPerCapitaYear: number,
     },
     politicalInfo: {
         isMonarchy: boolean, //
@@ -45,7 +55,14 @@ export type GeogridCountryDetails = {
         sameSexMarriageLegal: boolean, //
         sameSexActivitiesIllegal: boolean, //
         CPI: number | null, //
-        isTerritory: boolean
+        isTerritory: boolean,
+        majorityReligion: string,
+        formerColonyOf: string[],
+        romanEmpire: boolean,
+        ottomanEmpire: boolean,
+        livingLanguages?: number,
+        urbanPopulation?: number,
+        largestCityUrbanPopulation?: number
     },
     sportsInfo: {
         olympicMedals: number, //
@@ -67,8 +84,10 @@ export type GeogridCountryDetails = {
         top20TourismRate: boolean, //
         top20RailSize: boolean, //
         top20WorldHeritageSites: boolean, //
-        airPollution: number, //
-        co2Emissions: number //
+        airPollution?: number, //
+        co2Emissions: number, //
+        hasUnescoSite: boolean,
+        hasMetro: boolean
     }
 }
 
@@ -81,7 +100,7 @@ export type CommonCountryDetails = {
     flags: string[], // For worldle
     continent: string[],
     borders: string[], // Country codes
-    autoUpdateBorders: true,
+    autoUpdateBorders: boolean,
     links: {
         type: 'GoogleMaps' | 'Wikipedia',
         url: string, // Includes ${cc}
@@ -95,10 +114,10 @@ export type CommonCountryDetails = {
     population: number,
     size: number,
     languageData: {
-        languageSources: { title: string, url: string }[],
-        languages: { languageCode: string, percentage: number }[]
+        languageSources?: { title: string, url: string }[],
+        languages?: { languageCode: string, percentage?: number }[]
     },
-    productData: {
+    productData?: {
         year: number,
         totalValue: number,
         topExports: {
@@ -106,9 +125,12 @@ export type CommonCountryDetails = {
             value: number
         }[]
     },
-    borderMode: "bordering",
-    images: { imageCode: number, sourceLink: number }[],
-    difficulty: 'easy' | 'hard'
+    borderMode: 'bordering' | 'nearby',
+    images: { imageCode: number, sourceLink: string }[],
+    approvedForMapster: boolean,
+    difficulty: 'easy' | 'normal' | 'hard' | 'extreme',
+    gdpPerCapita?: number,
+    gdpPerCapitaYear: number
 }
 
 export async function fetchCountries(): Promise<CountryInfo[]> {
@@ -123,6 +145,11 @@ export async function fetchGeogridData(code: string): Promise<GeogridCountryDeta
 
 export async function fetchCommonData(code: string): Promise<CommonCountryDetails> {
     const res = await fetch(`https://cdn-assets.teuteuf.fr/data/common/countries/${code.toLowerCase()}.json`);
+    return res.json();
+}
+
+export async function fetchCombinedData(): Promise<Record<string, { geogrid: GeogridCountryDetails, common: CommonCountryDetails }>> {
+    const res = await fetch('https://cdn-assets.teuteuf.fr/data/geogrid/combined.json');
     return res.json();
 }
 

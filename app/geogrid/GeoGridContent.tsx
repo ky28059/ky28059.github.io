@@ -7,25 +7,16 @@ import CenteredModal from '@/components/CenteredModal';
 import Spinner from '@/components/Spinner';
 
 // Utils
-import {
-    CommonCountryDetails,
-    CountryInfo,
-    fetchCommonData,
-    fetchCountries,
-    fetchGeogridData, GeogridCountryDetails,
-    getFlagUrl
-} from '@/app/geogrid/api';
+import { CommonCountryDetails, GeogridCountryDetails, fetchCombinedData, getFlagUrl } from '@/app/geogrid/api';
 
 // Icons
 import { FaArrowUp, FaArrowDown, FaArrowsUpDown } from 'react-icons/fa6';
 
 
 export default function GeoGridContent() {
-    const countryRef = useRef<CountryInfo[] | null>(null);
-    const geogridDataRef = useRef<{ [code: string]: GeogridCountryDetails }>({});
-    const commonDataRef = useRef<{ [code: string]: CommonCountryDetails }>({});
+    const dataRef = useRef<{ [code: string]: { geogrid: GeogridCountryDetails, common: CommonCountryDetails } }>({});
 
-    const [sorted, setSorted] = useState<CountryInfo[] | null>(null);
+    const [sorted, setSorted] = useState<string[] | null>(null);
     const [pending, startTransition] = useTransition();
 
     const [query, setQuery] = useState('');
@@ -36,18 +27,10 @@ export default function GeoGridContent() {
 
     useEffect(() => {
         async function fetchData() {
-            const countries = await fetchCountries();
-            countryRef.current = countries;
+            const data = await fetchCombinedData();
+            dataRef.current = data;
 
-            // Fetch all geogrid / common country details in parallel
-            const [geogrid, common] = await Promise.all([
-                Promise.all(countries.map(c => fetchGeogridData(c.code))),
-                Promise.all(countries.map(c => fetchCommonData(c.code)))
-            ]);
-            geogridDataRef.current = Object.fromEntries(geogrid.map((d, i) => [countries[i].code, d]));
-            commonDataRef.current = Object.fromEntries(common.map((d, i) => [countries[i].code, d]));
-
-            setSorted(countries);
+            setSorted(Object.keys(data));
         }
 
         void fetchData();
@@ -62,24 +45,23 @@ export default function GeoGridContent() {
 
     useEffect(() => {
         startTransition(() => {
-            if (!countryRef.current) return;
+            if (!sorted) return;
 
-            setSorted(countryRef.current.filter(c => c.name.toLowerCase().includes(query.toLowerCase())).sort((a, b) => {
-                const getVal = (c: CountryInfo) => {
-                    const geo = geogridDataRef.current[c.code];
-                    const common = commonDataRef.current[c.code];
+            setSorted(Object.keys(dataRef.current).filter(c => dataRef.current[c].common.name.toLowerCase().includes(query.toLowerCase())).sort((a, b) => {
+                const getVal = (c: string) => {
+                    const { common, geogrid } = dataRef.current[c];
                     switch (sort.column) {
-                        case 'name': return c.name;
+                        case 'name': return common.name;
                         case 'population': return common?.population;
                         case 'size': return common?.size;
-                        case 'borders': return geo?.geographyInfo.borderCountOverride ?? (geo?.geographyInfo.islandNation ? 0 : common?.borders.length);
-                        case 'hdi': return geo?.economicInfo.HDI;
-                        case 'cpi': return geo?.politicalInfo.CPI;
-                        case 'gdp': return geo?.economicInfo.GDPPerCapita;
-                        case 'coastline': return geo?.geographyInfo.coastlineLength;
-                        case 'airPollution': return geo?.factsInfo.airPollution;
-                        case 'co2': return geo?.factsInfo.co2Emissions;
-                        case 'olympicMedals': return geo?.sportsInfo.olympicMedals;
+                        case 'borders': return geogrid?.geographyInfo.borderCountOverride ?? (geogrid?.geographyInfo.islandNation ? 0 : common?.borders.length);
+                        case 'hdi': return geogrid?.economicInfo.HDI;
+                        case 'cpi': return geogrid?.politicalInfo.CPI;
+                        case 'gdp': return geogrid?.economicInfo.GDPPerCapita;
+                        case 'coastline': return geogrid?.geographyInfo.coastlineLength;
+                        case 'airPollution': return geogrid?.factsInfo.airPollution;
+                        case 'co2': return geogrid?.factsInfo.co2Emissions;
+                        case 'olympicMedals': return geogrid?.sportsInfo.olympicMedals;
                         default: return null;
                     }
                 };
@@ -177,123 +159,122 @@ export default function GeoGridContent() {
                 ) : (
                     <div className={'grow w-max bg-black/25 flex flex-col overflow-y-auto divide-y divide-tertiary transition duration-200' + (pending ? ' opacity-50' : '')}>
                         {sorted.map((c) => {
-                            const geogridDetails = geogridDataRef.current[c.code];
-                            const commonDetails = commonDataRef.current[c.code];
+                            const { geogrid, common } = dataRef.current[c];
 
                             return (
                                 <div
                                     className="flex text-sm items-center hover:bg-tertiary/30"
-                                    key={c.code}
+                                    key={c}
                                 >
                                     <img
                                         className="max-h-12 w-16 flex-none object-contain object-right py-0.5 mr-3"
-                                        src={getFlagUrl(c.code)}
-                                        alt={c.name}
+                                        src={getFlagUrl(c)}
+                                        alt={c}
                                     />
                                     <div className="w-36 flex-none mr-3 text-pretty">
-                                        {c.name} <span className="text-secondary">({c.code})</span>
+                                        {common.name} <span className="text-secondary">({c})</span>
                                     </div>
                                     <GridCell
                                         className="w-24"
-                                        value={commonDetails?.population}
+                                        value={common?.population}
                                     />
                                     <GridCell
                                         className="w-28"
-                                        value={commonDetails?.size}
+                                        value={common?.size}
                                         unit="km²"
                                     />
-                                    {(geogridDetails?.geographyInfo.borderCountOverride !== undefined || geogridDetails?.geographyInfo.islandNation) ? (
+                                    {(geogrid?.geographyInfo.borderCountOverride !== undefined || geogrid?.geographyInfo.islandNation) ? (
                                         <GridCell
                                             className="w-28"
-                                            value={geogridDetails?.geographyInfo.borderCountOverride ?? 0}
+                                            value={geogrid?.geographyInfo.borderCountOverride ?? 0}
                                         />
                                     ) : (
                                         <button
                                             className="w-28 text-sm mr-3 flex-none bg-white/10 hover:bg-white/15 transition duration-150 rounded-full px-2.5 py-1 text-left my-0.5"
-                                            onClick={() => setSelectedBorders(c.code)}
+                                            onClick={() => setSelectedBorders(c)}
                                         >
-                                            {commonDetails.borders.length}{' '}
+                                            {common.borders.length}{' '}
                                             <span className="text-secondary text-xs">(view all)</span>
                                         </button>
                                     )}
                                     <GridCell
                                         className="w-12"
-                                        value={geogridDetails?.economicInfo.HDI}
+                                        value={geogrid?.economicInfo.HDI}
                                     />
                                     <GridCell
                                         className="w-12"
-                                        value={geogridDetails?.politicalInfo.CPI}
+                                        value={geogrid?.politicalInfo.CPI}
                                     />
                                     <GridCell
                                         className="w-16"
-                                        value={geogridDetails?.economicInfo.GDPPerCapita}
+                                        value={geogrid?.economicInfo.GDPPerCapita}
                                         prefix="$"
                                     />
                                     <GridCell
                                         className="w-20"
-                                        value={geogridDetails?.geographyInfo.coastlineLength}
+                                        value={geogrid?.geographyInfo.coastlineLength}
                                         unit="km"
                                     />
                                     <GridCell
                                         className="w-24"
-                                        value={geogridDetails?.factsInfo.airPollution}
+                                        value={geogrid?.factsInfo.airPollution}
                                         unit="μg/m³"
                                     />
                                     <GridCell
                                         className="w-24"
-                                        value={geogridDetails?.factsInfo.co2Emissions}
+                                        value={geogrid?.factsInfo.co2Emissions}
                                         unit="tCO₂/y"
                                     />
                                     <GridCell
                                         className="w-14"
-                                        value={geogridDetails?.sportsInfo.olympicMedals}
+                                        value={geogrid?.sportsInfo.olympicMedals}
                                     />
                                     <GridArrayCell
                                         className="w-14 text-xs"
-                                        value={commonDetails?.continent}
+                                        value={common?.continent}
                                     />
                                     <GridArrayCell
                                         className="w-20 text-xs"
-                                        value={geogridDetails?.geographyInfo.rivers}
+                                        value={geogrid?.geographyInfo.rivers}
                                     />
                                     <GridArrayCell
                                         className="w-20 text-xs"
-                                        value={geogridDetails?.politicalInfo.officialLanguageCodes}
+                                        value={geogrid?.politicalInfo.officialLanguageCodes}
                                     />
-                                    <GridBooleanCell value={geogridDetails?.geographyInfo.landlocked} />
-                                    <GridBooleanCell value={geogridDetails?.geographyInfo.islandNation} />
-                                    <GridBooleanCell value={geogridDetails?.politicalInfo.isMonarchy} />
-                                    <GridBooleanCell value={geogridDetails?.politicalInfo.inEU} />
-                                    <GridBooleanCell value={geogridDetails?.politicalInfo.inCommonwealth} />
-                                    <GridBooleanCell value={geogridDetails?.politicalInfo.wasUSSR} />
-                                    <GridBooleanCell value={geogridDetails?.economicInfo.producesNuclearPower} />
-                                    <GridBooleanCell value={geogridDetails?.politicalInfo.hasNuclearWeapons} />
-                                    <GridBooleanCell value={geogridDetails?.politicalInfo.observesDST} />
-                                    <GridBooleanCell value={geogridDetails?.politicalInfo.sameSexMarriageLegal} />
-                                    <GridBooleanCell value={geogridDetails?.politicalInfo.sameSexActivitiesIllegal} />
-                                    <GridBooleanCell value={geogridDetails?.factsInfo.drivesLeft} />
-                                    <GridBooleanCell value={geogridDetails?.factsInfo.hasAlcoholBan} />
-                                    <GridBooleanCell value={geogridDetails?.geographyInfo.touchesSahara} />
-                                    <GridBooleanCell value={geogridDetails?.geographyInfo.touchesEquator} />
-                                    <GridBooleanCell value={geogridDetails?.geographyInfo.touchesEurasionSteppe} />
-                                    <GridBooleanCell value={geogridDetails?.sportsInfo.hostedF1} />
-                                    <GridBooleanCell value={geogridDetails?.sportsInfo.hostedOlympics} />
-                                    <GridBooleanCell value={geogridDetails?.sportsInfo.hostedMensWorldCup} />
-                                    <GridBooleanCell value={geogridDetails?.sportsInfo.playedMensWorldCup} />
-                                    <GridBooleanCell value={geogridDetails?.sportsInfo.wonMensWorldCup} />
-                                    <GridBooleanCell value={geogridDetails?.factsInfo.top20WorldHeritageSites} />
-                                    <GridBooleanCell value={geogridDetails?.factsInfo.top20TourismRate} />
-                                    <GridBooleanCell value={geogridDetails?.factsInfo.top20RailSize} />
-                                    <GridBooleanCell value={geogridDetails?.factsInfo.top20PopulationDensity} />
-                                    <GridBooleanCell value={geogridDetails?.factsInfo.bottom20PopulationDensity} />
-                                    <GridBooleanCell value={geogridDetails?.economicInfo.top20WheatProduction} />
-                                    <GridBooleanCell value={geogridDetails?.economicInfo.top20OilProduction} />
-                                    <GridBooleanCell value={geogridDetails?.economicInfo.top20RenewableElectricityProduction} />
-                                    <GridBooleanCell value={geogridDetails?.geographyInfo.top10Lakes} />
-                                    <GridBooleanCell value={geogridDetails?.factsInfo.has50Skyscrapers} />
-                                    <GridBooleanCell value={geogridDetails?.factsInfo.top20ObesityRate} />
-                                    <GridBooleanCell value={geogridDetails?.factsInfo.top20AlcoholConsumption} />
-                                    <GridBooleanCell value={geogridDetails?.factsInfo.top20ChocolateConsumption} />
+                                    <GridBooleanCell value={geogrid?.geographyInfo.landlocked} />
+                                    <GridBooleanCell value={geogrid?.geographyInfo.islandNation} />
+                                    <GridBooleanCell value={geogrid?.politicalInfo.isMonarchy} />
+                                    <GridBooleanCell value={geogrid?.politicalInfo.inEU} />
+                                    <GridBooleanCell value={geogrid?.politicalInfo.inCommonwealth} />
+                                    <GridBooleanCell value={geogrid?.politicalInfo.wasUSSR} />
+                                    <GridBooleanCell value={geogrid?.economicInfo.producesNuclearPower} />
+                                    <GridBooleanCell value={geogrid?.politicalInfo.hasNuclearWeapons} />
+                                    <GridBooleanCell value={geogrid?.politicalInfo.observesDST} />
+                                    <GridBooleanCell value={geogrid?.politicalInfo.sameSexMarriageLegal} />
+                                    <GridBooleanCell value={geogrid?.politicalInfo.sameSexActivitiesIllegal} />
+                                    <GridBooleanCell value={geogrid?.factsInfo.drivesLeft} />
+                                    <GridBooleanCell value={geogrid?.factsInfo.hasAlcoholBan} />
+                                    <GridBooleanCell value={geogrid?.geographyInfo.touchesSahara} />
+                                    <GridBooleanCell value={geogrid?.geographyInfo.touchesEquator} />
+                                    <GridBooleanCell value={geogrid?.geographyInfo.touchesEurasionSteppe} />
+                                    <GridBooleanCell value={geogrid?.sportsInfo.hostedF1} />
+                                    <GridBooleanCell value={geogrid?.sportsInfo.hostedOlympics} />
+                                    <GridBooleanCell value={geogrid?.sportsInfo.hostedMensWorldCup} />
+                                    <GridBooleanCell value={geogrid?.sportsInfo.playedMensWorldCup} />
+                                    <GridBooleanCell value={geogrid?.sportsInfo.wonMensWorldCup} />
+                                    <GridBooleanCell value={geogrid?.factsInfo.top20WorldHeritageSites} />
+                                    <GridBooleanCell value={geogrid?.factsInfo.top20TourismRate} />
+                                    <GridBooleanCell value={geogrid?.factsInfo.top20RailSize} />
+                                    <GridBooleanCell value={geogrid?.factsInfo.top20PopulationDensity} />
+                                    <GridBooleanCell value={geogrid?.factsInfo.bottom20PopulationDensity} />
+                                    <GridBooleanCell value={geogrid?.economicInfo.top20WheatProduction} />
+                                    <GridBooleanCell value={geogrid?.economicInfo.top20OilProduction} />
+                                    <GridBooleanCell value={geogrid?.economicInfo.top20RenewableElectricityProduction} />
+                                    <GridBooleanCell value={geogrid?.geographyInfo.top10Lakes} />
+                                    <GridBooleanCell value={geogrid?.factsInfo.has50Skyscrapers} />
+                                    <GridBooleanCell value={geogrid?.factsInfo.top20ObesityRate} />
+                                    <GridBooleanCell value={geogrid?.factsInfo.top20AlcoholConsumption} />
+                                    <GridBooleanCell value={geogrid?.factsInfo.top20ChocolateConsumption} />
                                 </div>
                             )
                         })}
@@ -309,18 +290,18 @@ export default function GeoGridContent() {
                 {selectedBorders !== null && (
                     <>
                         <h1 className="text-xl font-semibold px-8 mb-3">
-                            Borders of {commonDataRef.current[selectedBorders].name}
+                            Borders of {dataRef.current[selectedBorders].common.name}
                         </h1>
 
                         <div className="flex flex-col divide-y divide-tertiary">
-                            {[...new Set(commonDataRef.current[selectedBorders].borders)].map((code) => (
+                            {[...new Set(dataRef.current[selectedBorders].common.borders)].map((code) => (
                                 <div className="flex items-center gap-3.5" key={code}>
                                     <img
                                         src={getFlagUrl(code)}
                                         className="w-14 max-h-12 object-contain object-right"
                                     />
                                     <p className="py-1.5 text-sm">
-                                        {commonDataRef.current[code.toUpperCase()]?.name}{' '}
+                                        {dataRef.current[selectedBorders].common?.name}{' '}
                                         <span className="text-secondary">({code.toUpperCase()})</span>
                                     </p>
                                 </div>
