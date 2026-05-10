@@ -68,6 +68,9 @@ export default function GeoGridContent() {
                         case 'protectedWaters': return geogrid.geographyInfo.protectedWaters;
                         case 'airPollution': return geogrid.factsInfo.airPollution;
                         case 'co2': return geogrid.factsInfo.co2Emissions;
+                        case 'langs': return geogrid.politicalInfo.livingLanguages;
+                        case 'urbanPop': return geogrid.politicalInfo.urbanPopulation;
+                        case 'lcup': return geogrid.politicalInfo.largestCityUrbanPopulation;
                         case 'olympicMedals': return geogrid.sportsInfo.olympicMedals;
                         default: return null;
                     }
@@ -120,6 +123,9 @@ export default function GeoGridContent() {
                     <SortableColumnHeader label="Protected waters" column="protectedWaters" sort={sort} onSort={toggleSort} className="w-16" />
                     <SortableColumnHeader label="Air pollution" column="airPollution" sort={sort} onSort={toggleSort} className="w-24" />
                     <SortableColumnHeader label="CO₂ emissions / capita" column="co2" sort={sort} onSort={toggleSort} className="w-24" />
+                    <SortableColumnHeader label="Living lang(s)" column="langs" sort={sort} onSort={toggleSort} className="w-14" />
+                    <SortableColumnHeader label="Urban pop." column="urbanPop" sort={sort} onSort={toggleSort} className="w-14" />
+                    <SortableColumnHeader label="LCUP" column="lcup" sort={sort} onSort={toggleSort} className="w-14" />
                     <SortableColumnHeader label="Olympic medals" column="olympicMedals" sort={sort} onSort={toggleSort} className="w-14" />
                     <div className="px-1.5 w-14 flex-none mr-3">
                         Continent(s)
@@ -190,7 +196,7 @@ export default function GeoGridContent() {
                                         alt={c}
                                     />
                                     <div className="w-36 flex-none mr-3 text-pretty">
-                                        {common.name} <span className="text-secondary">({c})</span>
+                                        {common.name} <span className="text-secondary">({c.toUpperCase()})</span>
                                     </div>
                                     <GridCell
                                         className="w-24"
@@ -277,6 +283,20 @@ export default function GeoGridContent() {
                                         className="w-24"
                                         value={geogrid?.factsInfo.co2Emissions}
                                         unit="tCO₂/y"
+                                    />
+                                    <GridCell
+                                        className="w-14"
+                                        value={geogrid?.politicalInfo.livingLanguages}
+                                    />
+                                    <GridCell
+                                        className="w-14"
+                                        value={geogrid?.politicalInfo.urbanPopulation}
+                                        unit="%"
+                                    />
+                                    <GridCell
+                                        className="w-14"
+                                        value={geogrid?.politicalInfo.largestCityUrbanPopulation}
+                                        unit="%"
                                     />
                                     <GridCell
                                         className="w-14"

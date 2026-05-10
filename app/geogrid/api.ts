@@ -29,7 +29,7 @@ export type GeogridCountryDetails = {
         annualRainfall?: number, //
         hemisphere: string[], //
         riverBorder: boolean, //
-        landBorderLength?: number,
+        landBorderLength?: number, //
         forestCover?: number, //
         arableLand?: number, //
         protectedWaters?: number, //
@@ -37,11 +37,11 @@ export type GeogridCountryDetails = {
     economicInfo: {
         HDI?: number, //
         GDPPerCapita?: number, //
+        GDPPerCapitaYear: number,
         top20WheatProduction: boolean, //
         top20OilProduction: boolean, //
         top20RenewableElectricityProduction: boolean, //
         producesNuclearPower: boolean, //
-        GDPPerCapitaYear: number,
     },
     politicalInfo: {
         isMonarchy: boolean, //
@@ -60,9 +60,9 @@ export type GeogridCountryDetails = {
         formerColonyOf: string[],
         romanEmpire: boolean,
         ottomanEmpire: boolean,
-        livingLanguages?: number,
-        urbanPopulation?: number,
-        largestCityUrbanPopulation?: number
+        livingLanguages?: number, //
+        urbanPopulation?: number, //
+        largestCityUrbanPopulation?: number //
     },
     sportsInfo: {
         olympicMedals: number, //
