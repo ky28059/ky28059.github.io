@@ -52,28 +52,28 @@ export default function Highlights() {
             </Highlight>
 
             <Highlight
-                name="Scrape bot (Tom Scott)"
-                date="2024-2025"
-                tags={['discord.js', 'express', 'slack-bolt']}
+                name="eCTF infra (Tom Scott)"
+                date="2024-2026"
+                tags={['discord.js', 'express', 'slack-bolt', 'zulip-js', 'zeromq']}
                 langs={['ts', 'dockerfile']}
                 gh="https://github.com/Purdue-eCTF/scrape-bot"
                 content={scrapeBotContent}
             >
                 <p className="mb-4">
                     <InlineCode>scrape-bot</InlineCode>, affectionately called Tom Scott, is the central system
-                    coordinating the attack/dev CI pipeline for the Purdue team @ MITRE eCTF 2025.
+                    coordinating the attack/dev CI pipeline for the Purdue team @ MITRE eCTF {'{'}2025, 2026{'}'}.
                 </p>
                 <p>Tom consists of a Discord / Slack bot that</p>
                 <ul className="list-disc list-outside pl-6 text-sm mt-1">
-                    <li>tracks and summarizes the eCTF scoreboard into daily reports,</li>
-                    <li>integrates with the build CI to maintain the current build status and alert on build failures,</li>
-                    <li>listens on the Slack <InlineCode>#targets</InlineCode> channel to detect teams entering attack phase,</li>
-                    <li>unzips and pushes new targets to the targets GitHub repository,</li>
+                    <li>tracks and summarizes the eCTF scoreboard into daily reports;</li>
+                    <li>integrates with the build CI to display the current build status and alert on failures;</li>
+                    <li>listens on the Slack (Zulip) <InlineCode>#targets</InlineCode> channel to detect teams entering attack phase;</li>
+                    <li>unencrypts, unzips, and pushes new targets to the targets GitHub repository;</li>
                     <li>
                         distributes new targets to the build server / attack queueing system to run automated attacks
-                        (incl. dispatching the special "pesky neighbor" attack via Slack userbot),
+                        (incl. dispatching the special "pesky neighbor" attack via Slack userbot);
                     </li>
-                    <li>logs attack script output in Discord,</li>
+                    <li>logs attack script output in Discord;</li>
                     <li>and automatically submits any flags found to the CTFd backend.</li>
                 </ul>
                 <p className="mt-3">
@@ -118,8 +118,12 @@ const photosContent = (
 const scrapeBotContent = (
     <>
         <img
-            src="/assets/projects/scrape-bot-2.jpg"
+            src="/assets/projects/ectf-infra.png"
             className="rounded-lg shadow-xl"
+        />
+        <img
+            src="/assets/projects/tom-scott.jpg"
+            className="absolute rounded-full shadow-xl top-44 right-6 size-32"
         />
     </>
 )
