@@ -203,7 +203,7 @@ const projects: ProjectGroupData[] = [
         gh: "https://github.com/b01lers",
         projects: [{
             name: "bctf",
-            desc: 'A custom rCTF frontend framework for b01lers CTF.',
+            desc: 'A custom rCTF frontend framework for b01lers CTF, with Klodd and rctf-deploy-action integration.',
             src: "/assets/projects/bctf-2.jpg",
             langs: ['ts', 'css', 'dockerfile'],
             tags: ['nextjs', 'tailwindcss', 'rctf'],
@@ -211,14 +211,14 @@ const projects: ProjectGroupData[] = [
             web: "https://b01lersc.tf"
         }, {
             name: "rctf-deploy-action",
-            desc: 'Opinionated challenge metadata updater for rCTF deployment.',
+            desc: 'Opinionated challenge metadata CI workflow for rCTF deployment.',
             src: "/assets/projects/rctf-deploy-action.jpg",
             langs: ['ts'],
             tags: ['GitHub action'],
             gh: "https://github.com/b01lers/rctf-deploy-action"
         }, {
             name: "ctfd-api",
-            desc: 'NPM package for user-bot interactions with the CTFd API.',
+            desc: 'Typed library for user-bot interactions with the CTFd API.',
             src: "/assets/projects/ctfd-api-2.jpg",
             langs: ['ts'],
             tags: ['npm'],
@@ -234,24 +234,31 @@ const projects: ProjectGroupData[] = [
         }, {
             name: 'b01lers-ctf-2024',
             desc: 'Challenge source for b01lers CTF 2024. Authored: `use-cache`, `bash cat with pipe`.',
-            src: '/assets/projects/b01lers-ctf-2024-2.jpg',
+            // src: '/assets/projects/b01lers-ctf-2024-2.jpg',
             langs: ['ts', 'sh', 'dockerfile'],
             tags: ['nextjs', 'bash'],
             gh: 'https://github.com/b01lers/b01lers-ctf-2024-public'
         }, {
             name: 'bootcamp-ctf-2024',
             desc: 'Challenge source for b01lers bootcamp CTF 2024. Authored: `>>=jail 0-3`, `lazy debugger`, `class-struggle`.',
-            src: '/assets/projects/bootcamp-ctf-2024-2.jpg',
+            // src: '/assets/projects/bootcamp-ctf-2024-2.jpg',
             langs: ['js', 'haskell', 'c', 'dockerfile'],
             tags: ['hint'],
             web: 'https://bootcamp.b01lersc.tf/'
         }, {
             name: 'b01lers-ctf-2025',
             desc: 'Challenge source for b01lers CTF 2025. Authored: `>>=jail`, `vibe-coding`, `trouble at the spa`.',
-            src: '/assets/projects/b01lers-ctf-2025.jpg',
+            // src: '/assets/projects/b01lers-ctf-2025.jpg',
             langs: ['ts', 'haskell', 'py', 'dockerfile'],
             tags: ['react-router', 'vite', 'hint'],
             gh: 'https://github.com/b01lers/b01lers-ctf-2025-public'
+        }, {
+            name: 'b01lers-ctf-2026',
+            desc: 'Challenge source for b01lers CTF 2026. Authored: `gas-giant`, `purdosint`.',
+            // src: '/assets/projects/b01lers-ctf-2025.jpg',
+            langs: ['ts', 'dockerfile'],
+            tags: ['react', 'vite', 'ipynb'],
+            gh: 'https://github.com/b01lers/b01lers-ctf-2026-public'
         }]
     },
     {
@@ -372,7 +379,7 @@ const projects: ProjectGroupData[] = [
             gh: 'https://github.com/ky28059/markov'
         }, {
             name: 'react-free-transform',
-            desc: 'A NPM library for free transform of arbitrary HTML elements in React.',
+            desc: 'A simple React hook & component for touch transforms of arbitrary HTML elements.',
             src: '/assets/projects/react-free-transform.jpg',
             langs: ['ts'],
             tags: ['react', 'vite'],
