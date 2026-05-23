@@ -36,6 +36,7 @@ const icons = [
     '/assets/logos/py.svg',
     '/assets/logos/go.svg',
     '/assets/logos/ocaml.png',
+    '/assets/logos/rocq.png',
     '/assets/logos/hs.svg',
     '/assets/logos/elixir.png',
     '/assets/logos/react.svg',
