@@ -31,7 +31,7 @@ export default function Highlights() {
             </Highlight>
 
             <Highlight
-                flipped
+                // flipped
                 name="Photo host"
                 date="2025"
                 tags={['nextjs', 'tailwindcss', 'sharp', 'aws-s3']}
@@ -49,6 +49,45 @@ export default function Highlights() {
                     optimization, and S3 uploading. The project supports grouping photos into albums, linking /
                     embedding images, and more.
                 </p>
+            </Highlight>
+
+            <Highlight
+                flipped
+                name="Proof Axiom Strengthening via Interactive Verification"
+                date="2026"
+                tags={['coverage types', 'rocq-core']}
+                langs={['ocaml', 'rocq']}
+                gh="https://github.com/ky28059/CoverageType/tree/jfp"
+                content={pasivContent}
+            >
+                <p className="mb-4">
+                    PASIV was my CS 497 Honors Research Project under Prof. Ben Delaware, involving adding
+                    a module to an existing OCaml refinement (coverage) type-checker that generated Rocq prover (ITP)
+                    files on typecheck failures to debug Z3 (ATP) queries.
+                </p>
+                <p className="mb-4">
+                    Specifically, users could use the generated Rocq files to diagnose missing or incorrect axioms, and
+                    automatically convert new axioms back into the type-checker's OCaml format for future queries.
+                </p>
+                <p className="mb-3">
+                    Read the final report or view a (simple) presentation below:
+                </p>
+                <div className="flex gap-2 text-sm">
+                    <a
+                        className="text-primary cursor-pointer hover:no-underline px-3 py-2.5 rounded border border-secondary hover:border-primary transition duration-200"
+                        href="/CS_497_Final_Report.pdf"
+                        target="_blank"
+                    >
+                        CS_497_Final_Report.pdf
+                    </a>
+                    <a
+                        className="text-primary cursor-pointer hover:no-underline px-3 py-2.5 rounded border border-secondary hover:border-primary transition duration-200"
+                        href="/CS_497_Presentation.pdf"
+                        target="_blank"
+                    >
+                        CS_497_Presentation.pdf
+                    </a>
+                </div>
             </Highlight>
 
             <Highlight
@@ -111,6 +150,23 @@ const photosContent = (
         <img
             src="https://ky-photos-preview.s3.us-east-1.amazonaws.com/2025-07-09@12+Dice+Finals,+NYC/IMG_E6389-preview.webp"
             className="absolute ml-80 top-20 w-56 shadow-xl rounded-lg rotate-12"
+        />
+    </>
+)
+
+const pasivContent = (
+    <>
+        <img
+            src="/assets/projects/pasiv.jpg"
+            className="rounded-t-sm shadow-xl w-full h-[32rem] object-cover object-top mask-b-from-30% mask-b-to-100%"
+        />
+        <img
+            src="/assets/projects/pasiv3.png"
+            className="absolute rounded shadow-xl bottom-40 -left-4 h-8"
+        />
+        <img
+            src="/assets/projects/pasiv2.png"
+            className="absolute rounded shadow-xl bottom-20 -left-4 h-14"
         />
     </>
 )

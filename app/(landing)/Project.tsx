@@ -51,7 +51,7 @@ export default function Project(props: ProjectData) {
 
 export type LanguageKey = 'html' | 'js' | 'ts' | 'css' | 'scss' | 'svelte' | 'py' | 'c' | 'cpp' | 'c#' | 'q#'
     | 'java' | 'kt' | 'rkt' | 'elixir' | 'rust' | 'go' | 'haskell' | 'sh' | 'dockerfile' | 'ocaml' | 'dune' | 'dafny'
-    | 'llvm'
+    | 'llvm' | 'rocq'
 
 export function ProjectLang(props: { lang: LanguageKey }) {
     const color = langToColor(props.lang);
@@ -91,6 +91,7 @@ export function langToColor(lang: LanguageKey) {
         case 'dune': return '#89421e';
         case 'dafny': return '#FFEC25';
         case 'llvm': return '#185619';
+        case 'rocq': return '#d0b68c';
         default: return '#fff';
     }
 }
