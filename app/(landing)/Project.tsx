@@ -105,6 +105,7 @@ export function langToFullName(lang: LanguageKey) {
         case 'scss': return 'SCSS';
         case 'svelte': return 'Svelte';
         case 'py': return 'Python';
+        case 'c': return 'C';
         case 'cpp': return 'C++';
         case 'c#': return 'C#';
         case 'q#': return 'Q#';
@@ -117,6 +118,11 @@ export function langToFullName(lang: LanguageKey) {
         case 'haskell': return 'Haskell';
         case 'sh': return 'Shell';
         case 'dockerfile': return 'Dockerfile';
+        case 'ocaml': return 'OCaml';
+        case 'dune': return 'Dune';
+        case 'dafny': return 'Dafny';
+        case 'llvm': return 'LLVM';
+        case 'rocq': return 'Rocq';
         default: return 'Unknown';
     }
 }

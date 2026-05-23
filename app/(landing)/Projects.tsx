@@ -214,7 +214,7 @@ const projects: ProjectGroupData[] = [
             desc: 'A custom bctf-integrated king-of-the-hill dashboard + backend for b01lers CTF.',
             src: "/assets/projects/koth.png",
             langs: ['ts', 'css', 'dockerfile'],
-            tags: ['nextjs', 'tailwindcss', 'rctf', 'fastapi'],
+            tags: ['nextjs', 'tailwindcss', 'rctf', 'prisma', 'fastapi'],
             gh: "https://github.com/ky28059/bctf-koth",
             // web: "https://koth.b01lersc.tf"
         }, {
@@ -380,19 +380,27 @@ const projects: ProjectGroupData[] = [
         name: "Personal / other",
         projects: [{
             name: 'markov',
-            desc: 'A variety of silly Markov-chain models trained on b01lers server messages.',
+            desc: 'Discord bot hosting a variety of silly Markov-chain models trained on b01lers server messages.',
             src: '/assets/projects/markov.jpg',
             langs: ['ts', 'dockerfile'],
             tags: ['discord.js'],
             gh: 'https://github.com/ky28059/markov'
         }, {
             name: 'react-free-transform',
-            desc: 'A simple React hook & component for touch transforms of arbitrary HTML elements.',
-            src: '/assets/projects/react-free-transform.jpg',
+            desc: 'Simple React hook & component for touch transforms of arbitrary HTML elements.',
+            src: '/assets/projects/react-free-transform.jpg', // TODO: image
             langs: ['ts'],
             tags: ['react', 'vite'],
             gh: 'https://github.com/ky28059/react-free-transform',
             web: 'https://react-free-transform.kevin.fish/',
+        }, {
+            name: 'react-jupyter-renderer',
+            desc: 'Headless React component for embedding editable / runnable Jupyter notebooks in the web via Pyodide.',
+            src: '/assets/projects/react-jupyter-renderer.png', // TODO: image
+            langs: ['ts'],
+            tags: ['react', 'vite', 'pyodide', 'jupyter-lite'],
+            gh: 'https://github.com/ky28059/react-jupyter-renderer',
+            web: 'https://react-jupyter-renderer.kevin.fish/',
         }, {
             name: "Keep Typing And Nobody Explodes",
             desc: "Boilermake 2025 submission.",
