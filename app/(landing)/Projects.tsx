@@ -210,6 +210,14 @@ const projects: ProjectGroupData[] = [
             gh: "https://github.com/ky28059/bctf",
             web: "https://b01lersc.tf"
         }, {
+            name: "bctf-koth",
+            desc: 'A custom bctf-integrated king-of-the-hill dashboard + backend for b01lers CTF.',
+            src: "/assets/projects/koth.png",
+            langs: ['ts', 'css', 'dockerfile'],
+            tags: ['nextjs', 'tailwindcss', 'rctf', 'fastapi'],
+            gh: "https://github.com/ky28059/bctf-koth",
+            // web: "https://koth.b01lersc.tf"
+        }, {
             name: "rctf-deploy-action",
             desc: 'Opinionated challenge metadata CI workflow for rCTF deployment.',
             src: "/assets/projects/rctf-deploy-action.jpg",
