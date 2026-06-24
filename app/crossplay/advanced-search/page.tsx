@@ -2,15 +2,15 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 // Components
-import CrossplaySearchContent from '@/app/crossplay/search/CrossplaySearchContent';
+import CrossplayAdvancedSearchContent from '@/app/crossplay/advanced-search/CrossplayAdvancedSearchContent';
 
 
 export const metadata: Metadata = {
-    title: 'Crossplay word search',
-    description: 'A more convenient word search for NYT Crossplay.'
+    title: '(Advanced) Crossplay word search',
+    description: 'A word candidate finder for NYT Crossplay.'
 }
 
-export default async function CrossplaySearch() {
+export default async function CrossplayAdvancedSearch() {
     return (
         <>
             <Link href="/" className="text-secondary text-sm mb-10 -ml-5 block w-max">
@@ -18,19 +18,18 @@ export default async function CrossplaySearch() {
             </Link>
 
             <div className="flex gap-8">
-                <CrossplaySearchContent />
+                <CrossplayAdvancedSearchContent />
 
                 <aside className="w-80 flex-none pl-8 border-l border-tertiary sticky top-8 h-max">
                     <h1 className="text-2xl font-bold mb-3">
-                        Crossplay word search
+                        (Advanced) Crossplay word search
                     </h1>
                     <p className="text-secondary text-sm mb-3">
-                        A more convenient implementation of NYT Crossplay's word search, exactly as it functions in in
-                        the app (prefix search).
+                        [...]
                     </p>
                     <p className="text-secondary text-sm">
-                        For filtering by available tiles and other features, see the{' '}
-                        <Link href="/crossplay/advanced-search" className="text-primary">advanced search</Link>.
+                        For a less-cheaty implementation of Crossplay's dictionary feature, see the{' '}
+                        <Link href="/crossplay/search" className="text-primary">basic search</Link>.
                     </p>
                 </aside>
             </div>
