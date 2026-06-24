@@ -5,9 +5,9 @@
     "build": "next build"
   },
   "dependencies": {
-    "@headlessui/react": "^2.2.9",
     "luxon": "^3.7.2",
     "next": "^16.1.6",
+    "radix-ui": "^1.6.0",
     "react": "^19.2.4",
     "react-confetti": "^6.4.0",
     "react-dom": "^19.2.4",

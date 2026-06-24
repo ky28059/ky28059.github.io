@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { Inter, JetBrains_Mono } from 'next/font/google';
+import { Tooltip } from 'radix-ui';
 
 import '@/styles/index.css';
 
@@ -28,7 +29,9 @@ export default function Layout(props: { children: ReactNode }) {
                 <meta charSet="utf-8" />
             </head>
             <body className="text-dark dark:text-white dark:bg-midnight" style={inter.style}>
-                {props.children}
+                <Tooltip.Provider>
+                    {props.children}
+                </Tooltip.Provider>
             </body>
         </html>
     )
