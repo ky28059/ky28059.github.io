@@ -12,7 +12,7 @@ export default function PlaceOverTimeChart() {
                 "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
                 "width": 800,
                 "height": 250,
-                "background": null,
+                "background": "transparent",
 
                 "data": {
                     "values": teamData

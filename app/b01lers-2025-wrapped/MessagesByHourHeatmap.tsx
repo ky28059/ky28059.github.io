@@ -15,7 +15,7 @@ export default function MessagesByHourHeatmap() {
                 },
                 "width": 800,
                 "height": 300,
-                "background": null,
+                "background": "transparent",
                 "title": {
                     "text": "Messages by hour of day",
                     "color": "white"

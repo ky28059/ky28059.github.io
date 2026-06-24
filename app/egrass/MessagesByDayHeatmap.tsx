@@ -12,7 +12,7 @@ export default function MessagesByDayHeatmap() {
                 "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
                 "width": 800,
                 "height": 200,
-                "background": null,
+                "background": "transparent",
                 "title": {
                     "text": "Messages by day of year",
                     "color": "white"
@@ -31,7 +31,7 @@ export default function MessagesByDayHeatmap() {
                     { "calculate": "day(datum.date) == 1", "as": "mondays" },
                     {
                         "window": [{ "op": "sum", "field": "mondays", "as": "week" }],
-                        "sort": "date"
+                        "sort": [{ "field": "date" }]
                     }
                 ],
                 "mark": "rect",

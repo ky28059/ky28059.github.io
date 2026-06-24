@@ -3,7 +3,7 @@
 import { VegaEmbed } from 'react-vega';
 
 
-export default function SolvesByCategoryChart(props: { normalize?: boolean, unit?: string }) {
+export default function SolvesByCategoryChart(props: { normalize?: boolean, unit?: 'year' | 'yearmonth' }) {
     return (
         <VegaEmbed
             options={{ actions: false }}
@@ -11,7 +11,7 @@ export default function SolvesByCategoryChart(props: { normalize?: boolean, unit
                 "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
                 "width": 800,
                 "height": 300,
-                "background": null,
+                "background": "transparent",
                 "title": {
                     "text": "Solves over time by category" + (props.normalize ? " (normalized)" : ""),
                     "color": "white"

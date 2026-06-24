@@ -11,7 +11,7 @@ export default function SolvesByCategoryAggregateChart() {
                 "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
                 "width": 800,
                 "height": 300,
-                "background": null,
+                "background": "transparent",
                 "title": {
                     "text": "Cumulative solves over time by category",
                     "color": "white"

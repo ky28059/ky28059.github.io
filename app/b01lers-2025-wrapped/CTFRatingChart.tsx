@@ -16,7 +16,7 @@ export default function CTFRatingChart(props: { index: number }) {
                 "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
                 "width": 800,
                 "height": 300,
-                "background": null,
+                "background": "transparent",
                 "title": {
                     "text": `CTF weight vs. rating gain (${props.index === -1 ? 'overall' : teamData[props.index].year})`,
                     "color": "white"
