@@ -6,7 +6,7 @@
   },
   "dependencies": {
     "luxon": "^3.7.2",
-    "next": "^16.1.6",
+    "next": "^16.2.9",
     "radix-ui": "^1.6.0",
     "react": "^19.2.4",
     "react-confetti": "^6.4.0",
@@ -24,7 +24,7 @@
     "@types/node": "^20.11.0",
     "@types/react": "^18.2.47",
     "@types/react-syntax-highlighter": "^15.5.2",
-    "postcss": "^8.4.33",
+    "postcss": "^8.5.15",
     "tailwindcss": "^4.1.13",
     "typescript": "^5.8.3"
   }

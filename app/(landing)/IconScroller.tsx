@@ -55,4 +55,6 @@ const icons = [
     { name: 'AWS RDS', href: '/assets/logos/rds.svg' },
     { name: 'NumPy', href: '/assets/logos/numpy.png' },
     { name: 'OpenCV', href: '/assets/logos/opencv.png' },
+    { name: 'ROS', href: '/assets/logos/ros.png' },
+    { name: 'Vega', href: '/assets/logos/vega.svg' },
 ]
