@@ -25,10 +25,11 @@ export default async function CrossplayAdvancedSearch() {
                         (Advanced) Crossplay word search
                     </h1>
                     <p className="text-secondary text-sm mb-3">
-                        [...]
+                        A constructibility-based word search for NYT Crossplay.
                     </p>
                     <p className="text-secondary text-sm">
-                        For a less-cheaty implementation of Crossplay's dictionary feature, see the{' '}
+                        For less morally dubious search functionality, see a less painful implementation of Crossplay's
+                        in-app dictionary feature in{' '}
                         <Link href="/crossplay/search" className="text-primary">basic search</Link>.
                     </p>
                 </aside>
