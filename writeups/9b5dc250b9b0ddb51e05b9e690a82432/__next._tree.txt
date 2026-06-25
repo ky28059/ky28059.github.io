@@ -1,4 +1,4 @@
-:HL["/_next/static/chunks/35xty_h98wqyw.css","style"]
+:HL["/_next/static/chunks/3d0t4-geyj1dj.css","style"]
 :HL["/_next/static/media/70bc3e132a0a741e-s.p.3t6q91iet4nsy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/83afe278b6a6bb3c-s.p.2bn3s6zvc0dyp.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["https://gist.github.com/assets/60120929/27ef132d-9b5b-440c-8afc-d5d63869a800","image"]
@@ -11,4 +11,4 @@
 :HL["https://gist.github.com/assets/60120929/4a7334a5-9904-43a5-b941-f201de9bb707","image"]
 :HL["https://gist.github.com/assets/60120929/c16dcbb4-dd50-4eeb-8ac1-bde3e05bc9a8","image"]
 :HL["https://gist.github.com/assets/60120929/2f12ba25-2094-4657-9c9c-6a3943f369b8","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"writeups","param":null,"prefetchHints":0,"slots":{"children":{"name":"id","param":{"type":"d","key":"9b5dc250b9b0ddb51e05b9e690a82432","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"-UUVQXtRJs5e2OwHzU62u"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"writeups","param":null,"prefetchHints":0,"slots":{"children":{"name":"id","param":{"type":"d","key":"9b5dc250b9b0ddb51e05b9e690a82432","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"lvqclmY3CGmmlV339SW7h"}
