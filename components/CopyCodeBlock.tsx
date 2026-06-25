@@ -1,6 +1,7 @@
 'use client'
 
 import SyntaxHighlighter from '@/components/SyntaxHighlighter';
+import { cn } from '@/lib/utils';
 
 // Icons
 import {
@@ -21,16 +22,17 @@ import { TbJson } from 'react-icons/tb';
 import { MdDifference } from 'react-icons/md';
 
 
-type ScriptOutputProps = {
+type CopyCodeBlockProps = {
     className?: string,
     children: string,
     language?: string
 }
-export default function CopyCodeBlock(props: ScriptOutputProps) {
+
+export default function CopyCodeBlock(props: CopyCodeBlockProps) {
     const Icon = languageToIcon(props.language);
 
     return (
-        <div className={'border border-white/10 rounded-lg' + (props.className ? ` ${props.className}` : '')}>
+        <div className={cn('border border-white/10 rounded-lg', props.className)}>
             <p className="font-jetbrains flex items-center text-xs rounded-t-lg px-3 py-0.5 text-secondary">
                 {Icon ? (
                     <><Icon className="text-sm mr-1.5" /> {props.language}</>

@@ -8,6 +8,7 @@ import Spinner from '@/components/Spinner';
 
 // Utils
 import { CommonCountryDetails, GeogridCountryDetails, fetchCombinedData, getFlagUrl } from '@/app/geogrid/api';
+import { cn } from '@/lib/utils';
 
 // Icons
 import { FaArrowUp, FaArrowDown, FaArrowsUpDown } from 'react-icons/fa6';
@@ -404,16 +405,21 @@ type SortableColumnHeaderProps = {
     onSort: (col: string) => void,
     className?: string
 }
+
 function SortableColumnHeader({ label, column, sort, onSort, className }: SortableColumnHeaderProps) {
     const active = sort.column === column;
     return (
         <button
-            className={`${className ?? ''} self-stretch flex-none px-1.5 box-content text-left flex items-center gap-0.5 hover:text-white hover:bg-white/5 transition duration-150 cursor-pointer` + (active ? ' text-white' : '')}
+            className={cn(
+                'self-stretch flex-none px-1.5 box-content text-left flex items-center gap-0.5 hover:text-white hover:bg-white/5 transition duration-150 cursor-pointer',
+                active && 'text-white',
+                className
+            )}
             onClick={() => onSort(column)}
         >
             <span>{label}</span>
 
-            <span className={'ml-auto' + (active ? '' : ' opacity-50')}>
+            <span className={cn('ml-auto', !active && 'opacity-50')}>
                 {!active ? (
                     <FaArrowsUpDown />
                 ) : sort.direction === 'asc' ? (
@@ -432,15 +438,16 @@ type GridCellProps = {
     unit?: string,
     className: string
 }
+
 function GridCell(props: GridCellProps) {
     if (props.value === undefined || props.value === null) return (
-        <div className={`${props.className} text-secondary mr-3 flex-none`}>
+        <div className={cn('text-secondary mr-3 flex-none', props.className)}>
             —
         </div>
     )
 
     return (
-        <div className={`${props.className} mr-3 flex-none`}>
+        <div className={cn('mr-3 flex-none', props.className)}>
             {props.prefix}
             {typeof props.value === 'number' ? withCommas(props.value) : props.value}
             {props.unit && (
@@ -453,6 +460,7 @@ function GridCell(props: GridCellProps) {
 type GridBooleanCellProps = {
     value: boolean | null | undefined
 }
+
 function GridBooleanCell(props: GridBooleanCellProps) {
     if (props.value === undefined || props.value === null) return (
         <div className="w-14 flex-none text-secondary">
@@ -476,15 +484,16 @@ type GridArrayCellProps = {
     value: string[] | undefined,
     className: string
 }
+
 function GridArrayCell(props: GridArrayCellProps) {
     if (!props.value || props.value.length === 0) return (
-        <div className={`${props.className} text-secondary mr-3 flex-none`}>
+        <div className={cn('text-secondary mr-3 flex-none', props.className)}>
             —
         </div>
     )
 
     return (
-        <div className={`${props.className} text-xs mr-3 flex-none`}>
+        <div className={cn('text-xs mr-3 flex-none', props.className)}>
             {props.value.join(', ')}
         </div>
     )
@@ -493,6 +502,7 @@ function GridArrayCell(props: GridArrayCellProps) {
 type GridBooleanLabelProps = {
     label: string
 }
+
 function GridBooleanLabel(props: GridBooleanLabelProps) {
     return (
         <div className="w-14 flex-none text-center">

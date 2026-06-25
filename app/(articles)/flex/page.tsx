@@ -2,9 +2,14 @@ import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
 
 // Components
-import CopyCodeBlock from '../../../components/CopyCodeBlock';
-import { InlineCode } from '../../../components/InlineCode';
-import LinkHeading from '../../../components/LinkHeading';
+import CopyCodeBlock from '@/components/CopyCodeBlock';
+import { InlineCode } from '@/components/InlineCode';
+import LinkHeading from '@/components/LinkHeading';
+
+// Utils
+import { cn } from '@/lib/utils';
+
+// Icons
 import { BsGithub } from 'react-icons/bs';
 
 
@@ -540,7 +545,7 @@ function TextSection(props: { children: ReactNode }) {
 
 function FlexDemoContainer(props: { children: ReactNode, className: string, label?: string }) {
     return (
-        <div className={`relative ${props.className} border border-white/50 text-xl font-semibold`}>
+        <div className={cn('relative border border-white/50 text-xl font-semibold', props.className)}>
             {props.children}
 
             {props.label && (
@@ -554,7 +559,7 @@ function FlexDemoContainer(props: { children: ReactNode, className: string, labe
 
 function FlexWhitespaceDemoContainer(props: { children: ReactNode, className: string, label?: string }) {
     return (
-        <div className={`relative ${props.className} border border-blue-500/50 bg-[linear-gradient(135deg,#0ea5e980_10%,#0000_0,#0000_50%,#0ea5e980_0,#0ea5e980_60%,#0000_0,#0000)] bg-size-[7.07px_7.07px]`}>
+        <div className={cn('relative border border-blue-500/50 bg-[linear-gradient(135deg,#0ea5e980_10%,#0000_0,#0000_50%,#0ea5e980_0,#0ea5e980_60%,#0000_0,#0000)] bg-size-[7.07px_7.07px]', props.className)}>
             {props.children}
 
             {props.label && (
