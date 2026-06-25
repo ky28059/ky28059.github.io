@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { DateTime } from 'luxon';
-import { useIsMounted } from '@/hooks/useIsMounted';
+import { useIsMounted } from '@/lib/useIsMounted';
 
 
 export default function DroughtCounter() {

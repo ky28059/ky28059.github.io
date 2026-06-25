@@ -3,7 +3,7 @@
 import {useState, useEffect} from 'react';
 import Link from 'next/link';
 import ThemeToggle from '../../../components/ThemeToggle';
-import {useScroll} from '../../../hooks/useScroll';
+import {useScroll} from '@/lib/useScroll';
 
 
 export default function RabbitSignHeader() {
