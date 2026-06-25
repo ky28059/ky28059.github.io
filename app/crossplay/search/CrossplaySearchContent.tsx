@@ -22,7 +22,7 @@ export default function CrossplaySearchContent() {
     return (
         <div className="w-full">
             <input
-                className="px-3 py-1.5 rounded border border-tertiary w-full mb-1"
+                className="text-sm px-3 py-2 rounded border border-tertiary w-full mb-1"
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
