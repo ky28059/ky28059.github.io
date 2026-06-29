@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { cn } from '@/lib/utils';
 
 // Components
 import Section, { SectionHeading } from '@/components/Section';
@@ -165,6 +166,20 @@ export default function Projects() {
                     >
                         OCaml homeworks for CS 456: Programming Languages.
                     </Gist>
+                    <Gist
+                        name="CS 352"
+                        href="https://github.com/ky28059/CS352"
+                        langs={['c']}
+                    >
+                        XINU projects for CS 352: Operating Systems.
+                    </Gist>
+                    <Gist
+                        name="CS 565"
+                        href="https://github.com/ky28059/CS565"
+                        langs={['ocaml', 'dune', 'dafny']}
+                    >
+                        Rocq proofs for CS 565: (graduate) Programming Languages.
+                    </Gist>
                 </ProjectsCardGrid>
             </ProjectsLayout>
         </Section>
@@ -214,7 +229,7 @@ const projects: ProjectGroupData[] = [
             desc: 'A custom bctf-integrated king-of-the-hill dashboard + backend for b01lers CTF.',
             src: "/assets/projects/koth.png",
             langs: ['ts', 'css', 'dockerfile'],
-            tags: ['nextjs', 'tailwindcss', 'rctf', 'prisma', 'fastapi'],
+            tags: ['nextjs', 'tailwindcss', 'rctf', 'prisma', 'fastify'],
             gh: "https://github.com/ky28059/bctf-koth",
             // web: "https://koth.b01lersc.tf"
         }, {
@@ -501,7 +516,7 @@ function ProjectsHeaderSection(props: { children: ReactNode }) {
 
 function ProjectsCardGrid(props: { className?: string, children: ReactNode }) {
     return (
-        <div className={'grid grid-cols-[repeat(auto-fill,minmax(22rem,1fr))] gap-5 w-full' + (props.className ? ` ${props.className}` : '')}>
+        <div className={cn('grid grid-cols-[repeat(auto-fill,minmax(22rem,1fr))] gap-5 w-full', props.className)}>
             {props.children}
         </div>
     )
