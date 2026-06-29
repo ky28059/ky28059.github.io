@@ -1,6 +1,12 @@
 'use client'
 
+import { useState } from 'react';
+
+// Components
 import SyntaxHighlighter from '@/components/SyntaxHighlighter';
+import AnimatedTooltip from '@/components/AnimatedTooltip';
+
+// Utils
 import { cn } from '@/lib/utils';
 
 // Icons
@@ -31,23 +37,50 @@ type CopyCodeBlockProps = {
 export default function CopyCodeBlock(props: CopyCodeBlockProps) {
     const Icon = languageToIcon(props.language);
 
+    const [copied, setCopied] = useState(false);
+    const [tooltipOpen, setTooltipOpen] = useState(false);
+
+    async function handleCopy() {
+        await navigator.clipboard.writeText(props.children);
+        setCopied(true);
+        setTooltipOpen(true);
+    }
+
+    function closeTooltip() {
+        setTooltipOpen(false);
+        setCopied(false);
+    }
+
     return (
         <div className={cn('border border-white/10 rounded-lg', props.className)}>
-            <p className="font-jetbrains flex items-center text-xs rounded-t-lg px-3 py-0.5 text-secondary">
+            <div className="font-jetbrains flex items-center text-xs rounded-t-lg px-3 py-0.5 text-secondary">
                 {Icon ? (
                     <><Icon className="text-sm mr-1.5" /> {props.language}</>
                 ) : (
                     <>Code{props.language && ` (${props.language})`}</>
                 )}
 
-                {/* TODO: animate this with a popup or something */}
-                <button
-                    onClick={() => navigator.clipboard.writeText(props.children)}
-                    className="ml-auto hover:underline"
+                {/* TODO: font */}
+                <AnimatedTooltip
+                    tooltip={copied ? 'Code copied!' : 'Copy code'}
+                    side="bottom"
+                    open={tooltipOpen}
+                    onOpenChange={(open) => {
+                        if (open) setTooltipOpen(true);
+                    }}
                 >
-                    (copy)
-                </button>
-            </p>
+                    <button
+                        className="ml-auto hover:underline"
+                        onClick={handleCopy}
+                        onFocus={() => setTooltipOpen(true)}
+                        onBlur={closeTooltip}
+                        onMouseEnter={() => setTooltipOpen(true)}
+                        onMouseLeave={closeTooltip}
+                    >
+                        (copy)
+                    </button>
+                </AnimatedTooltip>
+            </div>
             <div className="rounded-b-lg overflow-hidden text-xs">
                 <SyntaxHighlighter language={props.language}>
                     {props.children}
