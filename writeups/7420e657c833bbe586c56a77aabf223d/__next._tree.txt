@@ -19,4 +19,4 @@
 :HL["https://gist.github.com/user-attachments/assets/d6bb46cd-8222-4f6f-afff-93c48812a301","image"]
 :HL["https://gist.github.com/user-attachments/assets/2d0e6150-06a5-48e4-a625-29bcab02ae98","image"]
 :HL["https://gist.github.com/user-attachments/assets/6fd6e365-5101-48c7-90fe-72eb59159cbd","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"writeups","param":null,"prefetchHints":0,"slots":{"children":{"name":"id","param":{"type":"d","key":"7420e657c833bbe586c56a77aabf223d","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"lvqclmY3CGmmlV339SW7h"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"writeups","param":null,"prefetchHints":0,"slots":{"children":{"name":"id","param":{"type":"d","key":"7420e657c833bbe586c56a77aabf223d","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"m5AmnfYOqp87f94zjZ5wd"}

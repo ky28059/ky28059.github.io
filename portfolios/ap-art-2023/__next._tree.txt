@@ -16,4 +16,4 @@
 :HL["/assets/portfolios/ap-art-2023/13.jpg","image"]
 :HL["/assets/portfolios/ap-art-2023/14.jpg","image"]
 :HL["/assets/portfolios/ap-art-2023/15.jpg","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"portfolios","param":null,"prefetchHints":0,"slots":{"children":{"name":"ap-art-2023","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"lvqclmY3CGmmlV339SW7h"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"portfolios","param":null,"prefetchHints":0,"slots":{"children":{"name":"ap-art-2023","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"m5AmnfYOqp87f94zjZ5wd"}

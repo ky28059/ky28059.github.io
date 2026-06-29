@@ -1,7 +1,7 @@
 1:"$Sreact.fragment"
-2:I[10453,["/_next/static/chunks/02hrxssf9zk8_.js","/_next/static/chunks/0bdpuv7ma2md9.js","/_next/static/chunks/2-n0urzm1827x.js","/_next/static/chunks/0hve1s7_w9c23.js","/_next/static/chunks/0lm57mm_e4h0m.js","/_next/static/chunks/3ngk_6cnu5bpo.js","/_next/static/chunks/1g8b4b8f9ojsg.js","/_next/static/chunks/1cxjt1j7yrjyw.js"],"default"]
-10:I[97367,["/_next/static/chunks/02hrxssf9zk8_.js","/_next/static/chunks/0bdpuv7ma2md9.js","/_next/static/chunks/2-n0urzm1827x.js"],"OutletBoundary"]
-11:"$Sreact.suspense"
+2:I[10453,["/_next/static/chunks/02hrxssf9zk8_.js","/_next/static/chunks/0bdpuv7ma2md9.js","/_next/static/chunks/2-n0urzm1827x.js","/_next/static/chunks/0hve1s7_w9c23.js","/_next/static/chunks/0lm57mm_e4h0m.js","/_next/static/chunks/0wwt5o04i4zwh.js","/_next/static/chunks/3ngk_6cnu5bpo.js","/_next/static/chunks/3czs1em01e7gx.js","/_next/static/chunks/1g8b4b8f9ojsg.js"],"default"]
+11:I[97367,["/_next/static/chunks/02hrxssf9zk8_.js","/_next/static/chunks/0bdpuv7ma2md9.js","/_next/static/chunks/2-n0urzm1827x.js"],"OutletBoundary"]
+12:"$Sreact.suspense"
 3:T1c0b,import json
 from time import time
 import tornado
@@ -182,10 +182,10 @@ if __name__ == "__main__":
         (r"/(.*)", tornado.web.StaticFileHandler, {"path": "./static", "default_filename": "index.html"})
     ])
     application.listen(PORT)
-    io_loop.start()0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"children":["$","main",null,{"className":"text-pretty max-w-5xl mx-auto text-sm [&_h1]:text-5xl [&_h1]:font-semibold [&_h1]:mb-8 [&_blockquote]:text-secondary [&_blockquote]:space-y-3 [&_blockquote]:border-l-4 [&_blockquote]:border-secondary [&_blockquote]:pl-5 [&_blockquote]:mb-5 [&>_p]:my-4 [&_img]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_img]:rounded [&_li]:my-2","children":[["$","h1","h1-0",{"children":"San Diego CTF 2024 — Raccoon Run"}],"\n",["$","blockquote","blockquote-0",{"children":["\n",["$","p","p-0",{"children":"The annual UC San Diego Raccoon Run is happening right now!! Apparently there's an underground gambling ring going on there. Maybe you can make it big?"}],"\n"]}],"\n",["$","p","p-0",{"children":"We're given a Python server that looks like this:"}],"\n",["$","$L2","pre-0",{"className":"my-2","children":"$3","language":"py"}],"\n","$L4","\n","$L5","\n","$L6","\n","$L7","\n","$L8"]}]}],["$L9","$La","$Lb","$Lc"],"$Ld"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"lvqclmY3CGmmlV339SW7h"}
+    io_loop.start()0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"children":["$","main",null,{"className":"text-pretty max-w-5xl mx-auto text-sm [&_h1]:text-5xl [&_h1]:font-semibold [&_h1]:mb-8 [&_blockquote]:text-secondary [&_blockquote]:space-y-3 [&_blockquote]:border-l-4 [&_blockquote]:border-secondary [&_blockquote]:pl-5 [&_blockquote]:mb-5 [&>_p]:my-4 [&_img]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_img]:rounded [&_li]:my-2","children":[["$","h1","h1-0",{"children":"San Diego CTF 2024 — Raccoon Run"}],"\n",["$","blockquote","blockquote-0",{"children":["\n",["$","p","p-0",{"children":"The annual UC San Diego Raccoon Run is happening right now!! Apparently there's an underground gambling ring going on there. Maybe you can make it big?"}],"\n"]}],"\n",["$","p","p-0",{"children":"We're given a Python server that looks like this:"}],"\n",["$","$L2","pre-0",{"className":"my-2","children":"$3","language":"py"}],"\n","$L4","\n","$L5","\n","$L6","\n","$L7","\n","$L8"]}]}],["$L9","$La","$Lb","$Lc","$Ld"],"$Le"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"m5AmnfYOqp87f94zjZ5wd"}
 4:["$","p","p-1",{"children":"At each step of the race, 4-bit chunks of a random 32-bit int are added to each raccoons position, continuing until all 8 raccoons cross the finish line (> 1000). While we can bet on the order of the raccoons to finish the race, we only win if our guess is exactly correct."}]
 5:["$","p","p-2",{"children":"The main idea with this challenge is that because we're given the positions of the raccoons at each step, we can reconstruct the exact 32-bit integer used to reach that step. Feeding that integer into an RNG cracker, we can reverse engineer the RNG being used by the server to run the races, then simulate each race ahead of time to bet flawlessly and buy the flag."}]
-e:Tb76,import numpy as np
+f:Tb76,import numpy as np
 import websocket
 import json
 from randcrack import RandCrack
@@ -280,9 +280,9 @@ def on_message(ws, message):
 
 if __name__ == "__main__":
     ws = websocket.WebSocketApp(WS_URL, on_message=on_message)
-    ws.run_forever()6:["$","$L2","pre-1",{"className":"my-2","children":"$e","language":"py"}]
+    ws.run_forever()6:["$","$L2","pre-1",{"className":"my-2","children":"$f","language":"py"}]
 7:["$","p","p-3",{"children":"After about ~5 games of sampling the RNG and 7 games of betting, we can purchase the flag:"}]
-f:T15fe,PS C:\Users\kevin\Downloads> python3 .\solve.py
+10:T15fe,PS C:\Users\kevin\Downloads> python3 .\solve.py
 Received message: {"type": "race_information", "can_bet": "true", "raccoons": [0, 0, 0, 0, 0, 0, 0, 0], "finishers": [], "account": 10}
 Received message: {"type": "betting-starts", "until": 1715572315.2874234}
 Received message: {"type": "race_information", "can_bet": "true", "raccoons": [0, 0, 0, 0, 0, 0, 0, 0], "finishers": [], "account": 10}
@@ -347,10 +347,11 @@ Received message: {"type": "result", "value": [3, 2, 0, 1, 4, 7, 5, 6]}
 Received message: {"type": "bet_status", "value": "you won the bet, your account now has $1280"}
 Received message: {"type": "race_information", "can_bet": "true", "raccoons": [0, 0, 0, 0, 0, 0, 0, 0], "finishers": [], "account": 1280}
 Received message: {"type": "betting-starts", "until": 1715572927.6933398}
-Received message: {"type": "flag", "value": "SDCTF{m3rs3nn3_tw15t3r_15_5cuff3d_b300818768b0}"}8:["$","$L2","pre-2",{"className":"my-2","children":"$f","language":"bash"}]
+Received message: {"type": "flag", "value": "SDCTF{m3rs3nn3_tw15t3r_15_5cuff3d_b300818768b0}"}8:["$","$L2","pre-2",{"className":"my-2","children":"$10","language":"bash"}]
 9:["$","script","script-0",{"src":"/_next/static/chunks/0lm57mm_e4h0m.js","async":true}]
-a:["$","script","script-1",{"src":"/_next/static/chunks/3ngk_6cnu5bpo.js","async":true}]
-b:["$","script","script-2",{"src":"/_next/static/chunks/1g8b4b8f9ojsg.js","async":true}]
-c:["$","script","script-3",{"src":"/_next/static/chunks/1cxjt1j7yrjyw.js","async":true}]
-d:["$","$L10",null,{"children":["$","$11",null,{"name":"Next.MetadataOutlet","children":"$@12"}]}]
-12:null
+a:["$","script","script-1",{"src":"/_next/static/chunks/0wwt5o04i4zwh.js","async":true}]
+b:["$","script","script-2",{"src":"/_next/static/chunks/3ngk_6cnu5bpo.js","async":true}]
+c:["$","script","script-3",{"src":"/_next/static/chunks/3czs1em01e7gx.js","async":true}]
+d:["$","script","script-4",{"src":"/_next/static/chunks/1g8b4b8f9ojsg.js","async":true}]
+e:["$","$L11",null,{"children":["$","$12",null,{"name":"Next.MetadataOutlet","children":"$@13"}]}]
+13:null
