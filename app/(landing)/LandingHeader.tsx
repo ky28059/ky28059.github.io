@@ -28,8 +28,8 @@ export default function LandingHeader() {
                     </h1>
 
                     <p className="mb-3 max-w-3xl text-primary">
-                        Gunn High School graduate and third-year student studying Computer Science @ Purdue
-                        University. Interested in art, photography, and all things software.
+                        Gunn High School and Purdue Computer Science Honors graduate.
+                        Interested in art, photography, and all things software.
                     </p>
                     <p className="mb-3.5 text-primary">
                         My resume can be found <a href="/Resume.pdf">here</a>.

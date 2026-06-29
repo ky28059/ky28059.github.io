@@ -176,7 +176,7 @@ export default function Projects() {
                     <Gist
                         name="CS 565"
                         href="https://github.com/ky28059/CS565"
-                        langs={['ocaml', 'dune', 'dafny']}
+                        langs={['rocq']}
                     >
                         Rocq proofs for CS 565: (graduate) Programming Languages.
                     </Gist>
