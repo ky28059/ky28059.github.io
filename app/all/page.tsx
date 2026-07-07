@@ -32,15 +32,32 @@ export default async function All() {
             </p>
 
             <section className="flex flex-col gap-2">
-                {paths.map(path => (
+                {paths.map((path) => (
                     <Link href={path.replaceAll('[', '').replaceAll(']', '')} className="text-gray-400" key={path}>
                         {path}
                     </Link>
                 ))}
             </section>
+
+            {/* TODO: external link icon? */}
+            <section className="flex flex-col gap-2 mt-8">
+                {subdomains.map((s) => (
+                    <a
+                        href={`https://${s}.kevin.fish`}
+                        className="text-gray-400"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={s}
+                    >
+                        {s}.kevin.fish
+                    </a>
+                ))}
+            </section>
         </Section>
     )
 }
+
+const subdomains = ['photos', 'box', 'food', 'ktane', 'react-jupyter-renderer', 'react-free-transform'];
 
 // Recursively fetch all files in `./app`, standardizing slashes, filtering for `page.tsx`, normalizing absolute paths
 // to relative paths, and mapping the file name to the generated path.
