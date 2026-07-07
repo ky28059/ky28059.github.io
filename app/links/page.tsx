@@ -29,8 +29,20 @@ export default function Links() {
                 A collection of interesting blogs, articles, and other sites.
             </p>
 
+            <h3 className="text-secondary text-sm mb-1">Articles</h3>
             <ul className="flex flex-col gap-2 list-disc pl-6">
-                {links.map((link) => (
+                {articles.map((link) => (
+                    <li key={link.href}>
+                        <a href={link.href} target="_blank" rel="noopener noreferrer">
+                            {link.name}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+
+            <h3 className="text-secondary text-sm mt-4 mb-1">Books</h3>
+            <ul className="flex flex-col gap-2 list-disc pl-6">
+                {books.map((link) => (
                     <li key={link.href}>
                         <a href={link.href} target="_blank" rel="noopener noreferrer">
                             {link.name}
@@ -42,7 +54,7 @@ export default function Links() {
     )
 }
 
-const links: LinkData[] = [{
+const articles: LinkData[] = [{
     name: 'Parsing C++ is literally undecidable',
     href: 'https://blog.reverberate.org/2013/08/parsing-c-is-literally-undecidable.html'
 }, {
@@ -57,4 +69,15 @@ const links: LinkData[] = [{
 }, {
     name: 'The Grug Brained Developer',
     href: 'https://grugbrain.dev/'
+}, {
+    name: 'OKLCH in CSS: why we moved from RGB and HSL',
+    href: 'https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl'
+}, {
+    name: 'x86CSS',
+    href: 'https://lyra.horse/x86css/'
+}]
+
+const books: LinkData[] = [{
+    name: 'Counterexamples in Type Systems',
+    href: 'https://counterexamples.org/intro.html'
 }]
